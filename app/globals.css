@@ -1,27 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Kanit:wght@300&family=Poppins&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base{
+  html{
+    @apply to-background-100;
+    font-family: 'Kanit', sans-serif;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  nav{
+    @apply fixed w-full z-20 shadow-sm;
+    background-color: white;
+  }
+
+  .nav{
+    @apply py-1 border-b-[0px];
+  }
+
+  .container-children{
+    @apply max-w-[2520px] xl:px-20 md:px-10 sm:px-2 px-4;
+  }
+
+  .nav-logo{
+    @apply flex items-center flex-row justify-between gap-3 md:gap-0;
+  }
+
+  .logo-image-background{
+    display: inline-flex;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 60px;
+    background: var(--logocolor, #55E4D6);
+  }
+
+  .main-color{
+    background: var(--Button-Main, linear-gradient(96deg, rgba(42, 77, 72, 0.77) -10.44%, rgba(46, 22, 57, 0.77) 108.53%));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: Kanit;
+      font-size: 23px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+  }
+
+  .main-color-black{
+    color: #000;
+    font-family: Kanit;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  /* search customization */
+
+  .main-search{
+    @apply py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer;
+    display: flex;
+      /* width: 1151px; */
+      /* padding: 1px 10px; */
+      justify-content: center;
+      align-items: center;
+      /* gap: 567px; */
+      flex-shrink: 0;
+      border-radius: 16px;
+      border: 1px solid #A1A1A1;
+  }
+
+  .btn-main{
+    display: flex;
+    padding: 9px 20px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    border-radius: 30px;
+    background: var(--Button-Main, linear-gradient(96deg, rgba(42, 77, 72, 0.77) -10.44%, rgba(46, 22, 57, 0.77) 108.53%));
+  }
+
+  .search-background-icon{
+    background: var(--logocolor, #55E4D6);
+    margin-left: 2px;
+    margin-right: 10px;
+  }
+
+  .modal-main{
+    background-color: rgb(38 38 38);
+    opacity: 0.7;
+  }
+
+  .modal-main-content{
+    background-color: white;
+  }
+
+  .modal-main-button{
+    @apply w-full justify-center flex flex-row;
+  }
 }

@@ -6,7 +6,7 @@
 
 @layer base{
   html{
-    @apply to-background-100;
+    background-color: #F5F5F5;
     font-family: 'Kanit', sans-serif;
   }
 
@@ -99,6 +99,12 @@
   }
 
   .modal-main-button{
-    @apply w-full justify-center flex flex-row;
+    /* @apply w-full justify-center flex flex-row; */
+  }
+
+  .google-btn{
+    /* width: 400px!important; */
+    /* gap: 10; */
+    /* @apply w-full justify-center flex flex-row; */
   }
 }

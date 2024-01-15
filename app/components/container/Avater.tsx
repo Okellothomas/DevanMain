@@ -1,15 +1,22 @@
 'use client '
 
 import Image from "next/image"
+import React from "react"
 
-const Avater = () => {
+interface AvaterProps {
+  src?: string
+}
+
+const Avater: React.FC<AvaterProps> = ({
+  src
+}) => {
   return (
       <Image
           className="rounded-full"
           height="30"
           width="30"
           alt="Avater"
-          src="/images/avater.png"
+          src={src ||"/images/avater.png"}
       />
   )
 }

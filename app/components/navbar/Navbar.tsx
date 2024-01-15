@@ -13,7 +13,6 @@ const Navbar: React.FC<NavbarProps> = ({
   currentUser
 }) => {
 
-  console.log(currentUser)
   return (
     <nav>
           <div className="nav">
@@ -22,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <div className="nav-logo">
                       <Logo /> 
                       <Search />
-                      <UserMenu />
+                      <UserMenu currentUser={currentUser}/>
                   </div>
             </Container>
         </div>   

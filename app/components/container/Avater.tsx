@@ -4,7 +4,7 @@ import Image from "next/image"
 import React from "react"
 
 interface AvaterProps {
-  src?: string
+  src: string | null | undefined;
 }
 
 const Avater: React.FC<AvaterProps> = ({

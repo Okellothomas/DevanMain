@@ -9,7 +9,8 @@ const Logo = () => {
     return (
     <div className="flex items-center cursor-pointer gap-2">
      <div className="logo-image-background">
-      <Image
+          <Image
+          onClick={() => router.push('/')}
           alt="logo"
           className="hidden md:block cursor-pointer"
           height="40"

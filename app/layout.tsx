@@ -6,6 +6,7 @@ import RegisterModal from './components/Modals/RegisterModal'
 import ToasterProvider from './components/providers/ToasterProvider'
 import LoginModal from './components/Modals/LoginModal'
 import getCurrentUser from './actions/getCurrentUsers'
+import RentModal from './components/Modals/RentModal'
 
 export const metadata: Metadata = {
   title: 'Devanca Tours',
@@ -25,6 +26,7 @@ export default async function RootLayout({
         {/* Implement the main navbar for the entire website */}
         <ToasterProvider />
         <RegisterModal />
+        <RentModal />
         <LoginModal />
         <Navbar currentUser={currentUser} />
         {children}

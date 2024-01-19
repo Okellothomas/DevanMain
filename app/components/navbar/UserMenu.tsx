@@ -10,6 +10,7 @@ import { User } from "@prisma/client"
 import { signOut } from "next-auth/react"
 import { SafeUser } from "@/app/types"
 import useRentModal from "@/app/hooks/useRentModals"
+import { useRouter } from "next/navigation"
 
 interface UserMenuProps {
     currentUser?: SafeUser | null
@@ -18,7 +19,7 @@ interface UserMenuProps {
 const UserMenu: React.FC<UserMenuProps> = ({
     currentUser
 }) => {
-
+    const router = useRouter();
     const registerModal = useRegisterModal();
     const LoginModal = useLoginModal();
     const rentModal = useRentModal();
@@ -58,7 +59,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                   {currentUser ? (
                      <>
                       <MenuItem
-                          onClick={() => {}}
+                          onClick={() => router.push("/trips")}
                           label="My Trips" />
                       <MenuItem
                           onClick={() => {}}

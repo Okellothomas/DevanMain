@@ -1,15 +1,17 @@
 'use client'
 import useCountries from "@/app/hooks/useCountries";
-import { SafeUser } from "@/app/types";
+import { SafeUser, safeListing } from "@/app/types";
 import { Listing, Reservation } from "@prisma/client"
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { format } from 'date-fns';
 import Image from "next/image";
+import HeartButton from "../container/HeartButton";
+import Button from "../container/Button";
 
 
 interface ListingCardProps {
-    data: Listing;
+    data: safeListing;
     reservation?: Reservation;
     onAction?: (id: string) => void;
     disabled?: boolean;
@@ -73,7 +75,35 @@ const ListingCard: React.FC<ListingCardProps> = ({
                       src={data.imageSrc}
                       className="object-cover h-full w-full transition group-hover:scale-110"
                   />
+                  <div className="absolute top-3 right-3">
+                      <HeartButton
+                          listingId={data.id}
+                          currentUser={currentUser}
+                      />
+                  </div>
               </div>
+              <div className="text-sm">
+                 <span>{location?.label},</span> {location?.region}
+              </div>
+              <div className="font-light text-neutral-500">
+                 {reservationDate || data.category} 
+              </div>
+              <div className="flex flex-row items-center gap-1">
+                  <div className="font-semibold">
+                      $ {price}
+                  </div>
+                  {!reservation && (
+                      <div className="font-light">night</div>
+                  )}
+              </div>
+              {onAction && actionLabel && (
+                  <Button
+                      disabled={disabled}
+                      small
+                      label={actionLabel}
+                      onClick={handleCancel}
+                  />
+              )}
           </div>   
     </div>
   )

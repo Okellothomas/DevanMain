@@ -41,7 +41,6 @@ export default async function RootLayout({
         <RentModal />
         <SearchModal />
         <LoginModal />
-
         {/* Render the main navigation bar with the current user information */}
         <Navbar currentUser={currentUser} />
 

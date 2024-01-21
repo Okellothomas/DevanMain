@@ -120,6 +120,12 @@
     /* Uncomment and apply additional styles if needed */
     /* @apply w-full justify-center flex flex-row; */
   }
+
+  .user-menu-width{
+    /* @apply w-[40vw] md: w-3/4;  */
+    width: max-content;
+    font-weight: 400!important;
+  }
 }
 
 /* Override z-index for specific Leaflet elements */
@@ -139,3 +145,4 @@
   font-size: 14px !important;
   width: 100% !important;
 }
+

@@ -41,10 +41,10 @@ const UserMenu: React.FC<UserMenuProps> = ({
   return (
     <div className="relative">
         <div className="flex flex-row items-center gap-3">
-              <div className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
+              {/* <div className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
               onClick={onRent}>
              Home sweet home
-              </div> 
+              </div>  */}
               <div className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
               onClick={toggleOpen}>   
                 <AiOutlineMenu />
@@ -54,8 +54,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
               </div> 
           </div>
           {isOpen && (
-              <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
-                  <div className="flex flex-col cursor-pointer">
+              <div className="absolute rounded-xl shadow-md bg-white overflow-hidden right-0 top-12 text-sm user-menu-width">
+                  <div className="flex flex-col w-full cursor-pointer">
                   {currentUser ? (
                      <>
                       <MenuItem

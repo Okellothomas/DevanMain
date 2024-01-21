@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({
             {/* Add logo to the navbar */}
                 <div className="nav-logo">
                       <Logo /> 
-                      <Search />
+                      {/* <Search /> */}
                       <UserMenu currentUser={currentUser}/>
                   </div>
             </Container>

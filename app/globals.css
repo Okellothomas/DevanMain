@@ -91,7 +91,7 @@
 
   .modal-main{
     background-color: rgb(38 38 38);
-    opacity: 0.7;
+    /* opacity: 0.7; */
   }
 
   .modal-main-content{

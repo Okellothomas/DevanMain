@@ -32,7 +32,7 @@ export async function POST(
         }
     });
 
-    const listings = await prisma.listing.create({
+    const listing = await prisma.listing.create({
         data: {
             title,
             description,
@@ -47,5 +47,5 @@ export async function POST(
         }
     });
 
-    return NextResponse.json(listings);
+    return NextResponse.json(listing);
 }

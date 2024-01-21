@@ -7,6 +7,7 @@ import ToasterProvider from './components/providers/ToasterProvider'
 import LoginModal from './components/Modals/LoginModal'
 import getCurrentUser from './actions/getCurrentUsers'
 import RentModal from './components/Modals/RentModal'
+import SearchModal from './components/Modals/SearchModal'
 
 export const metadata: Metadata = {
   title: 'Devanca Tours',
@@ -27,6 +28,7 @@ export default async function RootLayout({
         <ToasterProvider />
         <RegisterModal />
         <RentModal />
+        <SearchModal />
         <LoginModal />
         <Navbar currentUser={currentUser} />
         <div className='pb-20 pt-28'>

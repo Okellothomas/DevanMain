@@ -6,49 +6,96 @@ interface IParams {
     authorId?: string;
 }
 
-export default async function getReservations(
-    params: IParams
-) {
+// export default async function getReservations(
+//     params: IParams
+// ) {
+//     try {
+//     const { listingId, userId, authorId } = params;
+
+//     const query: any = {};
+
+//     if (listingId) {
+//         query.listingId = listingId;
+//     }
+
+//     if (userId) {
+//         query.userId = userId;
+//     }
+
+//     if (authorId) {
+//         query.listing = {userId, authorId}
+//     }
+
+//     const reservations = await prisma.reservation.findMany({
+//         where: query,
+//         include: {
+//             Listing: true
+//         },
+//         orderBy: {
+//             createdAt: 'desc'
+//         }
+//     });
+
+//     const safeReservation = reservations.map((reservation) => ({
+//         ...reservation,
+//         createdAt: reservation.createdAt.toISOString(),
+//         startDate: reservation.startDate.toISOString(),
+//         endDate: reservation.endDate.toISOString(),
+//         Listing: {
+//             ...reservation.Listing,
+//             createAt: reservation.Listing?.createAt.toISOString()
+//         }
+//     }));
+
+//         return safeReservation; 
+//     } catch (error: any) {
+//         throw new Error(error)
+//      }
+// }
+
+export default async function getReservations(params: IParams) {
     try {
-    const { listingId, userId, authorId } = params;
+        const { listingId, userId, authorId } = params;
 
-    const query: any = {};
+        const query: any = {};
 
-    if (listingId) {
-        query.listingId = listingId;
-    }
-
-    if (userId) {
-        query.userId = userId;
-    }
-
-    if (authorId) {
-        query.listing = {userId, authorId}
-    }
-
-    const reservations = await prisma.reservation.findMany({
-        where: query,
-        include: {
-            Listing: true
-        },
-        orderBy: {
-            createdAt: 'desc'
+        if (listingId) {
+            query.listingId = listingId;
         }
-    });
 
-    const safeReservation = reservations.map((reservation) => ({
-        ...reservation,
-        createdAt: reservation.createdAt.toISOString(),
-        startDate: reservation.startDate.toISOString(),
-        endDate: reservation.endDate.toISOString(),
-        Listing: {
-            ...reservation.Listing,
-            createAt: reservation.Listing?.createAt.toISOString()
+        if (userId) {
+            query.userId = userId;
         }
-    }));
 
-        return safeReservation; 
+        if (authorId) {
+            query.Listing = {
+                userId: authorId,
+            };
+        }
+
+        const reservations = await prisma.reservation.findMany({
+            where: query,
+            include: {
+                Listing: true,
+            },
+            orderBy: {
+                createdAt: 'desc',
+            },
+        });
+
+        const safeReservation = reservations.map((reservation) => ({
+            ...reservation,
+            createdAt: reservation.createdAt.toISOString(),
+            startDate: reservation.startDate.toISOString(),
+            endDate: reservation.endDate.toISOString(),
+            Listing: {
+                ...reservation.Listing,
+                createAt: reservation.Listing?.createAt.toISOString(),
+            },
+        }));
+
+        return safeReservation;
     } catch (error: any) {
-        throw new Error(error)
-     }
+        throw new Error(error);
+    }
 }

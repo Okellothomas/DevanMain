@@ -1,6 +1,6 @@
 'use client'
 import useCountries from "@/app/hooks/useCountries";
-import { SafeUser, safeListing } from "@/app/types";
+import { SafeUser, safeListing, safeReservation } from "@/app/types";
 import { Listing, Reservation } from "@prisma/client"
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
@@ -12,7 +12,7 @@ import Button from "../container/Button";
 
 interface ListingCardProps {
     data: safeListing;
-    reservation?: Reservation;
+    reservation?: safeReservation;
     onAction?: (id: string) => void;
     disabled?: boolean;
     actionLabel?: string;
@@ -31,7 +31,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
 }) => {
     const router = useRouter();
     const { getByValue } = useCountries();
-    const location = getByValue(data.locationValue);
+    const location = getByValue(data?.locationValue); //added ?
 
     const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
@@ -49,7 +49,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
         }
 
         return data.price;
-    }, [reservation, data.price])
+    }, [reservation, data?.price]) //added ?
 
     const reservationDate = useMemo(() => {
         if (!reservation) {
@@ -64,7 +64,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
   return (
       <div
-        onClick={() => router.push(`/listings/${data.id}`)}
+        onClick={() => router.push(`/listings/${data?.id}`)} //added ?
         className="col-span-1 cursor-pointer group"
       >
           <div className="flex flex-col gap-2 w-full">
@@ -72,12 +72,12 @@ const ListingCard: React.FC<ListingCardProps> = ({
                   <Image
                       fill
                       alt="Listing"
-                      src={data.imageSrc}
+                      src={data?.imageSrc} //added ?
                       className="object-cover h-full w-full transition group-hover:scale-110"
                   />
                   <div className="absolute top-3 right-3">
                       <HeartButton
-                          listingId={data.id}
+                          listingId={data?.id} //added ?
                           currentUser={currentUser}
                       />
                   </div>

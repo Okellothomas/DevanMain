@@ -94,9 +94,9 @@ const Categories = () => {
     const category = params?.get('category');
     const pathname = usePathname();
 
-    const isMainPage = pathname === '/';
+    const isHotelPage = pathname === '/hotels';
 
-    if (!isMainPage) {
+    if (!isHotelPage) {
         return null;
     }
 

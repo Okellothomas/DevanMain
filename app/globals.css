@@ -151,8 +151,77 @@
 }
 
 .footer-main hr{
-  background: linear-gradient(96deg, rgba(154, 110, 107, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(171, 34, 26, 0.77) 108.87%);
-  width: 90%;
-  height: 1.365px;
+  background: linear-gradient(96deg, rgba(154, 110, 107, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(171, 34, 26, 0.77) 108.87%)!important;
+  width: 100%;
+  height: 1px;
 }
 
+.footer-main-images{
+  border-radius: 5px;
+  height: 25px!important;
+  width: 35px !important;
+  object-fit: cover;
+}
+
+/* .european-hotel{
+  background-image: url("../public/images/visa.jpg")!important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 24vh;
+  width: 100%;
+  margin-top: -4%!important;
+} */
+
+/* .european-hotel {
+  background-image: url("https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 24vh;
+  width: 100%;
+  margin-top: -4% !important;
+  background-color: red !important;
+} */
+
+.european-hotel {
+  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  /* Replace 'your-image.jpg' with the path to your image */
+  background-color: rgba(0, 0, 0, 0.62);
+  /* Red color with 60% opacity */
+  background-blend-mode: overlay;
+  /* Blend the background image and color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  height: 24vh;
+  margin-top: -4% !important;
+}
+
+.hotel-search{
+  background-color: white!important;
+  margin-top: 2.8%;
+  border-radius: 15px;
+}
+
+.european-hotel h1{
+  margin-top: 5%;
+}
+
+.color-span-green{
+  color: var(--logocolor, #55E4D6);
+    font-family: Kanit;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.color-h1-white{
+  color: #FFF;
+    text-align: center;
+    font-family: Kanit;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}

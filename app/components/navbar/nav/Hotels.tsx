@@ -55,7 +55,7 @@ const Hotels: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div className="absolute rounded-xl shadow-md bg-white overflow-hidden right-0 top-12 text-sm user-menu-width">
           <div className="flex flex-col w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/trips")} label="My Trips" />
+              <MenuItem onClick={() => router.push("/hotels")} label="All Hotels" />
               <MenuItem
                 onClick={() => router.push("/favorites")}
                 label="My favorites"

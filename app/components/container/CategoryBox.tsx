@@ -37,9 +37,14 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         }
 
         const url = queryString.stringifyUrl({
-            url: '/',
+            url: '/hotels',
             query: updatedQuery
         }, { skipNull: true });
+
+        // const url = queryString.stringifyUrl({
+        //     url: '/',
+        //     query: updatedQuery
+        // }, { skipNull: true });
 
 
         router.push(url);

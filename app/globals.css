@@ -1,33 +1,43 @@
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Kanit:wght@300&family=Poppins&display=swap');
 
+/* Apply base, components, and utilities styles from Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  html{
+/* Base Layer Styles */
+@layer base {
+
+  /* Set default font family and background color for the HTML element */
+  html {
     background-color: #F5F5F5;
     font-family: 'Kanit', sans-serif;
   }
 
-  nav{
+  /* Style the navigation bar */
+  nav {
     @apply fixed w-full z-20 shadow-sm;
     background-color: white;
   }
 
-  .nav{
+  /* Style navigation elements */
+  .nav {
     @apply py-1 border-b-[0px];
   }
 
-  .container-children{
+  /* Style the container for the main content */
+  .container-children {
     @apply max-w-[2520px] xl:px-20 md:px-10 sm:px-2 px-4;
   }
 
-  .nav-logo{
+  /* Style the logo and navigation layout */
+  .nav-logo {
     @apply flex items-center flex-row justify-between gap-3 md:gap-0;
   }
 
-  .logo-image-background{
+  /* Style the logo image background with custom CSS variables */
+  .logo-image-background {
     display: inline-flex;
     padding: 10px;
     align-items: flex-start;
@@ -36,19 +46,21 @@
     background: var(--logocolor, #55E4D6);
   }
 
-  .main-color{
+  /* Style text with the main color gradient */
+  .main-color {
     background: var(--Button-Main, linear-gradient(96deg, rgba(42, 77, 72, 0.77) -10.44%, rgba(46, 22, 57, 0.77) 108.53%));
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-family: Kanit;
-      font-size: 23px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Kanit;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 
-  .main-color-black{
+  /* Style text with the main color and black color */
+  .main-color-black {
     color: #000;
     font-family: Kanit;
     font-size: 23px;
@@ -57,22 +69,19 @@
     line-height: normal;
   }
 
-  /* search customization */
-
-  .main-search{
+  /* Styles for the main search component */
+  .main-search {
     @apply py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer;
     display: flex;
-      /* width: 1151px; */
-      /* padding: 1px 10px; */
-      justify-content: center;
-      align-items: center;
-      /* gap: 567px; */
-      flex-shrink: 0;
-      border-radius: 16px;
-      border: 1px solid #A1A1A1;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 16px;
+    border: 1px solid #A1A1A1;
   }
 
-  .btn-main{
+  /* Styles for the main button with gradient background */
+  .btn-main {
     display: flex;
     padding: 9px 20px;
     justify-content: flex-end;
@@ -83,32 +92,37 @@
     background: var(--Button-Main, linear-gradient(96deg, rgba(42, 77, 72, 0.77) -10.44%, rgba(46, 22, 57, 0.77) 108.53%));
   }
 
-  .search-background-icon{
+  /* Styles for the search background icon */
+  .search-background-icon {
     background: var(--logocolor, #55E4D6);
     margin-left: 2px;
     margin-right: 10px;
   }
 
-  .modal-main{
+  /* Styles for the main modal background */
+  .modal-main {
     background-color: rgb(38 38 38);
-    /* opacity: 0.7; */
   }
 
-  .modal-main-content{
+  /* Styles for the content inside the main modal */
+  .modal-main-content {
     background-color: white;
   }
 
-  .modal-main-button{
+  /* Styles for buttons inside the main modal */
+  .modal-main-button {
+    /* Uncomment and apply additional styles if needed */
     /* @apply w-full justify-center flex flex-row; */
   }
 
-  .google-btn{
-    /* width: 400px!important; */
-    /* gap: 10; */
+  /* Styles for the Google button */
+  .google-btn {
+    /* Uncomment and apply additional styles if needed */
     /* @apply w-full justify-center flex flex-row; */
   }
 }
 
+/* Override z-index for specific Leaflet elements */
 .leaflet-bottom,
 .leaflet-control,
 .leaflet-pane,
@@ -116,6 +130,7 @@
   z-index: 0 !important;
 }
 
+/* Override width for the Rangeslider (rdr) month and calendar wrapper */
 .rdrMonth {
   width: 100% !important;
 }

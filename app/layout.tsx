@@ -13,6 +13,7 @@ import LoginModal from './components/Modals/LoginModal'
 import getCurrentUser from './actions/getCurrentUsers'
 import RentModal from './components/Modals/RentModal'
 import SearchModal from './components/Modals/SearchModal'
+import Footer from './components/footer/Footer'
 
 // Define metadata for the page
 export const metadata: Metadata = {
@@ -48,6 +49,8 @@ export default async function RootLayout({
         <div className='pb-20 pt-28'>
           {children} {/* Render the children components passed to RootLayout */}
         </div>
+
+        <Footer />
       </body>
     </html>
   )

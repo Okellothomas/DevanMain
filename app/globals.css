@@ -146,3 +146,13 @@
   width: 100% !important;
 }
 
+.footer-main{
+  background-color: #092635;
+}
+
+.footer-main hr{
+  background: linear-gradient(96deg, rgba(154, 110, 107, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(171, 34, 26, 0.77) 108.87%);
+  width: 90%;
+  height: 1.365px;
+}
+

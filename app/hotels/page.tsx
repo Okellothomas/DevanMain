@@ -57,3 +57,4 @@ const HotelPage = async ({ searchParams }: HotelPageProps) => {
 
 export default HotelPage;
 
+

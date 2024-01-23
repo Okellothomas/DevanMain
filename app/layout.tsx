@@ -43,8 +43,7 @@ export default async function RootLayout({
         <SearchModal />
         <LoginModal />
         {/* Render the main navigation bar with the current user information */}
-        <Navbar currentUser={currentUser} />
-
+        <div className='layout-navbar'><Navbar currentUser={currentUser} /></div>
         {/* Main content container with top and bottom padding */}
         <div className='pb-20 pt-28'>
           {children} {/* Render the children components passed to RootLayout */}

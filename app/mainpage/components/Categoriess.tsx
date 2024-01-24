@@ -1,10 +1,11 @@
 'use client'
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import Container from '@/app/components/container/Container';
 import Image from 'next/image';
-import { FaGlobe, FaFlag } from 'react-icons/fa'; 
+import { FaGlobe, FaGlobeEurope } from 'react-icons/fa'; 
 import { useRouter } from 'next/navigation';
+import { GiAfrica, GiEarthAmerica, GiKangaroo } from "react-icons/gi";
+import { BsGlobeAsiaAustralia, BsGlobeCentralSouthAsia } from "react-icons/bs";
 
 // Updated CategoryBoxProps definition
 interface CategoryBoxProps {
@@ -34,63 +35,63 @@ const UpdatedCategoryBox: React.FC<CategoryBoxProps> = ({ label, image, onClick 
 // Updated categoriesData structure
 const categoriesData: { [key: string]: { icon: React.ReactNode; countries: { label: string; image: string }[] }; } = {
     Africa: {
-        icon: <FaGlobe size={25} />,
+        icon: <GiAfrica size={25} />,
         countries: [
             { label: 'Kenya', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
             { label: 'Uganda', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Ethiopia', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Egypt', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'Egypt', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
+            { label: 'South Africa', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
         ],
     },
     Europe: {
-        icon: <FaGlobe size={25} />,
+        icon: <FaGlobeEurope size={25} />,
         countries: [
-            { label: 'UK', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
+            { label: 'United Kingdom', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Spain', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Germany', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'France', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'Egypt', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
+            { label: 'Italy', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
         ],
     },
     Americas: {
-        icon: <FaGlobe size={25} />,
+        icon: <GiEarthAmerica size={25} />,
         countries: [
-            { label: 'UK', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
-            { label: 'Spain', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
-            { label: 'Germany', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
-            { label: 'France', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
-            { label: 'Egypt', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
+            { label: 'United States', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
+            { label: 'Canada', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
+            { label: 'Brazil', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
+            { label: 'Mexico', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
+            { label: 'Chile', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
         ],
     },
     Asia: {
-        icon: <FaGlobe size={25} />,
+        icon: <BsGlobeAsiaAustralia size={25} />,
         countries: [
-            { label: 'UK', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
-            { label: 'Spain', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
-            { label: 'Germany', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
-            { label: 'France', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
-            { label: 'Egypt', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
+            { label: 'Singapore', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
+            { label: 'China', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
+            { label: 'South Korea', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
+            { label: 'India', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
+            { label: 'Japan', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
         ],
     },
     Australia: {
-        icon: <FaGlobe size={25} />,
+        icon: <GiKangaroo size={25} />,
         countries: [
-            { label: 'UK', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706087927/aj6v1h2so1mhqnyuxmzc.jpg' },
-            { label: 'Spain', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'Germany', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'France', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'Egypt', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706087927/aj6v1h2so1mhqnyuxmzc.jpg' },
+            { label: 'Sydney', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706087927/aj6v1h2so1mhqnyuxmzc.jpg' },
+            { label: 'Melbourne', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
+            { label: 'Canberra', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
+            { label: 'Hobart', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
+            { label: 'Adeliade', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706087927/aj6v1h2so1mhqnyuxmzc.jpg' },
         ],
     },
     MiddleEast: {
-        icon: <FaGlobe size={25} />,
+        icon: <BsGlobeCentralSouthAsia size={25} />,
         countries: [
-            { label: 'UK', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
-            { label: 'Spain', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'Germany', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
-            { label: 'France', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
+            { label: 'Saudi Arabia', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
+            { label: 'Qatar', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Egypt', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
+            { label: 'UAE', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
+            { label: 'Isreal', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
         ],
     },
     // Add similar structures for other continents
@@ -122,19 +123,26 @@ const Categoriess = () => {
     <div className="">
       <div className="flex flex-row w-full gap-40">
         {Object.keys(categoriesData).map((continent) => (
-          <div
-            className='flex gap-2 flex-row'
-            key={continent}
-            onClick={() => handleHeaderClick(continent)}
-          >
-            {continent === selectedContinent ? (
-              <FaGlobe size={25} />
-            ) : (
-              <FaGlobe size={25} color="gray" />
-            )}
-            {continent}
-          </div>
-        ))}
+  <div
+    className='flex gap-2 flex-row cursor-pointer'
+    key={continent}
+    onClick={() => handleHeaderClick(continent)}
+      >
+        {continent === selectedContinent ? (
+          <>{categoriesData[continent].icon}</>
+        ) : (
+          React.isValidElement(categoriesData[continent].icon) ? (
+            React.cloneElement(
+              categoriesData[continent].icon as React.ReactElement<any>,
+              { color: "gray", size: 25 }
+            )
+          ) : (
+            <span>Icon Not Found</span>
+          )
+        )}
+        {continent}
+      </div>
+    ))}
       </div>
       <div className="inset-0">
         <div className='py-4 full-width-container'>

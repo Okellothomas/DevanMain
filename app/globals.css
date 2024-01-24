@@ -382,7 +382,7 @@ color: #1E1E24;
 }
 
 .full-width-container{
-  width: 90vw!important;
+  width: 88.4vw!important;
 }
 
 .country-labels{
@@ -390,3 +390,14 @@ color: #1E1E24;
   z-index: 10!important;
 }
 
+.tour-booking {
+  background-image: url('https://res.cloudinary.com/doamgn1l0/image/upload/v1706087927/aj6v1h2so1mhqnyuxmzc.jpg');
+  /* Replace 'your-image.jpg' with the path to your image */
+  background-color: rgba(0, 0, 0, 0.52);
+  /* Red color with 60% opacity */
+  background-blend-mode: overlay;
+  /* Blend the background image and color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

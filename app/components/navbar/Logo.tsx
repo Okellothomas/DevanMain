@@ -18,8 +18,9 @@ const Logo = () => {
           src="/images/logo.png"
         />
         </div>
-        <div>
-          <h2 className="main-color-black">Devan<span className="main-color">ceTours</span></h2>     
+        <div className="text-2xl font-bold">
+          {/* <h2 className="main-color-black">Devan<span className="main-color">ceTours</span></h2>      */}
+          <h2>D-Tours</h2>
        </div>
     </div>
   )

@@ -139,6 +139,31 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View our prime destinations</Link>
         </div>
       </Container>
+
+      {/* Next part of the page */}
+      <div className="tour-booking flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
+        <h1 className="color-h1-white">How to book with us</h1>
+        <Container>
+          <div className="pt-10 pb-5 grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 main-page-cards">
+            <CardDisplay
+              icon={FaStar}
+              label="Insightful experiences"
+              />
+              <CardDisplay
+              icon={FaThreads}
+              label="Make travel matter"
+              />
+              <CardDisplay
+              icon={MdFoodBank}
+              label="Superior first class hotels"
+              />
+              <CardDisplay
+              icon={GiClockwork}
+              label="20+ years of experience"
+            />
+          </div>
+        </Container>
+      </div>
     </div>
   );
 };

@@ -11,12 +11,12 @@ const CardDisplay: React.FC<MenuItemProps> = ({
 }) => {
   return (
     <div
-      className="display-card"
+      className="display-card text-center items-center"
       >
      <div className='p-3 bg-white rounded-full text-neutral-500'>
         {IconComponent && <IconComponent size={25} />} {/* Display icon if provided */}
           </div>
-     <div className='text-black font-bold text-xl'>
+     <div className='text-black font-semibold text-md'>
       {label}
      </div>
     </div>

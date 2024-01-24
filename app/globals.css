@@ -199,12 +199,11 @@
 
 .color-h1-white{
   color: #FFF;
-    text-align: center;
     font-family: Kanit;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
 }
 
 .carousel-images{
@@ -380,5 +379,14 @@ color: #1E1E24;
 
 .main-page-cards{
   gap: 140px!important;
+}
+
+.full-width-container{
+  width: 90vw!important;
+}
+
+.country-labels{
+  margin-top: -18%!important;
+  z-index: 10!important;
 }
 

@@ -16,6 +16,7 @@ import { FaStar } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
 import { MdFoodBank } from "react-icons/md";
 import { GiClockwork } from "react-icons/gi";
+import Categoriess from "./mainpage/components/Categoriess";
 
 // Define the interface for the Home component props
 interface HomeProps {
@@ -109,7 +110,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <h1 className="main-header-black w-full text-center">INTERCONTENTAL <span className="main-header-gradient">CLASS HOTELS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
         </div>
-      <div className="pt-5 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
+      <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
         {/* Map through the listings array and render ListingCard components */}
         {listings.map((listing: any) => {
           return (
@@ -120,7 +121,23 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
             />
           );
         })}
-      </div>
+        </div>
+        <div className="w-full text-center pt-8">
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all intercontental hotels</Link>
+        </div>
+      </Container>
+      {/* The categories page */}
+      <Container>
+        <div className="flex flex-col gap-1 pt-10">
+        <h1 className="main-header-black w-full text-center">EXPLORE OUR <span className="main-header-gradient">PRIME DESTINATIONS</span></h1>
+        <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
+        </div>
+        <div className="pt-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5">
+        <Categoriess />
+        </div>
+        <div className="w-full text-center pt-8">
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View our prime destinations</Link>
+        </div>
       </Container>
     </div>
   );

@@ -17,6 +17,7 @@ import { FaThreads } from "react-icons/fa6";
 import { MdFoodBank } from "react-icons/md";
 import { GiClockwork } from "react-icons/gi";
 import Categoriess from "./mainpage/components/Categoriess";
+import BookingCard from "./mainpage/components/BookingCard";
 
 // Define the interface for the Home component props
 interface HomeProps {
@@ -145,21 +146,9 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <h1 className="color-h1-white">How to book with us</h1>
         <Container>
           <div className="pt-10 pb-5 grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 main-page-cards">
-            <CardDisplay
+            <BookingCard
+              label="Okello"
               icon={FaStar}
-              label="Insightful experiences"
-              />
-              <CardDisplay
-              icon={FaThreads}
-              label="Make travel matter"
-              />
-              <CardDisplay
-              icon={MdFoodBank}
-              label="Superior first class hotels"
-              />
-              <CardDisplay
-              icon={GiClockwork}
-              label="20+ years of experience"
             />
           </div>
         </Container>

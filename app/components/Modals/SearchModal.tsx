@@ -73,10 +73,15 @@ const SearchModal = () => {
             updatedQuery.startDate = formatISO(dateRange.startDate);
         }
 
+        // const url = qs.stringifyUrl({
+        //     url: '/',
+        //     query: updatedQuery
+        // }, { skipNull: true });
         const url = qs.stringifyUrl({
-            url: '/',
+            url: '/hotels',
             query: updatedQuery
         }, { skipNull: true });
+
 
         setStep(STEPS.LOCATION);
         searchModal.onClose();

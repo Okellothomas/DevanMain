@@ -28,6 +28,8 @@ model User {
   accounts     Account[] // One-to-many relationship with the "Account" model
   listings     Listing[] // One-to-many relationship with the "Listing" model
   reservations Reservation[] // One-to-many relationship with the "Reservation" model
+  tours        Tour[]
+  reserv       Reserv[]
 }
 
 // Model representing the "Account" entity in the database
@@ -69,6 +71,7 @@ model Listing {
   // Relationship with the "User" model
   user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations Reservation[] // One-to-many relationship with the "Reservation" model
+  Reserv       Reserv[]
 }
 
 // Model representing the "Reservation" entity in the database
@@ -82,4 +85,37 @@ model Reservation {
   endDate    DateTime // End date of the reservation
   totalPrice Int // Total price of the reservation
   createdAt  DateTime @default(now()) // Date and time when the reservation was created
+}
+
+model Tour {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  title         String // Title of the listing
+  description   String // Description of the listing
+  imageSrc      String // URL for the listing image
+  createAt      DateTime @default(now()) // Date and time when the listing was created
+  category      String // Category of the listing
+  roomCount     Int // Number of rooms in the listing
+  bathRoomCount Int // Number of bathrooms in the listing
+  guestCount    Int // Number of guests the listing can accommodate
+  locationValue String // Location value of the listing
+  userId        String   @db.ObjectId // Foreign key referencing the "User" model
+  price         Int // Price of the listing
+
+  // Relationship with the "User" model
+  user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reserv Reserv[]
+}
+
+model Reserv {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  user       User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String?  @db.ObjectId // Foreign key referencing the "User" model
+  startDate  DateTime // Start date of the reservation
+  endDate    DateTime // End date of the reservation
+  totalPrice Int // Total price of the reservation
+  createdAt  DateTime @default(now()) // Date and time when the reservation was created
+  Tour       Tour?    @relation(fields: [tourId], references: [id], onDelete: Cascade)
+  tourId     String?  @db.ObjectId
+  Listing    Listing? @relation(fields: [listingId], references: [id])
+  listingId  String?  @db.ObjectId
 }

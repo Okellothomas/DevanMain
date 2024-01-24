@@ -14,6 +14,7 @@ import getCurrentUser from './actions/getCurrentUsers'
 import RentModal from './components/Modals/RentModal'
 import SearchModal from './components/Modals/SearchModal'
 import Footer from './components/footer/Footer'
+import TourModal from './components/Modals/TourModal'
 
 // Define metadata for the page
 export const metadata: Metadata = {
@@ -42,6 +43,7 @@ export default async function RootLayout({
         <RentModal />
         <SearchModal />
         <LoginModal />
+        <TourModal />
         {/* Render the main navigation bar with the current user information */}
         <div className='layout-navbar'><Navbar currentUser={currentUser} /></div>
         {/* Main content container with top and bottom padding */}

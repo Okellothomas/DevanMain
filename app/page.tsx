@@ -1,5 +1,7 @@
+// import { useRouter } from "next/navigation";
 import getCurrentUser from "./actions/getCurrentUsers";
 import getListings, { IListingsParams } from "./actions/getListings";
+import getTours, { IToursParams } from "./actions/getTours";
 import Carousel from "./components/container/Carousel";
 import Container from "./components/container/Container";
 import EmptyState from "./components/container/EmptyState";
@@ -7,17 +9,22 @@ import Slider from "./components/container/Slider";
 import ListingCard from "./components/listing/ListingCard";
 import Banner from "./mainpage/components/Banner";
 import SearchMain from "./mainpage/components/SearchMain";
+import MainButton from "./components/container/MainButton";
+import Link from "next/link";
 
 // Define the interface for the Home component props
 interface HomeProps {
   searchParams: IListingsParams; // Search parameters for fetching listings
+  tourParams: IToursParams;
 }
 
 // Home component is defined as an asynchronous function
-const Home = async ({ searchParams }: HomeProps) => {
+const Home = async ({ searchParams, tourParams }: HomeProps) => {
   // Fetch listings and current user asynchronously
   const listings = await getListings(searchParams);
+  const tours = await getTours(tourParams);
   const currentUser = await getCurrentUser();
+  // const router = useRouter();
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component
@@ -29,11 +36,11 @@ const Home = async ({ searchParams }: HomeProps) => {
 
   // Render the Home component with the fetched listings
 
-  let slides = [
-    "/images/spain.jpg",
-    "/images/adventure2.jpg",
-    "/images/eupope.jpg"
-  ]
+  // let slides = [
+  //   "/images/spain.jpg",
+  //   "/images/adventure2.jpg",
+  //   "/images/eupope.jpg"
+  // ]
 
   return (
     <div>
@@ -48,8 +55,32 @@ const Home = async ({ searchParams }: HomeProps) => {
       <div className="SearchMain-page">
         <SearchMain />
       </div>
-    <Container>
-      <div className="pt-24 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
+      <Container>
+        <div className="flex flex-col gap-1 pt-9">
+        <h1 className="main-header-black w-full text-center">AMAZING <span className="main-header-gradient">UPCOMING TOURS</span></h1>
+        <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
+        </div>
+        <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
+          {/* Map through the listings array and render ListingCard components */}
+        {tours.map((tour: any) => {
+          return (
+            <ListingCard
+              currentUser={currentUser} // Pass the current user to each ListingCard
+              key={tour.id} // Use the listing ID as the unique key
+              data={tour} // Pass the listing data to each ListingCard
+            />
+          );
+        })}
+        </div>
+        <div className="w-full text-center pt-8">
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all hotels</Link>
+        </div>
+      </Container>
+      <div className="tour-inconfort flex flex-col my-9 items-center justify-center text-lg font-bold">
+        <h1 className="color-h1-white">European <span className="color-span-green">Hotels</span></h1>
+      </div>
+      <Container>
+      <div className="pt-24 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
         {/* Map through the listings array and render ListingCard components */}
         {listings.map((listing: any) => {
           return (

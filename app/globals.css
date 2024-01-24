@@ -401,3 +401,13 @@ color: #1E1E24;
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.booking-card {
+border-radius: 17.519px;
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.booking-card:hover {
+  background: rgba(255, 255, 255, 0.44);
+  cursor: pointer;
+}

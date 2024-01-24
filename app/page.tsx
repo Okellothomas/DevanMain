@@ -11,6 +11,11 @@ import Banner from "./mainpage/components/Banner";
 import SearchMain from "./mainpage/components/SearchMain";
 import MainButton from "./components/container/MainButton";
 import Link from "next/link";
+import CardDisplay from "./mainpage/components/CardDisplay";
+import { FaStar } from "react-icons/fa";
+import { FaThreads } from "react-icons/fa6";
+import { MdFoodBank } from "react-icons/md";
+import { GiClockwork } from "react-icons/gi";
 
 // Define the interface for the Home component props
 interface HomeProps {
@@ -49,7 +54,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         {/* <Carousel slides={slides} /> */}
         {/* <Slider /> */}
       </div>
-      <div className="banner-btn-r relative flex flex-col justify-center items-center">
+      <div className="carousel-main-div banner-btn-r relative flex flex-col justify-center items-center">
         <Banner />
       </div>
       <div className="SearchMain-page">
@@ -73,14 +78,38 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         })}
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all hotels</Link>
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all upcoming tours</Link>
         </div>
       </Container>
-      <div className="tour-inconfort flex flex-col my-9 items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-white">European <span className="color-span-green">Hotels</span></h1>
+      <div className="tour-inconfort flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
+        <h1 className="color-h1-white">Tour in comfort and style</h1>
+        <Container>
+          <div className="pt-10 pb-5 grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 main-page-cards">
+            <CardDisplay
+              icon={FaStar}
+              label="Insightful experiences"
+              />
+              <CardDisplay
+              icon={FaThreads}
+              label="Make travel matter"
+              />
+              <CardDisplay
+              icon={MdFoodBank}
+              label="Superior first class hotels"
+              />
+              <CardDisplay
+              icon={GiClockwork}
+              label="20+ years of experience"
+            />
+          </div>
+        </Container>
       </div>
       <Container>
-      <div className="pt-24 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
+        <div className="flex flex-col gap-1 pt-5">
+        <h1 className="main-header-black w-full text-center">INTERCONTENTAL <span className="main-header-gradient">CLASS HOTELS</span></h1>
+        <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
+        </div>
+      <div className="pt-5 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
         {/* Map through the listings array and render ListingCard components */}
         {listings.map((listing: any) => {
           return (

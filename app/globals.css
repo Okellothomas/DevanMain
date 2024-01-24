@@ -351,13 +351,34 @@ color: #1E1E24;
 .tour-inconfort{
   background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
     /* Replace 'your-image.jpg' with the path to your image */
-    background-color: rgba(0, 0, 0, 0.62);
+    background-color: rgba(0, 0, 0, 0.52);
     /* Red color with 60% opacity */
     background-blend-mode: overlay;
     /* Blend the background image and color */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    flex-shrink: 0;
-    height: 24vh;
 }
+
+.display-card {
+  display: flex;
+  width: 240px;
+  height: 220px;
+  padding: 39.081px 45.081px 47.517px 43.838px;
+  flex-direction: column;
+  align-items: center;
+  gap: 36.386px;
+  flex-shrink: 0;
+  border-radius: 17.519px;
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.display-card:hover{
+  background: rgba(255, 255, 255, 0.44);
+  cursor: pointer;
+}
+
+.main-page-cards{
+  gap: 140px!important;
+}
+

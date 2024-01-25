@@ -4,7 +4,7 @@ interface IParams {
     tourId?: string;
 }
 
-export default async function getListingById(
+export default async function getTourById(
     params: IParams
 ) {
     try {

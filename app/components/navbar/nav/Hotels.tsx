@@ -52,7 +52,7 @@ const Hotels: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-10 text-sm user-menu-width">
+        <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex flex-col px-6 w-full cursor-pointer">
             <>
               <MenuItem onClick={() => router.push("/hotels")} label="All Hotels" />

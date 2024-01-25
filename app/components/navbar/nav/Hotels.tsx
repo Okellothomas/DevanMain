@@ -43,7 +43,7 @@ const Hotels: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div
           ref={menuRef}
           className={`p-4 md:py-1 text-sm hover:underline md:px-2 flex flex-row items-center gap-2 cursor-pointer transition ${
-            isOpen ? "bg-white" : ""
+            isOpen ? "" : ""
           }`}
           onClick={toggleOpen}
         >
@@ -52,7 +52,7 @@ const Hotels: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md bg-white overflow-hidden right-0 top-10 text-sm user-menu-width">
+        <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-10 text-sm user-menu-width">
           <div className="flex flex-col px-6 w-full cursor-pointer">
             <>
               <MenuItem onClick={() => router.push("/hotels")} label="All Hotels" />

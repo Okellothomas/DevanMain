@@ -52,23 +52,26 @@ const Hotels: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md bg-white overflow-hidden right-0 top-12 text-sm user-menu-width">
-          <div className="flex flex-col w-full cursor-pointer">
+        <div className="absolute rounded-xl shadow-md bg-white overflow-hidden right-0 top-10 text-sm user-menu-width">
+          <div className="flex flex-col px-6 w-full cursor-pointer">
             <>
               <MenuItem onClick={() => router.push("/hotels")} label="All Hotels" />
               <MenuItem
                 onClick={() => router.push("/favorites")}
-                label="My favorites"
+                label="Africa"
               />
               <MenuItem
                 onClick={() => router.push("/reservations")}
-                label="My reservation"
+                label="Afican"
               />
               <MenuItem
                 onClick={() => router.push("/properties")}
-                label="My properties"
+                label="European"
               />
-              <MenuItem onClick={rentModal.onOpen} label="My Airbnb home" />
+              <MenuItem onClick={rentModal.onOpen} label="American" />
+              <MenuItem onClick={rentModal.onOpen} label="Asian" />
+              <MenuItem onClick={rentModal.onOpen} label="Middle Eastern" />
+              <MenuItem onClick={rentModal.onOpen} label="Australian" />
             </>
           </div>
         </div>

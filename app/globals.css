@@ -199,12 +199,11 @@
 
 .color-h1-white{
   color: #FFF;
-    text-align: center;
     font-family: Kanit;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
 }
 
 .carousel-images{
@@ -219,7 +218,7 @@
 }
 
 .carousel-main-div{
-  margin-top: -4% !important;
+  margin-top: -11% !important;
   z-index: 5!important;
   /* width: 100vw!important; */
 }
@@ -308,3 +307,112 @@ color: #1E1E24;
   background: var(--Button-Main, linear-gradient(96deg, rgba(42, 77, 72, 0.77) -10.44%, rgba(46, 22, 57, 0.77) 108.53%));
 }
 
+.main-header-gradient {
+  background: var(--Button-Main, linear-gradient(96deg, rgba(42, 77, 72, 0.77) -10.44%, rgba(46, 22, 57, 0.77) 108.53%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Kanit;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.main-header-black {
+  color: #000;
+    font-family: Kanit;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.outline-main-btn{
+  display: inline-flex;
+    padding: 10px 25px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--Button-Main, #2A4D48);
+    font-family: Kanit;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+   background: var(--Button-Main, linear-gradient(96deg, rgba(42, 77, 72, 0.77) -10.44%, rgba(46, 22, 57, 0.77) 108.53%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tour-inconfort{
+  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    /* Replace 'your-image.jpg' with the path to your image */
+    background-color: rgba(0, 0, 0, 0.52);
+    /* Red color with 60% opacity */
+    background-blend-mode: overlay;
+    /* Blend the background image and color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.display-card {
+  display: flex;
+  width: 240px;
+  height: 220px;
+  padding: 39.081px 45.081px 47.517px 43.838px;
+  flex-direction: column;
+  align-items: center;
+  gap: 36.386px;
+  flex-shrink: 0;
+  border-radius: 17.519px;
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.display-card:hover{
+  background: rgba(255, 255, 255, 0.44);
+  cursor: pointer;
+}
+
+.main-page-cards{
+  gap: 140px!important;
+}
+
+.full-width-container{
+  width: 88.4vw!important;
+}
+
+.country-labels{
+  margin-top: -18%!important;
+  z-index: 10!important;
+}
+
+.tour-booking {
+  background-image: url('https://res.cloudinary.com/doamgn1l0/image/upload/v1706087927/aj6v1h2so1mhqnyuxmzc.jpg');
+  /* Replace 'your-image.jpg' with the path to your image */
+  background-color: rgba(0, 0, 0, 0.62);
+  /* Red color with 60% opacity */
+  background-blend-mode: overlay;
+  /* Blend the background image and color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.booking-card {
+border-radius: 17.519px;
+  background: rgba(255, 255, 255, 0.64);
+  line-height: 40px!important;
+}
+
+.booking-card:hover {
+  /* background: rgba(255, 255, 255, 0.44);
+  cursor: pointer; */
+}
+
+.booking-card-text{
+  line-height: 29px!important;
+}

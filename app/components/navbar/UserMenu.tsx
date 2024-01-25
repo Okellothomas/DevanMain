@@ -7,6 +7,7 @@ import useLoginModal from "@/app/hooks/useLoginModal";
 import { User } from "@prisma/client";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
+import useTourModal from "@/app/hooks/useTourModel";
 import useRentModal from "@/app/hooks/useRentModals";
 import { useRouter } from "next/navigation";
 
@@ -19,6 +20,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const registerModal = useRegisterModal();
   const LoginModal = useLoginModal();
   const rentModal = useRentModal();
+  // declare the tour modal
+  const tourModal = useTourModal();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -77,7 +80,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <MenuItem onClick={() => router.push('/favorites')} label="My favorites" />
                 <MenuItem onClick={() => router.push("/reservations")} label="My reservation" />
                 <MenuItem onClick={() => router.push('/properties')} label="My properties" />
-                <MenuItem onClick={rentModal.onOpen} label="My Airbnb home" />
+                <MenuItem onClick={rentModal.onOpen} label="Add Hotel or House Listing" />
+                <MenuItem onClick={tourModal.onOpen} label="Add Tour" />
                 <hr />
                 <MenuItem onClick={() => signOut()} label="Logout" />
               </>

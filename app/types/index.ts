@@ -1,9 +1,16 @@
 // Import Prisma models (Listing, Reservation, User) from the "@prisma/client" module
-import { Listing, Reservation, User } from "@prisma/client";
+import { Listing, Reservation, User, Tour } from "@prisma/client";
 
 // Define a type 'safeListing' that is a modification of the 'Listing' type
 export type safeListing = Omit<
     Listing, // Original Listing type
+    "createdAt" // Omit the 'createdAt' property
+    > & {
+    createdAt: string; // Replace 'createdAt' property with a string type
+}
+
+export type safeTour = Omit<
+    Tour, // Original Listing type
     "createdAt" // Omit the 'createdAt' property
     > & {
     createdAt: string; // Replace 'createdAt' property with a string type

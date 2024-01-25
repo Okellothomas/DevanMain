@@ -36,7 +36,7 @@ const Carousel = () => {
                     style={{ transform: `translateX(${current * -100}%)` }}
                 >
                     {images.map((s, index) => (
-                        <div className="block w-full h-[75vh] object-over transition-all duration-500 ease-in-out" key={index}>
+                        <div className="block w-full h-[85vh] object-over transition-all duration-500 ease-in-out" key={index}>
                             <Image
                                 src={s.src}
                                 fill={true}

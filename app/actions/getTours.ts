@@ -16,6 +16,7 @@ export default async function getTours(
 ) {
     try {
 
+        
         const {
             userId,
             roomCount,
@@ -78,6 +79,7 @@ export default async function getTours(
             }
         }
 
+       
         const tours = await prisma.tour.findMany({
             where: query,
             orderBy: {
@@ -90,7 +92,8 @@ export default async function getTours(
             createAt: tours.createAt.toISOString(),
         }));
 
-        return safeTour; 
+        return safeTour;
+      
         
     } catch (error: any) {
         throw new Error(error);

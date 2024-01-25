@@ -1,6 +1,6 @@
 'use client'
 
-import { CldUploadWidget } from "next-cloudinary"
+import { CldUploadWidget} from "next-cloudinary"
 import Image from "next/image"
 import { useCallback } from "react"
 import { TbPhotoPlus } from "react-icons/tb"
@@ -13,7 +13,9 @@ declare global {
 interface ImageUploadProps {
     onChange: (value: string) => void;
     value: string;
+  
 }
+
 
 const ImageUpload: React.FC<ImageUploadProps> = ({
     onChange,
@@ -25,10 +27,12 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   return (
       <CldUploadWidget
           onUpload={handleUpload}
-          uploadPreset="ftpug00a"
+          uploadPreset="ftpug00a" 
           options={{
-              maxFiles: 4
-          }}
+              maxFiles: 4,
+              multiple:true,
+              
+            }}
       >
           {({ open }) => {
              return (

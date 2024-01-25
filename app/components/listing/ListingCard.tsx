@@ -1,9 +1,10 @@
 'use client'
 import useCountries from "@/app/hooks/useCountries";
 import { SafeUser, safeListing, safeReservation } from "@/app/types";
-import { Listing, Reservation } from "@prisma/client"
+//import { Listing, Reservation } from "@prisma/client"
+import './listing.css'
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo } from "react";
+import { Key, useCallback, useMemo } from "react";
 import { format } from 'date-fns';
 import Image from "next/image";
 import HeartButton from "../container/HeartButton";
@@ -82,6 +83,18 @@ const ListingCard: React.FC<ListingCardProps> = ({
                       />
                   </div>
               </div>
+{/* 
+        <div className="image-gallery">
+            <div className="main-image">
+                <img src={data?.imageSrc[0]} alt="Main Image" />
+            </div>
+            <div className="small-images">
+            {data?.imageSrc.slice(1).map((imageUrl: string | undefined, index: number) => (
+            <img key={index} src={imageUrl} alt={`Small Image ${index + 1}`} />
+             ))}
+            
+            </div>
+          </div> */}
               <div className="text-sm">
                  <span>{location?.label},</span> {location?.region}
               </div>

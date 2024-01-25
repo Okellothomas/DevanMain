@@ -15,7 +15,7 @@ import Input from "../Inputs/Input"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
-
+ 
 enum STEPS {
     CATEGORY = 0,
     LOCATION = 1,
@@ -47,7 +47,7 @@ const RentModal = () => {
             guestCount: 1,
             roomCount: 1,
             bathRoomCount: 1,
-            imageSrc: '',
+            imageSrc: [],
             price: 1,
             title: '',
             description: ''
@@ -203,7 +203,7 @@ const RentModal = () => {
                 />
                 <ImageUpload
                     value={imageSrc}
-                    onChange={(value) => setCustomValue('imageSrc', value)}
+                    onChange={(value) => setCustomValue('imageSrc', [...imageSrc,value])}
                 />
             </div>
         )

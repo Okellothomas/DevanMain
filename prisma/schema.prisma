@@ -56,7 +56,7 @@ model Listing {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
   title         String // Title of the listing
   description   String // Description of the listing
-  imageSrc      String // URL for the listing image
+  imageSrc      String[] // URL for the listing image
   createAt      DateTime @default(now()) // Date and time when the listing was created
   category      String // Category of the listing
   roomCount     Int // Number of rooms in the listing

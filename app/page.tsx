@@ -145,14 +145,58 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
       <div className="tour-booking flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
         <h1 className="color-h1-white">How to book with us</h1>
         <Container>
-          <div className="pt-10 pb-5 grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 main-page-cards">
-            <BookingCard
-              label="Okello"
-              icon={FaStar}
-            />
+          <div className="pt-10 pb-5 main-page-cards">
+            <BookingCard />
           </div>
         </Container>
       </div>
+
+
+      {/* second last */}
+      <Container>
+        <div className="flex flex-col gap-1 pt-5">
+        <h1 className="main-header-black w-full text-center">CLASSIC <span className="main-header-gradient">ADVENTURE TOURS</span></h1>
+        <p className="text-neutral-500 text-sm w-full text-center">Experience the thrill of a lifetime on our curated selection of active, immersive tours full of adrenaline, culture and natural wonder.</p>
+        </div>
+      <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
+        {/* Map through the listings array and render ListingCard components */}
+        {tours.map((tour: any) => {
+          return (
+            <ListingCard
+              currentUser={currentUser} // Pass the current user to each ListingCard
+              key={tour.id} // Use the listing ID as the unique key
+              data={tour} // Pass the listing data to each ListingCard
+            />
+          );
+        })}
+        </div>
+        <div className="w-full text-center pt-8">
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all intercontental hotels</Link>
+        </div>
+      </Container>
+
+      {/* last part of the code */}
+      <Container>
+        <div className="flex flex-col gap-1 pt-5">
+        <h1 className="main-header-black w-full text-center">PREMIUM <span className="main-header-gradient">TRENDING TOURS</span></h1>
+        <p className="text-neutral-500 text-sm w-full text-center">Experience the thrill of a lifetime on our curated selection of active, immersive tours full of adrenaline, culture and natural wonder.</p>
+        </div>
+      <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+        {/* Map through the listings array and render ListingCard components */}
+        {tours.map((tour: any) => {
+          return (
+            <ListingCard
+              currentUser={currentUser} // Pass the current user to each ListingCard
+              key={tour.id} // Use the listing ID as the unique key
+              data={tour} // Pass the listing data to each ListingCard
+            />
+          );
+        })}
+        </div>
+        <div className="w-full text-center pt-8">
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all intercontental hotels</Link>
+        </div>
+      </Container>
     </div>
   );
 };

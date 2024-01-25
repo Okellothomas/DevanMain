@@ -393,7 +393,7 @@ color: #1E1E24;
 .tour-booking {
   background-image: url('https://res.cloudinary.com/doamgn1l0/image/upload/v1706087927/aj6v1h2so1mhqnyuxmzc.jpg');
   /* Replace 'your-image.jpg' with the path to your image */
-  background-color: rgba(0, 0, 0, 0.52);
+  background-color: rgba(0, 0, 0, 0.62);
   /* Red color with 60% opacity */
   background-blend-mode: overlay;
   /* Blend the background image and color */
@@ -405,9 +405,14 @@ color: #1E1E24;
 .booking-card {
 border-radius: 17.519px;
   background: rgba(255, 255, 255, 0.64);
+  line-height: 40px!important;
 }
 
 .booking-card:hover {
-  background: rgba(255, 255, 255, 0.44);
-  cursor: pointer;
+  /* background: rgba(255, 255, 255, 0.44);
+  cursor: pointer; */
+}
+
+.booking-card-text{
+  line-height: 29px!important;
 }

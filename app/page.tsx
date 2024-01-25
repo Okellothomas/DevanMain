@@ -18,6 +18,7 @@ import { MdFoodBank } from "react-icons/md";
 import { GiClockwork } from "react-icons/gi";
 import Categoriess from "./mainpage/components/Categoriess";
 import BookingCard from "./mainpage/components/BookingCard";
+import ListingValue from "./components/listing/ListingValue";
 
 // Define the interface for the Home component props
 interface HomeProps {
@@ -185,11 +186,10 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         {/* Map through the listings array and render ListingCard components */}
         {tours.map((tour: any) => {
           return (
-            <ListingCard
-              currentUser={currentUser} // Pass the current user to each ListingCard
-              key={tour.id} // Use the listing ID as the unique key
-              data={tour} // Pass the listing data to each ListingCard
-            />
+            <ListingValue
+              key={tour.id}
+              locationValue={tour.location?.region}
+              imageSrc={""} id={""} />
           );
         })}
         </div>

@@ -19,6 +19,8 @@ import { GiClockwork } from "react-icons/gi";
 import Categoriess from "./mainpage/components/Categoriess";
 import BookingCard from "./mainpage/components/BookingCard";
 import ListingValue from "./components/listing/ListingValue";
+import TourCard from "./components/listing/TourCard";
+import useCountries from "./hooks/useCountries";
 
 // Define the interface for the Home component props
 interface HomeProps {
@@ -36,26 +38,16 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component
-  if (listings.length === 0) {
+  if (listings.length && tours.length === 0) {
     return (
       <EmptyState showReset />
     );
   }
 
-  // Render the Home component with the fetched listings
-
-  // let slides = [
-  //   "/images/spain.jpg",
-  //   "/images/adventure2.jpg",
-  //   "/images/eupope.jpg"
-  // ]
-
   return (
     <div>
     <div className="w-full carousel-main-div">
         <Carousel />
-        {/* <Carousel slides={slides} /> */}
-        {/* <Slider /> */}
       </div>
       <div className="carousel-main-div banner-btn-r relative flex flex-col justify-center items-center">
         <Banner />
@@ -72,7 +64,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           {/* Map through the listings array and render ListingCard components */}
         {tours.map((tour: any) => {
           return (
-            <ListingCard
+            <TourCard
               currentUser={currentUser} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard
@@ -107,13 +99,13 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           </div>
         </Container>
       </div>
+
       <Container>
         <div className="flex flex-col gap-1 pt-5">
         <h1 className="main-header-black w-full text-center">INTERCONTENTAL <span className="main-header-gradient">CLASS HOTELS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
         </div>
       <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
-        {/* Map through the listings array and render ListingCard components */}
         {listings.map((listing: any) => {
           return (
             <ListingCard
@@ -128,6 +120,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all intercontental hotels</Link>
         </div>
       </Container>
+
       {/* The categories page */}
       <Container>
         <div className="flex flex-col gap-1 pt-10">
@@ -163,7 +156,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         {/* Map through the listings array and render ListingCard components */}
         {tours.map((tour: any) => {
           return (
-            <ListingCard
+            <TourCard
               currentUser={currentUser} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard
@@ -178,18 +171,18 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
 
       {/* last part of the code */}
       <Container>
-        <div className="flex flex-col gap-1 pt-5">
+        <div className="flex w-full py-6 h-auto flex-col gap-1 pt-10">
         <h1 className="main-header-black w-full text-center">PREMIUM <span className="main-header-gradient">TRENDING TOURS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Experience the thrill of a lifetime on our curated selection of active, immersive tours full of adrenaline, culture and natural wonder.</p>
         </div>
-      <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+      <div className="trending-list-main-page pt-3 pl-16 pb-3 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-2">
         {/* Map through the listings array and render ListingCard components */}
         {tours.map((tour: any) => {
           return (
             <ListingValue
               key={tour.id}
-              locationValue={tour.location?.region}
-              imageSrc={""} id={""} />
+              title={tour.title}
+              />
           );
         })}
         </div>

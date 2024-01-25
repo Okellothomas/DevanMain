@@ -416,3 +416,17 @@ border-radius: 17.519px;
 .booking-card-text{
   line-height: 29px!important;
 }
+
+.trending-list-main-page{
+  border-radius: 17.191px;
+  border: 1.146px solid #A1A1A1;
+}
+
+.carousel-overlay{ 
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.5);
+}

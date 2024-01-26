@@ -1,7 +1,9 @@
 import  { useRouter } from "next/navigation"
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const FooterMiddle = () => {
-    const router = useRouter();
+  const router = useRouter();
+  const signUpModal = useRegisterModal()
 
   return (
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4
@@ -12,7 +14,7 @@ const FooterMiddle = () => {
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Tour Styles</div> 
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Group Styles</div> 
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Travel Agents</div>
-          <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Host Sign Up</div> 
+          <div onClick={() => signUpModal.onOpen} className=" hover:underline cursor-pointer">Host Sign Up</div> 
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Operators Sign Up</div> 
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Solo Travel</div> 
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Camping</div>

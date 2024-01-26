@@ -1,7 +1,7 @@
 'use client'
 
 import Container from "@/app/components/container/Container";
-import ListingHead from "@/app/components/listing/ListingHead";
+import ListingHead from "@/app/components/listing/ListingHead.1";
 import ListingInfo from "@/app/components/listing/ListingInfo";
 import ListingReservation from "@/app/components/listing/ListingReservation";
 import { categories } from "@/app/components/navbar/Categories";
@@ -14,6 +14,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { Range } from "react-date-range";
 import toast from "react-hot-toast";
 import { safeTour } from "@/app/types";
+import TourHead from "@/app/components/listing/TourHead";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -113,7 +114,7 @@ const TourClient: React.FC<TourClientProps> = ({
     <Container>
           <div className="max-w-sreen-lg mx-auto">
               <div className="flex flex-col gap-6">
-                  <ListingHead
+                  <TourHead
                       title={tour.title}
                       imageSrc={tour.imageSrc}
                       locationValue={tour.locationValue}

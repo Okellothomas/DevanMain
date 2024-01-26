@@ -2,7 +2,6 @@
 import useCountries from "@/app/hooks/useCountries";
 import { SafeUser, safeListing, safeReservation } from "@/app/types";
 //import { Listing, Reservation } from "@prisma/client"
-import './listing.css'
 import { useRouter } from "next/navigation";
 import { Key, useCallback, useMemo } from "react";
 import { format } from 'date-fns';
@@ -70,23 +69,12 @@ const ListingCard: React.FC<ListingCardProps> = ({
       >
           <div className="flex flex-col gap-2 w-full">
               <div className="aspect-square w-full relative overflow-hidden rounded-xl">
-                  {/* <Image
+                  <Image
                       fill
                       alt="Listing"
                       src={data?.imageSrc[0]} //added ?
                       className="object-cover h-full w-full transition group-hover:scale-110"
-                  /> */}
-                   <div className="image-gallery">
-                        <div className="main-image">
-                            <img src={data?.imageSrc[0]} alt="Main Image" />
-                        </div>
-                        <div className="small-images">
-                        {data?.imageSrc.slice(1).map((imageUrl: string | undefined, index: number) => (
-                        <img key={index} src={imageUrl} alt={`Small Image ${index + 1}`} />
-                        ))}
-            
-                    </div>
-          </div>
+                  />
                   <div className="absolute top-3 right-3">
                       <HeartButton
                           listingId={data?.id} //added ?

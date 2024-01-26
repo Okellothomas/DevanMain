@@ -180,6 +180,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         {tours.map((tour: any) => {
           return (
             <ListingValue
+              data={tour}
               key={tour.id}
               title={tour.title}
               />

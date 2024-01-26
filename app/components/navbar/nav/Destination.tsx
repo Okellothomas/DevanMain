@@ -43,7 +43,7 @@ const Destinations: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div
           ref={menuRef}
           className={`p-4 md:py-1 text-sm hover:underline md:px-2 flex flex-row items-center gap-2 cursor-pointer transition ${
-            isOpen ? "bg-white" : ""
+            isOpen ? "" : ""
           }`}
           onClick={toggleOpen}
         >
@@ -52,23 +52,25 @@ const Destinations: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md bg-white overflow-hidden right-0 top-12 text-sm user-menu-width">
-          <div className="flex flex-col w-full cursor-pointer">
+        <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
+          <div className="flex flex-col px-6 font-normal w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/trips")} label="My Trips" />
+              <MenuItem onClick={() => router.push("/trips")} label="All Destinations" />
               <MenuItem
                 onClick={() => router.push("/favorites")}
-                label="My favorites"
+                label="Africa"
               />
               <MenuItem
                 onClick={() => router.push("/reservations")}
-                label="My reservation"
+                label="Europe"
               />
               <MenuItem
                 onClick={() => router.push("/properties")}
-                label="My properties"
+                label="The Americas"
               />
-              <MenuItem onClick={rentModal.onOpen} label="My Airbnb home" />
+              <MenuItem onClick={rentModal.onOpen} label="Asia" />
+              <MenuItem onClick={rentModal.onOpen} label="Middle East" />
+              <MenuItem onClick={rentModal.onOpen} label="Australia" />
             </>
           </div>
         </div>

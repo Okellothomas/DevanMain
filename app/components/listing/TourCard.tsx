@@ -8,10 +8,11 @@ import { format } from 'date-fns';
 import Image from "next/image";
 import HeartButton from "../container/HeartButton";
 import Button from "../container/Button";
+import { safeTour } from "@/app/types";
 
 
 interface ListingCardProps {
-    data: safeListing;
+    data: safeTour;
     reservation?: safeReservation;
     onAction?: (id: string) => void;
     disabled?: boolean;
@@ -64,7 +65,7 @@ const TourCard: React.FC<ListingCardProps> = ({
 
   return (
       <div
-        onClick={() => router.push(`/listings/${data?.id}`)} //added ?
+        onClick={() => router.push(`/tours/${data?.id}`)} //added ?
         className="col-span-1 cursor-pointer group"
       >
           <div className="flex flex-col gap-2 w-full">

@@ -43,32 +43,35 @@ const House: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div
           ref={menuRef}
           className={`p-4 md:py-1 text-sm hover:underline md:px-2 flex flex-row items-center gap-2 cursor-pointer transition ${
-            isOpen ? "bg-white" : ""
+            isOpen ? "" : ""
           }`}
           onClick={toggleOpen}
         >
-          <div className="hidden md:block">House listing</div>
+          <div className="hidden md:block">House Leasing</div>
           <SlArrowDown size={12} />
         </div>
       </div>
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md bg-white overflow-hidden right-0 top-12 text-sm user-menu-width">
-          <div className="flex flex-col w-full cursor-pointer">
+        <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
+          <div className="flex flex-col px-6 w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/trips")} label="My Trips" />
+              <MenuItem onClick={() => router.push("/trips")} label="All house Leasing" />
               <MenuItem
                 onClick={() => router.push("/favorites")}
-                label="My favorites"
+                label="Africa"
               />
               <MenuItem
                 onClick={() => router.push("/reservations")}
-                label="My reservation"
+                label="Afican"
               />
               <MenuItem
                 onClick={() => router.push("/properties")}
-                label="My properties"
+                label="European"
               />
-              <MenuItem onClick={rentModal.onOpen} label="My Airbnb home" />
+              <MenuItem onClick={rentModal.onOpen} label="American" />
+              <MenuItem onClick={rentModal.onOpen} label="Asian" />
+              <MenuItem onClick={rentModal.onOpen} label="Middle Eastern" />
+              <MenuItem onClick={rentModal.onOpen} label="Australian" />
             </>
           </div>
         </div>

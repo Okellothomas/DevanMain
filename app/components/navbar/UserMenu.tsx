@@ -61,7 +61,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
       <div className="flex flex-row items-center gap-3">
         <div
           className={`p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition ${
-            isOpen ? "bg-white" : ""
+            isOpen ? "" : ""
           }`}
           onClick={toggleOpen}
         >
@@ -72,8 +72,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md bg-white overflow-hidden right-0 top-12 text-sm user-menu-width">
-          <div className="flex flex-col w-full cursor-pointer">
+        <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
+          <div className="flex flex-col px-2 w-full cursor-pointer">
             {currentUser ? (
               <>
                 <MenuItem onClick={() => router.push("/trips")} label="My Trips" />

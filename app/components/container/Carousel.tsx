@@ -16,11 +16,11 @@ const Carousel = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             nextSlide();
-        }, 600000); // 4 seconds interval
+        }, 6000000); // 600000 4 seconds interval
 
         // Clear the interval when the component unmounts
         return () => clearInterval(timer);
-    }, [current]);
+    }, [current, nextSlide]);
 
     // Check if the last image is reached and reset to the first one
     useEffect(() => {
@@ -30,13 +30,15 @@ const Carousel = () => {
     }, [current]);
 
     return (
-        <div>
+       <div>
             <div className="carousel-container">
                 <div className="flex transition ease-out duration-4 carousel-images-main"
                     style={{ transform: `translateX(${current * -100}%)` }}
                 >
                     {images.map((s, index) => (
                         <div className="block w-full h-[85vh] object-over transition-all duration-500 ease-in-out" key={index}>
+                            {/* Add a div for the overlay */}
+                            <div className="overlay absolute inset-0 bg-black bg-opacity-15"></div>
                             <Image
                                 src={s.src}
                                 fill={true}

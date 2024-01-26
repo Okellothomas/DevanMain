@@ -35,8 +35,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
       // className={`fixed w-full z-20 shadow-sm ${
       //   isScrolled ? "bg-white" : "bg-transparent"
       // }`}
-      className={`fixed w-full z-20 shadow-sm ${
-          isScrolled ? "bg-white text-black hover:text-black" : "bg-black bg-opacity-40 text-white"
+      className={`fixed py-1 w-full z-20 shadow-sm ${
+          isScrolled ? "bg-white text-black hover:text-black" : "bg-black bg-opacity-50 text-white"
         }`}
       >
       <div className="nav">

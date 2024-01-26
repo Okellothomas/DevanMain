@@ -43,7 +43,7 @@ const Tours: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div
           ref={menuRef}
           className={`p-4 md:py-1 text-sm hover:underline md:px-2 flex flex-row items-center gap-2 cursor-pointer transition ${
-            isOpen ? "bg-white" : ""
+            isOpen ? "" : ""
           }`}
           onClick={toggleOpen}
         >
@@ -52,23 +52,22 @@ const Tours: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md bg-white overflow-hidden right-0 top-12 text-sm user-menu-width">
-          <div className="flex flex-col w-full cursor-pointer">
+        <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
+          <div className="flex px-6 flex-col w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/trips")} label="My Trips" />
+              <MenuItem onClick={() => router.push("/trips")} label="Upcoming tours" />
               <MenuItem
                 onClick={() => router.push("/favorites")}
-                label="My favorites"
+                label="Trending tours"
               />
               <MenuItem
                 onClick={() => router.push("/reservations")}
-                label="My reservation"
+                label="Popular tours"
               />
               <MenuItem
                 onClick={() => router.push("/properties")}
-                label="My properties"
+                label="Premium tours"
               />
-              <MenuItem onClick={rentModal.onOpen} label="My Airbnb home" />
             </>
           </div>
         </div>

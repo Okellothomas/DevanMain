@@ -61,10 +61,6 @@ const House: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
                 label="Africa"
               />
               <MenuItem
-                onClick={() => router.push("/reservations")}
-                label="Afican"
-              />
-              <MenuItem
                 onClick={() => router.push("/properties")}
                 label="European"
               />

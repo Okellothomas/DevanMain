@@ -28,7 +28,7 @@ const HotelPage = async ({ searchParams }: HotelPageProps) => {
   // Render the Home component with the fetched listings
   return (
     <div>
-    <div className="european-hotel flex flex-col items-center justify-center text-lg font-bold">
+    <div className="european-hotel-main flex flex-col items-center justify-center text-lg font-bold">
         <h1 className="color-h1-white">European <span className="color-span-green">Hotels</span></h1>
         <div className="hotel-search">
           <Search /> 
@@ -38,7 +38,7 @@ const HotelPage = async ({ searchParams }: HotelPageProps) => {
         <Categories />
       </div>  
       <Container>
-      <div className="pt-0 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
+      <div className="pt-0 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
         {/* Map through the listings array and render ListingCard components */}
         {listings.map((listing: any) => {
           return (

@@ -39,7 +39,6 @@ const categoriesData: { [key: string]: { icon: React.ReactNode; countries: { lab
         countries: [
             { label: 'Kenya', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
             { label: 'Uganda', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'Ethiopia', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Egypt', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'South Africa', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
         ],
@@ -49,7 +48,6 @@ const categoriesData: { [key: string]: { icon: React.ReactNode; countries: { lab
         countries: [
             { label: 'United Kingdom', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Spain', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'Germany', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'France', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Italy', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
         ],
@@ -59,7 +57,6 @@ const categoriesData: { [key: string]: { icon: React.ReactNode; countries: { lab
         countries: [
             { label: 'United States', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
             { label: 'Canada', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
-            { label: 'Brazil', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
             { label: 'Mexico', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
             { label: 'Chile', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg' },
         ],
@@ -69,7 +66,6 @@ const categoriesData: { [key: string]: { icon: React.ReactNode; countries: { lab
         countries: [
             { label: 'Singapore', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
             { label: 'China', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
-            { label: 'South Korea', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
             { label: 'India', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
             { label: 'Japan', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
         ],
@@ -79,7 +75,6 @@ const categoriesData: { [key: string]: { icon: React.ReactNode; countries: { lab
         countries: [
             { label: 'Sydney', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706087927/aj6v1h2so1mhqnyuxmzc.jpg' },
             { label: 'Melbourne', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'Canberra', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Hobart', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Adeliade', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706087927/aj6v1h2so1mhqnyuxmzc.jpg' },
         ],
@@ -88,7 +83,6 @@ const categoriesData: { [key: string]: { icon: React.ReactNode; countries: { lab
         icon: <BsGlobeCentralSouthAsia size={25} />,
         countries: [
             { label: 'Saudi Arabia', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
-            { label: 'Qatar', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Egypt', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
             { label: 'UAE', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
             { label: 'Isreal', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },

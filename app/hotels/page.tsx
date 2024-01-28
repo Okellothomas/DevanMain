@@ -1,3 +1,4 @@
+import Link from "next/link";
 import getCurrentUser from "../actions/getCurrentUsers";
 import getListings, { IListingsParams } from "../actions/getListings";
 import Container from "../components/container/Container";
@@ -5,6 +6,7 @@ import EmptyState from "../components/container/EmptyState";
 import ListingCard from "../components/listing/ListingCard";
 import Categories from "../components/navbar/Categories";
 import Search from "../components/navbar/Search";
+import Categoriess from "../mainpage/components/Categoriess";
 
 // Define the interface for the Home component props
 interface HotelPageProps {

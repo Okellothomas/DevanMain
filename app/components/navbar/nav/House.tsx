@@ -55,7 +55,7 @@ const House: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex flex-col px-6 w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/trips")} label="All house Leasing" />
+              <MenuItem onClick={() => router.push("/trips")} label="House Leasing" />
               <MenuItem
                 onClick={() => router.push("/favorites")}
                 label="Africa"

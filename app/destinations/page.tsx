@@ -5,6 +5,9 @@ import EmptyState from "../components/container/EmptyState";
 import ListingCard from "../components/listing/ListingCard";
 import Categories from "../components/navbar/Categories";
 import Search from "../components/navbar/Search";
+import Link from "next/link";
+import BookingCard from "../mainpage/components/BookingCard";
+import Categoriess from "../mainpage/components/Categoriess";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -53,6 +56,33 @@ const DestinationPage = async ({ searchParams }: HotelPageProps) => {
             />
           );
         })}
+        </div>
+        <div className="w-full text-center pt-8">
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/destinations">View prime destinations</Link>
+        </div>
+          </Container>
+    
+     {/* Next part of the page */}
+      <div className="tour-booking flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
+        <h1 className="color-h1-white">How to book with us</h1>
+        <Container>
+          <div className="pt-10 pb-5 main-page-cards">
+            <BookingCard />
+          </div>
+        </Container>
+      </div>
+    
+    {/* The categories page */}
+      <Container>
+        <div className="flex flex-col gap-1 pt-10">
+        <h1 className="main-header-black w-full text-center">SEARCH <span className="main-header-gradient">BY CONTINENT</span></h1>
+        <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
+        </div>
+        <div className="pt-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4">
+        <Categoriess />
+        </div>
+        <div className="w-full text-center pt-8">
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View prime destinations</Link>
         </div>
       </Container>
     </div>

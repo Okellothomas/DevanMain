@@ -56,7 +56,7 @@ const ListingPage = async ({ params }: { params: IParams }) => {
         </div>
         <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
           {/* Map through the tours array and render TourCard components */}
-          {tours.map((tour: any) => (
+          {tours.slice(0,5).map((tour: any) => (
             <TourCard
               currentUser={currentUser}
               key={tour.id}

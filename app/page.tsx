@@ -62,7 +62,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         </div>
         <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
           {/* Map through the listings array and render ListingCard components */}
-        {tours.map((tour: any) => {
+        {tours.slice(0, 4).map((tour: any) => {
           return (
             <TourCard
               currentUser={currentUser} // Pass the current user to each ListingCard
@@ -106,7 +106,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
         </div>
       <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-        {listings.map((listing: any) => {
+        {listings.slice(0, 4).map((listing: any) => {
           return (
             <ListingCard
               currentUser={currentUser} // Pass the current user to each ListingCard
@@ -154,7 +154,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         </div>
       <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
         {/* Map through the listings array and render ListingCard components */}
-        {tours.map((tour: any) => {
+        {tours.slice(5, 9).map((tour: any) => {
           return (
             <TourCard
               currentUser={currentUser} // Pass the current user to each ListingCard
@@ -175,9 +175,9 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <h1 className="main-header-black w-full text-center">PREMIUM <span className="main-header-gradient">TRENDING TOURS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
         </div>
-      <div className="trending-list-main-page pt-3 pl-16 pb-3 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-2">
+      <div className="trending-list-main-page pt-4 pl-16 pb-4 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-6">
         {/* Map through the listings array and render ListingCard components */}
-        {tours.map((tour: any) => {
+        {tours.slice(0, 20).map((tour: any) => {
           return (
             <ListingValue
               data={tour}

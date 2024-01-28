@@ -7,11 +7,10 @@ import Categories from "../components/navbar/Categories";
 import Search from "../components/navbar/Search";
 import Link from "next/link";
 import BookingCard from "../mainpage/components/BookingCard";
-import Categoriess from "../mainpage/components/Categoriess";
-import Banner from "../mainpage/components/Banner";
 import ListingValue from "../components/listing/ListingValue";
 import getTours, { IToursParams } from "../actions/getTours";
 import TourCard from "../components/listing/TourCard";
+import TheCategoriess from "./TheCategoriess";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -45,8 +44,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
       </div>
       <div className="py-4">
         <Categories />
-          </div>
-
+      </div>
       <Container>
         <div className="flex flex-col gap-1 py-9">
         <h1 className="main-header-black w-full text-center">ALL PRIME <span className="main-header-gradient py-1">DESTINATIONS</span></h1>
@@ -54,7 +52,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         </div>
       <div className="pt-0 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
         {/* Map through the listings array and render ListingCard components */}
-        {listings.map((listing: any) => {
+        {listings.slice(0, 5).map((listing: any) => {
           return (
             <ListingCard
               currentUser={currentUser} // Pass the current user to each ListingCard
@@ -65,7 +63,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         })}
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/destinations">View prime destinations</Link>
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alldestinations">View prime destinations</Link>
         </div>
           </Container>
           
@@ -86,10 +84,10 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
         </div>
         <div className="pt-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4">
-            <Categoriess />
+            <TheCategoriess />
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View prime destinations</Link>
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alldestinations">View prime destinations</Link>
         </div>
           </Container>
           
@@ -100,7 +98,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         </div>
         <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
           {/* Map through the listings array and render ListingCard components */}
-        {tours.map((tour: any) => {
+        {tours.slice(0, 4).map((tour: any) => {
           return (
             <TourCard
               currentUser={currentUser} // Pass the current user to each ListingCard
@@ -110,9 +108,9 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           );
         })}
         </div>
-        <div className="w-full text-center pt-8">
+        {/* <div className="w-full text-center pt-8">
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all upcoming tours</Link>
-        </div>
+        </div> */}
       </Container>
 
           
@@ -121,9 +119,9 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         <h1 className="main-header-black w-full text-center">TRENDING <span className="main-header-gradient"> TOURS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
         </div>
-      <div className="trending-list-main-page pt-3 pl-16 pb-3 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-2">
+      <div className="trending-list-main-page pt-3 pl-16 pb-3 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-2">
         {/* Map through the listings array and render ListingCard components */}
-        {tours.map((tour: any) => {
+        {tours.slice(0, 20).map((tour: any) => {
           return (
             <ListingValue
               data={tour}

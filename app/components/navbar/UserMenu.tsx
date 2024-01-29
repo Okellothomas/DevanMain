@@ -76,12 +76,27 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           <div className="flex flex-col px-2 w-full cursor-pointer">
             {currentUser ? (
               <>
-              {currentUser.userType === 'host'?
-                <MenuItem onClick={() => router.push("/trips")} label="Host demo menu" />:
-                currentUser.userType ==='operator'?
-                <MenuItem onClick={() => router.push("/trips")} label="Operator demo menu" /> :
-                currentUser.userType ==='admin'?
-                <MenuItem onClick={() => router.push("/trips")} label="Admin demo menu" /> :
+                {currentUser.userType === 'host' ?
+                  <div>
+                    <MenuItem onClick={() => router.push("/trips")} label="Host demo menu" />
+                    <hr />
+                   <MenuItem onClick={() => signOut()} label="Logout" />
+                  </div>
+                  :
+                  currentUser.userType === 'operator' ?
+                    <div>
+                    <MenuItem onClick={() => router.push("/trips")} label="Operator demo menu" />
+                    <hr />
+                    <MenuItem onClick={() => signOut()} label="Logout" />
+                    </div>
+                    :
+                    currentUser.userType === 'admin' ?
+                      <div>
+                      <MenuItem onClick={() => router.push("/trips")} label="Admin demo menu" />
+                      <hr />
+                      <MenuItem onClick={() => signOut()} label="Logout" />
+                      </div>
+                      :
                 <>
                 <MenuItem onClick={() => router.push("/trips")} label="My Trips" />
                 <MenuItem onClick={() => router.push('/favorites')} label="My favorites" />

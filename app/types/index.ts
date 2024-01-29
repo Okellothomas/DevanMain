@@ -30,7 +30,7 @@ export type safeReservation = Omit<
 // Define a type 'SafeUser' that is a modification of the 'User' type
 export type SafeUser = Omit<
     User, // Original User type
-    "createdAt" | "updatedAt" | "emailVerified" // Omit specified properties
+    "createdAt" | "updatedAt" | "emailVerified" | "userType" // Omit specified properties
 > & {
     createdAt: string; // Replace 'createdAt' property with a string type
     updatedAt: string; // Replace 'updatedAt' property with a string type

@@ -23,7 +23,7 @@ model User {
   createdAt      DateTime  @default(now()) // Date and time when the user was created
   updatedAt      DateTime  @updatedAt // Date and time when the user was last updated
   favoriteIds    String[]  @db.ObjectId // Array of favorite listing IDs
-  userType       String    //Determines the type of user signing up
+  userType       String? //Determines the type of user signing up
 
   // Relationships with other models
   accounts     Account[] // One-to-many relationship with the "Account" model

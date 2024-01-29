@@ -35,4 +35,5 @@ export type SafeUser = Omit<
     createdAt: string; // Replace 'createdAt' property with a string type
     updatedAt: string; // Replace 'updatedAt' property with a string type
     emailVerified: string | null; // Replace 'emailVerified' property with a string or null type
+    userType: string; // Add the 'userType' property with a string type
 };

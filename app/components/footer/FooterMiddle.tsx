@@ -14,8 +14,8 @@ const FooterMiddle = () => {
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Tour Styles</div> 
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Group Styles</div> 
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Travel Agents</div>
-          <div onClick={() => signUpModal.onOpen} className=" hover:underline cursor-pointer">Host Sign Up</div> 
-          <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Operators Sign Up</div> 
+          <div onClick={() => signUpModal.onOpen('host')} className=" hover:underline cursor-pointer">Host Sign Up</div> 
+          <div onClick={() => signUpModal.onOpen('opertator')} className=" hover:underline cursor-pointer">Operators Sign Up</div> 
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Solo Travel</div> 
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Camping</div>
           <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">News</div>

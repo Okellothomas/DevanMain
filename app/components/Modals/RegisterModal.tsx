@@ -24,6 +24,10 @@ const RegisterModal = () => {
     const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
 
+    const userType = registerModal.userType
+
+    
+    
     const {
         register,
         handleSubmit,
@@ -34,14 +38,15 @@ const RegisterModal = () => {
         defaultValues: {
             name: '',
             email: '',
-            password: ''
+            password: '',
+            
         }
     });
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
 
-        axios.post('/api/register', data)
+        axios.post('/api/register', {...data, userType:userType})
             .then(() => {
                 toast.success('Registration successful!');
                 registerModal.onClose();

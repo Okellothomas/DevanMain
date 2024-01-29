@@ -163,6 +163,21 @@
   object-fit: cover;
 }
 
+.european-hotel-main{
+  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    /* Replace 'your-image.jpg' with the path to your image */
+    background-color: rgba(0, 0, 0, 0.42);
+    /* Red color with 60% opacity */
+    background-blend-mode: overlay;
+    /* Blend the background image and color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    height: 35vh;
+    margin-top: -8%!important;
+}
+
 .european-hotel {
   background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
   /* Replace 'your-image.jpg' with the path to your image */
@@ -191,7 +206,7 @@
 .color-span-green{
   color: var(--logocolor, #55E4D6);
     font-family: Kanit;
-    font-size: 40px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 800;
     line-height: normal;
@@ -204,6 +219,16 @@
       font-style: normal;
       font-weight: 800;
       line-height: normal;
+}
+
+.color-h1-white-main {
+  color: #FFF;
+  font-family: Kanit;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  padding-top: 10% !important;
 }
 
 .carousel-images{
@@ -461,4 +486,64 @@ background: rgba(0,0,0,0.5);
 .small-images img {
   width: calc(50% - 5px);
   height: auto;
+}
+
+.all-destinations-main{
+  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    /* Replace 'your-image.jpg' with the path to your image */
+    background-color: rgba(0, 0, 0, 0.42);
+    /* Red color with 60% opacity */
+    background-blend-mode: overlay;
+    /* Blend the background image and color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    height: 60vh;
+    margin-top: -8% !important;
+}
+
+.color-h1-destinations-main {
+  color: #FFF;
+  font-family: Kanit;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  padding-top: 15% !important;
+}
+
+.destination-search{
+  background-color: white !important;
+  margin-top: 8.8%;
+  border-radius: 15px;
+}
+
+.alldestinations-main {
+  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  /* Replace 'your-image.jpg' with the path to your image */
+  background-color: rgba(0, 0, 0, 0.42);
+  /* Red color with 60% opacity */
+  background-blend-mode: overlay;
+  /* Blend the background image and color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  height: 24vh;
+  margin-top: -8% !important;
+}
+
+.alldestinations-white-main {
+  color: #FFF;
+  font-family: Kanit;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  padding-top: 4% !important;
+}
+
+.filter-bg-color{
+  background-color: var(--logocolor, #55E4D6);
 }

@@ -5,6 +5,7 @@ import GoogleProvider from "next-auth/providers/google";
 import prisma from "@/app/libs/prismadb";
 import CredentialsProviders from "next-auth/providers/credentials";
 import bcrypt from 'bcrypt'
+// import bcrypt from 'bcryptjs';
 // import NextAuth from "next-auth/next";
 
 // Configuration options for NextAuth

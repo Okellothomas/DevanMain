@@ -92,7 +92,7 @@ const categoriesData: { [key: string]: { icon: React.ReactNode; countries: { lab
     // Add similar structures for other continents
 };
 
-const Categoriess = () => {
+const TheCategoriess = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [selectedContinent, setSelectedContinent] = useState<string>('Africa');
@@ -158,4 +158,4 @@ const Categoriess = () => {
   );
 };
 
-export default Categoriess;
+export default TheCategoriess;

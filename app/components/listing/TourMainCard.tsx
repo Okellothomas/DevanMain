@@ -86,7 +86,7 @@ const TourMainCard: React.FC<ListingCardProps> = ({
                   </div>
                 </div>
             
-             <div className="w-[10vw]">
+             <div className="w-[20vw]">
               <div className="text-sm">
                  <span>{location?.label},</span> {location?.region}
               </div>

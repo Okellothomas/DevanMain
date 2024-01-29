@@ -72,14 +72,15 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           );
         })}
         </div>
-        <div className="w-full text-center pt-8">
+        {/* <div className="w-full text-center pt-8">
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all upcoming tours</Link>
-        </div>
+        </div> */}
       </Container>
       <div className="tour-inconfort flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
         <h1 className="color-h1-white">Tour in comfort and style</h1>
-        <Container>
-          <div className="pt-10 pb-5 px-6 grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 main-page-cards">
+
+          <Container>
+            <div className="booking-card grid w-full grid-cols-1 px-5 gap-32 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 py-5 my-9">
             <CardDisplay
               icon={FaStar}
               label="Insightful experiences"
@@ -95,9 +96,9 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
               <CardDisplay
               icon={GiClockwork}
               label="20+ years of experience"
-            />
-          </div>
-        </Container>
+                />
+            </div>
+            </Container>
       </div>
 
       <Container>
@@ -116,9 +117,9 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           );
         })}
         </div>
-        <div className="w-full text-center pt-8">
+        {/* <div className="w-full text-center pt-8">
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all intercontental hotels</Link>
-        </div>
+        </div> */}
       </Container>
 
       {/* The categories page */}

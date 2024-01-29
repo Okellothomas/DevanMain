@@ -239,6 +239,8 @@ import TourMainCard from "../components/listing/TourMainCard";
 import Contients from "./components/Continents";
 import Sort from "./components/Sort";
 import TourStyles from "./components/TourStyles";
+import TourOperators from "./components/TourOperators";
+import TourSize from "./components/TourSize";
 
 // Define the interface for component props
 interface IParams {
@@ -276,11 +278,11 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
         </div>
         <Container>
           <div className="flex flex-row justify-between items-center py-11">
-            <div className="flex font-bold flex-row gap-4 items-center">
+            <div className="flex font-bold flex-row gap-40 items-center">
               <div className="filter-bg-color rounded-2xl items-center py-2 pl-2 pr-6 text-start">
                 <p>Filter Results</p>
               </div>
-              <div>{tours.length} Tours</div>
+              <div className="font-semibold text-xl">{tours.length} Tours</div>
             </div>
             <div>
               <Sort products={products} />
@@ -292,6 +294,8 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
             <div className="col-span-1 flex flex-col gap-6">
               <Contients products={products} />
               <TourStyles products={products} />
+              <TourOperators products={products} />
+              <TourSize products={products}/>
             </div>
             <div className="col-span-4">
               <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 gap-8">

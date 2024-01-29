@@ -41,7 +41,7 @@ const TourStyles: React.FC<ProductListProps> = ({ products }) => {
           <hr />
         </div>
         <li className='w-full flex flex-col justify-start gap-4'>
-          <label className='gap-2 flex flex-row items-center'>
+          <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={selectedCategories.includes('adventure')}
@@ -50,7 +50,7 @@ const TourStyles: React.FC<ProductListProps> = ({ products }) => {
             />
             Adventure
             </label>
-            <label className='gap-2 flex flex-row items-center'>
+            <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={selectedCategories.includes('discovery')}
@@ -59,7 +59,7 @@ const TourStyles: React.FC<ProductListProps> = ({ products }) => {
             />
             Discovery Journey
             </label>
-           <label className='gap-2 flex flex-row items-center'>
+           <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={selectedCategories.includes('wildlife')}
@@ -68,7 +68,7 @@ const TourStyles: React.FC<ProductListProps> = ({ products }) => {
             />
             Wildlife
             </label>
-             <label className='gap-2 flex flex-row items-center'>
+             <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={selectedCategories.includes('regional')}
@@ -86,7 +86,7 @@ const TourStyles: React.FC<ProductListProps> = ({ products }) => {
             />
             Local Escape
             </label>
-            <label className='gap-2 flex flex-row items-center'>
+            <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={selectedCategories.includes('hiking')}
@@ -95,7 +95,7 @@ const TourStyles: React.FC<ProductListProps> = ({ products }) => {
             />
             Hiking
             </label>
-           <label className='gap-2 flex flex-row items-center'>
+           <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={selectedCategories.includes('yatch')}
@@ -104,7 +104,7 @@ const TourStyles: React.FC<ProductListProps> = ({ products }) => {
             />
             Yatch
             </label>
-             <label className='gap-2 flex flex-row items-center'>
+             <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={selectedCategories.includes('solo')}
@@ -113,7 +113,7 @@ const TourStyles: React.FC<ProductListProps> = ({ products }) => {
             />
             Solo Tours
                   </label>
-            <label className='gap-2 flex flex-row items-center'>
+            <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={selectedCategories.includes('country')}
@@ -122,7 +122,7 @@ const TourStyles: React.FC<ProductListProps> = ({ products }) => {
             />
             Country Roads
             </label>
-            <label className='gap-2 flex flex-row items-center'>
+            <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={selectedCategories.includes('easy')}
@@ -131,7 +131,7 @@ const TourStyles: React.FC<ProductListProps> = ({ products }) => {
             />
             Easy Pace
             </label>
-           <label className='gap-2 flex flex-row items-center'>
+           <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={selectedCategories.includes('camping')}
@@ -140,7 +140,7 @@ const TourStyles: React.FC<ProductListProps> = ({ products }) => {
             />
             Camping
             </label>
-            <label className='gap-2 flex flex-row items-center'>
+            <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={selectedCategories.includes('game')}

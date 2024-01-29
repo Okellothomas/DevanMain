@@ -86,7 +86,7 @@ const TourMainCard: React.FC<ListingCardProps> = ({
                   </div>
                 </div>
             
-             <div>
+             <div className="w-[10vw]">
               <div className="text-sm">
                  <span>{location?.label},</span> {location?.region}
               </div>
@@ -100,8 +100,7 @@ const TourMainCard: React.FC<ListingCardProps> = ({
                   {!reservation && (
                       <div className="font-light">night</div>
                   )}
-                          </div>
-                          
+                </div>     
                 </div>
             </div>
                 

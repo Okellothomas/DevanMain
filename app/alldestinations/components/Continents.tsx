@@ -52,55 +52,53 @@ const Contients: React.FC<ProductListProps> = ({ products }) => {
         <div className='flex flex-row items-center gap-2'>
             <GiAfrica size={24} />  
             <p>Africa</p>      
-            </div>
-        <hr />
-        <li>
-          <label className='gap-2'>
+        </div>
+        <div className='py-3'>
+          <hr />
+        </div>
+        <li className='w-full flex flex-col justify-start gap-4'>
+          <label className='gap-2 flex flex-row items-center'>
             <input
               type="checkbox"
               checked={sortOption === 'popularity'}
                 onChange={() => handleSortChange('popularity')}
-                className='p-2 gap-2'
+                className='p-2 h-5 w-5'
             />
             Kenya
           </label>
-        </li>
-        <li>
-          <label>
+          <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={sortOption === 'priceLowestFirst'}
               onChange={() => handleSortChange('priceLowestFirst')}
+              className='p-2 h-5 w-5'
             />
             Uganda
           </label>
-        </li>
-        <li>
-          <label>
+          <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={sortOption === 'priceHighestFirst'}
               onChange={() => handleSortChange('priceHighestFirst')}
+              className='p-2 h-5 w-5'
             />
             Tanzania
           </label>
-        </li>
-        <li>
-          <label>
+          <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={sortOption === 'lengthShortestFirst'}
               onChange={() => handleSortChange('lengthShortestFirst')}
+              className='p-2 h-5 w-5'
             />
             DRC
           </label>
-        </li>
-        <li>
-          <label>
+          <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={sortOption === 'lengthLongestFirst'}
               onChange={() => handleSortChange('lengthLongestFirst')}
+              className='p-2 h-5 w-5'
             />
             South Africa
           </label>

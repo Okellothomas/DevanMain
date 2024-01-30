@@ -56,7 +56,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <SearchMain />
       </div>
       <Container>
-        <div className="flex flex-col gap-1 pt-9">
+        <div className="flex flex-col gap-1 pt-12">
         <h1 className="main-header-black w-full text-center">AMAZING <span className="main-header-gradient">UPCOMING TOURS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
         </div>
@@ -102,7 +102,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
       </div>
 
       <Container>
-        <div className="flex flex-col gap-1 pt-5">
+        <div className="flex flex-col gap-1 pt-1">
         <h1 className="main-header-black w-full text-center">INTERCONTINENTAL <span className="main-header-gradient">CLASS HOTELS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
         </div>
@@ -124,7 +124,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
 
       {/* The categories page */}
       <Container>
-        <div className="flex flex-col gap-1 pt-10">
+        <div className="flex flex-col gap-1 pt-16">
         <h1 className="main-header-black w-full text-center">EXPLORE OUR <span className="main-header-gradient">PRIME DESTINATIONS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
         </div>
@@ -149,7 +149,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
 
       {/* second last */}
       <Container>
-        <div className="flex flex-col gap-1 pt-5">
+        <div className="flex flex-col gap-1 pt-1">
         <h1 className="main-header-black w-full text-center">CLASSIC <span className="main-header-gradient">ADVENTURE TOURS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Experience the thrill of a lifetime on our curated selection of active, immersive tours full of adrenaline, culture and natural wonder.</p>
         </div>

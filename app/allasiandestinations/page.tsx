@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import getCurrentUser from "../actions/getCurrentUsers";
 import getTours, { IToursParams } from "../actions/getTours";

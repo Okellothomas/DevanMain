@@ -57,20 +57,29 @@ const Destinations: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
             <>
               <MenuItem onClick={() => router.push("/destinations")} label="Destinations" />
               <MenuItem
-                onClick={() => router.push("/favorites")}
-                label="Africa"
+                onClick={() => router.push("/africandestinations")}
+                label="African"
               />
               <MenuItem
-                onClick={() => router.push("/reservations")}
-                label="Europe"
+                onClick={() => router.push("/europeandestinations")}
+                label="European"
               />
               <MenuItem
-                onClick={() => router.push("/properties")}
+                onClick={() => router.push("/americandestinations")}
                 label="The Americas"
               />
-              <MenuItem onClick={rentModal.onOpen} label="Asia" />
-              <MenuItem onClick={rentModal.onOpen} label="Middle East" />
-              <MenuItem onClick={rentModal.onOpen} label="Australia" />
+              <MenuItem
+                onClick={() => router.push("/asiandestinations")}
+                label="Asian"
+              />
+              <MenuItem
+                onClick={() => router.push("/middleastdestinations")}
+                label="Middle East"
+              />
+              <MenuItem
+                onClick={() => router.push("/australiandestinations")}
+                label="Australian"
+              />
             </>
           </div>
         </div>

@@ -37,7 +37,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
   return (
     <div>
     <div className="all-destinations-main flex flex-col items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-destinations-main">All Prime <span className="color-span-green">Destinations</span></h1>
+        <h1 className="color-h1-destinations-main">Prime European <span className="color-span-green">Destinations</span></h1>
         <div className="destination-search">
           <Search /> 
         </div>
@@ -63,7 +63,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         })}
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alldestinations">View prime destinations</Link>
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alleuropeandestinations">View prime destinations</Link>
         </div>
           </Container>
           
@@ -87,7 +87,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
             <TheCategoriess />
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alldestinations">View prime destinations</Link>
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alleuropeandestinations">View prime destinations</Link>
         </div>
           </Container>
           

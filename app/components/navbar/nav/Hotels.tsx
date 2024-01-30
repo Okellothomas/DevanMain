@@ -57,17 +57,29 @@ const Hotels: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
             <>
               <MenuItem onClick={() => router.push("/hotels")} label="Hotels" />
               <MenuItem
-                onClick={() => router.push("/favorites")}
-                label="Africa"
+                onClick={() => router.push("/africanhotels")}
+                label="African"
               />
               <MenuItem
-                onClick={() => router.push("/properties")}
+                onClick={() => router.push("/europeanhotels")}
                 label="European"
               />
-              <MenuItem onClick={rentModal.onOpen} label="American" />
-              <MenuItem onClick={rentModal.onOpen} label="Asian" />
-              <MenuItem onClick={rentModal.onOpen} label="Middle Eastern" />
-              <MenuItem onClick={rentModal.onOpen} label="Australian" />
+              <MenuItem
+                onClick={() => router.push("/americanhotels")}
+                label="The Americas"
+              />
+              <MenuItem
+                onClick={() => router.push("/asianhotels")}
+                label="Asian"
+              />
+              <MenuItem
+                onClick={() => router.push("/middleasthotels")}
+                label="Middle East"
+              />
+              <MenuItem
+                onClick={() => router.push("/australianhotels")}
+                label="Australian"
+              />
             </>
           </div>
         </div>

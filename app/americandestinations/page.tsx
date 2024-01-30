@@ -112,28 +112,6 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all upcoming tours</Link>
         </div> */}
       </Container>
-
-          
-    {/* <Container>
-        <div className="flex w-full py-6 h-auto flex-col gap-1 pt-11">
-        <h1 className="main-header-black w-full text-center">TRENDING <span className="main-header-gradient"> TOURS</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
-        </div>
-      <div className="trending-list-main-page pt-3 pl-16 pb-3 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-2">
-        {tours.slice(0, 20).map((tour: any) => {
-          return (
-            <ListingValue
-              data={tour}
-              key={tour.id}
-              title={tour.title}
-              />
-          );
-        })}
-        </div>
-        <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all premium trending tours</Link>
-        </div>
-          </Container> */}
     </div>
   );
 };

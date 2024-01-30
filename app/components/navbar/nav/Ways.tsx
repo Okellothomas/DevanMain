@@ -55,20 +55,23 @@ const Ways: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex flex-col px-6 w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/trips")} label="Discovery Journey" />
+              <MenuItem onClick={() => router.push("/discoveryjourney")} label="Discovery Journey" />
               <MenuItem
-                onClick={() => router.push("/favorites")}
+                onClick={() => router.push("/regionaljourney")}
                 label="Regional Journey"
               />
               <MenuItem
-                onClick={() => router.push("/reservations")}
+                onClick={() => router.push("/countryroads")}
                 label="Country Roads"
               />
               <MenuItem
-                onClick={() => router.push("/properties")}
+                onClick={() => router.push("/oceancruise")}
                 label="Ocean cruise"
               />
-              <MenuItem onClick={rentModal.onOpen} label="Prime adventures" />
+              <MenuItem
+                onClick={() => router.push("/primeadventures")}
+                label="Prime adventures"
+              />
             </>
           </div>
         </div>

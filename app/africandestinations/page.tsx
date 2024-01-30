@@ -22,10 +22,9 @@ interface HotelPageProps {
 const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => {
   // Fetch listings and current user asynchronously
   const listings = await getListings(searchParams);
-    const currentUser = await getCurrentUser();
-    const tours = await getTours(tourParams);
-  // const isEmpty = true;
-
+  const currentUser = await getCurrentUser();
+  const tours = await getTours(tourParams);
+  
   // Check if there are no listings, display EmptyState component
   if (listings.length === 0) {
     return (
@@ -84,7 +83,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
         </div>
         <div className="pt-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4">
-            <TheCategoriess />
+         <TheCategoriess />
         </div>
         <div className="w-full text-center pt-8">
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alldestinations">View prime destinations</Link>

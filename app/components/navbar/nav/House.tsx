@@ -55,19 +55,31 @@ const House: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex flex-col px-6 w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/trips")} label="House Leasing" />
+              <MenuItem onClick={() => router.push("/houseleasing")} label="House Leasing" />
               <MenuItem
-                onClick={() => router.push("/favorites")}
-                label="Africa"
+                onClick={() => router.push("/africanhouseleasing")}
+                label="African"
               />
               <MenuItem
-                onClick={() => router.push("/properties")}
+                onClick={() => router.push("/europeanhouseleasing")}
                 label="European"
               />
-              <MenuItem onClick={rentModal.onOpen} label="American" />
-              <MenuItem onClick={rentModal.onOpen} label="Asian" />
-              <MenuItem onClick={rentModal.onOpen} label="Middle Eastern" />
-              <MenuItem onClick={rentModal.onOpen} label="Australian" />
+              <MenuItem
+                onClick={() => router.push("/americanhouseleasing")}
+                label="The Americas"
+              />
+              <MenuItem
+                onClick={() => router.push("/asianhouseleasing")}
+                label="Asian"
+              />
+              <MenuItem
+                onClick={() => router.push("/middleasthouseleasing")}
+                label="The Middle East"
+              />
+              <MenuItem
+                onClick={() => router.push("/australianhouseleasing")}
+                label="Australian"
+              />
             </>
           </div>
         </div>

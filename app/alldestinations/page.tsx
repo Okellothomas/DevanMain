@@ -42,7 +42,7 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
       <div>
         <div className="alldestinations-main flex flex-col items-center justify-center text-lg font-bold">
           <h1 className="alldestinations-white-main">
-            Asian Prime <span className="color-span-green">Tour Destinations</span>
+            All Prime <span className="color-span-green">Tour Destinations</span>
           </h1>
         </div>
         <Container>

@@ -55,17 +55,17 @@ const Tours: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex px-6 flex-col w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/trips")} label="Upcoming tours" />
+              <MenuItem onClick={() => router.push("/upcomingtours")} label="Upcoming tours" />
               <MenuItem
-                onClick={() => router.push("/favorites")}
+                onClick={() => router.push("/trendingtours")}
                 label="Trending tours"
               />
               <MenuItem
-                onClick={() => router.push("/reservations")}
+                onClick={() => router.push("/populartours")}
                 label="Popular tours"
               />
               <MenuItem
-                onClick={() => router.push("/properties")}
+                onClick={() => router.push("/premiumtours")}
                 label="Premium tours"
               />
             </>

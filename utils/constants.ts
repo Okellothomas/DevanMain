@@ -1,7 +1,7 @@
 export const images = [
     {
         id: 1,
-        src: "https://res.cloudinary.com/doamgn1l0/image/upload/v1705575296/dtmyeqsdvvxdv5lfspno.jpg",
+        src: "https://media.istockphoto.com/id/470172598/photo/hanging-out.jpg?s=2048x2048&w=is&k=20&c=hqH-1a2LWVnTDameLchNu2EJfbTCqZUMH_LQ8sN3fkc=",
         title: "THE",
         desc: "GRAND",
         descrption: "TOUR SLAES",

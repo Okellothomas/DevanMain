@@ -63,9 +63,9 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         })}
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alldestinations">View prime destinations</Link>
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allupcomingtours">View prime destinations</Link>
         </div>
-          </Container>
+        </Container>
           
      {/* Next part of the page */}
       <div className="tour-booking flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">

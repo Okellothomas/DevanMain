@@ -1,6 +1,7 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Kanit:wght@300&family=Poppins&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 /* Apply base, components, and utilities styles from Tailwind CSS */
 @tailwind base;
 @tailwind components;
@@ -242,11 +243,7 @@
   overflow: hidden;
 }
 
-.carousel-main-div{
-  margin-top: -11% !important;
-  z-index: 5!important;
-  /* width: 100vw!important; */
-}
+
 .layout-navbar{
   z-index: 40!important;
 }
@@ -276,8 +273,9 @@
 }
 
 .banner-btn h1{
-color: #1E1E24;
-  font-family: "Kumar One";
+  color: rgb(6, 4, 36);
+  /* color: var(--logocolor, #55E4D6); */
+  font-family: "Abril Fatface", serif;
   font-size: 53px;
   font-style: normal;
   font-weight: 800;
@@ -545,4 +543,22 @@ background: rgba(0,0,0,0.5);
 
 .filter-bg-color{
   background-color: var(--logocolor, #55E4D6);
+}
+
+.carousel-container{
+  margin-top: -8%!important;
+}
+
+.carousel-main-div {
+  margin-top: -30% !important;
+  z-index: 5 !important;
+  /* width: 100vw!important; */
+}
+
+.carousel-main-div-carousel{
+  height: -8!important;
+}
+
+.overlay-pro{
+  height: 80vh!important;
 }

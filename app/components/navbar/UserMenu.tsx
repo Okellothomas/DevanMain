@@ -109,7 +109,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     :
                     currentUser.userType === 'admin' ?
                       <div>
-                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/trips")} label="My Profile" /></div>
+                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/admin/profile")} label="My Profile" /></div>
                       {/* <MenuItem onClick={() => router.push("/reservations")} label="My Booked Tours" />
                       <MenuItem onClick={() => router.push('/properties')} label="My Booked Hotels" />
                       <MenuItem onClick={() => router.push('/properties')} label="My Booked House Leases" />

@@ -6,9 +6,8 @@ import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
-import AdminInfo from "./AdminInfo";
 import getAdmins from "@/app/actions/getAdmins";
-import TourCard from "@/app/components/listing/TourCard";
+import ListingCard from "@/app/components/listing/ListingCard";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -58,7 +57,7 @@ const AdministratorsPage = async ({ searchParams, tourParams, userParams }: Hote
           </div>
           <div className="col-span-4">
             <div className="pb-6">
-              <h1 className="text-2xl font-bold">All Booked Tours</h1>
+              <h1 className="text-2xl font-bold">All Booked Houses</h1>
             </div>
             <div className="items-center pb-1">
                {/* {users.length === 0 ? (
@@ -75,14 +74,13 @@ const AdministratorsPage = async ({ searchParams, tourParams, userParams }: Hote
                     </div>
                   ))
                 )} */}
-               <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-                {/* Map through the listings array and render ListingCard components */}
-              {tours.map((tour: any) => {
+               <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+              {listings.slice(0, 4).map((listing: any) => {
                 return (
-                  <TourCard
+                  <ListingCard
                     currentUser={currentUser} // Pass the current user to each ListingCard
-                    key={tour.id} // Use the listing ID as the unique key
-                    data={tour} // Pass the listing data to each ListingCard
+                    key={listing.id} // Use the listing ID as the unique key
+                    data={listing} // Pass the listing data to each ListingCard
                   />
                 );
               })}

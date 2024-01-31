@@ -6,8 +6,8 @@ import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
-import AdminInfo from "./AdminInfo";
 import getAdmins from "@/app/actions/getAdmins";
+import Image from "next/image";
 import ListingCard from "@/app/components/listing/ListingCard";
 
 // Define the interface for the Home component props
@@ -58,20 +58,25 @@ const AdministratorsPage = async ({ searchParams, tourParams, userParams }: Hote
           </div>
           <div className="col-span-4">
             <div className="pb-6">
-              <h1 className="text-2xl font-bold">All Booked Houses</h1>
+              <h1 className="text-2xl font-bold">All Booked Hotels</h1>
             </div>
             <div className="items-center pb-1">
-               {/* {users.length === 0 ? (
+               {/* {listings.length === 0 ? (
                   <p>No operators are currently available please come back later!</p>
                 ) : (
-                  users.map((user) => (
-                    <div className="flex flex-row py-7 justify-between border-b-2" key={user.id}>
+                  listings.map((listing) => (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5" key={listing.id}>
                       <div>
-                        <p>{user.name}</p>
-                        <p>{user.email}</p>
-                        <p>0702939929</p>
+                        <Image
+                        src={listing.imageSrc[0]}
+                        height={200}
+                        width={200}
+                        alt="sure"
+                        />
+                        <p>{listing.title}</p>
+                        <p>{listing.category}</p>
+                        <p>{listing.userId }</p>
                       </div>
-                      <button>Delete</button> 
                     </div>
                   ))
                 )} */}

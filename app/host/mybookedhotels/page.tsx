@@ -6,7 +6,6 @@ import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
-import AdminInfo from "./AdminInfo";
 import getAdmins from "@/app/actions/getAdmins";
 import ListingCard from "@/app/components/listing/ListingCard";
 
@@ -75,7 +74,7 @@ const AdministratorsPage = async ({ searchParams, tourParams, userParams }: Hote
                     </div>
                   ))
                 )} */}
-               <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+               <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                 {listings.map((listing: any) => {
                   return (
                     <ListingCard

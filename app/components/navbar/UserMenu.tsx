@@ -83,17 +83,14 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               <>
                 {currentUser.userType === 'host' ?
                   <div>
-                    <MenuItem onClick={() => router.push("/trips")} label="Host demo menu" />
-                    <hr />
-                    <MenuItem onClick={() => signOut()} label="Logout" />
-                    <MenuItem onClick={() => router.push("/trips")} label="My Trips" />
-                    <MenuItem onClick={() => router.push('/favorites')} label="My favorites" />
-                    <MenuItem onClick={() => router.push("/reservations")} label="My reservation" />
-                    <MenuItem onClick={() => router.push('/properties')} label="My properties" />
-                    <MenuItem onClick={rentModal.onOpen} label="Add Hotel or House Listing" />
-                    <MenuItem onClick={tourModal.onOpen} label="Add Tour" />
-                    <hr />
-                    <MenuItem onClick={() => signOut()} label="Logout" />
+                   <div>
+                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/host/profile")} label="My profile" /></div>
+                      <div className="flex flex-row items-center"><IoIosHeartEmpty size={23} /> <MenuItem onClick={() => router.push("/favorites")} label="My favorites" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add hotel" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add house lease" /></div>
+                      <hr />
+                      <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={() => signOut()} label="Logout" /></div>
+                      </div>
                   </div>
                   :
                   currentUser.userType === 'operator' ?
@@ -130,9 +127,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             }
               </>
             ) : (
-              <>
-                <MenuItem onClick={LoginModal.onOpen} label="Login" />
-                <MenuItem onClick={()=>registerModal.onOpen('client')} label="Sign up" />
+                <>
+                <div className="flex flex-row items-center"><CiLogin size={23} /><MenuItem onClick={LoginModal.onOpen} label="Login" /></div>
+                <div className="flex flex-row items-center"><CiUser size={23 } /><MenuItem onClick={()=>registerModal.onOpen('client')} label="Sign up" /></div>
               </>
             )}
           </div>

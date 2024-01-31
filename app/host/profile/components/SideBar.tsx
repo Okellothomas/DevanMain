@@ -25,58 +25,33 @@ const ProfilePage = async () => {
           </div>
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <FaRegUser className="text-neutral-500" size={26} /> 
-          <Link href="/admin/profile">Personal Info</Link>
+          <Link href="/host/profile">Personal Info</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <FaSwatchbook className="text-neutral-500" size= {26} /> 
-          <Link href="/admin/allbookedtours">All Booked Tours</Link>
+          <Link href="/host/myhotels">My Hotels</Link>
           </div>
           <hr />
            <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <LiaSwatchbookSolid className="text-neutral-500" size={26} /> 
-          <Link href="/admin/mybookedtours">My Booked Tours</Link>
+          <Link href="/host/myhouses">My Houses</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <IoBookmarks className="text-neutral-500" size={26} /> 
-          <Link href="/admin/mybookedhotels">My Booked Hotels</Link>
+          <Link href="/host/mybookedhotels">My Booked Hotels</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <PiBookOpenTextFill className="text-neutral-500" size={26} /> 
-          <Link href="/admin/allbookedhotels">All Booked Hotels</Link>
+          <Link href="/host/mybookedhouses">My Booked Houses</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <PiBookOpenTextBold className="text-neutral-500" size={26} /> 
-          <Link href="/admin/allbookedhouses">All Booked Houses</Link>
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <PiBookmarksSimpleBold className="text-neutral-500" size={26} /> 
-          <Link href="/admin/mybookedhouses">My Booked Houses</Link>
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <LiaAddressBookSolid className="text-neutral-500" size={26} /> 
-          <Link href="/admin/hosts">Hotel Hosts</Link>
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <PiAddressBookFill className="text-neutral-500" size={26} />  
-            <Link href="/admin/operators">Tour Operators</Link> 
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <ImAddressBook className="text-neutral-500" size={26} /> 
-            <Link href="/admin/clients">Clients</Link> 
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <FaRegAddressBook className="text-neutral-500" size={26} /> 
-            <Link href="/admin/administrators">Administrators</Link>
-          </div>
+          <Link href="/host/mytours">My Tours</Link>
+         </div>
     </div>
   )
 }

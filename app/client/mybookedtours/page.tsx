@@ -74,7 +74,7 @@ const AdministratorsPage = async ({ searchParams, tourParams, userParams }: Hote
                     </div>
                   ))
                 )} */}
-              <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+              <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                 {/* Map through the listings array and render ListingCard components */}
               {tours.slice(0, 4).map((tour: any) => {
                 return (

@@ -14,6 +14,7 @@ import { CiUser } from "react-icons/ci";
 import { MdOutlineAdminPanelSettings, MdOutlineHotel, MdOutlineHouseboat } from "react-icons/md";
 import { GiKangaroo } from "react-icons/gi";
 import { CiLogin } from "react-icons/ci";
+import { IoIosHeartEmpty } from "react-icons/io";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -109,18 +110,19 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     :
                     currentUser.userType === 'admin' ?
                       <div>
-                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/admin/profile")} label="My Profile" /></div>
-                      <div className="flex flex-row items-center"><MdOutlineAdminPanelSettings size={23} /><MenuItem onClick={rentModal.onOpen} label="Add Administrators" /></div>
-                      <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add Hotel" /></div>
-                      <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add House Lease" /></div>
-                      <div className="flex flex-row items-center"><GiKangaroo size={23 } /><MenuItem onClick={tourModal.onOpen} label="Add Tour" /></div>
+                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/admin/profile")} label="My profile" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineAdminPanelSettings size={23} /><MenuItem onClick={rentModal.onOpen} label="Add administrator" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add hotel" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add house lease" /></div>
+                      <div className="flex flex-row items-center"><GiKangaroo size={23 } /><MenuItem onClick={tourModal.onOpen} label="Add tour" /></div>
                       <hr />
                       <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={() => signOut()} label="Logout" /></div>
                       </div>
                       :
                       <>
                       <div>
-                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/client/profile")} label="My Profile" /></div>
+                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/client/profile")} label="My profile" /></div>
+                      <div className="flex flex-row items-center"><IoIosHeartEmpty size={23} /> <MenuItem onClick={() => router.push("/favorites")} label="My favorites" /></div>
                       <hr />
                       <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={() => signOut()} label="Logout" /></div>
                       </div>

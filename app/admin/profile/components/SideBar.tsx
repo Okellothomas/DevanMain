@@ -20,59 +20,60 @@ const ProfilePage = async () => {
   return (
       <div className="border-[2px] rounded-xl px-5">
           <div className="w-full text-center items-center py-5">
-              <FaCircleUser size={ 40 } /> 
+              <FaCircleUser className="text-neutral-500" size={ 40 } /> 
           </div>
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <FaRegUser size={26} /> 
+            <FaRegUser className="text-neutral-500" size={26} /> 
              <p>Personal Information</p> 
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <FaSwatchbook size= {26} /> 
-             <p>All Booked Tours</p> 
+            <FaSwatchbook className="text-neutral-500" size= {26} /> 
+            <p>All Booked Tours</p> 
           </div>
           <hr />
            <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <LiaSwatchbookSolid size={26} /> 
+            <LiaSwatchbookSolid className="text-neutral-500" size={26} /> 
              <p>My Booked Tours</p> 
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <IoBookmarks size={26} /> 
+            <IoBookmarks className="text-neutral-500" size={26} /> 
              <p>All Booked Hotels</p> 
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <PiBookOpenTextFill size={26} /> 
+            <PiBookOpenTextFill className="text-neutral-500" size={26} /> 
              <p>My Booked Hotels</p> 
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <PiBookOpenTextBold size={26} /> 
+            <PiBookOpenTextBold className="text-neutral-500" size={26} /> 
              <p>All Booked Houses</p> 
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <PiBookmarksSimpleBold size={26} /> 
+            <PiBookmarksSimpleBold className="text-neutral-500" size={26} /> 
              <p>My Booked Houses</p> 
           </div>
+          <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <LiaAddressBookSolid size={26} /> 
+            <LiaAddressBookSolid className="text-neutral-500" size={26} /> 
              <p>Hotel Hosts</p> 
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <PiAddressBookFill size={26} /> 
+            <PiAddressBookFill className="text-neutral-500" size={26} /> 
              <p>Tour Operators</p> 
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <ImAddressBook size={26} /> 
+            <ImAddressBook className="text-neutral-500" size={26} /> 
              <p>Clients</p> 
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-            <FaRegAddressBook size={26} /> 
+            <FaRegAddressBook className="text-neutral-500" size={26} /> 
              <p>Administrators</p> 
           </div>
     </div>

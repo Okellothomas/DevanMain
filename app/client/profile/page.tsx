@@ -5,7 +5,6 @@ import Container from "@/app/components/container/Container";
 import ListingCard from "@/app/components/listing/ListingCard";
 import Link from "next/link";
 import SideBar from "./components/SideBar";
-import AdminInfo from "./components/AdminInfo";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -51,7 +50,7 @@ const ProfilePage = async ({ searchParams, tourParams }: HotelPageProps) => {
               <p>Admin Contact</p>
               <p>Add Contact</p>            
             </div>
-                      <hr />
+            <hr />
             <div className="flex flex-row justify-between items-center py-8">
               <p>Admin operator name</p>
               <p>Add Operator name</p>            

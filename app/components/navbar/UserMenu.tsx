@@ -110,12 +110,6 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     currentUser.userType === 'admin' ?
                       <div>
                       <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/admin/profile")} label="My Profile" /></div>
-                      {/* <MenuItem onClick={() => router.push("/reservations")} label="My Booked Tours" />
-                      <MenuItem onClick={() => router.push('/properties')} label="My Booked Hotels" />
-                      <MenuItem onClick={() => router.push('/properties')} label="My Booked House Leases" />
-                      <MenuItem onClick={() => router.push("/reservations")} label="My Tours" />
-                      <MenuItem onClick={() => router.push('/properties')} label="My Hotels" />
-                      <MenuItem onClick={() => router.push('/properties')} label="My House Leases" /> */}
                       <div className="flex flex-row items-center"><MdOutlineAdminPanelSettings size={23} /><MenuItem onClick={rentModal.onOpen} label="Add Administrators" /></div>
                       <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add Hotel" /></div>
                       <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add House Lease" /></div>

@@ -20,33 +20,39 @@ const ProfilePage = async () => {
           </div>
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <FaRegUser className="text-neutral-500" size={26} /> 
-          <Link href="/host/profile">Personal Info</Link>
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <FaSwatchbook className="text-neutral-500" size= {26} /> 
-          <Link href="/host/myhotels">My Hotels</Link>
-          </div>
-          <hr />
-           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <LiaSwatchbookSolid className="text-neutral-500" size={26} /> 
-          <Link href="/host/myhouses">My Houses</Link>
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <IoBookmarks className="text-neutral-500" size={26} /> 
-          <Link href="/host/mybookedhotels">My Booked Hotels</Link>
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <PiBookOpenTextFill className="text-neutral-500" size={26} /> 
-          <Link href="/host/mybookedhouses">My Booked Houses</Link>
+          <Link href="/operator/profile">Personal Info</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <PiBookOpenTextBold className="text-neutral-500" size={26} /> 
-          <Link href="/host/mytours">My Tours</Link>
-         </div>
+          <Link href="/operator/mytours">My Tours</Link>
+          </div>
+          <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
+          <FaSwatchbook className="text-neutral-500" size= {26} /> 
+          <Link href="/operator/myhotels">My Hotels</Link>
+          </div>
+          <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
+          <FaSwatchbook className="text-neutral-500" size= {26} /> 
+          <Link href="/operator/myhouses">My Houses</Link>
+          </div>
+          <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
+          <IoBookmarks className="text-neutral-500" size={26} /> 
+          <Link href="/operator/mybookedtours">My Booked Tours</Link>
+          </div>
+          <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
+          <IoBookmarks className="text-neutral-500" size={26} /> 
+          <Link href="/operator/mybookedhotels">My Booked Hotels</Link>
+          </div>
+          <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
+          <PiBookOpenTextFill className="text-neutral-500" size={26} /> 
+          <Link href="/operator/mybookedhouses">My Booked Houses</Link>
+          </div>
+          
     </div>
   )
 }

@@ -6,7 +6,9 @@ import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
-import getHosts from "@/app/actions/getHost";
+import getAdmins from "@/app/actions/getAdmins";
+import Image from "next/image";
+import ListingCard from "@/app/components/listing/ListingCard";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -16,13 +18,12 @@ interface HotelPageProps {
 }
 
 // Home component is defined as an asynchronous function
-const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps) => {
+const AdministratorsPage = async ({ searchParams, tourParams, userParams }: HotelPageProps) => {
   // Fetch listings, current user, and users asynchronously
   const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
   const tours = await getTours(tourParams);
-  const users = await getHosts({ ...userParams, userType: "host" });
-
+  const users = await getAdmins({ ...userParams, userType: "admin" });
   // Delete user function
   const handleDeleteUser = async (id: string) => {
     try {
@@ -30,7 +31,7 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
       await deleteUsers({ id });
 
       // After deletion, fetch the updated user list
-      const updatedUsers = await getUsers({ ...userParams, userType: "host" });
+      const updatedUsers = await getUsers({ ...userParams, userType: "admin" });
 
       // Update the state or re-render the component with the updated user list
       // (This depends on how you manage state in your application)
@@ -57,23 +58,39 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
           </div>
           <div className="col-span-4">
             <div className="pb-6">
-              <h1 className="text-2xl font-bold">All Hosts</h1>
+              <h1 className="text-2xl font-bold">My Hotels</h1>
             </div>
             <div className="items-center pb-1">
-               {users.length === 0 ? (
+               {/* {listings.length === 0 ? (
                   <p>No operators are currently available please come back later!</p>
                 ) : (
-                  users.map((user) => (
-                    <div className="flex flex-row py-7 justify-between border-b-2" key={user.id}>
+                  listings.map((listing) => (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5" key={listing.id}>
                       <div>
-                        <p>{user.name}</p>
-                        <p>{user.email}</p>
-                        <p>0702939929</p>
+                        <Image
+                        src={listing.imageSrc[0]}
+                        height={200}
+                        width={200}
+                        alt="sure"
+                        />
+                        <p>{listing.title}</p>
+                        <p>{listing.category}</p>
+                        <p>{listing.userId }</p>
                       </div>
-                      <button>Delete</button> {/* onClick={() => handleDeleteUser(user.id)} */}
                     </div>
                   ))
-                )}
+                )} */}
+               <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+              {listings.slice(0, 4).map((listing: any) => {
+                return (
+                  <ListingCard
+                    currentUser={currentUser} // Pass the current user to each ListingCard
+                    key={listing.id} // Use the listing ID as the unique key
+                    data={listing} // Pass the listing data to each ListingCard
+                  />
+                );
+              })}
+              </div>
             </div>
             {/* <AdminInfo userParams={userParams} /> */}
           </div>
@@ -83,4 +100,4 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
   );
 };
 
-export default HostPage;
+export default AdministratorsPage;

@@ -6,9 +6,8 @@ import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
-import AdminInfo from "./AdminInfo";
 import getAdmins from "@/app/actions/getAdmins";
-import ListingCard from "@/app/components/listing/ListingCard";
+import TourCard from "@/app/components/listing/TourCard";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -58,7 +57,7 @@ const AdministratorsPage = async ({ searchParams, tourParams, userParams }: Hote
           </div>
           <div className="col-span-4">
             <div className="pb-6">
-              <h1 className="text-2xl font-bold">My Booked Hotels</h1>
+              <h1 className="text-2xl font-bold">My Booked Tours</h1>
             </div>
             <div className="items-center pb-1">
                {/* {users.length === 0 ? (
@@ -71,22 +70,24 @@ const AdministratorsPage = async ({ searchParams, tourParams, userParams }: Hote
                         <p>{user.email}</p>
                         <p>0702939929</p>
                       </div>
-                      <button>Delete</button> 
+                      <button>Delete</button>
                     </div>
                   ))
                 )} */}
-               <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-                {listings.map((listing: any) => {
-                  return (
-                    <ListingCard
-                      currentUser={currentUser} // Pass the current user to each ListingCard
-                      key={listing.id} // Use the listing ID as the unique key
-                      data={listing} // Pass the listing data to each ListingCard
-                    />
-                  );
-                })}
-                </div>
+              <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+                {/* Map through the listings array and render ListingCard components */}
+              {tours.slice(0, 4).map((tour: any) => {
+                return (
+                  <TourCard
+                    currentUser={currentUser} // Pass the current user to each ListingCard
+                    key={tour.id} // Use the listing ID as the unique key
+                    data={tour} // Pass the listing data to each ListingCard
+                  />
+                );
+              })}
+              </div>
             </div>
+            {/* <AdminInfo userParams={userParams} /> */}
           </div>
         </div>
       </Container>

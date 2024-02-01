@@ -94,16 +94,17 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   </div>
                   :
                   currentUser.userType === 'operator' ?
-                    <div>
-                    <MenuItem onClick={() => router.push("/trips")} label="My Trips" />
-                    <MenuItem onClick={() => router.push('/favorites')} label="My favorites" />
-                    <MenuItem onClick={() => router.push("/reservations")} label="My reservation" />
-                    <MenuItem onClick={() => router.push('/properties')} label="My properties" />
-                    <MenuItem onClick={rentModal.onOpen} label="Add Hotel or House Listing" />
-                    <MenuItem onClick={tourModal.onOpen} label="Add Tour" />
-                    <hr />
-                    <MenuItem onClick={() => signOut()} label="Logout" />
-                    </div>
+                     <div>
+                   <div>
+                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/operator/profile")} label="My profile" /></div>
+                      <div className="flex flex-row items-center"><IoIosHeartEmpty size={23} /> <MenuItem onClick={() => router.push("/favorites")} label="My favorites" /></div>
+                      <div className="flex flex-row items-center"><GiKangaroo size={23 } /><MenuItem onClick={tourModal.onOpen} label="Add tour" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add hotel" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add house lease" /></div>
+                      <hr />
+                      <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={() => signOut()} label="Logout" /></div>
+                      </div>
+                  </div>
                     :
                     currentUser.userType === 'admin' ?
                       <div>

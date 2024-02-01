@@ -1,0 +1,58 @@
+.payment_modal_container 
+{
+  z-index: 20;
+  width: 100%;
+  height:100vh;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top:0;
+  right:0;
+  margin:auto;
+}
+.payment_modal_main_body 
+{
+  background: white;
+  margin: auto;
+  width: 40%;
+  height: 40%;
+  padding: 10px 20px;
+  position: relative;
+}
+.payment_modal_top 
+{
+    
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin: 6px 0px;
+    width: 100%;
+}
+
+.payment_modal_top .payment_option:hover 
+{
+  cursor: pointer;
+  background-color: rgb(195, 195, 233);
+}
+.payment_modal_top .payment_option 
+{
+  flex-grow: 1;
+  padding: 5px 5px;
+}
+.payment_modal_top .payment_option.active {
+  font-weight: bold;
+  border-bottom:2px solid #05254a; /* Change border color for the active option */
+}
+.payment_modal_close_icon
+{
+  position:absolute;
+  top: 0;
+  right: 0;
+}
+
+.payment_modal_close_icon:hover 
+{
+   cursor: pointer;
+}

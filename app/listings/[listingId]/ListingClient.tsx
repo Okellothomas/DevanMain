@@ -1,12 +1,15 @@
 'use client'
 
+import PaymentModal from "@/app/components/Modals/PaymentModal";
 import Container from "@/app/components/container/Container";
 import ListingHead from "@/app/components/listing/ListingHead";
 import ListingInfo from "@/app/components/listing/ListingInfo";
 import ListingReservation from "@/app/components/listing/ListingReservation";
 import { categories } from "@/app/components/navbar/Categories";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import usePaymentModal from "@/app/hooks/usePaymentModal";
 import { SafeUser, safeListing, safeReservation } from "@/app/types";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import axios from "axios";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";
@@ -36,6 +39,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
 }) => {
 
     const loginModal = useLoginModal();
+    const paymentModal = usePaymentModal();
     const router = useRouter();
 
     const disabledDates = useMemo(() => {
@@ -54,6 +58,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
     }, [reservations])
 
     const [isLoading, setIsLoading] = useState(false);
+    const [showPay, setShowPay] = useState(false)
     const [totalPrice, setTotalPrice] = useState(listing.price);
     const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
@@ -62,31 +67,40 @@ const ListingClient: React.FC<ListingClientProps> = ({
             return loginModal.onOpen()
         }
 
-        setIsLoading(true);
+       console.log("Reserve loading...", paymentModal.isOpen)
+        try {
+            
+            setShowPay(true)
+        } catch (error) {
+            console.log(error)
+        }
+       // setIsLoading(true);
 
-        axios.post(`/api/reservations`, {
-            totalPrice,
-            startDate: dateRange.startDate,
-            endDate: dateRange.endDate,
-            listingId: listing?.id
-        })
-            .then(() => {
-                toast.success('Listing reserved!');
-                setDateRange(initialDateRange);
-                // redirect to /trips
-                router.push('/trips');
-            }).catch(() => {
-                toast.error('Something went wrong')
-            }).finally(() => {
-                setIsLoading(false);
-            })
+        // axios.post(`/api/reservations`, {
+        //     totalPrice,
+        //     startDate: dateRange.startDate,
+        //     endDate: dateRange.endDate,
+        //     listingId: listing?.id
+        // })
+        //     .then(() => {
+        //         toast.success('Listing reserved!');
+        //         setDateRange(initialDateRange);
+        //         // redirect to /trips
+        //         router.push('/trips');
+        //     }).catch(() => {
+        //         toast.error('Something went wrong')
+        //     }).finally(() => {
+        //         setIsLoading(false);
+        //     })
     }, [
         totalPrice,
         dateRange,
         listing?.id,
         router,
         currentUser,
-        loginModal
+        loginModal,
+        paymentModal
+
     ]);
 
     // Calucating the price. 
@@ -111,7 +125,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
     }, [listing.category])
   return (
     <Container>
-          <div className="max-w-sreen-lg mx-auto">
+          <div className="max-w-sreen-lg mx-auto ">
               <div className="flex flex-col gap-6">
                   <ListingHead
                       title={listing.title}
@@ -142,7 +156,10 @@ const ListingClient: React.FC<ListingClientProps> = ({
                           />
                       </div>
                   </div>
-              </div>
+              </div> 
+              {showPay && <PayPalScriptProvider options={{ clientId: "AcbLNojs3zi8fz5CSO9t0XunN67EBkPBGkvClnuWXElfFB3dALy0lgjEj2zwVSLtcuKF9jwHvFrly2gD" }}>
+                  <PaymentModal setShowPayModal={setShowPay}/>
+                </PayPalScriptProvider>}
           </div>  
     </Container>
   )

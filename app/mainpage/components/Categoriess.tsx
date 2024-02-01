@@ -47,10 +47,10 @@ const categoriesData: { [key: string]: { icon: React.ReactNode; countries: { lab
     Europe: {
         icon: <FaGlobeEurope size={25} />,
         countries: [
-            { label: 'United Kingdom', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'Spain', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'France', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'Italy', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
+            { label: 'United Kingdom', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706773529/jdljafu5ypmfpjoyo8fw.jpg' },
+            { label: 'Spain', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706773533/xrhli2kvf8zdgovolutw.jpg' },
+            { label: 'France', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706773531/w5dxirkp7pfa3xhljuhr.jpg' },
+            { label: 'Italy', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706779407/jgjvhmtfjnsuw95nmquk.jpg' },
         ],
     },
     Americas: {

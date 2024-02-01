@@ -37,11 +37,11 @@ const UpdatedCategoryBox: React.FC<CategoryBoxProps> = ({ label, image, onClick 
 const categoriesData: { [key: string]: { icon: React.ReactNode; countries: { label: string; image: string }[] }; } = {
     Africa: {
         icon: <GiAfrica size={25} />,
-        countries: [
-            { label: 'Kenya', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg' },
-            { label: 'Uganda', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'Egypt', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
-            { label: 'South Africa', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg' },
+    countries: [
+            { label: 'Uganda', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706656723/mmsi6lgaumup7a6tcouf.jpg' },
+            { label: 'Tanzania', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706655863/ohwvocfyquoo4fgjwf9g.jpg' },
+            { label: 'Kenya', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706654682/vjdst2i5en7fsf6ooswn.jpg' },
+            { label: 'South Africa', image: 'https://res.cloudinary.com/doamgn1l0/image/upload/v1706656153/dstqm5cnqfjwdqa70r2w.jpg' },
         ],
     },
     Europe: {

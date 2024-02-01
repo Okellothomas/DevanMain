@@ -17,19 +17,19 @@ const SearchMain = () => {
         <div className="bg-white rounded-2xl z-20 pb-6">
           <div className="justify-between grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-5 gap-12 py-8 px-9 shadow-sm">
               <div className="main-item-border">
-                  <MainItem onClick={() => router.push('/favorites')} icon={BiSolidCar} label="Multi-Days Tour" />
+                  <MainItem onClick={() => router.push('/discoveryjourney')} icon={BiSolidCar} label="Discovery Tour" />
               </div>
                <div className="main-item-border">
-                  <MainItem onClick={() => router.push('/favorites')} icon={IoMdBoat} label="Ocean Cruises" />
+                  <MainItem onClick={() => router.push('/oceancruise')} icon={IoMdBoat} label="Ocean Cruises" />
               </div>
                <div className="main-item-border">
-                  <MainItem onClick={() => router.push('/favorites')} icon={FaPersonSkiingNordic} label="Adventures" />
+                  <MainItem onClick={() => router.push('/primeadventures')} icon={FaPersonSkiingNordic} label="Adventures" />
               </div>
                <div className="main-item-border">
-                  <MainItem onClick={() => router.push('/favorites')} icon={GiSpeedBoat} label="Tours+Cruises" />
+                  <MainItem onClick={() => router.push('/countryroads')} icon={GiSpeedBoat} label="Country Roads" />
               </div>
               <div className="main-item-border">
-                  <MainItem onClick={() => router.push('/favorites')} icon={TfiMoreAlt} label="More" />
+                  <MainItem onClick={() => router.push('/destinations')} icon={TfiMoreAlt} label="More" />
               </div>
               </div>
             <div className="main-item-border-r flex flex-row items-center justify-between mb-8">

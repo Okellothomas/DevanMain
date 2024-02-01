@@ -10,6 +10,11 @@ import { SafeUser } from "@/app/types";
 import useTourModal from "@/app/hooks/useTourModel";
 import useRentModal from "@/app/hooks/useRentModals";
 import { useRouter } from "next/navigation";
+import { CiUser } from "react-icons/ci";
+import { MdOutlineAdminPanelSettings, MdOutlineHotel, MdOutlineHouseboat } from "react-icons/md";
+import { GiKangaroo } from "react-icons/gi";
+import { CiLogin } from "react-icons/ci";
+import { IoIosHeartEmpty } from "react-icons/io";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -78,41 +83,54 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               <>
                 {currentUser.userType === 'host' ?
                   <div>
-                    <MenuItem onClick={() => router.push("/trips")} label="Host demo menu" />
-                    <hr />
-                   <MenuItem onClick={() => signOut()} label="Logout" />
+                   <div>
+                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/host/profile")} label="My profile" /></div>
+                      <div className="flex flex-row items-center"><IoIosHeartEmpty size={23} /> <MenuItem onClick={() => router.push("/favorites")} label="My favorites" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add hotel" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add house lease" /></div>
+                      <hr />
+                      <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={() => signOut()} label="Logout" /></div>
+                      </div>
                   </div>
                   :
                   currentUser.userType === 'operator' ?
-                    <div>
-                    <MenuItem onClick={() => router.push("/trips")} label="Operator demo menu" />
-                    <hr />
-                    <MenuItem onClick={() => signOut()} label="Logout" />
-                    </div>
+                     <div>
+                   <div>
+                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/operator/profile")} label="My profile" /></div>
+                      <div className="flex flex-row items-center"><IoIosHeartEmpty size={23} /> <MenuItem onClick={() => router.push("/favorites")} label="My favorites" /></div>
+                      <div className="flex flex-row items-center"><GiKangaroo size={23 } /><MenuItem onClick={tourModal.onOpen} label="Add tour" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add hotel" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add house lease" /></div>
+                      <hr />
+                      <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={() => signOut()} label="Logout" /></div>
+                      </div>
+                  </div>
                     :
                     currentUser.userType === 'admin' ?
                       <div>
-                      <MenuItem onClick={() => router.push("/trips")} label="Admin demo menu" />
+                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/admin/profile")} label="My profile" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineAdminPanelSettings size={23} /><MenuItem onClick={rentModal.onOpen} label="Add administrator" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add hotel" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add house lease" /></div>
+                      <div className="flex flex-row items-center"><GiKangaroo size={23 } /><MenuItem onClick={tourModal.onOpen} label="Add tour" /></div>
                       <hr />
-                      <MenuItem onClick={() => signOut()} label="Logout" />
+                      <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={() => signOut()} label="Logout" /></div>
                       </div>
                       :
-                <>
-                <MenuItem onClick={() => router.push("/trips")} label="My Trips" />
-                <MenuItem onClick={() => router.push('/favorites')} label="My favorites" />
-                <MenuItem onClick={() => router.push("/reservations")} label="My reservation" />
-                <MenuItem onClick={() => router.push('/properties')} label="My properties" />
-                <MenuItem onClick={rentModal.onOpen} label="Add Hotel or House Listing" />
-                <MenuItem onClick={tourModal.onOpen} label="Add Tour" />
-                <hr />
-                <MenuItem onClick={() => signOut()} label="Logout" />
-                </>
+                      <>
+                      <div>
+                      <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/client/profile")} label="My profile" /></div>
+                      <div className="flex flex-row items-center"><IoIosHeartEmpty size={23} /> <MenuItem onClick={() => router.push("/favorites")} label="My favorites" /></div>
+                      <hr />
+                      <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={() => signOut()} label="Logout" /></div>
+                      </div>
+                      </>
             }
               </>
             ) : (
-              <>
-                <MenuItem onClick={LoginModal.onOpen} label="Login" />
-                <MenuItem onClick={()=>registerModal.onOpen('client')} label="Sign up" />
+                <>
+                <div className="flex flex-row items-center"><CiLogin size={23} /><MenuItem onClick={LoginModal.onOpen} label="Login" /></div>
+                <div className="flex flex-row items-center"><CiUser size={23 } /><MenuItem onClick={()=>registerModal.onOpen('client')} label="Sign up" /></div>
               </>
             )}
           </div>

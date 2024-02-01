@@ -46,9 +46,9 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
 
   return (
     <div>
-    <div className="w-full carousel-main-div">
+    <div className="w-full carousel-main-div-carousel">
         <Carousel />
-      </div>
+    </div>
       <div className="carousel-main-div banner-btn-r relative flex flex-col justify-center items-center">
         <Banner />
       </div>
@@ -131,7 +131,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <div className="pt-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4">
         <Categoriess />
         </div>
-        <div className="w-full text-center pt-8">
+        <div className="w-full text-center pt-14">
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View our prime destinations</Link>
         </div>
       </Container>

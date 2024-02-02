@@ -37,7 +37,7 @@ const ListingValue: React.FC<ListingHeadProps> = ({
     <>
       {/* {location?.region} */}
       <div
-        className="text-neutral-800 hover:underline hover:cursor-pointer"
+        className="text-neutral-800 hover:underline hover:cursor-pointer truncate max-w-[12rem]"
         onClick={handleClick}
       >
         {title}

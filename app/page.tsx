@@ -21,6 +21,9 @@ import BookingCard from "./mainpage/components/BookingCard";
 import ListingValue from "./components/listing/ListingValue";
 import TourCard from "./components/listing/TourCard";
 import useCountries from "./hooks/useCountries";
+import TourPriceCard from "./components/listing/TourPriceCard";
+import ListingCardMain from "./components/listing/ListingCardMain";
+import TourCardSecondary from "./components/listing/TourCardSecondary";
 
 // Define the interface for the Home component props
 interface HomeProps {
@@ -60,11 +63,11 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <h1 className="main-header-black w-full text-center">AMAZING <span className="main-header-gradient">UPCOMING TOURS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
         </div>
-        <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+        <div className="pt-9 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
           {/* Map through the listings array and render ListingCard components */}
         {tours.slice(0, 4).map((tour: any) => {
           return (
-            <TourCard
+            <TourPriceCard
               currentUser={currentUser} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard
@@ -109,7 +112,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
       <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
         {listings.slice(0, 4).map((listing: any) => {
           return (
-            <ListingCard
+            <ListingCardMain
               currentUser={currentUser} // Pass the current user to each ListingCard
               key={listing.id} // Use the listing ID as the unique key
               data={listing} // Pass the listing data to each ListingCard
@@ -124,7 +127,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
 
       {/* The categories page */}
       <Container>
-        <div className="flex flex-col gap-1 pt-16">
+        <div className="flex flex-col gap-1 pt-14">
         <h1 className="main-header-black w-full text-center">EXPLORE OUR <span className="main-header-gradient">PRIME DESTINATIONS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
         </div>
@@ -157,7 +160,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         {/* Map through the listings array and render ListingCard components */}
         {tours.slice(5, 9).map((tour: any) => {
           return (
-            <TourCard
+            <TourCardSecondary
               currentUser={currentUser} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard

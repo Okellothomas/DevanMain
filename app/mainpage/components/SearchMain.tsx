@@ -17,7 +17,7 @@ const SearchMain = () => {
         <div className="bg-white rounded-2xl z-20 pb-6">
           <div className="justify-between grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-5 gap-12 py-8 px-9 shadow-sm">
               <div className="main-item-border">
-                  <MainItem onClick={() => router.push('/discoveryjourney')} icon={BiSolidCar} label="Discovery Tour" />
+                  <MainItem onClick={() => router.push('/discoveryjourney')} icon={GiSpeedBoat} label="Discoveries" />
               </div>
                <div className="main-item-border">
                   <MainItem onClick={() => router.push('/oceancruise')} icon={IoMdBoat} label="Ocean Cruises" />
@@ -26,7 +26,7 @@ const SearchMain = () => {
                   <MainItem onClick={() => router.push('/primeadventures')} icon={FaPersonSkiingNordic} label="Adventures" />
               </div>
                <div className="main-item-border">
-                  <MainItem onClick={() => router.push('/countryroads')} icon={GiSpeedBoat} label="Country Roads" />
+                  <MainItem onClick={() => router.push('/countryroads')} icon={BiSolidCar} label="Country Roads" />
               </div>
               <div className="main-item-border">
                   <MainItem onClick={() => router.push('/destinations')} icon={TfiMoreAlt} label="More" />

@@ -60,8 +60,22 @@ const ListingClient: React.FC<ListingClientProps> = ({
     const [isLoading, setIsLoading] = useState(false);
     const [showPay, setShowPay] = useState(false)
     const [totalPrice, setTotalPrice] = useState(listing.price);
+    const [dataa, setDataa] = useState('')
+    const [paymentMade, setPaymentMade] = useState(false)
     const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
+
+
+
+    const handlePaymentComplete = (data: any) => {
+        // Handle the data passed from PaymentModal
+        console.log('Payment completed with data:', data);
+        setDataa(data)
+        setPaymentMade(true)
+        // You can also update the state or trigger other actions
+        // ...
+      };
+      
     const onCreateReservation = useCallback(() => {
         if (!currentUser) {
             return loginModal.onOpen()
@@ -74,25 +88,28 @@ const ListingClient: React.FC<ListingClientProps> = ({
         } catch (error) {
             console.log(error)
         }
-       // setIsLoading(true);
+       setIsLoading(true);
 
-        // axios.post(`/api/reservations`, {
-        //     totalPrice,
-        //     startDate: dateRange.startDate,
-        //     endDate: dateRange.endDate,
-        //     listingId: listing?.id
-        // })
-        //     .then(() => {
-        //         toast.success('Listing reserved!');
-        //         setDateRange(initialDateRange);
-        //         // redirect to /trips
-        //         router.push('/trips');
-        //     }).catch(() => {
-        //         toast.error('Something went wrong')
-        //     }).finally(() => {
-        //         setIsLoading(false);
-        //     })
-    }, [
+       if(paymentMade)
+       {
+        console.log("Payment Data",dataa)
+        axios.post(`/api/reservations`, {
+            totalPrice,
+            startDate: dateRange.startDate,
+            endDate: dateRange.endDate,
+            listingId: listing?.id
+        })
+            .then(() => {
+                toast.success('Listing reserved!');
+                setDateRange(initialDateRange);
+                // redirect to /trips
+                router.push('/trips');
+            }).catch(() => {
+                toast.error('Something went wrong')
+            }).finally(() => {
+                setIsLoading(false);
+            })
+    }}, [
         totalPrice,
         dateRange,
         listing?.id,
@@ -158,7 +175,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                   </div>
               </div> 
               {showPay && <PayPalScriptProvider options={{ clientId: "AcbLNojs3zi8fz5CSO9t0XunN67EBkPBGkvClnuWXElfFB3dALy0lgjEj2zwVSLtcuKF9jwHvFrly2gD" }}>
-                  <PaymentModal setShowPayModal={setShowPay}/>
+                  <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete}/>
                 </PayPalScriptProvider>}
           </div>  
     </Container>

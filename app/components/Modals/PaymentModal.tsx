@@ -25,8 +25,9 @@ import { IoMdClose } from 'react-icons/io';
 
 interface ModalProps {
     setShowPayModal: React.Dispatch<React.SetStateAction<boolean>>;
+    onPaymentComplete: (data: any) => void; // Define a callback prop
   }
-const PaymentModal: React.FC<ModalProps> = ({ setShowPayModal }) => {
+const PaymentModal: React.FC<ModalProps> = ({ setShowPayModal, onPaymentComplete }) => {
 
     const [isScriptReady, scriptLoadPromise] = usePayPalScriptReducer();
     const closeModal = () => {
@@ -52,31 +53,9 @@ const PaymentModal: React.FC<ModalProps> = ({ setShowPayModal }) => {
         }
     });
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        setIsLoading(true);
 
-        signIn('credentials', {
-            ...data,
-            redirect: false,
-        }).then((callback) => {
-            setIsLoading(false);
 
-            if (callback?.ok) {
-                toast.success('Logged In');
-                router.refresh();
-                paymentModal.onClose();
-            }
-
-            if (callback?.error) {
-                toast.error(callback.error);
-            }
-        })
-    }
-
-    const toggle = useCallback(() => {
-        paymentModal.onClose();
-        registerModal.onOpen();
-    }, [paymentModal, registerModal]);
+    
 
     const paymentOptions = ['Paypal', 'Mpesa'];
   
@@ -124,10 +103,36 @@ const PaymentModal: React.FC<ModalProps> = ({ setShowPayModal }) => {
                 ],
               });
             }}
-            // onApprove={(data, actions) => {
-            //   // Capture payment logic (can be server-side or client-side)
-            //   return actions.order.capture();
-            // }}
+            onApprove={(data, actions) => {
+              console.log(data)
+              onPaymentComplete(data);
+              return Promise.resolve();
+            //   return new Promise<void>((resolve, reject) => {
+            //     // Your asynchronous logic here (if any)
+            
+            //     // For example, you can make an API request to your server
+            //     axios.post('/api/capture-payment', {
+            //       orderID: data.orderID,
+            //       payerID: data.payerID,
+            //       paymentID: data.paymentID,
+            //     })
+            //     .then(response => {
+            //       // Handle the response as needed
+            //       console.log('Payment captured successfully:', response.data);
+            
+            //       // You may navigate to a success page or update the UI here
+            //       // Example: router.push('/success');
+            
+            //       resolve(); // Resolve the promise to indicate success
+            //     })
+            //     .catch(error => {
+            //       // Handle errors
+            //       console.error('Error capturing payment:', error);
+            //       reject(error); // Reject the promise to indicate failure
+            //     });
+            //   });
+             }
+            }
           />
         ) : (
           <span>Loading PayPal Script...</span>
@@ -141,68 +146,18 @@ const PaymentModal: React.FC<ModalProps> = ({ setShowPayModal }) => {
           </div>
            
         </div>
-    //     <div className='flex flex-col gap-4'>
-    //     <Heading
-    //         title='Welcome back'
-    //         subtitle='Login to your account'
-    //         // center
-    //     />
-    //     <Input
-    //         id='email'
-    //         label='Email'
-    //         disabled={isLoading}
-    //         register={register}
-    //         error={errors}
-    //         required
-    //     />
-    //     <Input
-    //         id='password'
-    //         label='Password'
-    //         type='password'
-    //         disabled={isLoading}
-    //         register={register}
-    //         error={errors}
-    //         required
-    //     />
-    // </div>
+    
     )
 
-    const footerContent = (
-        <div className='flex flex-col gap-4 mt-3'>
-            <hr />
-            <div className='google-btn'>
-            <Button
-                outline
-                label='Continue with Google'
-                // icon={FcGoogle}
-                onClick={() => signIn('google')}
-                />
-            </div>
-            <div className='text-normal-500 text-center mt-4 font-light'>
-                <div className='justify-center flex flex-row items-center gap-2'>
-                    <div>
-                        First time using Devancetours?
-                    </div>
-                    <div
-                        onClick={toggle}
-                        className='text-neutral-800 cursor-pointer hover:underline'>
-                        Create an Account
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+    // const handlePaymentComplete = () => {
+    //   // Perform any necessary actions
+    //   // ...
+  
+    //   // Call the callback function to notify the parent component
+    //   onPaymentComplete();
+    // };
   return (
-    // <Modal
-    //       disabled={isLoading}  
-    //       isOpen={paymentModal.isOpen} 
-    //       title='Login'
-    //       actionLabel='Continue'
-    //       onClose={paymentModal.onClose}
-    //       onSubmit={handleSubmit(onSubmit)} 
-    //       body={bodyContent}
-    //       footer={footerContent}
-    // />
+  
     bodyContent
   
   )

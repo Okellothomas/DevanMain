@@ -92,6 +92,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
        if(paymentMade)
        {
+        setShowPay(false)
         console.log("Payment Data",dataa)
         axios.post(`/api/reservations`, {
             totalPrice,

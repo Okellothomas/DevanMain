@@ -20,10 +20,18 @@ const ListingPage = async () => {
     }
 
     return (
+        <div>
+        <div className="all-destinations-main-loader flex flex-col items-center justify-center text-lg font-bold">
+        <h1 className="color-h1-destinations-main-loader">My <span className="color-span-green">Favorites</span></h1>
+            </div>
+        <div className="pt-10">
         <FavoritesClient
             listings={listings}
             currentUser={currentUser}
-        />
+                />
+        </div>
+      </div>
+            
     )
 }
 

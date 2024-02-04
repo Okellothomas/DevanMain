@@ -66,12 +66,12 @@ const TourMainCard: React.FC<ListingCardProps> = ({
   return (
       <div
         onClick={() => router.push(`/tours/${data?.id}`)} //added ?
-        className="col-span-1 cursor-pointer group"
+        className="col-span-1 group"
       >
-          <div className="flex flex-col h-[45vh] w-full bg-white py-4 px-4 rounded-xl shadow-md gap-3">
+          <div className="flex flex-col h-[47vh] w-full bg-white py-4 px-4 rounded-xl shadow-md gap-3">
             <div className="flex flex-row justify-between items-center ">
             <div className="flex flex-row items-center gap-4">
-              <div className="aspect-square h-[40vh] w-full relative overflow-hidden rounded-xl">
+              <div className="aspect-square h-[42vh] w-full relative overflow-hidden rounded-xl">
                   <Image
                       fill
                       alt="Listing"
@@ -86,40 +86,50 @@ const TourMainCard: React.FC<ListingCardProps> = ({
                   </div>
                 </div>
             
-             <div className="w-[20vw]">
-              <div className="text-sm">
-                 <span>{location?.label},</span> {location?.region}
+           <div className="w-[37vw]">
+            <div>
+             <span className="text-sm px-2 py-0.5 mb-1 border-blue-500 border-solid border-2 text-blue-500 rounded-xl">{data.category }</span>            
+            </div>
+              <div className="text-lg py-0.5 w-[30vw] font-semibold">
+                <span> {data.title } </span>
               </div>
-              <div className="font-light text-neutral-500">
-                 {reservationDate || data.category} 
+              <div className="font-normal py-0.5 w-[30vw] text-neutral-800">
+                <span>{ data.days}</span> Days from {data.locStart} to {data.locEnd}
               </div>
-              <div className="flex flex-row items-center gap-1">
-                  <div className="font-semibold">
-                      $ {price}
+              <div className="flex flex-row py-0.5 items-center gap-1">
+                  <div>
+                     <span className="font-normal">Operator:</span> <span className="text-blue-500 underline">{data.operator}</span>
                   </div>
-                  {!reservation && (
-                      <div className="font-light">night</div>
-                  )}
-                </div>     
+                </div> 
+            <div className="font-normal py-0.5 w-[30vw] text-neutral-800">
+                <span className="font-normal">Departures:</span> <span className="font-light text-sm text-neutral-600">{data.depStart}</span> to <span className="font-light text-sm text-neutral-600">{data.depEnd}</span> 
+            </div>
+             <div className="font-normal py-0.5 w-[30vw] ">
+                <span className="font-normal text-neutral-800">Tour Styles:</span> <span className="font-light text-sm text-neutral-600">{data.tripStyle}</span> 
+            </div>
+               <div className="font-normal py-0.5 w-[30vw] ">
+                <span className="font-normal text-neutral-800">Countries Visited:</span> <span className="font-light text-sm text-neutral-600">{data.countries}</span> 
+                </div> 
+            <div>
+             <span className="text-sm px-2 py-0.5 mb-1 border-red-500 border-solid border-2 text-red-500 rounded-xl">{data.deal}</span>            
+            </div>            
                 </div>
             </div>
                 
-                <div>
-                  <div className="text-sm">
-                 <span>{location?.label},</span> {location?.region}
+            <div className="flex flex-col items-center gap-2">
+            <div className="text-blue-500">
+                 <div className="text-sm"><span>Save</span></div>   
+                <div>$ <span className="text-xl">{data.save }</span></div>
               </div>
-              <div className="font-light text-neutral-500">
-                 {reservationDate || data.category} 
-              </div>
-              <div className="flex flex-row items-center gap-1">
-                  <div className="font-semibold">
-                      $ {price}
+            <div className="flex flex-row items-center gap-1">
+                  <div><span>Price</span></div> 
+                  <div>
+                      $ <span className="text-xl font-semibold">{data.price}</span> pp
                   </div>
-                  {!reservation && (
-                      <div className="font-light">night</div>
-                  )}
                       </div>
-                
+                <div>
+                  <span className=" border-blue-500 text-white border-solid px-4 py-2 border-2 bg-blue-500 hover:bg-white cursor-pointer text-md hover:text-blue-500 rounded-xl" >View Tour</span>        
+                </div>
                 </div> 
 
              </div>

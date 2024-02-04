@@ -45,9 +45,6 @@ const ListingHead: React.FC<ListingHeadProps> = ({
                 <img src={imageSrc[3]} alt="Main Image" className="h-[64vh] w-[30vw] object-cover" />
             </div>
             </div>
-
-
-
               <div className="absolute top-5 right-5">
                   <HeartButton
                       listingId={id}

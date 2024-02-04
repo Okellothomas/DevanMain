@@ -75,7 +75,7 @@ const TourMainCard: React.FC<ListingCardProps> = ({
                   <Image
                       fill
                       alt="Listing"
-                      src={data?.imageSrc} //added ?
+                      src={data?.imageSrc[0]} //added ?
                       className="object-cover h-full w-full transition group-hover:scale-110"
                   />
                   <div className="absolute top-3 right-3">

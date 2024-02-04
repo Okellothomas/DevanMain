@@ -41,7 +41,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component
-  if (listings.length && tours.length === 0) {
+  if (listings.length === 0 && tours.length === 0) {
     return (
       <EmptyState showReset />
     );

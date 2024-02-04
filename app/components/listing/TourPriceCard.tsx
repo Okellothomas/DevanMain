@@ -57,6 +57,15 @@ const TourPriceCard: React.FC<ListingCardProps> = ({
         return data.price;
     }, [reservation, data?.price]) //added ?
 
+
+    const save = useMemo(() => {
+        if (reservation) {
+            return reservation.totalPrice;
+        }
+
+        return data.save;
+    }, [reservation, data?.save]) //added ?
+
     const reservationDate = useMemo(() => {
         if (!reservation) {
             return null;
@@ -78,7 +87,7 @@ const TourPriceCard: React.FC<ListingCardProps> = ({
                   <Image
                       fill
                       alt="Listing"
-                      src={data?.imageSrc} //added ?
+                      src={data?.imageSrc[0]} //added ?
                       className="object-cover h-full w-full transition group-hover:scale-110"
                   />
                   <div className="absolute top-3 right-3 hidden">
@@ -100,13 +109,13 @@ const TourPriceCard: React.FC<ListingCardProps> = ({
              </div>
             <div className="flex flex-row px-4 py-2 justify-between items-center">
               <div className="flex flex-row gap-1 text-center text-sm">
-              <SlCalender size={18} /> <span>{data.price}</span> days
+              <SlCalender size={18} /> <span>{data.days}</span> days
               </div>
              <div className="flex flex-row gap-1 text-center text-sm">
-               <IoLocationOutline size={18} /> <span>{data.price}</span> locations
+               <IoLocationOutline size={18} /> <span>{data.locs}</span> locations
                </div>
              <div className="flex flex-row gap-1 text-center text-sm">
-                <GiWorld size={18} /> <span>{data.price}</span> countries
+                <GiWorld size={18} /> <span>{data.counts}</span> countries
                </div>
              </div>
                   <div className="px-4 py-2">
@@ -117,7 +126,7 @@ const TourPriceCard: React.FC<ListingCardProps> = ({
                        from <span className="font-bold text-md">${price}</span>
                       </div>
                   <div className="text-blue-600">
-                       save <span className="font-bold text-md">${price}</span>
+                       save <span className="font-bold text-md">${save}</span>
                   </div>
                   {/* {!reservation && (
                       <div className="font-light">per person</div>

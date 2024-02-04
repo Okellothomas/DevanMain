@@ -20,9 +20,13 @@ enum STEPS {
     CATEGORY = 0,
     LOCATION = 1,
     INFO = 2,
-    IMAGES = 3, 
-    DESCRIPTION = 4,
-    PRICE = 5
+    INFO1 = 3,
+    IMAGES = 4, 
+    DESCRIPTION = 5,
+    DESCRIPTION1 = 6,
+    DESCRIPTION2 = 7,
+    DESCRIPTION3 = 8,
+    PRICE = 9
 }
 
 const TourModal = () => {
@@ -47,10 +51,26 @@ const TourModal = () => {
             guestCount: 1,
             roomCount: 1,
             bathRoomCount: 1,
-            imageSrc: '',
+            imageSrc: [],
             price: 1,
             title: '',
-            description: ''
+            ourLink: '',
+            description: '', // not done
+            depStart: '',
+            depEnd: '',
+            operator: '',
+            days: 1,
+            locs: 1,
+            counts: 1,
+            tripStyle: '',
+            save: 1, // done
+            deal: '',
+            overView: '',
+            countries: '',
+            locations: '',
+            locStart: '',
+            locEnd: '',
+            itinery: ''
         }
     });
 
@@ -59,7 +79,25 @@ const TourModal = () => {
     const guestCount = watch('guestCount');
     const roomCount = watch('roomCount');
     const bathRoomCount = watch('bathRoomCount');
-    const imageSrc = watch('imageSrc');
+    const imageSrc = watch('imageSrc'); // done
+    const title = watch('title'); //done
+    const description = watch('description'); //done
+    const depStart = watch('depStart');
+    const depEnd = watch('depEnd');
+    const operator = watch('operator');
+    const days = watch('days');
+    const counts = watch('counts');
+    const ourLink = watch('ourLink');
+    const locs = watch('locs');
+    const tripStyle = watch('tripStyle'); // for for this
+    const save = watch('save'); // done
+    const deal = watch('deal');
+    const overView = watch('overView');
+    const locations = watch('locations'); // for for this
+    const locStart = watch('locStart'); // for for this
+    const locEnd = watch('locEnd'); // for for this
+    const itinery = watch('itinery');
+    const countries = watch('countries') // for for this
 
     const Map = useMemo(() => dynamic(() => import('../container/Map'), {
         ssr: false
@@ -148,8 +186,8 @@ const TourModal = () => {
         bodyContent = (
             <div className="flex flex-col gap-8">
                 <Heading
-                    title="Where is your place located?"
-                    subtitle="Help guests find you!"
+                    title="Where is your tour located?"
+                    subtitle="Help our client know in advance!"
                 />
                 <CountrySelect
                     value={location}
@@ -166,12 +204,12 @@ const TourModal = () => {
         bodyContent = (
             <div className="flex flex-col gap-8">
                 <Heading
-                    title="Share some basics about your place"
+                    title="Share some basics about your tour"
                     subtitle="What amenities do you have?"
                 />
                 <Counter
-                    title="Guests"
-                    subtitle="How many guests do you allow?"
+                    title="Tourists"
+                    subtitle="How many tourists do you allow?"
                     value={guestCount}
                     onChange={(value) => setCustomValue('guestCount', value)}
                 />
@@ -194,6 +232,38 @@ const TourModal = () => {
         )
     }
 
+    if (step === STEPS.INFO1) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Share some basics about the tour"
+                    subtitle="Number of days, location and countries"
+                />
+                <Counter
+                    title="Days"
+                    subtitle="How many days will the tour last?"
+                    value={days}
+                    onChange={(value) => setCustomValue('days', value)}
+                />
+                <hr />
+                <Counter
+                    title="Locations"
+                    subtitle="How many locations will be visited?"
+                    value={locs}
+                    onChange={(value) => setCustomValue('locs', value)}
+                />
+                <hr />
+                <Counter
+                    title="Countries"
+                    subtitle="How many countries will be visited?"
+                    value={counts}
+                    onChange={(value) => setCustomValue('counts', value)}
+                />
+                
+            </div>
+        )
+    }
+
     if (step === STEPS.IMAGES) {
         bodyContent = (
             <div className="flex flex-col gap-8">
@@ -201,9 +271,13 @@ const TourModal = () => {
                     title="Add 4 photos of your place"
                     subtitle="Show guests what your place looks like!"
                 />
-                <ImageUpload
+                {/* <ImageUpload
                     value={imageSrc}
                     onChange={(value) => setCustomValue('imageSrc', value)}
+                /> */}
+                <ImageUpload
+                    value={imageSrc}
+                    onChange={(value) => setCustomValue('imageSrc', [...imageSrc,value])}
                 />
             </div>
         )
@@ -233,20 +307,170 @@ const TourModal = () => {
                     error={errors}
                     required
                 />
+                <hr />
+                <Input
+                    id="ourLink"
+                    label="Youtube link"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
             </div>
         )
     }
+
+    if (step === STEPS.DESCRIPTION1) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Tour fundamentals?"
+                    subtitle="provide more insight on the tour!"
+                />
+                <Input
+                    id="tripStyle"
+                    label="Trip Styles"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="locations"
+                    label="Locations"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="locStart"
+                    label="first location to be visited"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="locEnd"
+                    label="last location to be visited"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="countries"
+                    label="Countries to be visited"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+            </div>
+        )
+    }
+
+    if (step === STEPS.DESCRIPTION2) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Provide more tour details?"
+                    subtitle="provide more insight on the tour!"
+                />
+                <Input
+                    id="depStart"
+                    label="Date of Departure (14th June)"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="depEnd"
+                    label="Date of end of tour. (16th July)"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="operator"
+                    label="Name of operator(s)"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+            </div>
+        )
+    }
+
+
+    if (step === STEPS.DESCRIPTION3) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Provide more tour details?"
+                    subtitle="provide more insight on the tour!"
+                />
+                <Input
+                    id="deal"
+                    label="premium, exclusive, popular, upcoming or trending"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="overView"
+                    label="Provide tour's overview"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="itinery"
+                    label="Provide the tour's itinery"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+            </div>
+        )
+    }
+
 
     if (step === STEPS.PRICE) {
         bodyContent = (
             <div className="flex flex-col gap-8">
                 <Heading
                     title="Now, set your price"
-                    subtitle="How much do you charge per night?"
+                    subtitle="How much do you charge per person?"
                 />
                 <Input
                     id="price"
-                    label="Price"
+                    label="Price per person"
+                    formatPrice
+                    type="number"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="save"
+                    label="Save per person"
                     formatPrice
                     type="number"
                     disabled={isLoading}
@@ -262,7 +486,7 @@ const TourModal = () => {
 
   return (
       <Modal
-          title="Airbnb your home!"
+          title="Devanca Tours!"
           isOpen={tourModal.isOpen}
           onClose={tourModal.onClose}
           secondaryAction={step === STEPS.CATEGORY ? undefined: onBack}

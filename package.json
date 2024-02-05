@@ -36,6 +36,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-select": "^5.8.0",
     "react-spinners": "^0.13.8",
+    "sharp": "^0.33.2",
     "world-countries": "^5.0.0",
     "zustand": "^4.4.7"
   },

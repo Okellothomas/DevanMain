@@ -94,7 +94,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                 setDateRange(initialDateRange);
                 // redirect to /trips
                 try {
-                    const response = await axios.post('/api/mailing/sendEmail', {
+                    const response = await axios.post('/api/mailing/', {
                       method: 'POST',
                       body: {sender:'kenwek1994@gmail.com',
                              recipient:"wanjooo.ken@gmail.com",

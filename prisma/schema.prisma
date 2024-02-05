@@ -83,16 +83,16 @@ model Listing {
 
 // Model representing the "Reservation" entity in the database
 model Reservation {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  user       User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId     String?  @db.ObjectId // Foreign key referencing the "User" model
-  Listing    Listing? @relation(fields: [listingId], references: [id], onDelete: Cascade)
-  listingId  String?  @db.ObjectId // Foreign key referencing the "Listing" model
-  startDate  DateTime // Start date of the reservation
-  endDate    DateTime // End date of the reservation
-  totalPrice Int // Total price of the reservation
-  paymentDetails Json?    // Field for holding payment details
-  createdAt  DateTime @default(now()) // Date and time when the reservation was created
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  user           User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String?  @db.ObjectId // Foreign key referencing the "User" model
+  Listing        Listing? @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  listingId      String?  @db.ObjectId // Foreign key referencing the "Listing" model
+  startDate      DateTime // Start date of the reservation
+  endDate        DateTime // End date of the reservation
+  totalPrice     Int // Total price of the reservation
+  paymentDetails Json? // Field for holding payment details
+  createdAt      DateTime @default(now()) // Date and time when the reservation was created
 }
 
 model Tour {
@@ -104,8 +104,28 @@ model Tour {
   depEnd        String?
   operator      String?
   days          Int?
+  day1          String?
+  day2          String?
+  Day3          String?
+  Day4          String?
+  Day5          String?
+  Day6          String?
+  Day7          String?
+  Day8          String?
+  Day9          String?
+  Day10         String?
+  Day11         String?
+  Day12         String?
+  Day13         String?
+  Day14         String?
+  Week3         String?
+  Week4         String?
+  week5         String?
+  week6         String?
+  Week7         String?
   tripStyle     String?
   save          Int?
+  room          Int?
   deal          String?
   overView      String?
   countries     String?

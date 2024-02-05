@@ -71,11 +71,60 @@ const ListingClient: React.FC<ListingClientProps> = ({
         // Handle the data passed from PaymentModal
         console.log('Payment completed with data:', data);
         setDataa(data)
-        setPaymentMade(true)
+        makeReservation(data)
         // You can also update the state or trigger other actions
         // ...
       };
-      
+      const makeReservation = (data:any) =>
+      {
+        
+       {
+        setShowPay(false)
+        console.log("Payment Data",dataa)
+        axios.post(`/api/reservations`, {
+            totalPrice,
+            startDate: dateRange.startDate,
+            endDate: dateRange.endDate,
+            listingId: listing?.id,
+            paymentDetails:data
+        })
+            .then(async () => {
+                toast.success('Listing reserved!');
+
+                setDateRange(initialDateRange);
+                // redirect to /trips
+                try {
+                    const response = await axios.post('/api/mailing/sendEmail', {
+                      method: 'POST',
+                      body: {sender:'kenwek1994@gmail.com',
+                             recipient:"wanjooo.ken@gmail.com",
+                             subject:"Test Mail Subject",
+                             body:`This is a sample test mail from Devance Application and these are the reservations
+                             details ${{
+                                totalPrice,
+                                startDate: dateRange.startDate,
+                                endDate: dateRange.endDate,
+                                listingId: listing?.id,
+                                paymentDetails:dataa
+                            }}`
+
+                                },
+                    });
+                
+                    const data = await response.data;
+                    console.log(data); // handle success message
+                
+                  } catch (error) {
+                    console.error(error); // handle error message
+                  }
+                //router.push('/trips');
+            }).catch(() => {
+                toast.error('Something went wrong')
+            }).finally(() => {
+                setIsLoading(false);
+            })
+    }
+      }
     const onCreateReservation = useCallback(() => {
         if (!currentUser) {
             return loginModal.onOpen()
@@ -90,27 +139,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
         }
        setIsLoading(true);
 
-       if(paymentMade)
-       {
-        setShowPay(false)
-        console.log("Payment Data",dataa)
-        axios.post(`/api/reservations`, {
-            totalPrice,
-            startDate: dateRange.startDate,
-            endDate: dateRange.endDate,
-            listingId: listing?.id
-        })
-            .then(() => {
-                toast.success('Listing reserved!');
-                setDateRange(initialDateRange);
-                // redirect to /trips
-                router.push('/trips');
-            }).catch(() => {
-                toast.error('Something went wrong')
-            }).finally(() => {
-                setIsLoading(false);
-            })
-    }}, [
+  }, [
         totalPrice,
         dateRange,
         listing?.id,
@@ -176,7 +205,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                   </div>
               </div> 
               {showPay && <PayPalScriptProvider options={{ clientId: "AcbLNojs3zi8fz5CSO9t0XunN67EBkPBGkvClnuWXElfFB3dALy0lgjEj2zwVSLtcuKF9jwHvFrly2gD" }}>
-                  <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete}/>
+                  <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete} totalPrice={totalPrice.toString()}/>
                 </PayPalScriptProvider>}
           </div>  
     </Container>

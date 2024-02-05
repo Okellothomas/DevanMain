@@ -85,6 +85,7 @@ model Reservation {
   startDate  DateTime // Start date of the reservation
   endDate    DateTime // End date of the reservation
   totalPrice Int // Total price of the reservation
+  paymentDetails Json?    // Field for holding payment details
   createdAt  DateTime @default(now()) // Date and time when the reservation was created
 }
 

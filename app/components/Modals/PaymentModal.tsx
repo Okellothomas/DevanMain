@@ -26,8 +26,9 @@ import { IoMdClose } from 'react-icons/io';
 interface ModalProps {
     setShowPayModal: React.Dispatch<React.SetStateAction<boolean>>;
     onPaymentComplete: (data: any) => void; // Define a callback prop
+    totalPrice:string,
   }
-const PaymentModal: React.FC<ModalProps> = ({ setShowPayModal, onPaymentComplete }) => {
+const PaymentModal: React.FC<ModalProps> = ({ setShowPayModal, onPaymentComplete, totalPrice }) => {
 
     const [isScriptReady, scriptLoadPromise] = usePayPalScriptReducer();
     const closeModal = () => {
@@ -96,7 +97,7 @@ const PaymentModal: React.FC<ModalProps> = ({ setShowPayModal, onPaymentComplete
                 purchase_units: [
                   {
                     amount: {
-                      value: '10.00', // Total amount
+                      value: totalPrice, // Total amount
                       currency_code: 'USD',
                     },
                   },

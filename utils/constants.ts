@@ -8,6 +8,20 @@ export const images = [
     },
     {
         id: 1,
+        src: "https://res.cloudinary.com/doamgn1l0/image/upload/v1707145877/vakshzjztsftiwijvjtl.jpg",
+        title: "THE",
+        desc: "GRAND",
+        descrption: "TOUR SLAES",
+    },
+    {
+        id: 1,
+        src: "https://res.cloudinary.com/doamgn1l0/image/upload/v1707144994/ekts65zzcmtvgwzqrgrd.jpg",
+        title: "THE",
+        desc: "GRAND",
+        descrption: "TOUR SLAES",
+    },
+    {
+        id: 1,
         src: "https://res.cloudinary.com/doamgn1l0/image/upload/v1705579729/ifg1uhhh4vpe1ofznvgt.jpg",
         title: "THE",
         desc: "GRAND",

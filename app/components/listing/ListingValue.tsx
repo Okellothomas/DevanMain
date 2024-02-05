@@ -10,7 +10,7 @@ import HeartButton from "../container/HeartButton";
 interface ListingHeadProps {
   data: safeTour;
   title: string;
-  locationValue?: string;
+  locationValue: string;
   imageSrc?: string;
   currentUser?: SafeUser | null;
 }
@@ -20,7 +20,11 @@ const ListingValue: React.FC<ListingHeadProps> = ({
   locationValue,
   title,
 }) => {
-    const router = useRouter();
+
+  const router = useRouter();
+  const { getByValue } = useCountries();
+  const location = getByValue(locationValue);
+
 
   // ... (Rest of your component code)
 
@@ -37,7 +41,7 @@ const ListingValue: React.FC<ListingHeadProps> = ({
     <>
       {/* {location?.region} */}
       <div
-        className="text-neutral-800 hover:underline hover:cursor-pointer truncate max-w-[12rem]"
+        className="text-neutral-800 hover:underline hover:cursor-pointer truncate max-w-[9rem]"
         onClick={handleClick}
       >
         {title}

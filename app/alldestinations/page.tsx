@@ -46,7 +46,15 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
           </h1>
         </div>
         <Container>
-          <div className="flex flex-row justify-between items-center py-11">
+          <p className="text-neutral-600 py-4 text-md">Our prime tour selection offers once-in-a-lifetime travel opportunities to the world‘s most sought-after and awe-inspiring destinations, curated by our experts to provide the ultimate luxurious and immersive experience. From African safaris in search of the Big Five, to cruising the turquoise waters of the Galápagos Islands, to helicopter tours over the Grand Canyon, you‘ll be transported to magical realms brimming with natural beauty, exotic wildlife, and historic treasures beyond your wildest imagination.</p>
+        </Container>
+        <Container>
+          <div className="py-3">
+            <hr />
+          </div>
+        </Container>
+        <Container>
+          <div className="flex flex-row justify-between items-center py-3">
             <div className="flex font-bold flex-row gap-40 items-center">
               <div className="filter-bg-color rounded-2xl items-center py-2 pl-2 pr-6 text-start">
                 <p>Filter Results</p>

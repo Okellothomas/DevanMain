@@ -177,7 +177,7 @@ const TourClient: React.FC<TourClientProps> = ({
                                       <span>{tour.depStart }</span>
                                   </div>
                               </div>
-                            <div className="py-3 w-full">
+                            <div className="py-1 w-full">
                             <hr />
                             </div>
                         
@@ -189,7 +189,7 @@ const TourClient: React.FC<TourClientProps> = ({
                                       <span>{tour.depStart }</span>
                                   </div>
                               </div>
-                              <div className="py-3 w-full">
+                              <div className="py-1 w-full">
                             <hr />
                               </div>
                         
@@ -201,7 +201,7 @@ const TourClient: React.FC<TourClientProps> = ({
                                  <span>{tour.countries}</span>
                               </div>
                           </div>
-                          <div className="px-3 w-full">
+                          <div className="px-1 w-full">
                           <hr />
                           </div>
 

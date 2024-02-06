@@ -27,6 +27,7 @@ import { MdOutlineDepartureBoard } from "react-icons/md";
 import { FaPlaneArrival } from "react-icons/fa6";
 import { FaPersonMilitaryToPerson } from "react-icons/fa6";
 import { RiRadioButtonLine } from "react-icons/ri";
+import { GiCash } from "react-icons/gi";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -190,7 +191,19 @@ const TourClient: React.FC<TourClientProps> = ({
                               </div>
                               <div className="py-3 w-full">
                             <hr />
-                        </div>
+                              </div>
+                        
+                        <div className="flex w-full flex-row items-center justify-between">
+                              <div className="flex flex-row items-center gap-2">
+                                <span className="text-green-500"><GiWorld size={23 } /></span><span>Countries Explored:</span> 
+                              </div>
+                              <div>
+                                 <span>{tour.countries}</span>
+                              </div>
+                          </div>
+                          <div className="px-3 w-full">
+                          <hr />
+                          </div>
 
                        <div className="flex w-full flex-row items-center justify-between">
                                   <div className="flex flex-row items-center gap-2">
@@ -546,7 +559,7 @@ const TourClient: React.FC<TourClientProps> = ({
                     </div>       
                   </div>
 
-                    <div className="border-[1px] h-[93vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
+                    <div className="border-[1px] h-[92vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
                           <div className="flex flex-row px-4 justify-between item-center gap-3">
                               <div className="flex flex-row gap-3 justify-between items-center">
                                  <span className="text-blue-400"><SlCalender size={23 } /></span><span>Tour Length</span> 
@@ -586,17 +599,6 @@ const TourClient: React.FC<TourClientProps> = ({
                           </div>
                           <div className="flex flex-row px-4 justify-between item-center gap-3">
                               <div className="flex flex-row gap-3 justify-between items-center">
-                                <span className="text-orange-400"><GiWorld size={23 } /></span><span>Countries Explored:</span> 
-                              </div>
-                              <div className="flex flex-row gap-3 justify-between items-center">
-                                 <span>{tour.countries}</span>
-                              </div>
-                          </div>
-                          <div className="px-4 py-3">
-                          <hr />
-                          </div>
-                          <div className="flex flex-row px-4 justify-between item-center gap-3">
-                              <div className="flex flex-row gap-3 justify-between items-center">
                                 <span className="text-red-400"><GiTakeMyMoney size={23 } /></span><span>Price per person:</span> 
                               </div>
                               <div className="flex flex-row gap-3 justify-between items-center">
@@ -608,15 +610,26 @@ const TourClient: React.FC<TourClientProps> = ({
                           </div>
                           <div className="flex flex-row px-4 justify-between item-center gap-3">
                               <div className="flex flex-row gap-3 justify-between items-center">
+                                <span className="text-green-400"><GiCash size={23} /></span><span>Price per room:</span> 
+                              </div>
+                              <div className="flex flex-row gap-3 justify-between items-center">
+                                 <span>${tour.room}</span>
+                              </div>
+                          </div>
+                          <div className="px-4 py-3">
+                          <hr />
+                          </div>
+                        <div className="flex flex-row px-4 justify-between item-center gap-3">
+                              <div className="flex flex-row gap-3 justify-between items-center">
                                 <span className="text-yellow-400"><GiReceiveMoney size={23 } /></span><span>Save per person:</span> 
                               </div>
                               <div className="flex flex-row gap-3 justify-between items-center">
                                  <span>${tour.save}</span>
                               </div>
                           </div>
-                          <div className="px-4 py-3">
+                        <div className="px-4 py-3">
                           <hr />
-                          </div>
+                        </div>
                         <div className="px-4 w-full text-center item-center">
                               <div className="w-full text-center items-center">
                                  <span>

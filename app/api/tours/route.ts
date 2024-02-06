@@ -82,7 +82,7 @@ export async function POST(
             day1,
             day2,
             Day3,
-            room,
+            room: parseInt(save, 10),
             Day4,
             Day5,
             Day6,

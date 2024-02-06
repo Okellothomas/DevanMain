@@ -22,7 +22,11 @@ enum STEPS {
     INFO = 2,
     IMAGES = 3, 
     DESCRIPTION = 4,
-    PRICE = 5
+    DESCRIPTION1 = 5,
+    DESCRIPTION2 = 6,
+    DESCRIPTION3 = 7,
+    DESCRIPTION4 = 8,
+    PRICE = 9
 }
 
 const RentModal = () => {
@@ -49,8 +53,19 @@ const RentModal = () => {
             bathRoomCount: 1,
             imageSrc: [],
             price: 1,
-            title: '',
-            description: ''
+            city: '',
+            cohostName: '',
+            hostContact: '',
+            oneBedroom:  '',
+            twoBedroom: '',
+            threebedRoom: '',
+            commonPlace: '',
+            hostName: '',
+            startDate: '',
+            endDate: '',
+            Distance: '',
+            offers: '',
+            overView: ''
         }
     });
 
@@ -226,12 +241,163 @@ const RentModal = () => {
                 />
                 <hr />
                 <Input
-                    id="description"
+                    id="overView"
                     label="Description"
                     disabled={isLoading}
                     register={register}
                     error={errors}
                     required
+                />
+            </div>
+        )
+    }
+
+    if (step === STEPS.DESCRIPTION1) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="How would you describe your place?"
+                    subtitle="Choose one!"
+                />
+                <Input
+                    id="description"
+                    label="house"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="description"
+                    label="hotel"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+            </div>
+        )
+    }
+
+    
+    if (step === STEPS.DESCRIPTION2) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="How would you describe your place?"
+                    subtitle="Short and sweet works best!"
+                />
+                <Input
+                    id="startDate"
+                    label="Start Date when the facility is free"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="endDate"
+                    label="End Date when the facility is free"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="Distance"
+                    label="Approximate the distance from the city"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+            </div>
+        )
+    }
+
+    if (step === STEPS.DESCRIPTION3) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="How would you describe your place?"
+                    subtitle="Short and sweet works best!"
+                />
+              
+                <Input
+                    id="oneBedroom"
+                    label="How many one bedrooms"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="twoBedroom"
+                    label="How many two bedrooms"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="threebedRoom"
+                    label="How many three bedrooms"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="commonPlace"
+                    label="How many common places such as sofa bed"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+            </div>
+        )
+    }
+
+     if (step === STEPS.DESCRIPTION4) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="How would you describe your place?"
+                    subtitle="Short and sweet works best!"
+                />
+                <Input
+                    id="hostName"
+                    label="Host Name"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="cohostName"
+                    label="Co-host Name"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="hostContact"
+                    label="List of host contacts"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="offers"
+                    label="What else does your place offer!"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
                 />
             </div>
         )
@@ -262,7 +428,7 @@ const RentModal = () => {
 
   return (
       <Modal
-          title="Airbnb your home!"
+          title="Devanca Hotels and House Listing!"
           isOpen={rentModal.isOpen}
           onClose={rentModal.onClose}
           secondaryAction={step === STEPS.CATEGORY ? undefined: onBack}

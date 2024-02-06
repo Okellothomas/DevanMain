@@ -70,11 +70,17 @@ model Listing {
   price         Int // Price of the listing
   city          String?
   hostName      String?
+  cohostName    String?
+  hostContact   String?
   startDate     String?
   endDate       String?
   Distance      String?
   offers        String?
   overView      String?
+  oneBedroom    String?
+  twoBedroom    String?
+  threebedRoom  String?
+  commonPlace   String?
   // Relationship with the "User" model
   user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations  Reservation[] // One-to-many relationship with the "Reservation" model

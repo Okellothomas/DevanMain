@@ -26,6 +26,8 @@ import { FaArrowsDownToPeople } from "react-icons/fa6";
 import { MdOutlineDepartureBoard } from "react-icons/md";
 import { FaPlaneArrival } from "react-icons/fa6";
 import { FaPersonMilitaryToPerson } from "react-icons/fa6";
+import { RiRadioButtonLine } from "react-icons/ri";
+import { GiCash } from "react-icons/gi";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -70,6 +72,25 @@ const TourClient: React.FC<TourClientProps> = ({
     const [isLoading, setIsLoading] = useState(false);
     const [totalPrice, setTotalPrice] = useState(tour.price);
     const [dateRange, setDateRange] = useState<Range>(initialDateRange);
+    const [isOpen, setIsOpen] = useState(false); 
+    const [isOpen1, setIsOpen1] = useState(false);
+    const [isOpen2, setIsOpen2] = useState(false);
+    const [isOpen3, setIsOpen3] = useState(false);
+    const [isOpen4, setIsOpen4] = useState(false);
+    const [isOpen5, setIsOpen5] = useState(false);
+    const [isOpen6, setIsOpen6] = useState(false);
+    const [isOpen7, setIsOpen7] = useState(false);
+    const [isOpen8, setIsOpen8] = useState(false);
+    const [isOpen9, setIsOpen9] = useState(false);
+    const [isOpen10, setIsOpen10] = useState(false);
+    const [isOpen11, setIsOpen11] = useState(false);
+    const [isOpen12, setIsOpen12] = useState(false);
+    const [isOpen13, setIsOpen13] = useState(false);
+    const [isOpen14, setIsOpen14] = useState(false);
+    const [isOpen15, setIsOpen15] = useState(false);
+    const [isOpen16, setIsOpen16] = useState(false);
+    const [isOpen17, setIsOpen17] = useState(false);
+    const [isOpen18, setIsOpen18] = useState(false);
 
     const { getByValue } = useCountries();
     const coordinates = getByValue(locationValue)?.latlng;
@@ -156,7 +177,7 @@ const TourClient: React.FC<TourClientProps> = ({
                                       <span>{tour.depStart }</span>
                                   </div>
                               </div>
-                            <div className="py-3 w-full">
+                            <div className="py-1 w-full">
                             <hr />
                             </div>
                         
@@ -168,9 +189,21 @@ const TourClient: React.FC<TourClientProps> = ({
                                       <span>{tour.depStart }</span>
                                   </div>
                               </div>
-                              <div className="py-3 w-full">
+                              <div className="py-1 w-full">
                             <hr />
-                        </div>
+                              </div>
+                        
+                        <div className="flex w-full flex-row items-center justify-between">
+                              <div className="flex flex-row items-center gap-2">
+                                <span className="text-green-500"><GiWorld size={23 } /></span><span>Countries Explored:</span> 
+                              </div>
+                              <div>
+                                 <span>{tour.countries}</span>
+                              </div>
+                          </div>
+                          <div className="px-1 w-full">
+                          <hr />
+                          </div>
 
                        <div className="flex w-full flex-row items-center justify-between">
                                   <div className="flex flex-row items-center gap-2">
@@ -218,11 +251,298 @@ const TourClient: React.FC<TourClientProps> = ({
                             <hr />
                             </div>
                         
-                        <div className="flex w-full flex-row items-center justify-between"> 
-                                  <div>
-                                      <span className="text-md text-justify text-neutral-600">{tour.overView }</span>
+                        {/* <div className="flex w-full flex-row items-center justify-between"> 
+                                  <div className="flex flex-row items-center gap-3">
+                                      <span><RiRadioButtonLine size={23} /> </span>  <span className="text-md text-justify text-neutral-600">Day 1</span>
+                                      <p>{ tour.day1 }</p>
                                   </div>
-                              </div>  
+                              </div>   */}
+
+                        {tour.day1 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen(!isOpen)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 1</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen && <p>{tour.day1}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.day2 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen1(!isOpen1)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen1 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 2</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen1 && <p>{tour.day2}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Day3 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen2(!isOpen2)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen2 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 3</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen2 && <p>{tour.Day3}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Day4 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen3(!isOpen3)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen3 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 4</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen3 && <p>{tour.Day4}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Day5 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen4(!isOpen4)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen4 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 5</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen4 && <p>{tour.Day5}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Day6 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen5(!isOpen5)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen5 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 6</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen5 && <p>{tour.Day6}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Day7 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen6(!isOpen6)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen6 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 7</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen6 && <p>{tour.Day7}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Day8 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen7(!isOpen7)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen7 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 8</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen7 && <p>{tour.Day8}</p>}
+                        </div>
+                        )}
+
+                        {tour.Day9 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen8(!isOpen8)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen8 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 9</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen8 && <p>{tour.Day9}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Day10 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen9(!isOpen9)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen9 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 10</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen9 && <p>{tour.Day10}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Day11 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen10(!isOpen10)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen10 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 11</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen10 && <p>{tour.Day11}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Day12 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen11(!isOpen11)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen11 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 12</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen11 && <p>{tour.Day12}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Day13 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen12(!isOpen12)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen12 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 13</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen12 && <p>{tour.Day13}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Day14 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen13(!isOpen13)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen13 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Day 14</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen13 && <p>{tour.Day14}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Week3 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen14(!isOpen14)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen14 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Week 3</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen14 && <p>{tour.Week3}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Week4 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen15(!isOpen15)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen15 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Week 4</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen15 && <p>{tour.Week4}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.week5 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen16(!isOpen16)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen16 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Week 5</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen16 && <p>{tour.week5}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.week6 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen17(!isOpen17)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen17 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Week 6</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen17 && <p>{tour.week6}</p>}
+                        </div>
+                        )}
+                              
+                        {tour.Week7 !== "" && (
+                        <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen18(!isOpen18)}>
+                            <div className="flex flex-row items-center gap-3 cursor-pointer">
+                            <span>
+                                <RiRadioButtonLine size={23} className={isOpen18 ? 'text-red-400' : ''} />
+                            </span>
+                            <span className="text-md text-justify text-neutral-600">Week 7</span>
+                            </div>
+                            <div className="w-full">       
+                            <hr />
+                            </div> 
+                            {isOpen18 && <p>{tour.Week7}</p>}
+                        </div>
+                        )}
+                              
                         <div>           
                         </div>
                     </div>  
@@ -239,7 +559,7 @@ const TourClient: React.FC<TourClientProps> = ({
                     </div>       
                   </div>
 
-                    <div className="border-[1px] h-[93vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
+                    <div className="border-[1px] h-[92vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
                           <div className="flex flex-row px-4 justify-between item-center gap-3">
                               <div className="flex flex-row gap-3 justify-between items-center">
                                  <span className="text-blue-400"><SlCalender size={23 } /></span><span>Tour Length</span> 
@@ -279,17 +599,6 @@ const TourClient: React.FC<TourClientProps> = ({
                           </div>
                           <div className="flex flex-row px-4 justify-between item-center gap-3">
                               <div className="flex flex-row gap-3 justify-between items-center">
-                                <span className="text-orange-400"><GiWorld size={23 } /></span><span>Countries Explored:</span> 
-                              </div>
-                              <div className="flex flex-row gap-3 justify-between items-center">
-                                 <span>{tour.countries}</span>
-                              </div>
-                          </div>
-                          <div className="px-4 py-3">
-                          <hr />
-                          </div>
-                          <div className="flex flex-row px-4 justify-between item-center gap-3">
-                              <div className="flex flex-row gap-3 justify-between items-center">
                                 <span className="text-red-400"><GiTakeMyMoney size={23 } /></span><span>Price per person:</span> 
                               </div>
                               <div className="flex flex-row gap-3 justify-between items-center">
@@ -301,15 +610,26 @@ const TourClient: React.FC<TourClientProps> = ({
                           </div>
                           <div className="flex flex-row px-4 justify-between item-center gap-3">
                               <div className="flex flex-row gap-3 justify-between items-center">
+                                <span className="text-green-400"><GiCash size={23} /></span><span>Price per room:</span> 
+                              </div>
+                              <div className="flex flex-row gap-3 justify-between items-center">
+                                 <span>${tour.room}</span>
+                              </div>
+                          </div>
+                          <div className="px-4 py-3">
+                          <hr />
+                          </div>
+                        <div className="flex flex-row px-4 justify-between item-center gap-3">
+                              <div className="flex flex-row gap-3 justify-between items-center">
                                 <span className="text-yellow-400"><GiReceiveMoney size={23 } /></span><span>Save per person:</span> 
                               </div>
                               <div className="flex flex-row gap-3 justify-between items-center">
                                  <span>${tour.save}</span>
                               </div>
                           </div>
-                          <div className="px-4 py-3">
+                        <div className="px-4 py-3">
                           <hr />
-                          </div>
+                        </div>
                         <div className="px-4 w-full text-center item-center">
                               <div className="w-full text-center items-center">
                                  <span>

@@ -149,7 +149,6 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         </Container>
       </div>
 
-
       {/* second last */}
       <Container>
         <div className="flex flex-col gap-1 pt-1">

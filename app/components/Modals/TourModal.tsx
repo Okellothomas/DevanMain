@@ -26,7 +26,12 @@ enum STEPS {
     DESCRIPTION1 = 6,
     DESCRIPTION2 = 7,
     DESCRIPTION3 = 8,
-    PRICE = 9
+    DESCRIPTION4 = 9,
+    DESCRIPTION5 = 10,
+    DESCRIPTION6 = 11,
+    DESCRIPTION7 = 12,
+    DESCRIPTION8 = 13,
+    PRICE = 14
 }
 
 const TourModal = () => {
@@ -70,7 +75,27 @@ const TourModal = () => {
             locations: '',
             locStart: '',
             locEnd: '',
-            itinery: ''
+            itinery: '',
+            day1: '',
+            day2: '',
+            Day3: '',
+            room: 1,
+            Day4: '',
+            Day5: '',
+            Day6: '',
+            Day7: '',
+            Day8: '',
+            Day9: '',
+            Day10: '',
+            Day11: '',
+            Day12: '',
+            Day13: '',
+            Day14: '',
+            Week3: '',
+            Week4: '',
+            week5: '',
+            week6: '',
+            Week7: ''
         }
     });
 
@@ -86,6 +111,7 @@ const TourModal = () => {
     const depEnd = watch('depEnd');
     const operator = watch('operator');
     const days = watch('days');
+    const room = watch('room')
     const counts = watch('counts');
     const ourLink = watch('ourLink');
     const locs = watch('locs');
@@ -361,15 +387,6 @@ const TourModal = () => {
                     error={errors}
                     required
                 />
-                <hr />
-                <Input
-                    id="countries"
-                    label="Countries to be visited"
-                    disabled={isLoading}
-                    register={register}
-                    error={errors}
-                    required
-                />
             </div>
         )
     }
@@ -407,6 +424,15 @@ const TourModal = () => {
                     error={errors}
                     required
                 />
+                <hr />
+                <Input
+                    id="countries"
+                    label="Countries to be visited"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
             </div>
         )
     }
@@ -438,17 +464,213 @@ const TourModal = () => {
                 />
                 <hr />
                 <Input
-                    id="itinery"
-                    label="Provide the tour's itinery"
+                    id="day1"
+                    label="What will you do on day 1"
                     disabled={isLoading}
                     register={register}
                     error={errors}
-                    required
                 />
             </div>
         )
     }
 
+    if (step === STEPS.DESCRIPTION4) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Provide more tour Itinery?"
+                    subtitle=""
+                />
+                <Input
+                    id="day2"
+                    label="What will you do on day 2"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Day3"
+                    label="What will you do on day 3"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Day4"
+                    label="What will you do on day 4"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Day5"
+                    label="What will you do on day 5"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+               
+            </div>
+        )
+    }
+
+    if (step === STEPS.DESCRIPTION5) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Provide more tour Itinery?"
+                    subtitle=""
+                />
+                <Input
+                    id="Day6"
+                    label="What will you do on day 6"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Day7"
+                    label="What will you do on day 7"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Day8"
+                    label="What will you do on day 8"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Day9"
+                    label="What will you do on day 9"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+               
+            </div>
+        )
+    }
+
+    if (step === STEPS.DESCRIPTION6) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Provide more tour Itinery?"
+                    subtitle=""
+                />
+                <Input
+                    id="Day10"
+                    label="What will you do on day 10"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Day11"
+                    label="What will you do on day 11"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Day12"
+                    label="What will you do on day 12"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Day13"
+                    label="What will you do on day 13"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+               
+            </div>
+        )
+    }
+
+    if (step === STEPS.DESCRIPTION7) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Provide more tour Itinery?"
+                    subtitle=""
+                />
+                <Input
+                    id="Day14"
+                    label="What will you do on day 14"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Week3"
+                    label="What will you do on week 3"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Week4"
+                    label="What will you do on week 4"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+            </div>
+        )
+    }
+
+    if (step === STEPS.DESCRIPTION8) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Provide more tour details?"
+                    subtitle="provide more insight on the tour!"
+                />
+                <Input
+                    id="week5"
+                    label="What will you do on week 5"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />   
+                <hr />
+                <Input
+                    id="week6"
+                    label="What will you do on week 6"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                <hr />
+                <Input
+                    id="Week7"
+                    label="What will you do on week 7"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                
+            </div>
+        )
+    }
 
     if (step === STEPS.PRICE) {
         bodyContent = (
@@ -471,6 +693,17 @@ const TourModal = () => {
                 <Input
                     id="save"
                     label="Save per person"
+                    formatPrice
+                    type="number"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="room"
+                    label="Price per room"
                     formatPrice
                     type="number"
                     disabled={isLoading}

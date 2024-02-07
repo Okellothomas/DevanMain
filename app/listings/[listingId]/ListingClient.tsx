@@ -16,7 +16,16 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Range } from "react-date-range";
 import toast from "react-hot-toast";
-
+import { FaPersonShelter } from "react-icons/fa6";
+import { GiPathDistance } from "react-icons/gi";
+import { CiCalendarDate } from "react-icons/ci";
+import { MdOutlineUpdate } from "react-icons/md";
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
+import { CiLocationArrow1 } from "react-icons/ci";
+import { LuBedDouble } from "react-icons/lu";
+import { BsPersonCircle } from "react-icons/bs";
+import { GoPerson } from "react-icons/go";
+import { BsFileEarmarkPerson } from "react-icons/bs";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -181,8 +190,8 @@ const ListingClient: React.FC<ListingClientProps> = ({
                       id={listing.id}
                       currentUser={currentUser}
                   /> 
-                  <div className="grid grid-cols-1 md:grid-cols-7 md:grid-10 mt-6">
-                      <ListingInfo
+                  <div className="grid grid-cols-1 gap-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 2xl:grid-cols-7 md:grid-10 mt-6">
+                      {/* <ListingInfo
                           user={listing.user}
                           category={category}
                           description={listing.description}
@@ -190,8 +199,149 @@ const ListingClient: React.FC<ListingClientProps> = ({
                           guestCount={listing.guestCount}
                           bathroomCount={listing.bathRoomCount}
                           locationValue={listing.locationValue}
-                      />
-                      <div className="order-first mb-10 md:order-last md:col-span-3 mx-10">
+                      /> */}
+                      <div className="w-full col-span-4">
+                          
+                          <div className="border-[1px] border-solid py-4 px-4 border-neutral-300 h-auto w-full rounded-lg">
+                        
+                              {listing.city !== "" && (
+                                  <div className="flex flex-row justify-between">
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-orange-500"><CiLocationArrow1 size={23} /></span><span className="text-md">Location:</span></div> <span className="text-neutral-500">{listing.city}</span>
+                                  </div>
+                              )}
+
+                          <div className="w-full py-4">
+                           <hr />
+                          </div>
+
+                              {listing.distance !== "" && (
+                                  <div className="flex flex-row justify-between">
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-blue-500"><GiPathDistance size={23} /></span><span className="text-md">Distance from {listing.city}:</span></div> <span className="text-neutral-500">{listing.distance}</span>
+                                  </div>
+                              )}
+
+                          <div className="w-full py-4">
+                           <hr />
+                          </div>
+
+                              {listing.startDate !== "" && (
+                                  <div className="flex flex-row justify-between">
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-lime-600"><CiCalendarDate size={23} /></span><span className="text-md">Start Booking Date:</span></div><span className="text-neutral-500">{listing.startDate}</span>
+                                  </div>
+                              )}
+                          <div className="w-full py-4">
+                           <hr />
+                         </div>
+
+                              {listing.endDate !== "" && (
+                                  <div className="flex flex-row justify-between">
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-neutral-600"><MdOutlineUpdate size={23} /></span><span className="text-md">End Booking Date:</span></div><span className="text-neutral-500">{listing.endDate}</span>
+                                  </div>
+                              )}
+                          <div className="w-full py-4">
+                           <hr />
+                        </div>
+                              
+                              {listing.category !== "" && (
+                                  <div className="flex flex-row justify-between">
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-yellow-600"><MdOutlineTipsAndUpdates size={23} /></span><span className="text-md">Category:</span></div><span className="text-neutral-500">{listing.category}</span>
+                                  </div>
+                              )}
+                          </div>
+                        
+                        <p className="pt-6 pb-5 text-lg font-bold text-neutral-500">Over View</p>
+
+                         <div className="border-[1px] border-solid py-4 px-4 border-neutral-300 h-auto w-full rounded-lg">
+                        
+                              {listing.description !== "" && (
+                                  <div className="flex flex-row justify-between">
+                                      <span className="text-neutral-500">{listing.description}</span>
+                                  </div>
+                              )}
+ 
+                        </div>
+
+                        <p className="pt-6 pb-5 text-lg font-bold text-neutral-500">Where you will sleep!</p>
+
+                        <div className="border-[1px] gap-4 grid grid-cols-4 border-solid py-6 px-4 border-neutral-300 h-auto w-full rounded-lg">
+                        
+                          {listing.oneBedroom !== "" && (
+                          <div className="border-[1px] border-solid rounded-lg border-neutral-300 p-4 col-span-1">
+                            <div className="flex flex-col p-2 items-start gap-2"> <span className="text-neutral-500"><LuBedDouble size={ 23 } /></span><span className="text-md">One Bedroom</span></div> <span className="text-neutral-500">{listing.oneBedroom} qeen bed</span>
+                          </div>
+                          )}
+                              
+                          {listing.twoBedroom !== "" && (
+                          <div className="border-[1px] border-solid rounded-lg border-neutral-300 p-4 col-span-1">
+                            <div className="flex flex-col p-2 items-start gap-2"> <span className="text-neutral-500"><LuBedDouble size={23} /></span><span className="text-md">Two Bedroom</span></div> <span className="text-neutral-500">{listing.twoBedroom} qeen bed</span>
+                                  </div>
+                          )}
+                            
+                          {listing.threebedRoom !== "" && (
+                          <div className="border-[1px] border-solid rounded-lg border-neutral-300 p-4 col-span-1">
+                            <div className="flex flex-col p-2 items-start gap-2"> <span className="text-neutral-600"><LuBedDouble size={23} /></span><span className="text-md">Three Bedroom</span></div><span className="text-neutral-500">{listing.threebedRoom} queen bed</span>
+                          </div>
+                          )}
+                              
+                           {listing.commonPlace !== "" && (
+                            <div className="border-[1px] border-solid rounded-lg border-neutral-300 p-4 col-span-1">
+                                <div className="flex flex-col p-2 items-start gap-2"> 
+                                <span className="text-neutral-600"><LuBedDouble size={23} /></span>
+                                <span className="text-md">Common spaces</span>
+                                </div>
+                                <span className="text-neutral-500">{listing.commonPlace} sofa bed</span>
+                            </div>
+                            )}
+
+                          </div>
+
+                        <p className="pt-6 pb-5 text-lg font-bold text-neutral-500">Host Info!</p>
+
+                         <div className="border-[1px] border-solid py-4 px-4 border-neutral-300 h-auto w-full rounded-lg">
+                        
+                              {listing.hostName !== "" && (
+                                  <div className="flex flex-row justify-between">
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-orange-500"><BsPersonCircle size={23} /></span><span className="text-md">Host name:</span></div> <span className="text-neutral-500">{listing.hostName}</span>
+                                  </div>
+                              )}
+
+                          <div className="w-full py-4">
+                           <hr />
+                          </div>
+
+                              {listing.cohostName !== "" && (
+                                  <div className="flex flex-row justify-between">
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-blue-500"><GoPerson size={23} /></span><span className="text-md">Co-Host Name:</span></div> <span className="text-neutral-500">{listing.cohostName}</span>
+                                  </div>
+                              )}
+
+                          <div className="w-full py-4">
+                           <hr />
+                          </div>
+
+                              {listing.hostContact !== "" && (
+                                  <div className="flex flex-row pb-3 justify-between">
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-lime-600"><BsFileEarmarkPerson size={23} /></span><span className="text-md">Host Contact</span></div><span className="text-neutral-500">{listing.hostContact}</span>
+                                  </div>
+                              )}
+
+                       {listing.hotelLink !== "" && (
+                        <div className="flex h-[66vh] flex-col gap-5 items-start py-4  w-full">
+                        <iframe
+                            src={listing.hotelLink}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            className="w-full h-full"
+                            ></iframe>
+                        </div>     
+                        )}
+                              
+                        </div>
+
+                      </div>
+                      <div className="order-first h-[85vh] w-full mb-10 md:order-last col-span-3" style={{position: 'sticky', top: '10vh'}}>
                           <ListingReservation
                               price={listing.price}
                               totalPrice={totalPrice}

@@ -85,14 +85,15 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
 
               <div className="flex flex-row justify-between px-4">
               <div>
-                <span className="font-bold">Naivash</span>      
+                <span className="font-bold">{data.city}</span>      
               </div>
               <div className="text-sm">
                  <span>{location?.label},</span> {location?.region}
               </div>
              </div>
-              <div className="font-light px-4 text-neutral-500">
-                 {reservationDate || data.category} 
+              <div className="font-light px-4 text-neutral-400">
+                  {/* {reservationDate || data.category}  */}
+                  <span>{ data.startDate}</span> to <span>{ data.endDate}</span>
               </div>
               <div className="px-4">
                   <hr />
@@ -105,7 +106,7 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
                      from <span className="font-semibold">${price}</span> 
                   </div>
                   <div>
-                     save <span className="font-semibold text-blue-600">${price}</span>
+                    <span className="text-blue-500">save</span> <span className="font-semibold text-blue-600">${data.save}</span>
                   </div>
                   {/* {!reservation && (
                       <div className="font-light">night</div>

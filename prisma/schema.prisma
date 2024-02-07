@@ -79,6 +79,8 @@ model Listing {
   startDate     String?
   endDate       String?
   distance      String?
+  country       String?
+  continent     String?
   offers        String?
   overView      String?
   oneBedroom    String?
@@ -143,6 +145,8 @@ model Tour {
   ourLink       String?
   locs          Int?
   locations     String?
+  country       String?
+  continent     String?
   locStart      String?
   locEnd        String?
   itinery       String?

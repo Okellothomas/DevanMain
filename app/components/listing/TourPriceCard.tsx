@@ -101,7 +101,7 @@ const TourPriceCard: React.FC<ListingCardProps> = ({
             <div className="flex flex-row px-4 py-1 justify-between items-center">
               <div className="font-semibold text-md truncate max-w-[20rem]">
                 {/* <span>{location?.label},</span> {location?.region} */}
-                <span>{data.title}</span>
+                <span className="text-neutral-700">{data.title}</span>
               </div>
               {/* <div className="font-light text-red-500 text-sm">
                  {reservationDate || data.category} 

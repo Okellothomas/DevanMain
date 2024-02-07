@@ -186,7 +186,7 @@ const TourClient: React.FC<TourClientProps> = ({
                                       <span className="text-red-500"><FaPlaneArrival size={ 23} /></span> <span>End/Return</span>
                                   </div> 
                                   <div>
-                                      <span>{tour.depStart }</span>
+                                      <span>{tour.depEnd }</span>
                                   </div>
                               </div>
                               <div className="py-1 w-full">

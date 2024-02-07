@@ -88,8 +88,8 @@ const Modal: React.FC<ModalProps> = ({
                 </div>
                 {/* Footer */}
                 <div className="flex flex-col gap-2 p-6">
-                    <div className="flex flex-row items-center gap-4 w-full">
-                    <div className="modal-main-button">
+                    <div className="flex flex-col gap-4 w-full">
+                    <div className="modal-main-button flex flex-row justify-between gap-4">
                       {secondaryAction && secondaryLabel && (
                         <Button
                            outline

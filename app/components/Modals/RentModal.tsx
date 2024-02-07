@@ -54,6 +54,7 @@ const RentModal = () => {
             imageSrc: [],
             price: 1,
             city: '',
+            save: 1,
             cohostName: '',
             hostContact: '',
             oneBedroom:  '',
@@ -61,6 +62,9 @@ const RentModal = () => {
             threebedRoom: '',
             commonPlace: '',
             hostName: '',
+            house: '',
+            hotel: '',
+            hotelLink: '',
             startDate: '',
             endDate: '',
             Distance: '',
@@ -241,8 +245,17 @@ const RentModal = () => {
                 />
                 <hr />
                 <Input
-                    id="overView"
+                    id="description"
                     label="Description"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="city"
+                    label="City or town of location"
                     disabled={isLoading}
                     register={register}
                     error={errors}
@@ -260,7 +273,7 @@ const RentModal = () => {
                     subtitle="Choose one!"
                 />
                 <Input
-                    id="description"
+                    id="house"
                     label="house"
                     disabled={isLoading}
                     register={register}
@@ -268,8 +281,16 @@ const RentModal = () => {
                 />
                 <hr />
                 <Input
-                    id="description"
+                    id="hotel"
                     label="hotel"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                />
+                 <hr />
+                <Input
+                    id="hotelLink"
+                    label="Hotel or House Link"
                     disabled={isLoading}
                     register={register}
                     error={errors}
@@ -414,6 +435,16 @@ const RentModal = () => {
                     id="price"
                     label="Price"
                     formatPrice
+                    type="number"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+               <hr />
+                <Input
+                    id="save"
+                    label="Save"
                     type="number"
                     disabled={isLoading}
                     register={register}

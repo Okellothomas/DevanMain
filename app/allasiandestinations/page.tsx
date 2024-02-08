@@ -9,6 +9,10 @@ import Sort from "./components/Sort";
 import TourStyles from "./components/TourStyles";
 import TourOperators from "./components/TourOperators";
 import TourSize from "./components/TourSize";
+import TourMainAfricanCard from "../components/listing/TourMainAfricanCard";
+import getAfricanTours from "../actions/getAfricanTours";
+import getEuropeanTours from "../actions/getEuropeanTours";
+import getAsiaTours from "../actions/getAsianTours";
 
 // Define the interface for component props
 interface IParams {
@@ -20,7 +24,7 @@ interface IParams {
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)
   const getToursAndRender = async () => {
-    const tours = await getTours(tourParams);
+    const tours = await getAsiaTours({ ...tourParams, continent: "asian" });
     const currentUser = await getCurrentUser();
 
     const PAGE_SIZE = 15;
@@ -41,11 +45,21 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
       <div>
         <div className="alldestinations-main flex flex-col items-center justify-center text-lg font-bold">
           <h1 className="alldestinations-white-main">
-            Asian Prime <span className="color-span-green">Tour Destinations</span>
+            Asian<span className="color-span-green"> Tour Destinations</span>
           </h1>
         </div>
         <Container>
-          <div className="flex flex-row justify-between items-center py-11">
+          <div className="flex flex-col gap-1 pt-9">
+          <p className="text-md text-neutral-600 leading-8 text-md w-full text-justify">Experience an extraordinary Asian adventure with our premier tour selection. Carefully curated by experts, these journeys whisk you away to sought-after destinations across the continent. From stunning landscapes in the Himalayas to cultural immersions in bustling Tokyo, indulge in opulent experiences teeming with natural wonders, architectural masterpieces, and rich heritage. Traverse through verdant countryside, majestic temples, and ancient ruins, revealing the essence of Asia&apos;s diverse landscapes and captivating cultures.</p>
+          </div>
+        </Container>
+        <Container>
+          <div className="py-6">
+            <hr />
+          </div>
+        </Container>
+        <Container>
+          <div className="flex flex-row justify-between items-center pb-11">
             <div className="flex font-bold flex-row gap-40 items-center">
               <div className="filter-bg-color rounded-2xl items-center py-2 pl-2 pr-6 text-start">
                 <p>Filter Results</p>

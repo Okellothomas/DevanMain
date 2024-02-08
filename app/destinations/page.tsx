@@ -15,6 +15,7 @@ import TourMainCard from "../components/listing/TourMainCard";
 import TourPriceCard from "../components/listing/TourPriceCard";
 import TourCardSecondary from "../components/listing/TourCardSecondary";
 import ListingCardMain from "../components/listing/ListingCardMain";
+import EmptyStates from "../components/container/EmptyStates";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -31,9 +32,9 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component
-  if (listings.length === 0) {
+  if (tours.length === 0) {
     return (
-      <EmptyState showReset />
+      <EmptyStates showReset />
     );
   }
 
@@ -49,7 +50,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
       <Container>
         <div className="flex flex-col gap-1 py-9">
         <h1 className="main-header-black w-full text-center pt-9 pb-4">ALL PRIME <span className="main-header-gradient py-1">DESTINATIONS</span></h1>
-        <p className="text-neutral-500 text-md leading-relaxed w-full text-justify">Our prime tour selection offers once-in-a-lifetime travel opportunities to the world&lsquo;s most sought-after and awe-inspiring destinations, curated by our experts to provide the ultimate luxurious and immersive experience. With unique access, top-notch guides, luxury accommodations, bespoke services, and unparalleled attention to detail, our prime tours redefine high-end, exclusive travel so you can immerse yourself fully in your choice of remarkable destinations. Don&lsquo;t just dream about that trip of a lifetime - make it a reality with our premium all-inclusive prime tour packages, offering once-in-a-lifetime memories carefully crafted for the discerning traveler.</p>
+        <p className="text-neutral-500 text-md leading-8 w-full text-justify">Embark on unparalleled travel experiences with our prime tour selection. Curated by experts, these journeys transport you to sought-after destinations. From African safaris to cruising the Galápagos Islands, immerse yourself in luxurious adventures filled with natural beauty, wildlife, and historic treasures. Explore the Grand Canyon and beyond on helicopter tours, redefining your travel expectations.</p>
         </div>
       <div className="pt-6 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
         {tours.slice(0, 4).map((tour: any) => {

@@ -26,7 +26,8 @@ enum STEPS {
     DESCRIPTION2 = 6,
     DESCRIPTION3 = 7,
     DESCRIPTION4 = 8,
-    PRICE = 9
+    DESCRIPTION5 = 9,
+    PRICE = 10
 }
 
 const RentModal = () => {
@@ -63,11 +64,13 @@ const RentModal = () => {
             commonPlace: '',
             hostName: '',
             house: '',
+            country: '',
+            continent: '',
             hotel: '',
             hotelLink: '',
             startDate: '',
             endDate: '',
-            Distance: '',
+            distance: '',
             offers: '',
             overView: ''
         }
@@ -326,7 +329,7 @@ const RentModal = () => {
                 />
                 <hr />
                 <Input
-                    id="Distance"
+                    id="distance"
                     label="Approximate the distance from the city"
                     disabled={isLoading}
                     register={register}
@@ -419,6 +422,34 @@ const RentModal = () => {
                     disabled={isLoading}
                     register={register}
                     error={errors}
+                />
+            </div>
+        )
+     }
+    
+     if (step === STEPS.DESCRIPTION5) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="How would you describe your place?"
+                    subtitle="Short and sweet works best!"
+                />
+                <Input
+                    id="country"
+                    label="Host country of the facility"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="continent"
+                    label="Host continent of the facility"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
                 />
             </div>
         )

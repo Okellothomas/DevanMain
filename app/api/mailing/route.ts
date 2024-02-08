@@ -48,6 +48,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
+import fs from 'fs'
+import path from 'path'
+
+import { ReactDOM } from 'react';
+
 // Create a Nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -57,20 +62,50 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-export const sendMailHandler = async function (req: NextApiRequest, res: NextApiResponse) {
+
+export async function POST(req: Request, res: NextApiResponse) {
+
+ // Read the template from the external file
+ const templatePath = path.join(__dirname, '../../../../../templates/mail_template.html');
+ const templateHTML = fs.readFileSync(templatePath, 'utf8');
+
+ const year = new Date().getFullYear(); // Or fetch dynamically if needed
+
+// Render the EmailTemplate component to HTML string
+
+
+
   if (req.method === 'POST') {
     console.log("sending email");
-    const { sender, recipient, subject, body } = req.body;
+    
+    
+
+    console.log("request body------", req)
+
+    const body = await req.json();
+
+    const { sender, recipient, subject, mail_body, user_name } = body;
+
+    // Render the template using string interpolation or a templating library
+  const renderedHTML = templateHTML
+  .replace(/\{recipientName\}/g, user_name)
+  .replace(/\{year\}/g, year.toString());
 
     try {
+       // Ensure that the request body is properly parsed
+      
+
+      
+
       const info = await transporter.sendMail({
         from: sender,
         to: recipient,
         subject,
-        text: body, // use HTML for formatted content
+        html: renderedHTML//mail_body, // use HTML for formatted content
       });
 
       console.log("mail sent");
+      
       res.status(200).json({ message: 'Email sent successfully!' });
     } catch (error) {
       console.error(error);

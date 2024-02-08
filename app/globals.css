@@ -503,7 +503,7 @@ background: rgba(0,0,0,0.5);
 .all-destinations-main-main {
   background-image: url('../public/images/adventure2.jpg');
   /* Replace 'your-image.jpg' with the path to your image */
-  background-color: rgba(0, 0, 0, 0.42);
+  background-color: rgba(0, 0, 0, 0.22);
   /* Red color with 60% opacity */
   background-blend-mode: overlay;
   /* Blend the background image and color */

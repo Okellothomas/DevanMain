@@ -71,7 +71,12 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         {tours.slice(0, 4).map((tour: any) => {
           return (
             <TourPriceCard
-              currentUser={currentUser} // Pass the current user to each ListingCard
+              currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                } : null} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard
             />
@@ -117,7 +122,12 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         {tourss.slice(4, 8).map((tour: any) => {
           return (
             <TourCardSecondary
-              currentUser={currentUser} // Pass the current user to each ListingCard
+              currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                    } : null} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard
             />

@@ -55,7 +55,12 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         {listings.slice(0, 5).map((listing: any) => {
           return (
             <ListingCard
-              currentUser={currentUser} // Pass the current user to each ListingCard
+              currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                  } : null} // Pass the current user to each ListingCard
               key={listing.id} // Use the listing ID as the unique key
               data={listing} // Pass the listing data to each ListingCard
             />
@@ -101,7 +106,12 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         {tours.slice(0, 4).map((tour: any) => {
           return (
             <TourCard
-              currentUser={currentUser} // Pass the current user to each ListingCard
+              currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                    } : null} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard
             />
@@ -126,8 +136,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
             <ListingValue
               data={tour}
               key={tour.id}
-              title={tour.title}
-              />
+              title={tour.title} locationValue={""}              />
           );
         })}
         </div>

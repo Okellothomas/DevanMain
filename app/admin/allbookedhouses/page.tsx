@@ -6,7 +6,6 @@ import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
-import AdminInfo from "./AdminInfo";
 import getAdmins from "@/app/actions/getAdmins";
 import ListingCard from "@/app/components/listing/ListingCard";
 
@@ -79,7 +78,12 @@ const AdministratorsPage = async ({ searchParams, tourParams, userParams }: Hote
               {listings.slice(0, 4).map((listing: any) => {
                 return (
                   <ListingCard
-                    currentUser={currentUser} // Pass the current user to each ListingCard
+                    currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                    } : null} // Pass the current user to each ListingCard
                     key={listing.id} // Use the listing ID as the unique key
                     data={listing} // Pass the listing data to each ListingCard
                   />

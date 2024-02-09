@@ -62,4 +62,5 @@ const AdministratorsPage = async ({ userParams }: AdminPageProps) => {
   );
 };
 
+// eslint-disable-next-line import/no-default-export
 export default AdministratorsPage;

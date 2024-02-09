@@ -45,7 +45,12 @@ const HotelPage = async ({ searchParams }: HotelPageProps) => {
         {listings.map((listing: any) => {
           return (
             <ListingCard
-              currentUser={currentUser} // Pass the current user to each ListingCard
+              currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+              } : null} // Pass the current user to each ListingCard
               key={listing.id} // Use the listing ID as the unique key
               data={listing} // Pass the listing data to each ListingCard
             />

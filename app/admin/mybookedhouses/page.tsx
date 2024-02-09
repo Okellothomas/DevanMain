@@ -6,7 +6,6 @@ import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
-import AdminInfo from "./AdminInfo";
 import getAdmins from "@/app/actions/getAdmins";
 import ListingCard from "@/app/components/listing/ListingCard";
 
@@ -61,25 +60,16 @@ const AdministratorsPage = async ({ searchParams, tourParams, userParams }: Hote
               <h1 className="text-2xl font-bold">All Booked Houses</h1>
             </div>
             <div className="items-center pb-1">
-               {/* {users.length === 0 ? (
-                  <p>No operators are currently available please come back later!</p>
-                ) : (
-                  users.map((user) => (
-                    <div className="flex flex-row py-7 justify-between border-b-2" key={user.id}>
-                      <div>
-                        <p>{user.name}</p>
-                        <p>{user.email}</p>
-                        <p>0702939929</p>
-                      </div>
-                      <button>Delete</button> 
-                    </div>
-                  ))
-                )} */}
                <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
               {listings.slice(0, 4).map((listing: any) => {
                 return (
                   <ListingCard
-                    currentUser={currentUser} // Pass the current user to each ListingCard
+                    currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                    } : null} // Pass the current user to each ListingCard
                     key={listing.id} // Use the listing ID as the unique key
                     data={listing} // Pass the listing data to each ListingCard
                   />

@@ -32,7 +32,12 @@ const PropertiesPage = async () => {
 
   return (
       <PropertiesClient
-          currentUser={currentUser}
+          currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                    } : null} // Pass the current user to each ListingCard
           listings={listings}
       />
   )

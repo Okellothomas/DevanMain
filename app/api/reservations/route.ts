@@ -37,6 +37,7 @@ export async function POST(
                     startDate,
                     endDate,
                     totalPrice,
+                    paymentDetails
                     
                 }
             }

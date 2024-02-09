@@ -105,12 +105,8 @@ const ListingClient: React.FC<ListingClientProps> = ({
                 try {
                     const response = await axios.post('/api/mailing/', 
                   
-                      {sender:'kenwek1994@gmail.com',
-<<<<<<< HEAD
-                             recipient:"kenwek1994@gmail.com",
-=======
+                      {sender:'Info@devancatours.com',
                              recipient:'wanjooo.ken@gmail.com',
->>>>>>> cb74eb3544bcec392e0adb74acd7e8f34a1eb0fb
                              subject:"Devance Reservations",
                              user_name:currentUser?.name,
                              templateName: 'mail_template',
@@ -161,7 +157,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
         currentUser,
         loginModal,
         paymentModal
-
     ]);
 
     // Calucating the price. 

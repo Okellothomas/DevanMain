@@ -1,22 +1,21 @@
 // mailingHandler.ts
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
+import path from "path"
+import fs from "fs"
+
 
 // Create a Nodemailer transporter
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'webmail',
+  // port: 587,
+  // secure: false, // Change to true if your SMTP server requires TLS
   auth: {
-    user: 'Info@devancatours.com',
-    pass: ' _mlR?H}v7qSh',
+    user: 'info@devancatours.com',
+    pass: '_mlR?H}v7qSh',
   },
 });
 
-<<<<<<< HEAD
-export const mailingHandler = async function (req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
-    console.log("sending email");
-    const { sender, recipient, subject, body } = req.body;
-=======
 
 export async function POST(req: Request, res: NextApiResponse) {
 
@@ -26,8 +25,6 @@ export async function POST(req: Request, res: NextApiResponse) {
 
  
  // Render the EmailTemplate component to HTML string
- 
- 
  
  if (req.method === 'POST') {
    
@@ -46,14 +43,13 @@ export async function POST(req: Request, res: NextApiResponse) {
   const renderedHTML = templateHTML
   .replace(/\{recipientName\}/g, user_name)
   .replace(/\{year\}/g, year.toString());
->>>>>>> cb74eb3544bcec392e0adb74acd7e8f34a1eb0fb
 
     try {
       const info = await transporter.sendMail({
         from: sender,
         to: recipient,
         subject,
-        text: body, // use HTML for formatted content
+        html: renderedHTML , // use HTML for formatted content
       });
 
       console.log("mail sent");
@@ -67,6 +63,7 @@ export async function POST(req: Request, res: NextApiResponse) {
   }
 
 };
+
 
 
 

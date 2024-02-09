@@ -28,7 +28,7 @@ export default async function getTourById(
             createdAt: tour.createAt.toISOString(),
             user: {
                 ...tour,
-                userType:tour.user.userType.toString(),
+                userType:tour.user.userType?.toString(),
                 createdAt: tour.user.createdAt.toISOString(),
                 updatedAt: tour.user.updatedAt.toISOString(),
                 emailVerified: tour.user.emailVerified?.toISOString() || null,

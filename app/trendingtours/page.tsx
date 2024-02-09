@@ -27,15 +27,13 @@ import getTrendingTours from "../actions/getTrendingTours";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
-    searchParams: IListingsParams; // Search parameters for fetching listings
      tourParams: IToursParams;
 }
 
 // Home component is defined as an asynchronous function
-const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => {
+const DestinationPage = async ({ tourParams }: HotelPageProps) => {
   // Fetch listings and current user asynchronously
-  const listings = await getListings(searchParams);
-    const currentUser = await getCurrentUser();
+  const currentUser = await getCurrentUser();
   const tours = await getTrendingTours({ ...tourParams, deal: "trending" });
   const tourss = await getTours(tourParams);
   // const isEmpty = true;

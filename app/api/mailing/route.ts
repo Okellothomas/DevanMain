@@ -84,6 +84,7 @@ export async function POST(req: Request, res: NextApiResponse) {
       const body = await req.json();
       
       const { sender, recipient, subject, mail_body, user_name, templateName } = body;
+      console.log(templateName)
       const templatePath = path.join(__dirname, `../../../../../templates/${templateName}.html`);
       const templateHTML = fs.readFileSync(templatePath, 'utf8');
 

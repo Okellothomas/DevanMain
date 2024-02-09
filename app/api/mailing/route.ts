@@ -66,25 +66,26 @@ const transporter = nodemailer.createTransport({
 export async function POST(req: Request, res: NextApiResponse) {
 
  // Read the template from the external file
- const templatePath = path.join(__dirname, '../../../../../templates/mail_template.html');
- const templateHTML = fs.readFileSync(templatePath, 'utf8');
+ //const templatePath = path.join(__dirname, '../../../../../templates/mail_template.html');
+ //const templateHTML = fs.readFileSync(templatePath, 'utf8');
 
- const year = new Date().getFullYear(); // Or fetch dynamically if needed
+ 
+ // Render the EmailTemplate component to HTML string
+ 
+ 
+ 
+ if (req.method === 'POST') {
+   
+   
+      const year = new Date().getFullYear(); // Or fetch dynamically if needed
 
-// Render the EmailTemplate component to HTML string
-
-
-
-  if (req.method === 'POST') {
-    console.log("sending email");
-    
-    
-
-    console.log("request body------", req)
-
-    const body = await req.json();
-
-    const { sender, recipient, subject, mail_body, user_name } = body;
+      // Construct the path to the template file dynamically
+      
+      const body = await req.json();
+      
+      const { sender, recipient, subject, mail_body, user_name, templateName } = body;
+      const templatePath = path.join(__dirname, `../../../../../templates/${templateName}.html`);
+      const templateHTML = fs.readFileSync(templatePath, 'utf8');
 
     // Render the template using string interpolation or a templating library
   const renderedHTML = templateHTML
@@ -114,6 +115,7 @@ export async function POST(req: Request, res: NextApiResponse) {
   } else {
     res.status(405).json({ message: 'Method not allowed!' });
   }
+
 };
 
 

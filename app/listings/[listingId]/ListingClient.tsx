@@ -109,6 +109,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                              recipient:'wanjooo.ken@gmail.com',
                              subject:"Devance Reservations",
                              user_name:currentUser?.name,
+                             templateName: 'mail_template',
                              mail_body:`This is a sample test mail from Devance Application and these are the reservatio`
 
                                 },

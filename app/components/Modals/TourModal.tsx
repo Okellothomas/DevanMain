@@ -31,7 +31,8 @@ enum STEPS {
     DESCRIPTION6 = 11,
     DESCRIPTION7 = 12,
     DESCRIPTION8 = 13,
-    PRICE = 14
+    DESCRIPTION9 = 14,
+    PRICE = 15
 }
 
 const TourModal = () => {
@@ -66,6 +67,8 @@ const TourModal = () => {
             operator: '',
             days: 1,
             locs: 1,
+            country: '',
+            continent: '',
             counts: 1,
             tripStyle: '',
             save: 1, // done
@@ -668,6 +671,34 @@ const TourModal = () => {
                     error={errors}
                 />
                 
+            </div>
+        )
+    }
+
+    if (step === STEPS.DESCRIPTION9) {
+        bodyContent = (
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="How would you describe your place?"
+                    subtitle="Short and sweet works best!"
+                />
+                <Input
+                    id="country"
+                    label="Host country of the facility"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
+                <hr />
+                <Input
+                    id="continent"
+                    label="Host continent of the facility"
+                    disabled={isLoading}
+                    register={register}
+                    error={errors}
+                    required
+                />
             </div>
         )
     }

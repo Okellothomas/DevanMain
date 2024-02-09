@@ -46,7 +46,7 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
           </h1>
         </div>
         <Container>
-          <p className="text-neutral-600 py-4 text-md">Our prime tour selection offers once-in-a-lifetime travel opportunities to the world‘s most sought-after and awe-inspiring destinations, curated by our experts to provide the ultimate luxurious and immersive experience. From African safaris in search of the Big Five, to cruising the turquoise waters of the Galápagos Islands, to helicopter tours over the Grand Canyon, you‘ll be transported to magical realms brimming with natural beauty, exotic wildlife, and historic treasures beyond your wildest imagination.</p>
+          <p className="text-neutral-600 leading-8 pt-10 pb-2 text-md">Embark on unparalleled travel experiences with our prime tour selection. Curated by experts, these journeys transport you to sought-after destinations. From African safaris to cruising the Galápagos Islands, immerse yourself in luxurious adventures filled with natural beauty, wildlife, and historic treasures. Explore the Grand Canyon and beyond on helicopter tours, redefining your travel expectations.</p>
         </Container>
         <Container>
           <div className="py-3">

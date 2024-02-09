@@ -34,7 +34,6 @@ export async function POST(
         Day9,
         Day10,
         Day11,
-        room,
         Day12,
         Day13,
         Day14,
@@ -59,7 +58,10 @@ export async function POST(
         counts,
         locs,
         price,
-        save
+        save,
+        country,      
+        continent,
+        room
     } = body;
 
 
@@ -86,6 +88,8 @@ export async function POST(
             Day4,
             Day5,
             Day6,
+            country,
+            continent,
             Day7,
             Day8,
             Day9,

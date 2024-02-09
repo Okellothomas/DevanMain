@@ -9,6 +9,8 @@ import Sort from "./components/Sort";
 import TourStyles from "./components/TourStyles";
 import TourOperators from "./components/TourOperators";
 import TourSize from "./components/TourSize";
+import TourMainAfricanCard from "../components/listing/TourMainAfricanCard";
+import getAfricanTours from "../actions/getAfricanTours";
 
 // Define the interface for component props
 interface IParams {
@@ -20,7 +22,7 @@ interface IParams {
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)
   const getToursAndRender = async () => {
-    const tours = await getTours(tourParams);
+    const tours = await getAfricanTours({ ...tourParams, continent: "Africa" });
     const currentUser = await getCurrentUser();
 
     const PAGE_SIZE = 15;
@@ -45,7 +47,17 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
           </h1>
         </div>
         <Container>
-          <div className="flex flex-row justify-between items-center py-11">
+          <div className="flex flex-col gap-1 pt-9">
+          <p className="text-md text-neutral-600 leading-8 text-md w-full text-justify">Embark on an extraordinary African adventure with our premier tour selection. Carefully crafted by experts, these journeys transport you to sought-after destinations across the continent. From thrilling safaris in the Serengeti to cultural immersions in vibrant Marrakech, immerse yourself in luxurious experiences filled with natural wonders, wildlife encounters, and rich heritage. Explore the vast savannahs, majestic mountains, and ancient ruins, unlocking the essence of Africa&apos;s diverse landscapes and captivating cultures.</p>
+          </div>
+        </Container>
+        <Container>
+          <div className="py-6">
+            <hr />
+          </div>
+        </Container>
+        <Container>
+          <div className="flex flex-row justify-between items-center pb-11">
             <div className="flex font-bold flex-row gap-40 items-center">
               <div className="filter-bg-color rounded-2xl items-center py-2 pl-2 pr-6 text-start">
                 <p>Filter Results</p>

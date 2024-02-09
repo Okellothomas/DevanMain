@@ -11,7 +11,7 @@ const Loader = () => {
         <div className="h-[60vh] flex flex-col justify-center items-center">
             <PuffLoader
                 size={100}
-                color="red"
+                color="orange"
             />
             </div>
         </div>

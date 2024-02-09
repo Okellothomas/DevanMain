@@ -1,4 +1,3 @@
-
 import getCurrentUser from "@/app/actions/getCurrentUsers";
 import getListings, { IListingsParams } from "@/app/actions/getListings";
 import getTours, { IToursParams } from "@/app/actions/getTours";
@@ -62,4 +61,5 @@ const AdministratorsPage = async ({ userParams }: AdminPageProps) => {
   );
 };
 
+// eslint-disable-next-line import/no-default-export
 export default AdministratorsPage;

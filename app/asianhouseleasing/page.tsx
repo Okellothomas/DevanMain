@@ -10,7 +10,6 @@ import BookingCard from "../mainpage/components/BookingCard";
 import ListingValue from "../components/listing/ListingValue";
 import getTours, { IToursParams } from "../actions/getTours";
 import TourCard from "../components/listing/TourCard";
-import TheCategoriess from "./TheCategoriess";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -42,9 +41,6 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           <Search /> 
         </div>
       </div>
-      {/* <div className="py-4">
-        <Categories />
-      </div> */}
       <Container>
         <div className="flex flex-col gap-1 py-9">
         <h1 className="main-header-black w-full text-center">ALL PRIME <span className="main-header-gradient py-1">HOUSE LEASES</span></h1>
@@ -55,7 +51,12 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         {listings.slice(0, 5).map((listing: any) => {
           return (
             <ListingCard
-              currentUser={currentUser} // Pass the current user to each ListingCard
+              currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+              } : null} // Pass the current user to each ListingCard
               key={listing.id} // Use the listing ID as the unique key
               data={listing} // Pass the listing data to each ListingCard
             />
@@ -76,20 +77,6 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           </div>
         </Container>
       </div>
-    
-    {/* The categories page */}
-      <Container>
-        <div className="flex flex-col gap-1 pt-10">
-        <h1 className="main-header-black w-full text-center">SEARCH <span className="main-header-gradient">BY CONTINENT</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
-        </div>
-        <div className="pt-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4">
-            <TheCategoriess />
-        </div>
-        <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allasianhouseleasing">View prime destinations</Link>
-        </div>
-          </Container>
           
         <Container>
         <div className="flex flex-col gap-1 pt-9">
@@ -101,7 +88,12 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         {tours.slice(0, 4).map((tour: any) => {
           return (
             <TourCard
-              currentUser={currentUser} // Pass the current user to each ListingCard
+              currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+              } : null} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard
             />
@@ -126,14 +118,10 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
             <ListingValue
               data={tour}
               key={tour.id}
-              title={tour.title}
-              />
+              title={tour.title} locationValue={""}              />
           );
         })}
         </div>
-        {/* <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all premium trending tours</Link>
-        </div> */}
           </Container>
     </div>
   );

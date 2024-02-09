@@ -24,7 +24,7 @@ interface IParams {
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)
   const getToursAndRender = async () => {
-    const tours = await getAustraliaTours({ ...tourParams, continent: "asian" });
+    const tours = await getAustraliaTours({ ...tourParams, continent: "australia" });
     const currentUser = await getCurrentUser();
 
     const PAGE_SIZE = 15;
@@ -84,7 +84,12 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
                 {/* Map through the visible listings array and render ListingCard components */}
                 {visibleTours.map((tour: any) => (
                   <TourMainCard
-                    currentUser={currentUser} // Pass the current user to each ListingCard
+                    currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                    } : null} // Pass the current user to each ListingCard
                     key={tour.id} // Use the listing ID as the unique key
                     data={tour} // Pass the listing data to each ListingCard
                   />

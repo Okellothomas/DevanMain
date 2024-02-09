@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import getCurrentUser from "../actions/getCurrentUsers";
 import getTours, { IToursParams } from "../actions/getTours";
@@ -10,6 +9,11 @@ import Sort from "./components/Sort";
 import TourStyles from "./components/TourStyles";
 import TourOperators from "./components/TourOperators";
 import TourSize from "./components/TourSize";
+import TourMainAfricanCard from "../components/listing/TourMainAfricanCard";
+import getAfricanTours from "../actions/getAfricanTours";
+import getEuropeanTours from "../actions/getEuropeanTours";
+import getAsiaTours from "../actions/getAsianTours";
+import getPremiumTours from "../actions/getPremiumTours";
 
 // Define the interface for component props
 interface IParams {
@@ -21,7 +25,7 @@ interface IParams {
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)
   const getToursAndRender = async () => {
-    const tours = await getTours(tourParams);
+    const tours = await getPremiumTours({ ...tourParams, deal: "premium" });
     const currentUser = await getCurrentUser();
 
     const PAGE_SIZE = 15;
@@ -42,11 +46,21 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
       <div>
         <div className="alldestinations-main flex flex-col items-center justify-center text-lg font-bold">
           <h1 className="alldestinations-white-main">
-            All Prime <span className="color-span-green">Tour Destinations</span>
+            Premium<span className="color-span-green"> Tour Destinations</span>
           </h1>
         </div>
         <Container>
-          <div className="flex flex-row justify-between items-center py-11">
+          <div className="flex flex-col gap-1 pt-9">
+          <p className="text-md text-neutral-600 leading-8 text-md w-full text-justify">Embark on an unforgettable global adventure with our premium tour selection. Meticulously curated by experts, these sought-after journeys transport you to captivating destinations across the continent. From awe-inspiring landscapes in the Rocky Mountains to cultural immersions in vibrant New Orleans, indulge in luxurious experiences brimming with natural wonders, architectural marvels, and profound heritage. Delve into picturesque countryside, grandiose castles, and ancient ruins, uncovering the essence of diverse landscapes and captivating cultures worldwide.</p>
+          </div>
+        </Container>
+        <Container>
+          <div className="py-6">
+            <hr />
+          </div>
+        </Container>
+        <Container>
+          <div className="flex flex-row justify-between items-center pb-11">
             <div className="flex font-bold flex-row gap-40 items-center">
               <div className="filter-bg-color rounded-2xl items-center py-2 pl-2 pr-6 text-start">
                 <p>Filter Results</p>
@@ -71,7 +85,12 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
                 {/* Map through the visible listings array and render ListingCard components */}
                 {visibleTours.map((tour: any) => (
                   <TourMainCard
-                    currentUser={currentUser} // Pass the current user to each ListingCard
+                    currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                    } : null} // Pass the current user to each ListingCard
                     key={tour.id} // Use the listing ID as the unique key
                     data={tour} // Pass the listing data to each ListingCard
                   />

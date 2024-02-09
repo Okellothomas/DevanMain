@@ -1,13 +1,13 @@
 import prisma from '@/app/libs/prismadb';
 
-export interface IUsersParams {
+export interface IAdminsParams {
     id?: string; // Making id optional
     name?: string;
     email?: string;
     userType?: string;
 }
 
-export default async function getAdmins(params: IUsersParams) {
+export default async function getAdmins(params: IAdminsParams) {
     try {
         const {
             id,

@@ -72,10 +72,10 @@ const Hotels: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
                 onClick={() => router.push("/asianhotels")}
                 label="Asian"
               />
-              <MenuItem
+              {/* <MenuItem
                 onClick={() => router.push("/middleasthotels")}
                 label="Middle East"
-              />
+              /> */}
               <MenuItem
                 onClick={() => router.push("/australianhotels")}
                 label="Australian"

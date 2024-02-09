@@ -43,7 +43,12 @@ const TourPage = async ({ params }: { params: IParams }) => {
         <TourClient
           tour={tour}
           reservations={reservations}
-          currentUser={currentUser}
+          currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+          } : null} // Pass the current user to each ListingCard
         />
       </div>
 
@@ -61,7 +66,12 @@ const TourPage = async ({ params }: { params: IParams }) => {
           {/* Map through the tours array and render TourCard components */}
           {tours.slice(0,5).map((tour: any) => (
             <TourCard
-              currentUser={currentUser}
+              currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+              } : null} // Pass the current user to each ListingCard
               key={tour.id}
               data={tour}
             />

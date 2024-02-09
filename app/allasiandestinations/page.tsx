@@ -24,7 +24,7 @@ interface IParams {
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)
   const getToursAndRender = async () => {
-    const tours = await getAsiaTours({ ...tourParams, continent: "asian" });
+    const tours = await getAsiaTours({ ...tourParams, continent: "asia" });
     const currentUser = await getCurrentUser();
 
     const PAGE_SIZE = 15;

@@ -46,12 +46,18 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           <Search /> 
         </div>
       </div>
-     
-      <Container>
-        <div className="flex flex-col gap-1 py-9">
-        <h1 className="main-header-black w-full text-center pt-9 pb-4">ALL PRIME <span className="main-header-gradient py-1">DESTINATIONS</span></h1>
-        <p className="text-neutral-500 text-md leading-8 w-full text-justify">Embark on unparalleled travel experiences with our prime tour selection. Curated by experts, these journeys transport you to sought-after destinations. From African safaris to cruising the Galápagos Islands, immerse yourself in luxurious adventures filled with natural beauty, wildlife, and historic treasures. Explore the Grand Canyon and beyond on helicopter tours, redefining your travel expectations.</p>
+     <Container>
+        <div className="flex flex-col gap-1 pt-6 pb-4">
+        <h1 className="main-header-black w-full text-center pt-9 pb-0">ALL PRIME <span className="main-header-gradient py-1">DESTINATIONS</span></h1>
+        <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on unparalleled travel experiences with our prime tour selection. Curated by experts, these journeys transport you to sought-after destinations. From African safaris to cruising the Galápagos Islands, and from breathtaking landscapes in the Swiss Alps to cultural immersions in historic Rome, immerse yourself in luxurious adventures filled with natural beauty, wildlife, and historic treasures. Explore the Grand Canyon and beyond on helicopter tours, redefining your travel expectations.</p>
         </div>
+      </Container>
+      <Container>
+          <div className="pb-0">
+            <hr />
+          </div>
+      </Container>
+      <Container>
       <div className="pt-6 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
         {tours.slice(0, 4).map((tour: any) => {
           return (

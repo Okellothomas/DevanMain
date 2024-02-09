@@ -106,7 +106,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                     const response = await axios.post('/api/mailing/', 
                   
                       {sender:'kenwek1994@gmail.com',
-                             recipient:'thomasolal33@gmail.com',
+                             recipient:"kenwek1994@gmail.com",
                              subject:"Devance Reservations",
                              user_name:currentUser?.name,
                              mail_body:`This is a sample test mail from Devance Application and these are the reservatio`

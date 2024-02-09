@@ -16,7 +16,11 @@ const EmptyState: React.FC<EmptyStateProps> = ({
     showReset
 }) => {
     const router = useRouter()
-  return (
+    return (
+    <div>
+     <div className="all-destinations-main-loader flex flex-col items-center justify-center text-lg font-bold">
+        {/* <h1 className="color-h1-destinations-main-loader">Loa<span className="color-span-green">ding...</span></h1> */}
+      </div>
     <div className="h-[60vh] flex flex-col gap-2 justify-center items-center">
 
           <Heading
@@ -34,7 +38,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
                   />
               )}
           </div>
-          
+        </div>
     </div>
   )
 }

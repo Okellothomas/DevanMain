@@ -6,11 +6,23 @@ import ListingCard from "../components/listing/ListingCard";
 import Categories from "../components/navbar/Categories";
 import Search from "../components/navbar/Search";
 import Link from "next/link";
+import { FaStar } from "react-icons/fa";
+import { FaThreads } from "react-icons/fa6";
+import { MdFoodBank } from "react-icons/md";
+import { GiClockwork } from "react-icons/gi";
 import BookingCard from "../mainpage/components/BookingCard";
 import ListingValue from "../components/listing/ListingValue";
 import getTours, { IToursParams } from "../actions/getTours";
 import TourCard from "../components/listing/TourCard";
 import TheCategoriess from "./TheCategoriess";
+import TourMainCard from "../components/listing/TourMainCard";
+import TourPriceCard from "../components/listing/TourPriceCard";
+import TourCardSecondary from "../components/listing/TourCardSecondary";
+import ListingCardMain from "../components/listing/ListingCardMain";
+import CardDisplay from "../mainpage/components/CardDisplay";
+import getAfricanTours from "../actions/getAfricanTours";
+import EmptyStates from "../components/container/EmptyStates";
+import getAmericaTours from "../actions/getAmericanTours";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -23,84 +35,41 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
   // Fetch listings and current user asynchronously
   const listings = await getListings(searchParams);
     const currentUser = await getCurrentUser();
-    const tours = await getTours(tourParams);
+  const tours = await getAmericaTours({ ...tourParams, continent: "america" });
+  const tourss = await getTours(tourParams);
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component
-  if (listings.length === 0) {
+  if (tours.length === 0) {
     return (
-      <EmptyState showReset />
+      <EmptyStates showReset />
     );
   }
 
-  // Render the Home component with the fetched listings
   return (
     <div>
-    <div className="all-destinations-main flex flex-col items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-destinations-main">All Prime <span className="color-span-green">House Leases</span></h1>
-        <div className="destination-search">
+    <div className="all-destinations-main-main flex flex-col items-center justify-center text-lg font-bold">
+        <h1 className="color-h1-destinations-main">Prime American <span className="color-span-green">Destinations</span></h1>
+        <div className="destination-search-main">
           <Search /> 
         </div>
       </div>
-      {/* <div className="py-4">
-        <Categories />
-      </div> */}
       <Container>
-        <div className="flex flex-col gap-1 py-9">
-        <h1 className="main-header-black w-full text-center">ALL PRIME <span className="main-header-gradient py-1">HOUSE LEASES</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-justify">Our prime tour selection offers once-in-a-lifetime travel opportunities to the world&lsquo;s most sought-after and awe-inspiring destinations, curated by our experts to provide the ultimate luxurious and immersive experience. From African safaris in search of the Big Five, to cruising the turquoise waters of the Galápagos Islands, to helicopter tours over the Grand Canyon, you&lsquo;ll be transported to magical realms brimming with natural beauty, exotic wildlife, and historic treasures beyond your wildest imagination. With unique access, top-notch guides, luxury accommodations, bespoke services, and unparalleled attention to detail, our prime tours redefine high-end, exclusive travel so you can immerse yourself fully in your choice of remarkable destinations. Don&lsquo;t just dream about that trip of a lifetime - make it a reality with our premium all-inclusive prime tour packages, offering once-in-a-lifetime memories carefully crafted for the discerning traveler.</p>
+        <div className="flex flex-col gap-1 pt-6 pb-4">
+        <h1 className="main-header-black w-full text-center pt-9 pb-0">PRIME AMERICAN <span className="main-header-gradient py-1">DESTINATIONS</span></h1>
+        <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on an unforgettable American adventure with our premier tour selection. Meticulously curated by experts, these journeys transport you to sought-after destinations across the continent. From awe-inspiring landscapes in the Rocky Mountains to cultural immersions in vibrant New Orleans, indulge in luxurious experiences brimming with natural wonders, architectural marvels, and profound heritage. Delve into picturesque countryside, grandiose castles, and ancient ruins, uncovering the essence of America&lsquo;s diverse landscapes and captivating cultures.</p>
         </div>
-      <div className="pt-0 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
-        {/* Map through the listings array and render ListingCard components */}
-        {listings.slice(0, 5).map((listing: any) => {
-          return (
-            <ListingCard
-              currentUser={currentUser} // Pass the current user to each ListingCard
-              key={listing.id} // Use the listing ID as the unique key
-              data={listing} // Pass the listing data to each ListingCard
-            />
-          );
-        })}
-        </div>
-        <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allprimeadventures">View prime destinations</Link>
-        </div>
-          </Container>
-          
-     {/* Next part of the page */}
-      <div className="tour-booking flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-white">How to book with us</h1>
-        <Container>
-          <div className="pt-10 pb-5 main-page-cards">
-            <BookingCard />
+      </Container>
+      <Container>
+          <div className="pb-0">
+            <hr />
           </div>
-        </Container>
-      </div>
-    
-    {/* The categories page */}
+      </Container>
       <Container>
-        <div className="flex flex-col gap-1 pt-10">
-        <h1 className="main-header-black w-full text-center">SEARCH <span className="main-header-gradient">BY CONTINENT</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
-        </div>
-        <div className="pt-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4">
-            <TheCategoriess />
-        </div>
-        <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alldestinations">View prime destinations</Link>
-        </div>
-          </Container>
-          
-        <Container>
-        <div className="flex flex-col gap-1 pt-9">
-        <h1 className="main-header-black w-full text-center">FEATURED <span className="main-header-gradient">TOUR OPERATORS</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
-        </div>
-        <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-          {/* Map through the listings array and render ListingCard components */}
+      <div className="pt-6 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
         {tours.slice(0, 4).map((tour: any) => {
           return (
-            <TourCard
+            <TourPriceCard
               currentUser={currentUser} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard
@@ -108,33 +77,54 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           );
         })}
         </div>
-        {/* <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all upcoming tours</Link>
-        </div> */}
-      </Container>
-
-          
-    <Container>
-        <div className="flex w-full py-6 h-auto flex-col gap-1 pt-11">
-        <h1 className="main-header-black w-full text-center">TRENDING <span className="main-header-gradient"> TOURS</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
+        <div className="w-full text-center pt-8">
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allamericandestinations">view american destinations</Link>
         </div>
-      <div className="trending-list-main-page pt-3 pl-16 pb-3 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-2">
-        {/* Map through the listings array and render ListingCard components */}
-        {tours.slice(0, 20).map((tour: any) => {
-          return (
-            <ListingValue
-              data={tour}
-              key={tour.id}
-              title={tour.title}
+          </Container>
+          
+      <div className="tour-inconfort flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
+        <h1 className="color-h1-white">Tour in comfort and style</h1>
+
+          <Container>
+            <div className="booking-card grid w-full grid-cols-1 px-5 gap-32 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 py-5 my-9">
+            <CardDisplay
+              icon={FaStar}
+              label="Insightful experiences"
               />
+              <CardDisplay
+              icon={FaThreads}
+              label="Make travel matter"
+              />
+              <CardDisplay
+              icon={MdFoodBank}
+              label="Superior first class hotels"
+              />
+              <CardDisplay
+              icon={GiClockwork}
+              label="20+ years of experience"
+                />
+            </div>
+            </Container>
+      </div>
+          
+        <Container>
+        <div className="flex flex-col gap-1 pt-4">
+        <h1 className="main-header-black w-full text-center">FEATURED <span className="main-header-gradient">CLASSIC TOUR</span></h1>
+        <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
+        </div>
+        <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+        {tourss.slice(4, 8).map((tour: any) => {
+          return (
+            <TourCardSecondary
+              currentUser={currentUser} // Pass the current user to each ListingCard
+              key={tour.id} // Use the listing ID as the unique key
+              data={tour} // Pass the listing data to each ListingCard
+            />
           );
         })}
         </div>
-        {/* <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all premium trending tours</Link>
-        </div> */}
-          </Container>
+      </Container>
+      
     </div>
   );
 };

@@ -12,7 +12,8 @@ import TourSize from "./components/TourSize";
 import TourMainAfricanCard from "../components/listing/TourMainAfricanCard";
 import getAfricanTours from "../actions/getAfricanTours";
 import getEuropeanTours from "../actions/getEuropeanTours";
-import getAustraliaTours from "../actions/getAustralianTours";
+import getAsiaTours from "../actions/getAsianTours";
+import getTrendingTours from "../actions/getTrendingTours";
 
 // Define the interface for component props
 interface IParams {
@@ -24,7 +25,7 @@ interface IParams {
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)
   const getToursAndRender = async () => {
-    const tours = await getAustraliaTours({ ...tourParams, continent: "australia" });
+    const tours = await getTrendingTours({ ...tourParams, deal: "trending" });
     const currentUser = await getCurrentUser();
 
     const PAGE_SIZE = 15;
@@ -45,12 +46,12 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
       <div>
         <div className="alldestinations-main flex flex-col items-center justify-center text-lg font-bold">
           <h1 className="alldestinations-white-main">
-            Australian<span className="color-span-green"> Tour Destinations</span>
+            Prime<span className="color-span-green"> Trending Tour</span>
           </h1>
         </div>
         <Container>
           <div className="flex flex-col gap-1 pt-9">
-          <p className="text-md text-neutral-600 leading-8 text-md w-full text-justify">Embark on an unforgettable Australian adventure with our premier tour selection. Crafted meticulously by experts, these journeys transport you to sought-after destinations across the continent. From breathtaking landscapes in the Australian Outback to cultural immersions in dynamic Sydney, immerse yourself in luxurious experiences filled with natural wonders, architectural gems, and vibrant heritage. Explore the lush countryside, iconic landmarks, and ancient Aboriginal sites, unlocking the essence of Australia&apos;s diverse landscapes and captivating cultures.</p>
+          <p className="text-md text-neutral-600 leading-8 text-md w-full text-justify">Embark on an unforgettable Global adventure with our premier tour selection. Meticulously curated by experts, these trending journeys whisk you away to sought-after destinations across the continent. From awe-inspiring landscapes in the Rocky Mountains to cultural immersions in vibrant New Orleans, indulge in luxurious experiences brimming with natural wonders, architectural marvels, and profound heritage. Delve into picturesque countryside, grandiose castles, and ancient ruins, uncovering the essence of global&lsquo;s diverse landscapes and captivating cultures.</p>
           </div>
         </Container>
         <Container>

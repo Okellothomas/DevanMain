@@ -54,12 +54,18 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           <Search /> 
         </div>
       </div>
-     
       <Container>
-        <div className="flex flex-col gap-1 py-9">
-        <h1 className="main-header-black w-full text-center pt-11 pb-0">PRIME AMERICAN <span className="main-header-gradient py-1">DESTINATIONS</span></h1>
+        <div className="flex flex-col gap-1 pt-6 pb-4">
+        <h1 className="main-header-black w-full text-center pt-9 pb-0">PRIME AMERICAN <span className="main-header-gradient py-1">DESTINATIONS</span></h1>
         <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on an unforgettable American adventure with our premier tour selection. Meticulously curated by experts, these journeys transport you to sought-after destinations across the continent. From awe-inspiring landscapes in the Rocky Mountains to cultural immersions in vibrant New Orleans, indulge in luxurious experiences brimming with natural wonders, architectural marvels, and profound heritage. Delve into picturesque countryside, grandiose castles, and ancient ruins, uncovering the essence of America&lsquo;s diverse landscapes and captivating cultures.</p>
         </div>
+      </Container>
+      <Container>
+          <div className="pb-0">
+            <hr />
+          </div>
+      </Container>
+      <Container>
       <div className="pt-6 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
         {tours.slice(0, 4).map((tour: any) => {
           return (

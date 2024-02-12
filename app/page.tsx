@@ -62,32 +62,30 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
       <div className="SearchMain-page">
         <SearchMain />
       </div>
-      <Container>
-        <div className="flex flex-col gap-1 pt-12">
-        <h1 className="main-header-black w-full text-center">AMAZING <span className="main-header-gradient">UPCOMING TOURS</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
-        </div>
-        <div className="pt-9 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-          {/* Map through the listings array and render ListingCard components */}
-        {tours.slice(0, 4).map((tour: any) => {
-          return (
-            <TourPriceCard
-              currentUser={currentUser ? {
-                      ...currentUser,
-                      createdAt: currentUser.createdAt.toISOString(),
-                      updatedAt: currentUser.updatedAt.toISOString(),
-                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
-                    } : null} // Pass the current user to each ListingCard
-              key={tour.id} // Use the listing ID as the unique key
-              data={tour} // Pass the listing data to each ListingCard
-            />
-          );
-        })}
-        </div>
-        {/* <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all upcoming tours</Link>
-        </div> */}
-      </Container>
+
+      {tours && tours.length > 0 && (
+        <Container>
+          <div className="flex flex-col gap-1 pt-12">
+            <h1 className="main-header-black w-full text-center">AMAZING <span className="main-header-gradient">UPCOMING TOURS</span></h1>
+            <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
+          </div>
+          <div className="pt-9 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+            {tours.slice(0, 4).map((tour: any) => (
+              <TourPriceCard
+                currentUser={currentUser ? {
+                  ...currentUser,
+                  createdAt: currentUser.createdAt.toISOString(),
+                  updatedAt: currentUser.updatedAt.toISOString(),
+                  emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                } : null} // Pass the current user to each ListingCard
+                key={tour.id} // Use the listing ID as the unique key
+                data={tour} // Pass the listing data to each ListingCard
+              />
+            ))}
+          </div>
+        </Container>
+      )}
+
       <div className="tour-inconfort flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
         <h1 className="color-h1-white">Tour in comfort and style</h1>
 
@@ -113,31 +111,28 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
             </Container>
       </div>
 
+      {listings && listings.length > 0 && (
       <Container>
         <div className="flex flex-col gap-1 pt-1">
-        <h1 className="main-header-black w-full text-center">INTERCONTINENTAL <span className="main-header-gradient">CLASS HOTELS</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
+          <h1 className="main-header-black w-full text-center">INTERCONTINENTAL <span className="main-header-gradient">CLASS HOTELS</span></h1>
+          <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
         </div>
-      <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-        {listings.slice(0, 4).map((listing: any) => {
-          return (
+        <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+          {listings.slice(0, 4).map((listing: any) => (
             <ListingCardMain
               currentUser={currentUser ? {
-                      ...currentUser,
-                      createdAt: currentUser.createdAt.toISOString(),
-                      updatedAt: currentUser.updatedAt.toISOString(),
-                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
-                    } : null} // Pass the current user to each ListingCard
+                ...currentUser,
+                createdAt: currentUser.createdAt.toISOString(),
+                updatedAt: currentUser.updatedAt.toISOString(),
+                emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+              } : null} // Pass the current user to each ListingCard
               key={listing.id} // Use the listing ID as the unique key
               data={listing} // Pass the listing data to each ListingCard
             />
-          );
-        })}
+          ))}
         </div>
-        {/* <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all intercontental hotels</Link>
-        </div> */}
       </Container>
+    )}
 
       {/* The categories page */}
       <Container>
@@ -164,54 +159,55 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
       </div>
 
       {/* second last */}
+      {tours.slice(5, 9) && tours.slice(5, 9).length > 0 && (
       <Container>
         <div className="flex flex-col gap-1 pt-1">
-        <h1 className="main-header-black w-full text-center">CLASSIC <span className="main-header-gradient">ADVENTURE TOURS</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Experience the thrill of a lifetime on our curated selection of active, immersive tours full of adrenaline, culture and natural wonder.</p>
+          <h1 className="main-header-black w-full text-center">CLASSIC <span className="main-header-gradient">ADVENTURE TOURS</span></h1>
+          <p className="text-neutral-500 text-sm w-full text-center">Experience the thrill of a lifetime on our curated selection of active, immersive tours full of adrenaline, culture and natural wonder.</p>
         </div>
-      <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-        {/* Map through the listings array and render ListingCard components */}
-        {tours.slice(5, 9).map((tour: any) => {
-          return (
+        <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+          {/* Map through the listings array and render ListingCard components */}
+          {tours.slice(5, 9).map((tour: any) => (
             <TourCardSecondary
               currentUser={currentUser ? {
-                      ...currentUser,
-                      createdAt: currentUser.createdAt.toISOString(),
-                      updatedAt: currentUser.updatedAt.toISOString(),
-                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
-                    } : null} // Pass the current user to each ListingCard
+                ...currentUser,
+                createdAt: currentUser.createdAt.toISOString(),
+                updatedAt: currentUser.updatedAt.toISOString(),
+                emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+              } : null} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard
             />
-          );
-        })}
+          ))}
         </div>
         <div className="w-full text-center pt-8">
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all intercontental hotels</Link>
         </div>
       </Container>
-
+      )}
+      
       {/* last part of the code */}
+
+      {tours && tours.length > 0 && (
       <Container>
         <div className="flex w-full py-6 h-auto flex-col gap-1 pt-11">
-        <h1 className="main-header-black w-full text-center">PREMIUM <span className="main-header-gradient">TRENDING TOURS</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
+          <h1 className="main-header-black w-full text-center">PREMIUM <span className="main-header-gradient">TRENDING TOURS</span></h1>
+          <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
         </div>
-      <div className="trending-list-main-page pt-4 pl-16 pb-4 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-6">
-        {/* Map through the listings array and render ListingCard components */}
-        {tours.slice(0, 20).map((tour: any) => {
-          return (
+        <div className="trending-list-main-page pt-4 pl-16 pb-4 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-6">
+          {tours.slice(0, 20).map((tour: any) => (
             <ListingValue
               data={tour}
               key={tour.id}
-              title={tour.title} locationValue={""}              />
-          );
-        })}
+              title={tour.title} 
+              locationValue={""}              
+            />
+          ))}
         </div>
-        {/* <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all premium trending tours</Link>
-        </div> */}
       </Container>
+    )}
+
+
     </div>
   );
 };

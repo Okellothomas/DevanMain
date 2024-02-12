@@ -6,24 +6,22 @@ import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
-import getAdmins from "@/app/actions/getAdmins";
-import Image from "next/image";
 import ListingCard from "@/app/components/listing/ListingCard";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
   searchParams: IListingsParams; // Search parameters for fetching listings
-  tourParams: IToursParams;
   userParams: IUsersParams;
 }
 
 // Home component is defined as an asynchronous function
-const AdministratorsPage = async ({ searchParams, tourParams, userParams }: HotelPageProps) => {
+const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) => {
   // Fetch listings, current user, and users asynchronously
+   let currentUser: any;
+    if (searchParams.userId) {
+        currentUser = await getCurrentUser();
+    }
   const listings = await getListings(searchParams);
-  const currentUser = await getCurrentUser();
-  const tours = await getTours(tourParams);
-  const users = await getAdmins({ ...userParams, userType: "admin" });
   // Delete user function
   const handleDeleteUser = async (id: string) => {
     try {

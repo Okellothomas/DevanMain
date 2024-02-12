@@ -141,7 +141,7 @@ export default async function getPopularTours(
         let query: any = {};
 
         // Remove the userId from the destructuring and handle it separately
-        const { userId: userIdParam, ...restParams } = params;
+       const { userId: userIdParam, ...restParams } = params || {};
 
         if (userIdParam) {
             query.userId = userIdParam;

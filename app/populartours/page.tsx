@@ -34,8 +34,7 @@ interface HotelPageProps {
 // Home component is defined as an asynchronous function
 const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => {
   // Fetch listings and current user asynchronously
-  const listings = await getListings(searchParams);
-    const currentUser = await getCurrentUser();
+  const currentUser = await getCurrentUser();
   const tours = await getPopularTours({ ...tourParams, deal: "popular" });
   const tourss = await getTours(tourParams);
   // const isEmpty = true;

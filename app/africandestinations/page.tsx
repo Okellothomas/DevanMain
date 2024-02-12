@@ -31,14 +31,13 @@ interface HotelPageProps {
 // Home component is defined as an asynchronous function
 const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => {
   // Fetch listings and current user asynchronously
-  const listings = await getListings(searchParams);
-    const currentUser = await getCurrentUser();
+  const currentUser = await getCurrentUser();
   const tours = await getAfricanTours({ ...tourParams, continent: "africa" });
   const tourss = await getTours(tourParams);
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component
-  if (listings.length === 0) {
+  if (tours.length === 0) {
     return (
       <EmptyState showReset />
     );

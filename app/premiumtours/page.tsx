@@ -14,7 +14,6 @@ import BookingCard from "../mainpage/components/BookingCard";
 import ListingValue from "../components/listing/ListingValue";
 import getTours, { IToursParams } from "../actions/getTours";
 import TourCard from "../components/listing/TourCard";
-import TheCategoriess from "./TheCategoriess";
 import TourMainCard from "../components/listing/TourMainCard";
 import TourPriceCard from "../components/listing/TourPriceCard";
 import TourCardSecondary from "../components/listing/TourCardSecondary";
@@ -34,8 +33,7 @@ interface HotelPageProps {
 // Home component is defined as an asynchronous function
 const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => {
   // Fetch listings and current user asynchronously
-  const listings = await getListings(searchParams);
-    const currentUser = await getCurrentUser();
+  const currentUser = await getCurrentUser();
   const tours = await getPremiumTours({ ...tourParams, deal: "premium" });
   const tourss = await getTours(tourParams);
   // const isEmpty = true;

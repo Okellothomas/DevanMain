@@ -34,9 +34,13 @@ interface HomeProps {
 // Home component is defined as an asynchronous function
 const Home = async ({ searchParams, tourParams }: HomeProps) => {
   // Fetch listings and current user asynchronously
+  let currentUser: any;
+    if (searchParams.userId) {
+        currentUser = await getCurrentUser();
+    }
   const listings = await getListings(searchParams);
   const tours = await getTours(tourParams);
-  const currentUser = await getCurrentUser();
+ 
   // const router = useRouter();
   // const isEmpty = true;
 
@@ -68,7 +72,12 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         {tours.slice(0, 4).map((tour: any) => {
           return (
             <TourPriceCard
-              currentUser={currentUser} // Pass the current user to each ListingCard
+              currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                    } : null} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard
             />
@@ -113,7 +122,12 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         {listings.slice(0, 4).map((listing: any) => {
           return (
             <ListingCardMain
-              currentUser={currentUser} // Pass the current user to each ListingCard
+              currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                    } : null} // Pass the current user to each ListingCard
               key={listing.id} // Use the listing ID as the unique key
               data={listing} // Pass the listing data to each ListingCard
             />
@@ -160,7 +174,12 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         {tours.slice(5, 9).map((tour: any) => {
           return (
             <TourCardSecondary
-              currentUser={currentUser} // Pass the current user to each ListingCard
+              currentUser={currentUser ? {
+                      ...currentUser,
+                      createdAt: currentUser.createdAt.toISOString(),
+                      updatedAt: currentUser.updatedAt.toISOString(),
+                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                    } : null} // Pass the current user to each ListingCard
               key={tour.id} // Use the listing ID as the unique key
               data={tour} // Pass the listing data to each ListingCard
             />
@@ -185,8 +204,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
             <ListingValue
               data={tour}
               key={tour.id}
-              title={tour.title}
-              />
+              title={tour.title} locationValue={""}              />
           );
         })}
         </div>

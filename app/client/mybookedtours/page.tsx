@@ -19,10 +19,8 @@ interface HotelPageProps {
 // Home component is defined as an asynchronous function
 const AdministratorsPage = async ({ searchParams, tourParams, userParams }: HotelPageProps) => {
   // Fetch listings, current user, and users asynchronously
-  const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
   const tours = await getTours(tourParams);
-  const users = await getAdmins({ ...userParams, userType: "admin" });
   // Delete user function
   const handleDeleteUser = async (id: string) => {
     try {

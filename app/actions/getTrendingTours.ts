@@ -106,30 +106,138 @@
 // }
 
 
+// import prisma from '@/app/libs/prismadb';
+
+// export interface IToursParams {
+//     userId?: string;
+//     guestCount?: number;
+//     roomCount?: number;
+//     continent?: string; // Corrected to lowercase 'contient'
+//     bathroomCount?: number;
+//     startDate?: string;
+//     deal?: String;
+//     endDate?: string;
+//     locationValue?: string;
+//     category?: string;
+// }
+
+// export default async function getTrendingTours(
+//     params: IToursParams
+// ) {
+//     try {
+//         const {
+//             userId,
+//             roomCount,
+//             guestCount,
+//             // bathRoomCount,
+//             locationValue,
+//             startDate,
+//             endDate,
+//             deal,
+//             continent,
+//             category
+//         } = params || {};
+
+//         let query: any = {};
+
+//         // Remove the userId from the destructuring and handle it separately
+//         const { userId: userIdParam, ...restParams } = params;
+
+//         if (userIdParam) {
+//             query.userId = userIdParam;
+//         }
+
+//         if (category) {
+//             query.category = category;
+//         }
+
+//         if (roomCount) {
+//             query.roomCount = {
+//                 gte: +roomCount
+//             }
+//         }
+
+//         if (guestCount) {
+//             query.guestCount = {
+//                 gte: +guestCount
+//             }
+//         }
+
+//         // if (bathroomCount) {
+//         //     query.bathroomCount = {
+//         //         gte: +bathroomCount
+//         //     }
+//         // }
+
+//         if (locationValue) {
+//             query.locationValue = locationValue;
+//         }
+
+//         if (startDate && endDate) {
+//             query.NOT = {
+//                 reservations: {
+//                     some: {
+//                         OR: [
+//                             {
+//                                 endDate: { gte: startDate },
+//                                 startDate: {lte: startDate},
+//                             },
+//                             {
+//                                 startDate: { lte: endDate },
+//                                 endDate: {gte: endDate}
+//                             }
+//                        ] 
+//                     }
+//                 }
+//             }
+//         }
+
+//         // Add condition for contient to be "africa"
+//         if (deal && deal.toLowerCase() === 'trending') {
+//             query.deal = deal.toLowerCase();
+//         }
+
+//         const tours = await prisma.tour.findMany({
+//             where: query,
+//             orderBy: {
+//                 createAt: 'desc'
+//             }
+//         });
+
+//         const safeTour = tours.map((tour) => ({
+//             ...tour,
+//             createAt: tour.createAt.toISOString(),
+//         }));
+
+//         return safeTour;
+
+//     } catch (error: any) {
+//         throw new Error(error);
+//     }
+// }
+
 import prisma from '@/app/libs/prismadb';
 
 export interface IToursParams {
     userId?: string;
     guestCount?: number;
     roomCount?: number;
-    continent?: string; // Corrected to lowercase 'contient'
+    continent?: string; // Corrected to lowercase 'continent'
     bathroomCount?: number;
     startDate?: string;
-    deal?: String;
+    deal?: string;
     endDate?: string;
     locationValue?: string;
     category?: string;
 }
 
-export default async function getTrendingTours(
-    params: IToursParams
-) {
+export default async function getTrendingTours(params: IToursParams) {
     try {
+        // Check if params is defined, if not assign it an empty object
         const {
             userId,
             roomCount,
             guestCount,
-            // bathRoomCount,
             locationValue,
             startDate,
             endDate,
@@ -141,7 +249,7 @@ export default async function getTrendingTours(
         let query: any = {};
 
         // Remove the userId from the destructuring and handle it separately
-        const { userId: userIdParam, ...restParams } = params;
+        const { userId: userIdParam, ...restParams } = params || {};
 
         if (userIdParam) {
             query.userId = userIdParam;
@@ -163,12 +271,6 @@ export default async function getTrendingTours(
             }
         }
 
-        // if (bathroomCount) {
-        //     query.bathroomCount = {
-        //         gte: +bathroomCount
-        //     }
-        // }
-
         if (locationValue) {
             query.locationValue = locationValue;
         }
@@ -180,19 +282,19 @@ export default async function getTrendingTours(
                         OR: [
                             {
                                 endDate: { gte: startDate },
-                                startDate: {lte: startDate},
+                                startDate: { lte: startDate },
                             },
                             {
                                 startDate: { lte: endDate },
-                                endDate: {gte: endDate}
+                                endDate: { gte: endDate }
                             }
-                       ] 
+                        ]
                     }
                 }
             }
         }
 
-        // Add condition for contient to be "africa"
+        // Add condition for continent to be "africa"
         if (deal && deal.toLowerCase() === 'trending') {
             query.deal = deal.toLowerCase();
         }
@@ -215,4 +317,5 @@ export default async function getTrendingTours(
         throw new Error(error);
     }
 }
+
 

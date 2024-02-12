@@ -13,17 +13,21 @@ import ListingCard from "@/app/components/listing/ListingCard";
 // Define the interface for the Home component props
 interface HotelPageProps {
   searchParams: IListingsParams; // Search parameters for fetching listings
-  tourParams: IToursParams;
   userParams: IUsersParams;
 }
 
 // Home component is defined as an asynchronous function
-const AdministratorsPage = async ({ searchParams, tourParams, userParams }: HotelPageProps) => {
+const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) => {
   // Fetch listings, current user, and users asynchronously
-  const listings = await getListings(searchParams);
-  const currentUser = await getCurrentUser();
-  const tours = await getTours(tourParams);
-  const users = await getAdmins({ ...userParams, userType: "admin" });
+    let currentUser: any;
+    if (searchParams.userId) {
+        currentUser = await getCurrentUser();
+    }
+
+    const listings = await getListings(searchParams);
+
+   
+
   // Delete user function
   const handleDeleteUser = async (id: string) => {
     try {
@@ -41,6 +45,10 @@ const AdministratorsPage = async ({ searchParams, tourParams, userParams }: Hote
       // Handle error as needed (e.g., show an error message)
     }
   };
+
+  // Check if searchParams exists before accessing userId
+
+  // Render the Home component with the fetched listings
 
   // Render the Home component with the fetched listings
   return (

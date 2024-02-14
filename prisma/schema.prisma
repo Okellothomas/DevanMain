@@ -158,6 +158,7 @@ model Tour {
   locationValue String // Location value of the listing
   userId        String   @db.ObjectId // Foreign key referencing the "User" model
   price         Int // Price of the listing
+  tourists      String[]
 
   // Relationship with the "User" model
   user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)

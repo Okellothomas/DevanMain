@@ -119,65 +119,66 @@ const TourClient: React.FC<TourClientProps> = ({
         setShowPay(false)
         console.log("Payment Data",dataa)
 
-        axios.post(`/api/reservations`, {
-            totalPrice,
-            startDate: dateRange.startDate,
-            endDate: dateRange.endDate,
-            tourId: tour?.id
-        })
-            .then(() => {
-                toast.success('Tour reserved!');
-                setDateRange(initialDateRange);
-                // redirect to /trips
-                router.push('/trips');
-            }).catch(() => {
-                toast.error('Something went wrong')
-            }).finally(() => {
-                setIsLoading(false);
-            })
         // axios.post(`/api/reservations`, {
         //     totalPrice,
         //     startDate: dateRange.startDate,
         //     endDate: dateRange.endDate,
-        //     listingId: listing?.id,
-        //     paymentDetails:data
+        //     tourId: tour?.id
         // })
-        //     .then(async () => {
-        //         toast.success('Listing reserved!');
-
+        //     .then(() => {
+        //         toast.success('Tour reserved!');
         //         setDateRange(initialDateRange);
         //         // redirect to /trips
-        //         try {
-        //             const response = await axios.post('/api/mailing/', 
-                  
-        //               {sender:'Info@devancatours.com',
-        //                      recipient:'wanjooo.ken@gmail.com',
-        //                      subject:"Devance Reservations",
-        //                      user_name:currentUser?.name,
-        //                      templateName: 'mail_template',
-        //                      mail_body:`This is a sample test mail from Devance Application and these are the reservatio`
-
-        //                         },
-
-        //                         {
-        //                             headers: {
-        //                                 'Content-Type': 'application/json'
-        //                             }
-        //                         }
-        //             );
-                
-        //             const data = await response.data;
-        //             console.log(data); // handle success message
-                
-        //           } catch (error) {
-        //             console.error(error); // handle error message
-        //           }
-        //         //router.push('/trips');
+        //        // router.push('/trips');
         //     }).catch(() => {
         //         toast.error('Something went wrong')
         //     }).finally(() => {
         //         setIsLoading(false);
         //     })
+        axios.put(`/api/tours/${tour?.id}`, {
+            totalPrice,
+            startDate: dateRange.startDate,
+            endDate: dateRange.endDate,
+            tourId: tour?.id,
+            paymentDetails:data,
+            userId:currentUser?.id
+        })
+            .then(async () => {
+                toast.success('Listing reserved!');
+
+                setDateRange(initialDateRange);
+                // redirect to /trips
+                try {
+                    const response = await axios.post('/api/mailing/', 
+                  
+                      {sender:'Info@devancatours.com',
+                             recipient:'wanjooo.ken@gmail.com',
+                             subject:"Devance Reservations",
+                             user_name:currentUser?.name,
+                             templateName: 'tour_mail_template',
+                             mail_body:`This is a sample test mail from Devance Application and these are the reservatio`
+
+                                },
+
+                                {
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    }
+                                }
+                    );
+                
+                    const data = await response.data;
+                    console.log(data); // handle success message
+                
+                  } catch (error) {
+                    console.error(error); // handle error message
+                  }
+                //router.push('/trips');
+            }).catch(() => {
+                toast.error('Something went wrong')
+            }).finally(() => {
+                setIsLoading(false);
+            })
     }
       }
 

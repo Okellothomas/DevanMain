@@ -58,7 +58,7 @@ const PaymentModal: React.FC<ModalProps> = ({ setShowPayModal, onPaymentComplete
 
     
 
-    const paymentOptions = ['Paypal', 'Mpesa'];
+    const paymentOptions = ['Paypal'];
   
 
     const bodyContent = (

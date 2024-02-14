@@ -28,6 +28,8 @@ import { FaPlaneArrival } from "react-icons/fa6";
 import { FaPersonMilitaryToPerson } from "react-icons/fa6";
 import { RiRadioButtonLine } from "react-icons/ri";
 import { GiCash } from "react-icons/gi";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import PaymentModal from "@/app/components/Modals/PaymentModal";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -95,12 +97,27 @@ const TourClient: React.FC<TourClientProps> = ({
     const { getByValue } = useCountries();
     const coordinates = getByValue(locationValue)?.latlng;
 
-    const onCreateReservation = useCallback(() => {
-        if (!currentUser) {
-            return loginModal.onOpen()
-        }
+    const [showPay, setShowPay] = useState(false)
+    const [dataa, setDataa] = useState('')
 
-        setIsLoading(true);
+
+
+
+
+    const handlePaymentComplete = (data: any) => {
+        // Handle the data passed from PaymentModal
+        console.log('Payment completed with data:', data);
+        setDataa(data)
+        makeReservation(data)
+        // You can also update the state or trigger other actions
+        // ...
+      };
+      const makeReservation = (data:any) =>
+      {
+         
+       {
+        setShowPay(false)
+        console.log("Payment Data",dataa)
 
         axios.post(`/api/reservations`, {
             totalPrice,
@@ -118,14 +135,107 @@ const TourClient: React.FC<TourClientProps> = ({
             }).finally(() => {
                 setIsLoading(false);
             })
-    }, [
+        // axios.post(`/api/reservations`, {
+        //     totalPrice,
+        //     startDate: dateRange.startDate,
+        //     endDate: dateRange.endDate,
+        //     listingId: listing?.id,
+        //     paymentDetails:data
+        // })
+        //     .then(async () => {
+        //         toast.success('Listing reserved!');
+
+        //         setDateRange(initialDateRange);
+        //         // redirect to /trips
+        //         try {
+        //             const response = await axios.post('/api/mailing/', 
+                  
+        //               {sender:'Info@devancatours.com',
+        //                      recipient:'wanjooo.ken@gmail.com',
+        //                      subject:"Devance Reservations",
+        //                      user_name:currentUser?.name,
+        //                      templateName: 'mail_template',
+        //                      mail_body:`This is a sample test mail from Devance Application and these are the reservatio`
+
+        //                         },
+
+        //                         {
+        //                             headers: {
+        //                                 'Content-Type': 'application/json'
+        //                             }
+        //                         }
+        //             );
+                
+        //             const data = await response.data;
+        //             console.log(data); // handle success message
+                
+        //           } catch (error) {
+        //             console.error(error); // handle error message
+        //           }
+        //         //router.push('/trips');
+        //     }).catch(() => {
+        //         toast.error('Something went wrong')
+        //     }).finally(() => {
+        //         setIsLoading(false);
+        //     })
+    }
+      }
+
+
+      const onCreateReservation = useCallback(() => {
+        if (!currentUser) {
+            return loginModal.onOpen()
+        }
+
+       
+        try {
+            
+            setShowPay(true)
+        } catch (error) {
+            console.log(error)
+        }
+       setIsLoading(true);
+
+  }, [
         totalPrice,
         dateRange,
         tour?.id,
         router,
         currentUser,
-        loginModal
+        loginModal,
+   
     ]);
+    // const onCreateReservation = useCallback(() => {
+    //     if (!currentUser) {
+    //         return loginModal.onOpen()
+    //     }
+
+    //     setIsLoading(true);
+
+    //     axios.post(`/api/reservations`, {
+    //         totalPrice,
+    //         startDate: dateRange.startDate,
+    //         endDate: dateRange.endDate,
+    //         tourId: tour?.id
+    //     })
+    //         .then(() => {
+    //             toast.success('Tour reserved!');
+    //             setDateRange(initialDateRange);
+    //             // redirect to /trips
+    //             router.push('/trips');
+    //         }).catch(() => {
+    //             toast.error('Something went wrong')
+    //         }).finally(() => {
+    //             setIsLoading(false);
+    //         })
+    // }, [
+    //     totalPrice,
+    //     dateRange,
+    //     tour?.id,
+    //     router,
+    //     currentUser,
+    //     loginModal
+    // ]);
     
     const Map = dynamic(() => import('../../components/container/Map'), {
         ssr: false
@@ -633,7 +743,9 @@ const TourClient: React.FC<TourClientProps> = ({
                         <div className="px-4 w-full text-center item-center">
                               <div className="w-full text-center items-center">
                                  <span>
-                                  <button className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white">Book Tour Now</button>    
+                                  <button className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white"
+                                  onClick={onCreateReservation}>
+                                    Book Tour Now</button>    
                                 </span>
                               </div>
                           </div>
@@ -644,6 +756,10 @@ const TourClient: React.FC<TourClientProps> = ({
 
 
               </div>
+
+              {showPay && <PayPalScriptProvider options={{ clientId: "AcbLNojs3zi8fz5CSO9t0XunN67EBkPBGkvClnuWXElfFB3dALy0lgjEj2zwVSLtcuKF9jwHvFrly2gD" }}>
+                  <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete} totalPrice={totalPrice.toString()}/>
+                </PayPalScriptProvider>}
           </div>  
     </Container>
   )

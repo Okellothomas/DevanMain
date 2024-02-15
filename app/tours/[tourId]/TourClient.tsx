@@ -141,7 +141,8 @@ const TourClient: React.FC<TourClientProps> = ({
             endDate: dateRange.endDate,
             tourId: tour?.id,
             paymentDetails:data,
-            userId:currentUser?.id
+            userId:currentUser?.id,
+            tourists:tour? tour.tourists:[]
         })
             .then(async () => {
                 toast.success('Listing reserved!');
@@ -188,6 +189,11 @@ const TourClient: React.FC<TourClientProps> = ({
             return loginModal.onOpen()
         }
 
+        if(tour?.tourists.includes(currentUser?.id))
+        {
+            toast.error('Your are already reserved on this tour')
+        }
+        else{
        
         try {
             
@@ -196,6 +202,7 @@ const TourClient: React.FC<TourClientProps> = ({
             console.log(error)
         }
        setIsLoading(true);
+    }
 
   }, [
         totalPrice,

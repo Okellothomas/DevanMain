@@ -189,11 +189,11 @@ const TourClient: React.FC<TourClientProps> = ({
             return loginModal.onOpen()
         }
 
-        if(!tour?.tourists.includes(currentUser?.id))
-        {
-            toast.error('Your are already reserved on this tour')
-        }
-        else{
+        // if(!tour?.tourists.includes(currentUser?.id))
+        // {
+        //     toast.error('Your are already reserved on this tour')
+        // }
+        // else{
        
         try {
             
@@ -204,7 +204,7 @@ const TourClient: React.FC<TourClientProps> = ({
        setIsLoading(true);
     }
 
-  }, [
+  , [
         totalPrice,
         dateRange,
         tour?.id,

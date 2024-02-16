@@ -86,7 +86,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
       };
       const makeReservation = (data:any) =>
       {
-        
+         
        {
         setShowPay(false)
         console.log("Payment Data",dataa)

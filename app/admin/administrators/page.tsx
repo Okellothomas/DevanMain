@@ -4,8 +4,7 @@ import getTours, { IToursParams } from "@/app/actions/getTours";
 import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
-import deleteUsers from "@/app/actions/deleteUsers";
-import AdminInfo from "./AdminInfo";
+
 import getAdmins from "@/app/actions/getAdmins";
 
 // Define the interface for the Home component props

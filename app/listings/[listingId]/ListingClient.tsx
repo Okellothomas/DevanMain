@@ -354,7 +354,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                       </div>
                   </div>
               </div> 
-              {showPay && <PayPalScriptProvider options={{ clientId: "AcbLNojs3zi8fz5CSO9t0XunN67EBkPBGkvClnuWXElfFB3dALy0lgjEj2zwVSLtcuKF9jwHvFrly2gD" }}>
+              {showPay && <PayPalScriptProvider options={{ clientId: "AZ_ycPr5s3mAA-Xboaqc9ft8hHiaChcr42aZIauAYl3Ax0CDig8L3uc-V0P2Mgx70nQD4p7XKcTbCLBB" }}>
                   <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete} totalPrice={totalPrice.toString()}/>
                 </PayPalScriptProvider>}
           </div>  

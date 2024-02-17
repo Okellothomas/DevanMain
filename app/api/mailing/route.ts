@@ -7,13 +7,10 @@ import fs from "fs"
 
 // Create a Nodemailer transporter
 const transporter = nodemailer.createTransport({
-  //service: 'webmail',
-  host:'smtp.devancatours.com',
-   port: 587,
-  secure: false, // Change to true if your SMTP server requires TLS
+  service: 'gmail',
   auth: {
-    user: 'info@devancatours.com',
-    pass: '_mlR?H}v7qSh',
+    user: 'devancatour@gmail.com',
+    pass: 'zhhakqcnhgesxcot',
   },
 });
 

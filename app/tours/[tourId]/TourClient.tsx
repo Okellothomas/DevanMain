@@ -101,7 +101,14 @@ const TourClient: React.FC<TourClientProps> = ({
     const [dataa, setDataa] = useState('')
 
 
+    const [numberOfTourists, setNumberOfTourists] = useState(0);
+    const [error, setError] = useState('');
+  const handleTouristsChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+    setNumberOfTourists(parseInt(event.target.value));
+    setError('');
 
+    setTotalPrice(parseInt(event.target.value))
+  };
 
 
     const handlePaymentComplete = (data: any) => {
@@ -185,6 +192,12 @@ const TourClient: React.FC<TourClientProps> = ({
 
 
       const onCreateReservation = useCallback(() => {
+
+        if (numberOfTourists <= 0) {
+            setError('Specify nuumber of tourists, must be greater than 0.');
+            return;
+          }
+
         if (!currentUser) {
             return loginModal.onOpen()
         }
@@ -667,7 +680,7 @@ const TourClient: React.FC<TourClientProps> = ({
 
                     <div className="flex h-[65vh] flex-col gap-5 items-start border-[1px] border-solid py-4 px-4 border-neutral-300 w-full rounded-lg">
                        <iframe
-                        src={tour.ourLink}
+                        src={tour?.ourLink? tour?.ourLink :''}
                         title="YouTube video player"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -744,6 +757,22 @@ const TourClient: React.FC<TourClientProps> = ({
                               <div className="flex flex-row gap-3 justify-between items-center">
                                  <span>${tour.save}</span>
                               </div>
+                          </div>
+                        <div className="flex flex-col px-4 justify-between item-center gap-3">
+                        {error && <div className="text-red-500 text-sm pt-2">{error}</div>}
+                        <div className="flex flec-row items-center mt-4">
+                            <label htmlFor="guests" className="w-24 text-right mr-4 text-gray-700">
+                                Number of Guests:
+                            </label>
+                            <input
+                                id="guests"
+                                type="number"
+                                className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                value={numberOfTourists}
+                                onChange={handleTouristsChange}
+                            />
+                            </div>
+
                           </div>
                         <div className="px-4 py-3">
                           <hr />

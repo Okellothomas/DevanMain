@@ -8,6 +8,7 @@ import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
 import getAdmins from "@/app/actions/getAdmins";
 import TourCard from "@/app/components/listing/TourCard";
+import getToursClient from "@/app/actions/getToursClient";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -20,7 +21,9 @@ interface HotelPageProps {
 const AdministratorsPage = async ({ searchParams, tourParams, userParams }: HotelPageProps) => {
   // Fetch listings, current user, and users asynchronously
   const currentUser = await getCurrentUser();
-  const tours = await getTours(tourParams);
+  const tours = await getToursClient(tourParams);
+
+  console.log("Tours--------===->", tours)
   // Delete user function
   const handleDeleteUser = async (id: string) => {
     try {

@@ -4,6 +4,7 @@ import prisma from "@/app/libs/prismadb";
 
 interface IParams {
   tourId?: string;
+  
 }
 
 export async function PUT(
@@ -25,7 +26,7 @@ export async function PUT(
   const { tourId } = params;
   const updateData = await request.json(); // Assuming JSON data
 
-  console.log(updateData)
+ 
 
   if (!tourId || typeof tourId !== "string") {
     throw new Error("Invalid tour ID"); // Throw error for invalid IDs
@@ -52,8 +53,9 @@ export async function PUT(
     throw new Error("'tourists' array must contain strings (user IDs)");
   }
 
+  const tour = await prisma.tour.findUnique({ where: { id:tourId } });
   // Check for limit (replace with your desired limit):
-  const MAX_TOURISTS = 10; // Example limit, adjust as needed
+  const MAX_TOURISTS = tour?.guestCount? tour.guestCount : 0 ; // Example limit, adjust as needed
   if (newTourists.length > MAX_TOURISTS) {
     throw new Error(`Maximum tourists reached: ${MAX_TOURISTS}`);
   }

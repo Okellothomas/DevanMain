@@ -103,11 +103,13 @@ const TourClient: React.FC<TourClientProps> = ({
 
     const [numberOfTourists, setNumberOfTourists] = useState(0);
     const [error, setError] = useState('');
+    const baseUrl = `${window.location.protocol}//${window.location.host}`;   //Wanna ge the base url of the current app
+
   const handleTouristsChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     setNumberOfTourists(parseInt(event.target.value));
     setError('');
 
-    setTotalPrice(parseInt(event.target.value))
+    setTotalPrice(tour.price * parseInt(event.target.value))
   };
 
 
@@ -149,6 +151,7 @@ const TourClient: React.FC<TourClientProps> = ({
             tourId: tour?.id,
             paymentDetails:data,
             userId:currentUser?.id,
+            slots:numberOfTourists,
             tourists:tour? tour.tourists:[]
         })
             .then(async () => {
@@ -164,6 +167,7 @@ const TourClient: React.FC<TourClientProps> = ({
                              subject:"Devance Reservations",
                              user_name:currentUser?.name,
                              templateName: 'tour_mail_template',
+                             baseUrl: baseUrl,
                              mail_body:`This is a sample test mail from Devance Application and these are the reservatio`
 
                                 },
@@ -193,10 +197,18 @@ const TourClient: React.FC<TourClientProps> = ({
 
       const onCreateReservation = useCallback(() => {
 
+        console.log(baseUrl)
+
         if (numberOfTourists <= 0) {
-            setError('Specify nuumber of tourists, must be greater than 0.');
+            setError('Specify number of tourists, must be greater than 0.');
             return;
           }
+        if (numberOfTourists > (tour.guestCount - tour.tourists.length)) {
+            setError(`Available slots not enough for requested slots, only ${tour.guestCount - tour.tourists.length} available`);
+            return;
+          }
+
+
 
         if (!currentUser) {
             return loginModal.onOpen()
@@ -690,7 +702,7 @@ const TourClient: React.FC<TourClientProps> = ({
                     </div>       
                   </div>
 
-                    <div className="border-[1px] h-[92vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
+                    <div className="border-[1px] h-[100vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
                           <div className="flex flex-row px-4 justify-between item-center gap-3">
                               <div className="flex flex-row gap-3 justify-between items-center">
                                  <span className="text-blue-400"><SlCalender size={23 } /></span><span>Tour Length</span> 
@@ -758,16 +770,20 @@ const TourClient: React.FC<TourClientProps> = ({
                                  <span>${tour.save}</span>
                               </div>
                           </div>
-                        <div className="flex flex-col px-4 justify-between item-center gap-3">
-                        {error && <div className="text-red-500 text-sm pt-2">{error}</div>}
-                        <div className="flex flec-row items-center mt-4">
-                            <label htmlFor="guests" className="w-24 text-right mr-4 text-gray-700">
+
+                          <div className="px-4 py-3">
+                          <hr />
+                        </div>
+                        <div className="flex flex-col px-4 justify-between item-center gap-1">
+                        {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
+                        <div className="flex flec-row items-center mt-2">
+                            <label htmlFor="guests" className=" text-right mr-4 text-gray-700">
                                 Number of Guests:
                             </label>
                             <input
                                 id="guests"
                                 type="number"
-                                className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                className="shadow border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 value={numberOfTourists}
                                 onChange={handleTouristsChange}
                             />

@@ -29,19 +29,24 @@ export async function POST(req: Request, res: NextApiResponse) {
    
       const year = new Date().getFullYear(); // Or fetch dynamically if needed
 
+      //const baseUrl = `${window.location.protocol}//${window.location.host}`;   //Wanna ge the base url of the current app
+
       // Construct the path to the template file dynamically
       
       const body = await req.json();
       
-      const { sender, recipient, subject, mail_body, user_name, templateName } = body;
+      const { sender, recipient, subject, mail_body, user_name, templateName, baseUrl } = body;
       console.log(templateName)
       const templatePath = path.join(__dirname, `../../../../../templates/${templateName}.html`);
+
+      const tourUrl = `${baseUrl}/clients/profile`
       const templateHTML = fs.readFileSync(templatePath, 'utf8');
 
     // Render the template using string interpolation or a templating library
   const renderedHTML = templateHTML
   .replace(/\{recipientName\}/g, user_name)
-  .replace(/\{year\}/g, year.toString());
+  .replace(/\{year\}/g, year.toString())
+  .replace(/\{tourUrl}/g, tourUrl);
 
     try {
       const info = await transporter.sendMail({

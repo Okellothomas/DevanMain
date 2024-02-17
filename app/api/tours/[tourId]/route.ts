@@ -54,8 +54,19 @@ export async function PUT(
     const { tourId } = params;
     const formData = await request.json(); // Assuming JSON data
 
-    const updateData = formData 
-    updateData.tourists= [...formData.tourists, formData.userId]
+
+    const tour = await prisma.tour.findUnique({ where: { id:tourId } });
+    const slots = formData.slots;
+
+    if (tour?.guestCount !== undefined && tour?.tourists !== undefined && slots > (tour.guestCount - tour.tourists.length)) {
+   
+      throw new Error("Slots availabe not enough for the requested number of slots"); 
+    }
+
+    const updateData = {
+      ...formData,
+      tourists: [...formData.tourists, ...Array.from({ length: formData.slots }).fill(formData.userId)],
+    };
   
     console.log("form data",formData)
     console.log("updates data",updateData)
@@ -87,11 +98,12 @@ export async function PUT(
       throw new Error("'tourists' array must contain strings (user IDs)");
     }
   
+
     // Check for limit (replace with your desired limit):
-    const MAX_TOURISTS = 10; // Example limit, adjust as needed
-    if (newTourists.length > MAX_TOURISTS) {
-      throw new Error(`Maximum tourists reached: ${MAX_TOURISTS}`);
-    }
+    const MAX_TOURISTS = tour?.guestCount? tour.guestCount : 0 ; // Example limit, adjust as needed
+  if (newTourists.length > MAX_TOURISTS) {
+    throw new Error(`Maximum tourists reached: ${MAX_TOURISTS}`);
+  }
   
    
   

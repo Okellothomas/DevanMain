@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FaYoutube } from "react-icons/fa";
 
 const FooterBottom = () => {
   return (
-    <div className="flex flex-row justify-between items-center text-white py-4">
+    <div className="flex flex-row justify-between items-center text-white py-5">
       <div className="text-md">
         &copy; 2014 - 2024 DevanceTours Inc.
       </div>
@@ -10,7 +12,8 @@ const FooterBottom = () => {
         <Image src="/images/google.png" height="30" width="30"  alt=""  className="footer-main-images" />
         <Image src="/images/master.jpg" height="30" width="30"  alt=""  className="footer-main-images" />
         <Image src="/images/paypal.jpg" height="30" width="30"  alt=""  className="footer-main-images" />
-        <Image src="/images/visa.jpg" height="30" width="30"   alt="" className="footer-main-images" />
+        <Image src="/images/visa.jpg" height="30" width="30" alt="" className="footer-main-images" />
+        <Link href="https://www.youtube.com/channel/UCjgluXJwl_3dipbVzCOEIDg" target="_blank"><FaYoutube size={35} /></Link>
       </div>
     </div>
   );

@@ -50,39 +50,42 @@ const ListingPage = async ({ params }: { params: IParams }) => {
             </div>
             
         {/* Classic Adventure Tours section */}
-      <Container>
-        <div className="flex flex-col gap-1 pt-5">
-          <h1 className="main-header-black w-full text-center">
-            OUR <span className="main-header-gradient">PREMIUM TOURS</span>
-          </h1>
-          <p className="text-neutral-500 text-sm w-full text-center">
-            You viewed the lavish {listing.title} - continue your luxury adventure with these premium recommendations for our exotic tours handpicked just for you.
-          </p>
-        </div>
-        <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
-          {/* Map through the tours array and render TourCard components */}
-          {tours.slice(0,5).map((tour: any) => (
-            <TourCard
-              currentUser={currentUser ? {
-                      ...currentUser,
-                      createdAt: currentUser.createdAt.toISOString(),
-                      updatedAt: currentUser.updatedAt.toISOString(),
-                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
-              } : null} // Pass the current user to each ListingCard
-              key={tour.id}
-              data={tour}
-            />
-          ))}
-        </div>
-        <div className="w-full text-center pt-8">
-          <Link
-            className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md"
-            href="/hotels"
-          >
-            View all premium tours
-          </Link>
-        </div>
-      </Container>
+        {tours.slice(0, 4) && tours.slice(0, 4).length > 0 && (
+          <Container>
+            <div className="flex flex-col gap-1 pt-5">
+              <h1 className="main-header-black w-full text-center">
+                OUR <span className="main-header-gradient">PREMIUM TOURS</span>
+              </h1>
+              <p className="text-neutral-500 text-sm w-full text-center">
+                You viewed the lavish {listing.title} - continue your luxury adventure with these premium recommendations for our exotic tours handpicked just for you.
+              </p>
+            </div>
+            <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+              {/* Map through the tours array and render TourCard components */}
+              {tours.slice(0, 4).map((tour: any) => (
+                <TourCard
+                  currentUser={currentUser ? {
+                    ...currentUser,
+                    createdAt: currentUser.createdAt.toISOString(),
+                    updatedAt: currentUser.updatedAt.toISOString(),
+                    emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                  } : null} // Pass the current user to each ListingCard
+                  key={tour.id}
+                  data={tour}
+                />
+              ))}
+            </div>
+            <div className="w-full text-center pt-8">
+              <Link
+                className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md"
+                href="/hotels"
+              >
+                View all premium tours
+              </Link>
+            </div>
+        </Container>
+        )}
+
     </div>
         
   )

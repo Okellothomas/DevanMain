@@ -29,6 +29,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const tourModal = useTourModal();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
+  const signUpModal = useRegisterModal()
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
@@ -109,7 +110,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     currentUser.userType === 'admin' ?
                       <div>
                       <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => router.push("/admin/profile")} label="My profile" /></div>
-                      <div className="flex flex-row items-center"><MdOutlineAdminPanelSettings size={23} /><MenuItem onClick={rentModal.onOpen} label="Add administrator" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineAdminPanelSettings size={23} /><MenuItem onClick={() => signUpModal.onOpen('admin')} label="Add administrator" /></div>
                       <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add hotel" /></div>
                       <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add house lease" /></div>
                       <div className="flex flex-row items-center"><GiKangaroo size={23 } /><MenuItem onClick={tourModal.onOpen} label="Add tour" /></div>

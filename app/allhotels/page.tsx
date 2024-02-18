@@ -7,6 +7,7 @@ import ListingCard from "../components/listing/ListingCard";
 import Categories from "../components/navbar/Categories";
 import Search from "../components/navbar/Search";
 import Categoriess from "../mainpage/components/Categoriess";
+import getAllHotelLisings from "../acts/getAllHotelsListings";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -20,7 +21,7 @@ const HotelPage = async ({ searchParams }: HotelPageProps) => {
     if (searchParams.userId) {
         currentUser = await getCurrentUser();
     }
-  const listings = await getListings(searchParams);
+  const listings = await getAllHotelLisings({ ...searchParams, hotel: "hotel" });
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component
@@ -34,14 +35,14 @@ const HotelPage = async ({ searchParams }: HotelPageProps) => {
   return (
     <div>
     <div className="european-hotel-main flex flex-col items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-white-main">European <span className="color-span-green">Hotels</span></h1>
+        <h1 className="color-h1-white-main">All <span className="color-span-green">Hotels</span></h1>
         <div className="hotel-search">
           <Search /> 
         </div>
       </div>
       <div className="py-4">
         <Categories />
-      </div>  
+        </div>  
       <Container>
       <div className="pt-0 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
         {/* Map through the listings array and render ListingCard components */}

@@ -13,6 +13,7 @@ import TourMainAfricanCard from "../components/listing/TourMainAfricanCard";
 import getAfricanTours from "../actions/getAfricanTours";
 import getEuropeanTours from "../actions/getEuropeanTours";
 import getAsiaTours from "../actions/getAsianTours";
+import getOceanCruiseListing from "../act/getOceanCruiseListing";
 
 // Define the interface for component props
 interface IParams {
@@ -24,7 +25,7 @@ interface IParams {
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)
   const getToursAndRender = async () => {
-    const tours = await getAsiaTours({ ...tourParams, continent: "asia" });
+    const tours = await getOceanCruiseListing({ ...tourParams, category: "Ocean Cruise" });
     const currentUser = await getCurrentUser();
 
     const PAGE_SIZE = 15;
@@ -45,12 +46,12 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
       <div>
         <div className="alldestinations-main flex flex-col items-center justify-center text-lg font-bold">
           <h1 className="alldestinations-white-main">
-            Asian<span className="color-span-green"> Tour Destinations</span>
+            Ocean<span className="color-span-green"> Cruises Destinations</span>
           </h1>
         </div>
         <Container>
           <div className="flex flex-col gap-1 pt-9">
-          <p className="text-md text-neutral-600 leading-8 text-md w-full text-justify">Experience an extraordinary Asian adventure with our premier tour selection. Carefully curated by experts, these journeys whisk you away to sought-after destinations across the continent. From stunning landscapes in the Himalayas to cultural immersions in bustling Tokyo, indulge in opulent experiences teeming with natural wonders, architectural masterpieces, and rich heritage. Traverse through verdant countryside, majestic temples, and ancient ruins, revealing the essence of Asia&apos;s diverse landscapes and captivating cultures.</p>
+          <p className="text-md text-neutral-600 leading-8 text-md w-full text-justify">Embark on unparalleled ocean cruise tours with our prime selection. Curated by experts, these journeys bring sought-after destinations to your doorstep. From exotic ports to breathtaking coastal views, immerse yourself in luxurious voyages filled with natural wonders and cultural experiences. Enhance your journey with personalized excursions, redefining your travel expectations.</p>
           </div>
         </Container>
         <Container>

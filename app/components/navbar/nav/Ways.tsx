@@ -68,10 +68,10 @@ const Ways: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
                 onClick={() => router.push("/oceancruise")}
                 label="Ocean cruise"
               />
-              <MenuItem
+              {/* <MenuItem
                 onClick={() => router.push("/primeadventures")}
                 label="Prime adventures"
-              />
+              /> */}
             </>
           </div>
         </div>

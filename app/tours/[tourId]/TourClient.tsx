@@ -30,10 +30,6 @@ import { RiRadioButtonLine } from "react-icons/ri";
 import { GiCash } from "react-icons/gi";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import PaymentModal from "@/app/components/Modals/PaymentModal";
-<<<<<<< HEAD
-import { tours } from "@/app/components/navbar/TourCategories";
-=======
->>>>>>> cab96c0e60cf5938e28fa0ae73628ab1a525a0c1
 
 const initialDateRange = {
     startDate: new Date(),
@@ -99,80 +95,8 @@ const TourClient: React.FC<TourClientProps> = ({
     const [isOpen18, setIsOpen18] = useState(false);
     const [showPay, setShowPay] = useState(false)
     const [dataa, setDataa] = useState('')
-
     const { getByValue } = useCountries();
     const coordinates = getByValue(locationValue)?.latlng;
-
-<<<<<<< HEAD
-    const handlePaymentComplete = (data: any) => {
-        // Handle the data passed from PaymentModal
-        console.log('Payment completed with data:', data);
-        setDataa(data)
-        makeReservation(data)
-        // You can also update the state or trigger other actions
-        // ...
-      };
-
-    const makeReservation = (data:any) =>
-      {
-        
-       {
-        setShowPay(false)
-        console.log("Payment Data",dataa)
-        axios.post(`/api/reservations`, {
-            totalPrice,
-            startDate: dateRange.startDate,
-            endDate: dateRange.endDate,
-            // listingId: tours?.id,
-            paymentDetails:data
-        })
-            .then(async () => {
-                toast.success('Listing reserved!');
-
-                setDateRange(initialDateRange);
-                // redirect to /trips
-                try {
-                    const response = await axios.post('/api/mailing/', 
-                  
-                      {sender:'Info@devancatours.com',
-                             recipient:'wanjooo.ken@gmail.com',
-                             subject:"Devance Reservations",
-                             user_name:currentUser?.name,
-                             templateName: 'mail_template',
-                             mail_body:`This is a sample test mail from Devance Application and these are the reservatio`
-
-                                },
-
-                                {
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                    }
-                                }
-                    );
-                
-                    const data = await response.data;
-                    console.log(data); // handle success message
-                
-                  } catch (error) {
-                    console.error(error); // handle error message
-                  }
-                //router.push('/trips');
-            }).catch(() => {
-                toast.error('Something went wrong')
-            }).finally(() => {
-                setIsLoading(false);
-            })
-    }
-      }
-
-    const onCreateReservation = useCallback(() => {
-        if (!currentUser) {
-            return loginModal.onOpen()
-        }
-=======
-    const [showPay, setShowPay] = useState(false)
-    const [dataa, setDataa] = useState('')
->>>>>>> cab96c0e60cf5938e28fa0ae73628ab1a525a0c1
 
 
 
@@ -216,7 +140,7 @@ const TourClient: React.FC<TourClientProps> = ({
             tourId: tour?.id,
             paymentDetails:data,
             userId:currentUser?.id,
-            tourists:tour? tour.tourists:[]
+            // tourists:tour? tour.tourists:[]
         })
             .then(async () => {
                 toast.success('Listing reserved!');
@@ -838,10 +762,6 @@ const TourClient: React.FC<TourClientProps> = ({
 
 
               </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> cab96c0e60cf5938e28fa0ae73628ab1a525a0c1
               {showPay && <PayPalScriptProvider options={{ clientId: "AZ_ycPr5s3mAA-Xboaqc9ft8hHiaChcr42aZIauAYl3Ax0CDig8L3uc-V0P2Mgx70nQD4p7XKcTbCLBB" }}>
                   <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete} totalPrice={totalPrice.toString()}/>
                 </PayPalScriptProvider>}

@@ -39,6 +39,8 @@ const RegisterModal = () => {
             name: '',
             email: '',
             password: '',
+            contact: '',
+            country: ''
             
         }
     });
@@ -74,16 +76,34 @@ const RegisterModal = () => {
                 // center
             />
             <Input
-                id='email'
-                label='Email'
+                id='name'
+                label='Name'
                 disabled={isLoading}
                 register={register}
                 error={errors}
                 required
             />
             <Input
-                id='name'
-                label='Name'
+                id='contact'
+                label='contact'
+                type='text'
+                disabled={isLoading}
+                register={register}
+                error={errors}
+                required
+            />
+            <Input
+                id='country'
+                label='country'
+                type='text'
+                disabled={isLoading}
+                register={register}
+                error={errors}
+                required
+            />
+            <Input
+                id='email'
+                label='Email'
                 disabled={isLoading}
                 register={register}
                 error={errors}
@@ -104,14 +124,14 @@ const RegisterModal = () => {
     const footerContent = (
         <div className='flex flex-col gap-4 mt-3'>
             <hr />
-            <div className='google-btn'>
+            {/* <div className='google-btn'>
             <Button
                 outline
                 label='Continue with Google'
-                // icon={FcGoogle}
+                icon={FcGoogle}
                 onClick={() => signIn('google')}
                 />
-            </div>
+            </div> */}
             <div className='text-normal-500 text-center mt-4 font-light'>
                 <div className='justify-center flex flex-row items-center gap-2'>
                     <div>

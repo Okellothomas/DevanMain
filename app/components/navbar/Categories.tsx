@@ -220,9 +220,9 @@ const Categories = () => {
 
     const isHotelPage = pathname === '/hotels';
 
-    if (!isHotelPage) {
-        return null;
-    }
+    // if (!isHotelPage) {
+    //     return null;
+    // }
 
     // Function to handle scrolling to the next set of categories
     const handleNextClick = () => {

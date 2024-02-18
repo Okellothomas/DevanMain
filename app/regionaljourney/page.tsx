@@ -23,6 +23,7 @@ import CardDisplay from "../mainpage/components/CardDisplay";
 import getAfricanTours from "../actions/getAfricanTours";
 import EmptyStates from "../components/container/EmptyStates";
 import getAmericaTours from "../actions/getAmericanTours";
+import getRegionalListing from "../act/getRegionalListing";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -34,7 +35,7 @@ interface HotelPageProps {
 const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => {
   // Fetch listings and current user asynchronously
     const currentUser = await getCurrentUser();
-  const tours = await getAmericaTours({ ...tourParams, continent: "america" });
+  const tours = await getRegionalListing({ ...tourParams, category: "Regional" });
   const tourss = await getTours(tourParams);
   // const isEmpty = true;
 
@@ -48,15 +49,15 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
   return (
     <div>
     <div className="all-destinations-main-main flex flex-col items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-destinations-main">Prime American <span className="color-span-green">Destinations</span></h1>
+        <h1 className="color-h1-destinations-main">Discovery <span className="color-span-green">Journeys</span></h1>
         <div className="destination-search-main">
           <Search /> 
         </div>
       </div>
       <Container>
         <div className="flex flex-col gap-1 pt-6 pb-4">
-        <h1 className="main-header-black w-full text-center pt-9 pb-0">PRIME AMERICAN <span className="main-header-gradient py-1">DESTINATIONS</span></h1>
-        <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on an unforgettable American adventure with our premier tour selection. Meticulously curated by experts, these journeys transport you to sought-after destinations across the continent. From awe-inspiring landscapes in the Rocky Mountains to cultural immersions in vibrant New Orleans, indulge in luxurious experiences brimming with natural wonders, architectural marvels, and profound heritage. Delve into picturesque countryside, grandiose castles, and ancient ruins, uncovering the essence of America&lsquo;s diverse landscapes and captivating cultures.</p>
+        <h1 className="main-header-black w-full text-center pt-9 pb-0">DISCOVERY JOURNEYS <span className="main-header-gradient py-1">TOURS</span></h1>
+        <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on unparalleled Regional Journeys tours with our prime selection. Curated by experts, these expeditions bring sought-after destinations to your doorstep. From local gems to iconic landmarks, immerse yourself in luxurious travels filled with natural wonders and cultural experiences. Enhance your journey with personalized excursions, redefining your travel expectations.</p>
         </div>
       </Container>
       <Container>
@@ -82,7 +83,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         })}
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allamericandestinations">view american destinations</Link>
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allregionaljourney">View Regional Journeys</Link>
         </div>
           </Container>
           

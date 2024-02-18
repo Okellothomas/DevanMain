@@ -20,6 +20,9 @@ import TourModal from './components/Modals/TourModal'
 export const metadata: Metadata = {
   title: 'Devanca Tours',
   description: 'The great tour sales',
+  icons: {
+    icon: '../../public/images/logo.png',
+  }
 }
 
 // RootLayout function component definition

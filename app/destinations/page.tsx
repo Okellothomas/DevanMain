@@ -27,7 +27,9 @@ interface HotelPageProps {
 const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => {
   // Fetch listings and current user asynchronously
     const currentUser = await getCurrentUser();
-    const tours = await getTours(tourParams);
+  const tours = await getTours(tourParams);
+  const filteredTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 4);
+  const filteredTourss = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(4, 8);
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component
@@ -58,7 +60,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
       </Container>
       <Container>
       <div className="pt-6 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-        {tours.slice(0, 4).map((tour: any) => {
+        {filteredTours.map((tour: any) => {
           return (
             <TourPriceCard
               currentUser={currentUser ? {
@@ -86,14 +88,14 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           </div>
         </Container>
       </div>
-          
+        {filteredTourss && filteredTourss.length > 0 && (
         <Container>
         <div className="flex flex-col gap-1 pt-4">
         <h1 className="main-header-black w-full text-center">FEATURED <span className="main-header-gradient">CLASSIC TOUR</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
         </div>
         <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-        {tours.slice(4, 8).map((tour: any) => {
+        {filteredTourss.map((tour: any) => {
           return (
             <TourCardSecondary
               currentUser={currentUser ? {
@@ -109,7 +111,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         })}
         </div>
       </Container>
-      
+      )}
     </div>
   );
 };

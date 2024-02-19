@@ -149,12 +149,8 @@ const TourClient: React.FC<TourClientProps> = ({
             tourId: tour?.id,
             paymentDetails:data,
             userId:currentUser?.id,
-<<<<<<< HEAD
-            // tourists:tour? tour.tourists:[]
-=======
             slots:numberOfTourists,
             tourists:tour? tour.tourists:[]
->>>>>>> 418aea25dc9de9a53c67003269ed3cbd0bb1ab93
         })
             .then(async () => {
                 toast.success('Listing reserved!');
@@ -223,7 +219,6 @@ const TourClient: React.FC<TourClientProps> = ({
         // else{
        
         try {
-            
             setShowPay(true)
         } catch (error) {
             console.log(error)

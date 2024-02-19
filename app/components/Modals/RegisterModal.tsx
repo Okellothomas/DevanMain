@@ -1,6 +1,6 @@
 'use client'
 
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 import { useCallback, useState } from 'react';
@@ -18,13 +18,14 @@ import toast from 'react-hot-toast';
 import Button from '../container/Button';
 import { signIn } from 'next-auth/react';
 import useLoginModal from '@/app/hooks/useLoginModal';
+import getCurrentUser from '@/app/actions/getCurrentUsers';
 
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
-
     const userType = registerModal.userType
+    const baseUrl = typeof window !== 'undefined' ? `${window.location.protocol}//${window.location.host}` : '';
 
     
     
@@ -49,7 +50,37 @@ const RegisterModal = () => {
         setIsLoading(true);
 
         axios.post('/api/register', {...data, userType:userType})
-            .then(() => {
+            .then(async () => {
+
+                try {
+                    const response = await axios.post('/api/mailing/',
+
+                    // const response: AxiosResponse<any> = await axios.post('/api/mailing/',
+                    
+         
+                      {sender:'devancatour@gmail.com',
+                          recipient:data.email,
+                             subject:"Registration Successful",
+                             user_name:data.name,
+                             templateName: 'sign_up_template',
+                             baseUrl: baseUrl,
+                            
+                                },
+
+                                {
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    }
+                                }
+                    );
+                
+                    const dataa = await response.data;
+                    console.log(dataa); // handle success message
+                
+                  } catch (error) {
+                    console.error(error); // handle error message
+                  }
+
                 toast.success('Registration successful!');
                 registerModal.onClose();
                 loginModal.onOpen();

@@ -29,7 +29,7 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
     const PAGE_SIZE = 15;
     const currentPage = 1;
     const startIndex = (currentPage - 1) * PAGE_SIZE;
-    const visibleTours = tours.slice(startIndex, startIndex + PAGE_SIZE);
+    const visibleTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(startIndex, startIndex + PAGE_SIZE);
 
     const products: any = [];
 

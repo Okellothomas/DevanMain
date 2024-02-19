@@ -24,7 +24,9 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
     }
 
   const listings = await getOceanCruiseListing({ ...searchParams, category: "Ocean Cruise" });
-    const tours = await getTours(tourParams);
+  const tours = await getTours(tourParams);
+  const filteredTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 4);
+  const filteredTourss = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 20);
 
     if (listings.length === 0) {
         return <EmptyState showReset />;
@@ -53,7 +55,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
       <Container>
       <div className="pt-6 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
         {/* Map through the listings array and render ListingCard components */}
-        {listings.slice(0, 5).map((listing: any) => {
+        {listings.slice(0, 4).map((listing: any) => {
           return (
             <ListingCard
               currentUser={currentUser ? {
@@ -82,7 +84,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           </div>
         </Container>
       </div>
-          
+        {filteredTours && filteredTours.length > 0 && (
         <Container>
         <div className="flex flex-col gap-1 pt-9">
         <h1 className="main-header-black w-full text-center">FEATURED <span className="main-header-gradient">TOUR OPERATORS</span></h1>
@@ -90,7 +92,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         </div>
         <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
           {/* Map through the listings array and render ListingCard components */}
-        {tours.slice(0, 4).map((tour: any) => {
+        {filteredTours.map((tour: any) => {
           return (
             <TourCard
               currentUser={currentUser ? {
@@ -109,24 +111,27 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all upcoming tours</Link>
         </div> */}
       </Container>
-
-    <Container>
-        <div className="flex w-full py-6 h-auto flex-col gap-1 pt-11">
-        <h1 className="main-header-black w-full text-center">TRENDING <span className="main-header-gradient"> TOURS</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
-        </div>
-      <div className="trending-list-main-page pt-3 pl-16 pb-3 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-2">
-        {/* Map through the listings array and render ListingCard components */}
-        {tours.slice(0, 20).map((tour: any) => {
-          return (
-            <ListingValue
-              data={tour}
-              key={tour.id}
-              title={tour.title} locationValue={""}              />
-          );
-        })}
-        </div>
+    )}
+    
+      {filteredTourss && filteredTourss.length > 0 && (
+        <Container>
+          <div className="flex w-full py-6 h-auto flex-col gap-1 pt-11">
+            <h1 className="main-header-black w-full text-center">TRENDING <span className="main-header-gradient"> TOURS</span></h1>
+            <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
+          </div>
+          <div className="trending-list-main-page pt-3 pl-16 pb-3 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-2">
+            {/* Map through the listings array and render ListingCard components */}
+            {filteredTourss.map((tour: any) => {
+              return (
+                <ListingValue
+                  data={tour}
+                  key={tour.id}
+                  title={tour.title} locationValue={""} />
+              );
+            })}
+          </div>
         </Container>
+      )}
     </div>
   );
 };

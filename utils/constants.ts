@@ -1,7 +1,8 @@
 export const images = [
     {
         id: 1,
-        src: "https://media.istockphoto.com/id/470172598/photo/hanging-out.jpg?s=2048x2048&w=is&k=20&c=hqH-1a2LWVnTDameLchNu2EJfbTCqZUMH_LQ8sN3fkc=",
+        src: '/images/devance_cover_photo.jpg',
+        //src: "https://media.istockphoto.com/id/470172598/photo/hanging-out.jpg?s=2048x2048&w=is&k=20&c=hqH-1a2LWVnTDameLchNu2EJfbTCqZUMH_LQ8sN3fkc=",
         title: "THE",
         desc: "GRAND",
         descrption: "TOUR SLAES",

@@ -9,11 +9,6 @@ import Sort from "./components/Sort";
 import TourStyles from "./components/TourStyles";
 import TourOperators from "./components/TourOperators";
 import TourSize from "./components/TourSize";
-import TourMainAfricanCard from "../../components/listing/TourMainAfricanCard";
-import getAfricanTours from "../../actions/getAfricanTours";
-import getCountriesTours from "@/app/actions/getCountriesTours";
-import getKenyanTours from "@/app/acts/getKenyanTours";
-import getFranceTours from "@/app/acts/getFranceTours";
 import EmptyStates from "@/app/components/container/EmptyStates";
 import getEgyptTours from "@/app/acts/getEgyptTours";
 

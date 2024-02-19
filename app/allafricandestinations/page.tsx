@@ -16,7 +16,7 @@ import getAfricanTours from "../actions/getAfricanTours";
 interface IParams {
   tourId?: string;
   tourParams: IToursParams;
-}
+} 
 
 // Define the AllDestinationsPage component as a server component
 export default function AllDestinationsPage({ tourParams }: IParams) {

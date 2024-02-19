@@ -99,7 +99,16 @@ const TourClient: React.FC<TourClientProps> = ({
     const coordinates = getByValue(locationValue)?.latlng;
 
 
+    const [numberOfTourists, setNumberOfTourists] = useState(0);
+    const [error, setError] = useState('');
+    const baseUrl = `${window.location.protocol}//${window.location.host}`;   //Wanna ge the base url of the current app
 
+  const handleTouristsChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+    setNumberOfTourists(parseInt(event.target.value));
+    setError('');
+
+    setTotalPrice(tour.price * parseInt(event.target.value))
+  };
 
 
     const handlePaymentComplete = (data: any) => {
@@ -140,7 +149,12 @@ const TourClient: React.FC<TourClientProps> = ({
             tourId: tour?.id,
             paymentDetails:data,
             userId:currentUser?.id,
+<<<<<<< HEAD
             // tourists:tour? tour.tourists:[]
+=======
+            slots:numberOfTourists,
+            tourists:tour? tour.tourists:[]
+>>>>>>> 418aea25dc9de9a53c67003269ed3cbd0bb1ab93
         })
             .then(async () => {
                 toast.success('Listing reserved!');
@@ -155,6 +169,7 @@ const TourClient: React.FC<TourClientProps> = ({
                              subject:"Devance Reservations",
                              user_name:currentUser?.name,
                              templateName: 'tour_mail_template',
+                             baseUrl: baseUrl,
                              mail_body:`This is a sample test mail from Devance Application and these are the reservatio`
 
                                 },
@@ -183,6 +198,20 @@ const TourClient: React.FC<TourClientProps> = ({
 
 
       const onCreateReservation = useCallback(() => {
+
+        console.log(baseUrl)
+
+        if (numberOfTourists <= 0) {
+            setError('Specify number of tourists, must be greater than 0.');
+            return;
+          }
+        if (numberOfTourists > (tour.guestCount - tour.tourists.length)) {
+            setError(`Available slots not enough for requested slots, only ${tour.guestCount - tour.tourists.length} available`);
+            return;
+          }
+
+
+
         if (!currentUser) {
             return loginModal.onOpen()
         }
@@ -665,7 +694,7 @@ const TourClient: React.FC<TourClientProps> = ({
 
                     <div className="flex h-[65vh] flex-col gap-5 items-start border-[1px] border-solid py-4 px-4 border-neutral-300 w-full rounded-lg">
                        <iframe
-                        src={tour.ourLink}
+                        src={tour?.ourLink? tour?.ourLink :''}
                         title="YouTube video player"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -675,7 +704,7 @@ const TourClient: React.FC<TourClientProps> = ({
                     </div>       
                   </div>
 
-                    <div className="border-[1px] h-[92vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
+                    <div className="border-[1px] h-[100vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
                           <div className="flex flex-row px-4 justify-between item-center gap-3">
                               <div className="flex flex-row gap-3 justify-between items-center">
                                  <span className="text-blue-400"><SlCalender size={23 } /></span><span>Tour Length</span> 
@@ -742,6 +771,26 @@ const TourClient: React.FC<TourClientProps> = ({
                               <div className="flex flex-row gap-3 justify-between items-center">
                                  <span>${tour.save}</span>
                               </div>
+                          </div>
+
+                          <div className="px-4 py-3">
+                          <hr />
+                        </div>
+                        <div className="flex flex-col px-4 justify-between item-center gap-1">
+                        {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
+                        <div className="flex flec-row items-center mt-2">
+                            <label htmlFor="guests" className=" text-right mr-4 text-gray-700">
+                                Number of Guests:
+                            </label>
+                            <input
+                                id="guests"
+                                type="number"
+                                className="shadow border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                value={numberOfTourists}
+                                onChange={handleTouristsChange}
+                            />
+                            </div>
+
                           </div>
                         <div className="px-4 py-3">
                           <hr />

@@ -97,6 +97,13 @@ const TourCard: React.FC<ListingCardProps> = ({
                       <div className="font-light">night</div>
                   )}
               </div>
+              <div className="flex flex-row items-center gap-1">
+                Slots booked:
+                  <div className="font-semibold">
+                       {(data.tourists.filter((item) => item === currentUser?.id)).length} 
+                  </div>
+                  
+              </div>
               {onAction && actionLabel && (
                   <Button
                       disabled={disabled}

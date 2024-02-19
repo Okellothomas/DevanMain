@@ -39,7 +39,7 @@ export async function POST(req: Request, res: NextApiResponse) {
       console.log(templateName)
       const templatePath = path.join(__dirname, `../../../../../templates/${templateName}.html`);
 
-      const tourUrl = `${baseUrl}/clients/profile`
+      const tourUrl = `${baseUrl}/client/profile`
       const templateHTML = fs.readFileSync(templatePath, 'utf8');
 
     // Render the template using string interpolation or a templating library

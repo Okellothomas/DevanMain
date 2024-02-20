@@ -725,4 +725,13 @@ background: rgba(0,0,0,0.5);
           background: rgba(255, 255, 255, 0.44);
           cursor: pointer;
         }
+
+      .footer-main-texts{
+        font-size: 12px!important;
+      }
+
+      .footer-main-images-one{
+        display: none !important;
+        visibility: hidden !important;
+      }
 }

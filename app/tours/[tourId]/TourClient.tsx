@@ -8,7 +8,7 @@ import { SafeUser, safeListing, safeReservation } from "@/app/types";
 import axios from "axios";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Range } from "react-date-range";
 import toast from "react-hot-toast";
 import { safeTour } from "@/app/types";
@@ -105,11 +105,21 @@ const TourClient: React.FC<TourClientProps> = ({
     const [error, setError] = useState('');
     const baseUrl = `${window.location.protocol}//${window.location.host}`;   //Wanna ge the base url of the current app
 
+    const [options, setOptions] = useState(
+        {
+        guests: 0,
+        rooms: 0}
+    )
+
+    const [openoptions, setOpenoptions] = useState(false)
+    const numberOfGuestsRef = useRef<HTMLInputElement>(null);
+
   const handleTouristsChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     setNumberOfTourists(parseInt(event.target.value));
     setError('');
 
     setTotalPrice(tour.price * parseInt(event.target.value))
+    
   };
 
 
@@ -295,6 +305,33 @@ const TourClient: React.FC<TourClientProps> = ({
         item.label === tour.category);
     }, [tour.category])
 
+
+    const handleOptions = (name: 'guests' | 'rooms', operations: any) => {
+        setOptions((prev) => {
+            return {
+                ...prev,
+                [name]: operations === 'i' ? options[name] + 1 : options[name] - 1,
+            };
+        });
+    };
+
+    const toggleOptions = () => {
+        setOpenoptions(!openoptions)
+    };
+
+
+
+    const handleClickOutside = (event: { target: any; }) => {
+        if (numberOfGuestsRef.current && !numberOfGuestsRef.current.contains(event.target)) {
+            setOpenoptions(false);
+        }
+    };
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
   return (
     <Container>
@@ -778,15 +815,42 @@ const TourClient: React.FC<TourClientProps> = ({
                         {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
                         <div className="flex flec-row items-center mt-2">
                             <label htmlFor="guests" className=" text-right mr-4 text-gray-700">
-                                Number of Guests:
+                                Number:
                             </label>
                             <input
                                 id="guests"
                                 type="number"
                                 className="shadow border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 value={numberOfTourists}
-                                onChange={handleTouristsChange}
+                                onClick={toggleOptions}
+                                ref={numberOfGuestsRef}
                             />
+
+
+{openoptions && <div className="options">
+                    
+
+                    <div className="optionItem">
+                        <span className="optionText">Rooms</span>
+                        <div className="itemCounterContainer">
+                        <button className="optionCounterButton" onClick={()=>handleOptions("rooms","d")} disabled={options.rooms<=1}>-</button>
+                        <span className="optionCounterNumber">{options.rooms}</span>
+                        <button className="optionCounterButton" onClick={()=>handleOptions("rooms","i")}>+</button>
+                        </div>
+                    </div>
+
+                    <div className="optionItem">
+                        <span className="optionText">Guests</span>
+
+                        <div className="itemCounterContainer">
+
+                        <button className="optionCounterButton" onClick={()=>handleOptions("guests","d")} disabled={options.guests<=1}>-</button>
+                        <span className="optionCounterNumber">{options.guests}</span>
+                        <button className="optionCounterButton" onClick={()=>handleOptions("guests","i")}>+</button>
+                        </div>
+                    </div>
+                </div>
+}
                             </div>
 
                           </div>

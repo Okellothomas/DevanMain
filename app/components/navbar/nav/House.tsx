@@ -47,7 +47,7 @@ const House: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
           }`}
           onClick={toggleOpen}
         >
-          <div className="hidden md:block">House Leasing</div>
+          <div className="text-sm">House Listing</div>
           <SlArrowDown size={12} />
         </div>
       </div>
@@ -55,7 +55,7 @@ const House: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex flex-col px-6 w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/houseleasing")} label="House Leasing" />
+              <MenuItem onClick={() => router.push("/houseleasing")} label="House Listing" />
               <MenuItem
                 onClick={() => router.push("/africanhouseleasing")}
                 label="African"

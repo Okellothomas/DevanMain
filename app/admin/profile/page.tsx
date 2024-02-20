@@ -47,17 +47,12 @@ const ProfilePage = async ({ searchParams, tourParams }: HotelPageProps) => {
             <hr />
             <div className="flex flex-row justify-between items-center py-8">
               <p>Admin Contact</p>
-              <p>Add Contact</p>            
-            </div>
-                      <hr />
-            <div className="flex flex-row justify-between items-center py-8">
-              <p>Admin operator name</p>
-              <p>Add Operator name</p>            
+              <p>{ currentUser?.contact }</p>            
             </div>
             <hr />
             <div className="flex flex-row justify-between items-center py-8">
               <p>Admin Country</p>
-              <p>Add Country</p>            
+              <p>{ currentUser?.country }</p>            
             </div>
             <hr />
             </div>      

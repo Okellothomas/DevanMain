@@ -93,17 +93,15 @@ const TourClient: React.FC<TourClientProps> = ({
     const [isOpen16, setIsOpen16] = useState(false);
     const [isOpen17, setIsOpen17] = useState(false);
     const [isOpen18, setIsOpen18] = useState(false);
-
-    const { getByValue } = useCountries();
-    const coordinates = getByValue(locationValue)?.latlng;
-
     const [showPay, setShowPay] = useState(false)
     const [dataa, setDataa] = useState('')
+    const { getByValue } = useCountries();
+    const coordinates = getByValue(locationValue)?.latlng;
 
 
     const [numberOfTourists, setNumberOfTourists] = useState(0);
     const [error, setError] = useState('');
-    const baseUrl = `${window.location.protocol}//${window.location.host}`;   //Wanna ge the base url of the current app
+    const baseUrl = typeof window !== 'undefined' ? `${window.location.protocol}//${window.location.host}` : '';   //Wanna ge the base url of the current app
 
     const [options, setOptions] = useState(
         {
@@ -231,7 +229,6 @@ const TourClient: React.FC<TourClientProps> = ({
         // else{
        
         try {
-            
             setShowPay(true)
         } catch (error) {
             console.log(error)
@@ -739,7 +736,7 @@ const TourClient: React.FC<TourClientProps> = ({
                     </div>       
                   </div>
 
-                    <div className="border-[1px] h-[100vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
+                    <div className="border-[1px] h-[110vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
                           <div className="flex flex-row px-4 justify-between item-center gap-3">
                               <div className="flex flex-row gap-3 justify-between items-center">
                                  <span className="text-blue-400"><SlCalender size={23 } /></span><span>Tour Length</span> 
@@ -873,7 +870,6 @@ const TourClient: React.FC<TourClientProps> = ({
 
 
               </div>
-
               {showPay && <PayPalScriptProvider options={{ clientId: "AZ_ycPr5s3mAA-Xboaqc9ft8hHiaChcr42aZIauAYl3Ax0CDig8L3uc-V0P2Mgx70nQD4p7XKcTbCLBB" }}>
                   <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete} totalPrice={totalPrice.toString()}/>
                 </PayPalScriptProvider>}

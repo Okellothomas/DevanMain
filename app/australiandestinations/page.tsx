@@ -36,10 +36,12 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
   const currentUser = await getCurrentUser();
   const tours = await getAustraliaTours({ ...tourParams, continent: "australia" });
   const tourss = await getTours(tourParams);
+  const filteredTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 4);
+  const filteredTourss = tourss.filter(tour => tour.tourists.length < tour.guestCount).slice(2, 6);
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component
-  if (tours.length === 0) {
+  if (filteredTours.length === 0) {
     return (
       <EmptyStates showReset />
     );
@@ -55,8 +57,8 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
       </div>
      <Container>
         <div className="flex flex-col gap-1 pt-6 pb-4">
-        <h1 className="main-header-black w-full text-center pt-9 pb-0">PRIME AUSTRALIAN <span className="main-header-gradient py-1">DESTINATIONS</span></h1>
-        <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on an unforgettable American adventure with our premier tour selection. Meticulously curated by experts, these journeys transport you to sought-after destinations across the continent. From awe-inspiring landscapes in the Rocky Mountains to cultural immersions in vibrant New Orleans, indulge in luxurious experiences brimming with natural wonders, architectural marvels, and profound heritage. Delve into picturesque countryside, grandiose castles, and ancient ruins, uncovering the essence of America&lsquo;s diverse landscapes and captivating cultures.</p>
+        <h1 className="main-header-black w-full text-center pt-9 pb-0">AUSTRALIAN <span className="main-header-gradient py-1">LISTINGS</span></h1>
+        <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on unparalleled Australian housing listings with our prime selection. Curated by experts, these properties bring sought-after destinations to your doorstep. From coastal retreats to urban dwellings, immerse yourself in luxurious stays filled with natural beauty, wildlife, and cultural richness. Enhance your experience with personalized tours, redefining your living expectations.</p>
         </div>
       </Container>
       <Container>
@@ -66,7 +68,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
       </Container>
       <Container>
       <div className="pt-6 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-        {tours.slice(0, 4).map((tour: any) => {
+        {filteredTours.slice(0, 4).map((tour: any) => {
           return (
             <TourPriceCard
               currentUser={currentUser ? {
@@ -82,7 +84,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         })}
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allaustraliandestinations">view australian destinations</Link>
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allaustralianhouseleasing">View Australian House Listings</Link>
         </div>
         </Container>
           
@@ -110,14 +112,14 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
             </div>
             </Container>
       </div>
-          
+      {filteredTourss && filteredTourss.length > 0 && (
         <Container>
         <div className="flex flex-col gap-1 pt-4">
         <h1 className="main-header-black w-full text-center">FEATURED <span className="main-header-gradient">CLASSIC TOUR</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
         </div>
         <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-        {tourss.slice(4, 8).map((tour: any) => {
+        {filteredTourss.slice(4, 8).map((tour: any) => {
           return (
             <TourCardSecondary
               currentUser={currentUser ? {
@@ -133,7 +135,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         })}
         </div>
       </Container>
-      
+      )}
     </div>
   );
 };

@@ -97,11 +97,25 @@ export default async function getToursClient(
         //         createAt: 'desc'
         //     }
         // });
+        // const tours = await prisma.tour.findMany({
+        //     where: {
+        //         tourists: {
+        //             has: currentUser?.id // Replace userId with the current user's ID
+        //         }
+        //     },
+        //     orderBy: {
+        //         createAt: 'desc'
+        //     }
+        // });
+
         const tours = await prisma.tour.findMany({
             where: {
-                tourists: {
-                    has: currentUser?.id // Replace userId with the current user's ID
-                }
+                // Filter tours if the user ID is not null and the tourists list contains the user ID
+                ...(currentUser?.id && {
+                    tourists: {
+                        has: currentUser.id
+                    }
+                })
             },
             orderBy: {
                 createAt: 'desc'

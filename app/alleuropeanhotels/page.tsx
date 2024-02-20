@@ -7,6 +7,7 @@ import ListingCard from "../components/listing/ListingCard";
 import Categories from "../components/navbar/Categories";
 import Search from "../components/navbar/Search";
 import Categoriess from "../mainpage/components/Categoriess";
+import getEuropeanHotelLisings from "../acts/getEuropeanHotelsListings";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -20,7 +21,7 @@ const HotelPage = async ({ searchParams }: HotelPageProps) => {
     if (searchParams.userId) {
         currentUser = await getCurrentUser();
     }
-  const listings = await getListings(searchParams);
+  const listings = await getEuropeanHotelLisings({ ...searchParams, hotel: "hotel", continent: "europe"});
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component

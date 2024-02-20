@@ -16,6 +16,8 @@ datasource db {
 model User {
   id             String    @id @default(auto()) @map("_id") @db.ObjectId
   name           String? // User's name
+  contact        String?
+  country        String?
   email          String?   @unique // User's email address, unique constraint
   emailVerified  DateTime? // Date and time when the email was verified
   image          String? // URL for the user's profile image

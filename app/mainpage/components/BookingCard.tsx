@@ -27,7 +27,7 @@ const BookingCard: React.FC<MenuItemProps> = ({
       </div>
          
       <div
-      className="text-center p-6 flex flex-col gap-3 items-center aspect-square w-full"
+      className="booking-card-one text-center p-6 flex flex-col gap-3 items-center aspect-square w-full"
       >
      <div className='bg-white p-3 rounded-full text-neutral-500'>
         <FaOpencart size={25} />
@@ -38,7 +38,7 @@ const BookingCard: React.FC<MenuItemProps> = ({
       </div>
 
       <div
-      className="text-center p-6 flex flex-col gap-3 items-center aspect-square w-full relative"
+      className="booking-card-two text-center p-6 flex flex-col gap-3 items-center aspect-square w-full relative"
       >
      <div className='bg-white p-3 rounded-full text-neutral-500'>
         <MdOutlineSupportAgent size={25} />

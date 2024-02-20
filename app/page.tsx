@@ -40,6 +40,14 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
     }
   const listings = await getListings(searchParams);
   const tours = await getTours(tourParams);
+
+  const filteredTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 4);
+
+  const filteredTourss = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(4, 8);
+
+  const filteredToursss = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 20);
+
+  // const filteredListings = listings.filter(listing => listing.tourists.length < listing.guestCount).slice(4, 8);
  
   // const router = useRouter();
   // const isEmpty = true;
@@ -69,8 +77,8 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
             <h1 className="main-header-black w-full text-center">AMAZING <span className="main-header-gradient">UPCOMING TOURS</span></h1>
             <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
           </div>
-          <div className="pt-9 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-            {tours.slice(0, 4).map((tour: any) => (
+          <div className="pt-9 pb-4 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+            {filteredTours.map((tour: any) => (
               <TourPriceCard
                 currentUser={currentUser ? {
                   ...currentUser,
@@ -81,7 +89,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
                 key={tour.id} // Use the listing ID as the unique key
                 data={tour} // Pass the listing data to each ListingCard
               />
-            ))}
+            ))} 
           </div>
         </Container>
       )}
@@ -90,7 +98,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <h1 className="color-h1-white">Tour in comfort and style</h1>
 
           <Container>
-            <div className="booking-card grid w-full grid-cols-1 px-5 gap-32 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 py-5 my-9">
+            <div className="booking-card grid w-full px-5 gap-32 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 py-5 my-9">
             <CardDisplay
               icon={FaStar}
               label="Insightful experiences"
@@ -117,7 +125,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           <h1 className="main-header-black w-full text-center">INTERCONTINENTAL <span className="main-header-gradient">CLASS HOTELS</span></h1>
           <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
         </div>
-        <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+        <div className="pt-10 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
           {listings.slice(0, 4).map((listing: any) => (
             <ListingCardMain
               currentUser={currentUser ? {
@@ -136,6 +144,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
 
       {/* The categories page */}
       <Container>
+        <div className="page-main-ctry">
         <div className="flex flex-col gap-1 pt-14">
         <h1 className="main-header-black w-full text-center">EXPLORE OUR <span className="main-header-gradient">PRIME DESTINATIONS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
@@ -145,6 +154,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         </div>
         <div className="w-full text-center pt-14">
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View our prime destinations</Link>
+          </div>
         </div>
       </Container>
 
@@ -159,15 +169,15 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
       </div>
 
       {/* second last */}
-      {tours.slice(5, 9) && tours.slice(5, 9).length > 0 && (
+      {filteredTourss && filteredTourss.length > 0 && (
       <Container>
         <div className="flex flex-col gap-1 pt-1">
           <h1 className="main-header-black w-full text-center">CLASSIC <span className="main-header-gradient">ADVENTURE TOURS</span></h1>
           <p className="text-neutral-500 text-sm w-full text-center">Experience the thrill of a lifetime on our curated selection of active, immersive tours full of adrenaline, culture and natural wonder.</p>
         </div>
-        <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+        <div className="pt-10 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
           {/* Map through the listings array and render ListingCard components */}
-          {tours.slice(5, 9).map((tour: any) => (
+          {filteredTourss.map((tour: any) => (
             <TourCardSecondary
               currentUser={currentUser ? {
                 ...currentUser,
@@ -181,7 +191,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           ))}
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all intercontental hotels</Link>
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alldestinations">View classic adventure tours</Link>
         </div>
       </Container>
       )}
@@ -195,7 +205,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
         </div>
         <div className="trending-list-main-page pt-4 pl-16 pb-4 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-6">
-          {tours.slice(0, 20).map((tour: any) => (
+          {filteredToursss.map((tour: any) => (
             <ListingValue
               data={tour}
               key={tour.id}

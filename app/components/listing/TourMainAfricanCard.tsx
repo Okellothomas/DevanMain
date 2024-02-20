@@ -69,7 +69,7 @@ const TourMainAfricanCard: React.FC<ListingCardProps> = ({
         onClick={() => router.push(`/tours/${newData?.id}`)} //added ?
         className="col-span-1 group"
       >
-          <div className="flex flex-col h-[47vh] w-full bg-white py-4 px-4 rounded-xl shadow-md gap-3">
+          <div className="flex flex-col h-[47vh] w-full bg-white py-4 px-4 rounded-xl shadow-md gap-3 main-image-small-screen">
             <div className="flex flex-row justify-between items-center ">
             <div className="flex flex-row items-center gap-4">
               <div className="aspect-square h-[42vh] w-full relative overflow-hidden rounded-xl">

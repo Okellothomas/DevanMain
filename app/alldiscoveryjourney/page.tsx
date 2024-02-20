@@ -13,6 +13,7 @@ import TourMainAfricanCard from "../components/listing/TourMainAfricanCard";
 import getAfricanTours from "../actions/getAfricanTours";
 import getEuropeanTours from "../actions/getEuropeanTours";
 import getAsiaTours from "../actions/getAsianTours";
+import getDiscoveryJourneysListing from "../act/getDiscoveryJourneysListing";
 
 // Define the interface for component props
 interface IParams {
@@ -24,13 +25,13 @@ interface IParams {
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)
   const getToursAndRender = async () => {
-    const tours = await getAsiaTours({ ...tourParams, continent: "asia" });
+    const tours = await getDiscoveryJourneysListing({ ...tourParams, category: "Discovery Journey" });
     const currentUser = await getCurrentUser();
 
     const PAGE_SIZE = 15;
     const currentPage = 1;
     const startIndex = (currentPage - 1) * PAGE_SIZE;
-    const visibleTours = tours.slice(startIndex, startIndex + PAGE_SIZE);
+    const visibleTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(startIndex, startIndex + PAGE_SIZE);
 
     const products: any = [];
 
@@ -45,12 +46,12 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
       <div>
         <div className="alldestinations-main flex flex-col items-center justify-center text-lg font-bold">
           <h1 className="alldestinations-white-main">
-            Asian<span className="color-span-green"> Tour Destinations</span>
+            Discovery<span className="color-span-green"> Journeys</span>
           </h1>
         </div>
         <Container>
           <div className="flex flex-col gap-1 pt-9">
-          <p className="text-md text-neutral-600 leading-8 text-md w-full text-justify">Experience an extraordinary Asian adventure with our premier tour selection. Carefully curated by experts, these journeys whisk you away to sought-after destinations across the continent. From stunning landscapes in the Himalayas to cultural immersions in bustling Tokyo, indulge in opulent experiences teeming with natural wonders, architectural masterpieces, and rich heritage. Traverse through verdant countryside, majestic temples, and ancient ruins, revealing the essence of Asia&apos;s diverse landscapes and captivating cultures.</p>
+          <p className="text-md text-neutral-600 leading-8 text-md w-full text-justify">Embark on unparalleled Discovery Journeys tours with our prime selection. Curated by experts, these expeditions bring sought-after destinations to your doorstep. From hidden gems to iconic landmarks, immerse yourself in luxurious travels filled with natural wonders and cultural experiences. Enhance your journey with personalized excursions, redefining your travel expectations.</p>
           </div>
         </Container>
         <Container>

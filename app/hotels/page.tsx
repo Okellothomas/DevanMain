@@ -11,6 +11,7 @@ import ListingValue from "../components/listing/ListingValue";
 import getTours, { IToursParams } from "../actions/getTours";
 import TourCard from "../components/listing/TourCard";
 import TheCategoriess from "./TheCategoriess";
+import getListingsHotels from "../actions/getListingsHotels";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -25,7 +26,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
     if (searchParams.userId) {
         currentUser = await getCurrentUser();
     }
-  const listings = await getListings(searchParams);
+  const listings = await getListingsHotels({ ...searchParams, hotel: "hotel" });
   const tours = await getTours(tourParams);
   // const isEmpty = true;
 
@@ -45,17 +46,21 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           <Search /> 
         </div>
       </div>
-      {/* <div className="py-4">
-        <Categories />
-      </div> */}
-      <Container>
-        <div className="flex flex-col gap-1 py-9">
-        <h1 className="main-header-black w-full text-center">ALL PRIME <span className="main-header-gradient py-1">HOTELS</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-justify">Our prime tour selection offers once-in-a-lifetime travel opportunities to the world&lsquo;s most sought-after and awe-inspiring destinations, curated by our experts to provide the ultimate luxurious and immersive experience. From African safaris in search of the Big Five, to cruising the turquoise waters of the Galápagos Islands, to helicopter tours over the Grand Canyon, you&lsquo;ll be transported to magical realms brimming with natural beauty, exotic wildlife, and historic treasures beyond your wildest imagination. With unique access, top-notch guides, luxury accommodations, bespoke services, and unparalleled attention to detail, our prime tours redefine high-end, exclusive travel so you can immerse yourself fully in your choice of remarkable destinations. Don&lsquo;t just dream about that trip of a lifetime - make it a reality with our premium all-inclusive prime tour packages, offering once-in-a-lifetime memories carefully crafted for the discerning traveler.</p>
+     <Container>
+        <div className="flex flex-col gap-1 pt-6 pb-4">
+        <h1 className="main-header-black w-full text-center pt-9 pb-0">ALL PRIME <span className="main-header-gradient py-1">HOTELS</span></h1>
+        <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on unparalleled hotel experiences with our prime selection. Curated by experts, these accommodations bring sought-after destinations to your doorstep. From African safaris to cruising the Galápagos Islands, and from breathtaking landscapes in the Swiss Alps to cultural immersions in historic Rome, immerse yourself in luxurious stays filled with natural beauty, wildlife, and historic treasures. Enhance your experience with helicopter tours, redefining your travel expectations.</p>
         </div>
-      <div className="pt-0 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
+      </Container>
+      <Container>
+          <div className="pb-0">
+            <hr />
+          </div>
+      </Container>
+      <Container>
+      <div className="pt-6 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
         {/* Map through the listings array and render ListingCard components */}
-        {listings.slice(0, 5).map((listing: any) => {
+        {listings.slice(0, 4).map((listing: any) => {
           return (
             <ListingCard
               currentUser={currentUser ? {
@@ -71,7 +76,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         })}
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allhotels">View prime destinations</Link>
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allhotels">View all hotels</Link>
         </div>
           </Container>
           
@@ -85,8 +90,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         </Container>
       </div>
     
-    {/* The categories page */}
-      <Container>
+      {/* <Container>
         <div className="flex flex-col gap-1 pt-10">
         <h1 className="main-header-black w-full text-center">SEARCH <span className="main-header-gradient">BY CONTINENT</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
@@ -97,35 +101,36 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         <div className="w-full text-center pt-8">
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alldestinations">View prime destinations</Link>
         </div>
-          </Container>
+      </Container> */}
           
+      {tours.slice(0, 4) && tours.slice(0, 4).length > 0 && (
         <Container>
-        <div className="flex flex-col gap-1 pt-9">
-        <h1 className="main-header-black w-full text-center">FEATURED <span className="main-header-gradient">TOUR OPERATORS</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
-        </div>
-        <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-          {/* Map through the listings array and render ListingCard components */}
-        {tours.slice(0, 4).map((tour: any) => {
-          return (
-            <TourCard
-              currentUser={currentUser ? {
-                      ...currentUser,
-                      createdAt: currentUser.createdAt.toISOString(),
-                      updatedAt: currentUser.updatedAt.toISOString(),
-                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
-                    } : null} // Pass the current user to each ListingCard
-              key={tour.id} // Use the listing ID as the unique key
-              data={tour} // Pass the listing data to each ListingCard
-            />
-          );
-        })}
-        </div>
-        {/* <div className="w-full text-center pt-8">
+          <div className="flex flex-col gap-1 pt-9">
+            <h1 className="main-header-black w-full text-center">FEATURED <span className="main-header-gradient">PRIME TOURS</span></h1>
+            <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
+          </div>
+          <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+            {/* Map through the listings array and render ListingCard components */}
+            {tours.slice(0, 4).map((tour: any) => {
+              return (
+                <TourCard
+                  currentUser={currentUser ? {
+                    ...currentUser,
+                    createdAt: currentUser.createdAt.toISOString(),
+                    updatedAt: currentUser.updatedAt.toISOString(),
+                    emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                  } : null} // Pass the current user to each ListingCard
+                  key={tour.id} // Use the listing ID as the unique key
+                  data={tour} // Pass the listing data to each ListingCard
+                />
+              );
+            })}
+          </div>
+          {/* <div className="w-full text-center pt-8">
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/hotels">View all upcoming tours</Link>
         </div> */}
-      </Container>
-
+        </Container>
+      )}
           
     <Container>
         <div className="flex w-full py-6 h-auto flex-col gap-1 pt-11">

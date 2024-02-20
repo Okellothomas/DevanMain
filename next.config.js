@@ -63,7 +63,7 @@ reactStrictMode: true,
 //     return config;
     //    },
     
-    // output: 'export',
+// output: 'export',
     
 }
 

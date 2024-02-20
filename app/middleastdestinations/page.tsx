@@ -37,6 +37,8 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
   const currentUser = await getCurrentUser();
   const tours = await getMiddleTours({ ...tourParams, continent: "middleast" });
   const tourss = await getTours(tourParams);
+  const filteredTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 4);
+  const filteredTourss = tourss.filter(tour => tour.tourists.length < tour.guestCount).slice(3, 7);
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component

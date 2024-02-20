@@ -68,7 +68,7 @@ const TourMainCard: React.FC<ListingCardProps> = ({
         onClick={() => router.push(`/tours/${data?.id}`)} //added ?
         className="col-span-1 group"
       >
-          <div className="flex flex-col h-[47vh] w-full bg-white py-4 px-4 rounded-xl shadow-md gap-3">
+          <div className="flex flex-col h-[47vh] w-full bg-white py-4 px-4 rounded-xl shadow-md gap-3 main-image-small-screen">
             <div className="flex flex-row justify-between items-center ">
             <div className="flex flex-row items-center gap-4">
               <div className="aspect-square h-[42vh] w-full relative overflow-hidden rounded-xl">
@@ -91,7 +91,7 @@ const TourMainCard: React.FC<ListingCardProps> = ({
              <span className="text-sm px-2 py-0.5 mb-1 border-cyan-500 border-solid border-2 text-cyan-500 rounded-xl">{data.category }</span>            
             </div>
               <div className="text-lg py-0.5 w-[30vw] font-semibold">
-                <span> {data.title } </span>
+                <span> {data.title} </span>
               </div>
               <div className="font-normal py-0.5 w-[30vw] text-neutral-800">
                 <span>{ data.days}</span> Days from {data.locStart} to {data.locEnd}
@@ -118,17 +118,17 @@ const TourMainCard: React.FC<ListingCardProps> = ({
                 
             <div className="flex flex-col items-center gap-2">
             <div className="text-cyan-500">
-                 <div className="text-sm pb-1"><span>Save</span></div>   
+                 <div className="text-sm"><span>Save</span></div>   
                 <div>$ <span className="text-xl">{data.save }</span></div>
               </div>
-            <div className="flex flex-row items-center gap-2">
-                  <div className="pb-1"><span>Price</span></div> 
+            <div className="flex flex-row items-center gap-1">
+                  <div><span>Price</span></div> 
                   <div>
                       $ <span className="text-xl font-semibold">{data.price}</span> pp
                   </div>
-                 </div>
+                      </div>
                 <div>
-                  <span className="border-cyan-500 text-cyan-500 border-solid px-4 py-2 border-2 bg-white hover:bg-cyan-500 cursor-pointer text-md hover:text-white rounded-xl" >View Tour</span>        
+                  <span className=" border-white text-cyan-500 border-solid px-4 py-2 border-2 bg-cyan-500 hover:bg-cyan-500 cursor-pointer text-md hover:text-cyan-500 rounded-xl" >View Tour</span>        
                 </div>
                 </div> 
 

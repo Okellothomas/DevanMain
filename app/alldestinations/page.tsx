@@ -27,7 +27,7 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
     const PAGE_SIZE = 15;
     const currentPage = 1;
     const startIndex = (currentPage - 1) * PAGE_SIZE;
-    const visibleTours = tours.slice(startIndex, startIndex + PAGE_SIZE);
+    const visibleTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(startIndex, startIndex + PAGE_SIZE);
 
     const products: any = [];
 
@@ -59,7 +59,7 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
               <div className="filter-bg-color rounded-2xl items-center py-2 pl-2 pr-6 text-start">
                 <p>Filter Results</p>
               </div>
-              <div className="font-semibold text-xl">{tours.length} Tours</div>
+              <div className="font-semibold text-xl">{visibleTours.length} Tours</div>
             </div>
             <div>
               <Sort products={products} />

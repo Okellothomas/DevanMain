@@ -47,7 +47,7 @@ const Hotels: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
           }`}
           onClick={toggleOpen}
         >
-          <div className="hidden md:block">Hotels</div>
+          <div className="text-sm">Hotels</div>
           <SlArrowDown size={12} />
         </div>
       </div>

@@ -33,9 +33,9 @@
   }
 
   /* Style the logo and navigation layout */
-  .nav-logo {
+  /* .nav-logo {
     @apply flex items-center flex-row justify-between gap-3 md:gap-0;
-  }
+  } */
 
   /* Style the logo image background with custom CSS variables */
   .logo-image-background {
@@ -647,4 +647,91 @@ background: rgba(0,0,0,0.5);
   font-weight: 800;
   line-height: normal;
   padding-top: 4% !important;
+}
+
+.logos-nav-barss{
+  visibility: collapse;
+  height: 0px!important;
+  width: 0px!important;
+}
+
+/* small screens */
+
+@media (min-width: 0px) and (max-width: 641px) {
+  .my-logo-nav-bar{
+     display: visible!important;
+     visibility: visible!important;
+  }
+
+    .logo-image-background {
+      display: inline-flex;
+      padding: 4px!important;
+      align-items: flex-start;
+      gap: 4px!important;
+      border-radius: 60px;
+      background: var(--logocolor, #55E4D6);
+    }
+
+        .logo-image-background-image{
+         height: 20px!important;
+         width: 20px!important;
+        }
+
+    .carousel-container {
+      margin-top: -19% !important;
+    }
+  
+    .carousel-main-div {
+      margin-top: -80% !important;
+      z-index: 5 !important;
+      /* width: 100vw!important; */
+    }
+  
+    .carousel-main-div-carousel {
+      height: -8 !important;
+    }
+
+    .page-main-ctry{
+      display: none!important;
+    }
+
+    .main-image-small-screen{
+      height: 60vh!important;
+    }
+
+    .booking-card-one{
+      visibility: hidden !important;
+      display: none !important;
+    }
+
+    .booking-card-two {
+      visibility: hidden!important;
+      display: none!important;
+    }
+
+        .display-card {
+          display: flex;
+          width: 160px!important;
+          height: 140px!important;
+          padding: 29.081px 25.081px 25.517px 29.838px!important;
+          flex-direction: column;
+          align-items: center;
+          gap: 26.386px!important;
+          flex-shrink: 0;
+          border-radius: 17.519px;
+        }
+    
+        .display-card:hover {
+          background: rgba(255, 255, 255, 0.44);
+          cursor: pointer;
+        }
+
+      .footer-main-texts{
+        font-size: 12px!important;
+      }
+
+      .footer-main-images-one{
+        display: none !important;
+        visibility: hidden !important;
+      }
 }

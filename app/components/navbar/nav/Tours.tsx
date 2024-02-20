@@ -47,7 +47,7 @@ const Tours: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
           }`}
           onClick={toggleOpen}
         >
-          <div className="hidden md:block">Upcoming tours</div>
+          <div className="text-sm">Upcoming tours</div>
           <SlArrowDown size={12} />
         </div>
       </div>

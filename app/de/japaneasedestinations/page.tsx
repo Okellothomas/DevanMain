@@ -9,12 +9,8 @@ import Sort from "./components/Sort";
 import TourStyles from "./components/TourStyles";
 import TourOperators from "./components/TourOperators";
 import TourSize from "./components/TourSize";
-import TourMainAfricanCard from "../../components/listing/TourMainAfricanCard";
-import getAfricanTours from "../../actions/getAfricanTours";
-import getCountriesTours from "@/app/actions/getCountriesTours";
-import getTanzanianTours from "@/app/acts/getTanzanianTours";
-import getBrazilTours from "@/app/acts/getBrazilTours";
 import getJapanTours from "@/app/acts/getJapanTours";
+import EmptyStates from "@/app/components/container/EmptyStates";
 
 // Define the interface for component props
 interface IParams {
@@ -32,13 +28,13 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
     const PAGE_SIZE = 15;
     const currentPage = 1;
     const startIndex = (currentPage - 1) * PAGE_SIZE;
-    const visibleTours = tours.slice(startIndex, startIndex + PAGE_SIZE);
+    const visibleTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(startIndex, startIndex + PAGE_SIZE);
 
     const products: any = [];
 
     // Check if there are no listings, display EmptyState component
     if (visibleTours.length === 0) {
-      return <EmptyState showReset />;
+      return <EmptyStates showReset />;
     }
 
     const totalPages = Math.ceil(tours.length / PAGE_SIZE);

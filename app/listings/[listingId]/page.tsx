@@ -19,7 +19,8 @@ const ListingPage = async ({ params }: { params: IParams }) => {
     const listing = await getListingById(params) as any;
     const reservations = await getReservations(params) as any
     const currentUser = await getCurrentUser() as any;
-    const tours = await getTours(params.tourParams);
+  const tours = await getTours(params.tourParams);
+  const filteredTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 4);
 
     if (!listing) {
         return (
@@ -50,7 +51,7 @@ const ListingPage = async ({ params }: { params: IParams }) => {
             </div>
             
         {/* Classic Adventure Tours section */}
-        {tours.slice(0, 4) && tours.slice(0, 4).length > 0 && (
+        {filteredTours && filteredTours.length > 0 && (
           <Container>
             <div className="flex flex-col gap-1 pt-5">
               <h1 className="main-header-black w-full text-center">
@@ -60,9 +61,9 @@ const ListingPage = async ({ params }: { params: IParams }) => {
                 You viewed the lavish {listing.title} - continue your luxury adventure with these premium recommendations for our exotic tours handpicked just for you.
               </p>
             </div>
-            <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+            <div className="pt-10 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
               {/* Map through the tours array and render TourCard components */}
-              {tours.slice(0, 4).map((tour: any) => (
+              {filteredTours.map((tour: any) => (
                 <TourCard
                   currentUser={currentUser ? {
                     ...currentUser,

@@ -42,7 +42,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
   // const isEmpty = true;
 
   // Check if there are no listings, display EmptyState component
-  if (tours.length === 0) {
+  if (filteredTours.length === 0) {
     return (
       <EmptyStates showReset />
     );
@@ -62,8 +62,8 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         <h1 className="main-header-black w-full text-center pt-11 pb-0">PRIME MIDDLE EAST <span className="main-header-gradient py-1">DESTINATIONS</span></h1>
         <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Discover an exceptional Middle Eastern adventure with our premier tour selection. Expertly curated by professionals, these journeys whisk you away to sought-after destinations across the region. From mesmerizing landscapes in the deserts of Dubai to cultural immersions in historic Jerusalem, indulge in lavish experiences brimming with natural wonders, architectural marvels, and profound heritage. Traverse through picturesque countryside, majestic mosques, and ancient ruins, uncovering the essence of the Middle East&lsquo;s diverse landscapes and captivating cultures.</p>
         </div>
-      <div className="pt-6 pb-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-        {tours.slice(0, 4).map((tour: any) => {
+      <div className="pt-6 pb-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+        {filteredTours.map((tour: any) => {
           return (
             <TourPriceCard
               currentUser={currentUser ? {
@@ -107,14 +107,14 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
             </div>
             </Container>
       </div>
-          
+        {filteredTourss && filteredTourss.length > 0 && (  
         <Container>
         <div className="flex flex-col gap-1 pt-4">
         <h1 className="main-header-black w-full text-center">FEATURED <span className="main-header-gradient">CLASSIC TOUR</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
         </div>
-        <div className="pt-9 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-        {tourss.slice(4, 8).map((tour: any) => {
+        <div className="pt-9 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+        {filteredTourss.map((tour: any) => {
           return (
             <TourCardSecondary
               currentUser={currentUser ? {
@@ -130,7 +130,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         })}
         </div>
       </Container>
-      
+      )}
     </div>
   );
 };

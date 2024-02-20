@@ -22,6 +22,7 @@ const TourPage = async ({ params }: { params: IParams }) => {
   const reservations = await getReservations(params);
   const currentUser = await getCurrentUser();
   const tours = await getTours(params.tourParams);
+  const filteredTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 4);
 
   // Check if there is no tour, display EmptyState component
   if (!tour) {
@@ -53,7 +54,7 @@ const TourPage = async ({ params }: { params: IParams }) => {
       </div>
 
       {/* Classic Adventure Tours section */}
-      {tours.slice(0, 4) && tours.slice(0, 4).length > 0 && (
+      {filteredTours && filteredTours.length > 0 && (
         <Container>
           <div className="flex flex-col gap-1 pt-5">
             <h1 className="main-header-black w-full text-center">
@@ -65,7 +66,7 @@ const TourPage = async ({ params }: { params: IParams }) => {
           </div>
           <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
             {/* Map through the tours array and render TourCard components */}
-            {tours.slice(0, 4).map((tour: any) => (
+            {filteredTours.map((tour: any) => (
               <TourCard
                 currentUser={currentUser ? {
                   ...currentUser,

@@ -1,4 +1,5 @@
 'use client'
+
 import useCountries from "@/app/hooks/useCountries";
 import { SafeUser, safeListing, safeReservation } from "@/app/types";
 import { Listing, Reservation } from "@prisma/client"
@@ -82,7 +83,7 @@ const TourPriceCard: React.FC<ListingCardProps> = ({
         onClick={() => router.push(`/tours/${data?.id}`)} //added ?
         className="col-span-1 cursor-pointer group rounded-xl pb-3 shadow-sm bg-white"
       >
-          <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-col gap-2 w-full main-image-small-screen">
               <div className="aspect-square w-full relative overflow-hidden rounded-t-xl">
                   <Image
                       fill

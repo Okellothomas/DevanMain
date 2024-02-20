@@ -1,3 +1,26 @@
+// 'use client'
+
+// import UserMenu from "../UserMenu"
+// import Destinations from "./Destination"
+// import Hotels from "./Hotels"
+// import House from "./House"
+// import Tours from "./Tours"
+// import Ways from "./Ways"
+
+// const Nav = () => {
+//   return (
+//     <div className="flex flex-row gap-8 justify-between items-center">
+//           <Destinations/>
+//           <Hotels />
+//           <Ways />
+//           <House />
+//           <Tours /> 
+//     </div>
+//   )
+// }
+
+// export default Nav
+
 'use client'
 
 import UserMenu from "../UserMenu"
@@ -9,14 +32,14 @@ import Ways from "./Ways"
 
 const Nav = () => {
   return (
-    <div className="flex flex-row gap-8 justify-between items-center">
-          <Destinations/>
-          <Hotels />
-          <Ways />
-          <House />
-          <Tours /> 
+    <div className="flex flex-col sm:flex-row sm:gap-8 justify-between items-center">
+      <Destinations/>
+      <Hotels />
+      <Ways />
+      <House />
+      <Tours /> 
     </div>
   )
 }
 
-export default Nav
+export default Nav;

@@ -59,7 +59,7 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
               <div className="filter-bg-color rounded-2xl items-center py-2 pl-2 pr-6 text-start">
                 <p>Filter Results</p>
               </div>
-              <div className="font-semibold text-xl">{tours.length} Tours</div>
+              <div className="font-semibold text-xl">{visibleTours.length} Tours</div>
             </div>
             <div>
               <Sort products={products} />

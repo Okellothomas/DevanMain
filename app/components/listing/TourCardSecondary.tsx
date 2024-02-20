@@ -68,13 +68,13 @@ const TourCardSecondary: React.FC<ListingCardProps> = ({
         onClick={() => router.push(`/tours/${data?.id}`)} //added ?
         className="col-span-1 cursor-pointer group"
       >
-          <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-col gap-2 w-full main-image-small-screen">
               <div className="aspect-square w-full relative overflow-hidden rounded-xl">
                   <Image
                       fill
                       alt="Listing"
                       src={data?.imageSrc[0]} //added ?
-                      className="object-cover h-full w-full transition group-hover:scale-110"
+                      className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen"
                   />
                   <div className="absolute top-3 right-3">
                       <HeartButton

@@ -328,7 +328,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                        {listing.hotelLink !== "" && (
                         <div className="flex h-[66vh] flex-col gap-5 items-start py-4  w-full">
                         <iframe
-                            src={listing.hotelLink}
+                            src={listing?.hotelLink? listing.hotelLink:""}
                             title="YouTube video player"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

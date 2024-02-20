@@ -96,28 +96,28 @@ export default async function getReservations(params: IParams) {
             };
         }
 
-        // const reservations = await prisma.reservation.findMany({
-        //     where: query,
-        //     include: {
-        //         Listing: true,
-        //     },
-        //     orderBy: {
-        //         createdAt: 'desc',
-        //     },
-        // });
+        const reservations = await prisma.reservation.findMany({
+            where: query,
+            include: {
+                Listing: true,
+            },
+            orderBy: {
+                createdAt: 'desc',
+            },
+        });
 
-        // const safeReservation = reservations.map((reservation) => ({
-        //     ...reservation,
-        //     createdAt: reservation.createdAt.toISOString(),
-        //     startDate: reservation.startDate.toISOString(),
-        //     endDate: reservation.endDate.toISOString(),
-        //     Listing: {
-        //         ...reservation.Listing,
-        //         createAt: reservation.Listing?.createAt.toISOString(),
-        //     },
-        // }));
+        const safeReservation = reservations.map((reservation) => ({
+            ...reservation,
+            createdAt: reservation.createdAt.toISOString(),
+            startDate: reservation.startDate.toISOString(),
+            endDate: reservation.endDate.toISOString(),
+            Listing: {
+                ...reservation.Listing,
+                createAt: reservation.Listing?.createAt.toISOString(),
+            },
+        }));
 
-        // return safeReservation;
+         return safeReservation;
     } catch (error: any) {
         throw new Error(error);
     }

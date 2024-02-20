@@ -207,8 +207,12 @@ const TourClient: React.FC<TourClientProps> = ({
 
         console.log(baseUrl)
 
-        if (numberOfTourists <= 0) {
+        if (options.guests <= 0) {
             setError('Specify number of tourists, must be greater than 0.');
+            return;
+          }
+        if (options.rooms > tour.roomCount) {
+            setError(`Rooms available cannot match your request, only ${tour.roomCount} available.`);
             return;
           }
         if (numberOfTourists > (tour.guestCount - tour.tourists.length)) {
@@ -304,12 +308,21 @@ const TourClient: React.FC<TourClientProps> = ({
 
 
     const handleOptions = (name: 'guests' | 'rooms', operations: any) => {
+      
+            const guestsDets = {
+                ...options,
+                [name]: operations === 'i' ? options[name] + 1 : options[name] - 1,
+            }
+
+            setTotalPrice(guestsDets.guests * tour.price + guestsDets.rooms * (tour.save || 0))
+      
         setOptions((prev) => {
             return {
                 ...prev,
                 [name]: operations === 'i' ? options[name] + 1 : options[name] - 1,
             };
         });
+        
     };
 
     const toggleOptions = () => {
@@ -350,9 +363,9 @@ const TourClient: React.FC<TourClientProps> = ({
                                   <div className="flex flex-row items-center gap-2">
                                       <span className="text-neutral-500"><MdOutlineDepartureBoard size={ 23} /></span> <span>Departure</span>
                                   </div> 
-                                  <div>
+                                 <div>
                                       <span>{tour.depStart }</span>
-                                  </div>
+                                </div>
                               </div>
                             <div className="py-1 w-full">
                             <hr />
@@ -820,11 +833,11 @@ const TourClient: React.FC<TourClientProps> = ({
                                 className="shadow border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 value={numberOfTourists}
                                 onClick={toggleOptions}
-                                ref={numberOfGuestsRef}
+                               
                             />
 
 
-{openoptions && <div className="options">
+{/* {openoptions && <div className="options">
                     
 
                     <div className="optionItem">
@@ -847,7 +860,70 @@ const TourClient: React.FC<TourClientProps> = ({
                         </div>
                     </div>
                 </div>
-}
+} */}
+
+
+                       
+
+{openoptions && (
+    <div className="absolute bottom-0 left-0 bg-white p-5 md:p-7 shadow-md"  ref={numberOfGuestsRef}>
+        <div className="flex flex-col gap-3">
+
+            <div className="flex flex-col gap-3">
+                <span className="text-lg">Rooms</span>
+                <div className="flex gap-3 items-center">
+                    <button
+                        className="border rounded-full py-1 px-3 focus:outline-none"
+                        onClick={() => handleOptions("rooms", "d")}
+                        disabled={options.rooms <= 1}
+                    >
+                        -
+                    </button>
+                    <span className="text-xl">{options.rooms}</span>
+                    <button
+                        className="border rounded-full py-1 px-3 focus:outline-none"
+                        onClick={() => handleOptions("rooms", "i")}
+                    >
+                        +
+                    </button>
+                </div>
+            </div>
+
+            <div className="flex flex-col gap-3">
+                <span className="text-lg">Guests</span>
+                <div className="flex gap-3 items-center">
+                    <button
+                        className="border rounded-full py-1 px-3 focus:outline-none"
+                        onClick={() => handleOptions("guests", "d")}
+                        disabled={options.guests <= 1}
+                    >
+                        -
+                    </button>
+                    <span className="text-xl">{options.guests}</span>
+                    <button
+                        className="border rounded-full py-1 px-3 focus:outline-none"
+                        onClick={() => handleOptions("guests", "i")}
+                    >
+                        +
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+)}
+
+
+
+
+
+
+
+
+
+
+
+
                             </div>
 
                           </div>

@@ -682,7 +682,7 @@ background: rgba(0,0,0,0.5);
     }
   
     .carousel-main-div {
-      margin-top: -126% !important;
+      margin-top: -116% !important;
       z-index: 5 !important;
       /* width: 100vw!important; */
     }
@@ -709,17 +709,17 @@ background: rgba(0,0,0,0.5);
       display: none!important;
     }
 
-        .display-card {
-          display: flex;
-          width: 160px!important;
-          height: 140px!important;
-          padding: 29.081px 25.081px 25.517px 29.838px!important;
-          flex-direction: column;
-          align-items: center;
-          gap: 26.386px!important;
-          flex-shrink: 0;
-          border-radius: 17.519px;
-        }
+                display-card {
+                  display: flex;
+                  width: auto !important;
+                  height: auto !important;
+                  padding: 10.081px 10.081px 10.517px 10.838px !important;
+                  flex-direction: column;
+                  align-items: center;
+                  gap: 6.386px !important;
+                  flex-shrink: 0;
+                  border-radius: 17.519px;
+                }
     
         .display-card:hover {
           background: rgba(255, 255, 255, 0.44);
@@ -767,7 +767,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-main-div {
-    margin-top: -100% !important;
+    margin-top: -90% !important;
     z-index: 5 !important;
     /* width: 100vw!important; */
   }
@@ -794,17 +794,17 @@ background: rgba(0,0,0,0.5);
     display: none !important;
   }
 
-  .display-card {
-    display: flex;
-    width: 160px !important;
-    height: 140px !important;
-    padding: 29.081px 25.081px 25.517px 29.838px !important;
-    flex-direction: column;
-    align-items: center;
-    gap: 26.386px !important;
-    flex-shrink: 0;
-    border-radius: 17.519px;
-  }
+ display-card {
+   display: flex;
+   width: auto !important;
+   height: auto !important;
+   padding: 10.081px 10.081px 10.517px 10.838px !important;
+   flex-direction: column;
+   align-items: center;
+   gap: 6.386px !important;
+   flex-shrink: 0;
+   border-radius: 17.519px;
+ }
 
   .display-card:hover {
     background: rgba(255, 255, 255, 0.44);
@@ -858,7 +858,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-main-div {
-    margin-top: -170% !important;
+    margin-top: -160% !important;
     z-index: 5 !important;
     /* width: 100vw!important; */
   }
@@ -885,17 +885,17 @@ background: rgba(0,0,0,0.5);
     display: none !important;
   }
 
-  .display-card {
-    display: flex;
-    width: 160px !important;
-    height: 140px !important;
-    padding: 29.081px 25.081px 25.517px 29.838px !important;
-    flex-direction: column;
-    align-items: center;
-    gap: 26.386px !important;
-    flex-shrink: 0;
-    border-radius: 17.519px;
-  }
+    .display-card {
+      display: flex;
+      width: auto !important;
+      height: auto !important;
+      padding: 10.081px 10.081px 10.517px 10.838px !important;
+      flex-direction: column;
+      align-items: center;
+      gap: 6.386px !important;
+      flex-shrink: 0;
+      border-radius: 17.519px;
+    }
 
   .display-card:hover {
     background: rgba(255, 255, 255, 0.44);
@@ -952,7 +952,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-main-div {
-    margin-top: -140% !important;
+    margin-top: -130% !important;
     z-index: 5 !important;
     /* width: 100vw!important; */
   }

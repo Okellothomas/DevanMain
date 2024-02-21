@@ -19,7 +19,8 @@ interface IParams {
 // TourPage component is defined as an asynchronous function
 const TourPage = async ({ params }: { params: IParams }) => {
   const tour = await getTourById(params);
-  const reservations = await getReservations(params);
+  // const reservations = await getReservations(params);
+  const reservations = await getReservations({ listingId: params.tourId });
   const currentUser = await getCurrentUser();
   const tours = await getTours(params.tourParams);
   const filteredTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 4);

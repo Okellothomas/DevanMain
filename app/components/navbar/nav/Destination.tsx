@@ -52,7 +52,7 @@ const Destinations: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
+        <div className="absolute nav-small-dest rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex flex-col px-6 font-normal w-full cursor-pointer">
             <>
               <MenuItem onClick={() => router.push("/destinations")} label="Destinations" />
@@ -72,10 +72,6 @@ const Destinations: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
                 onClick={() => router.push("/asiandestinations")}
                 label="Asian"
               />
-              {/* <MenuItem
-                onClick={() => router.push("/middleastdestinations")}
-                label="Middle East"
-              /> */}
               <MenuItem
                 onClick={() => router.push("/australiandestinations")}
                 label="Australian"

@@ -52,7 +52,7 @@ const Tours: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
+        <div className="absolute nav-small-tour rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex px-6 flex-col w-full cursor-pointer">
             <>
               <MenuItem onClick={() => router.push("/upcomingtours")} label="Upcoming tours" />

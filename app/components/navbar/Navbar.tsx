@@ -1,58 +1,4 @@
-// 'use client'
-
-// // Navbar component
-// import React, { useState, useEffect } from "react";
-// import { SafeUser } from "@/app/types";
-// import Container from "../container/Container";
-// import Logo from "./Logo";
-// import Nav from "./nav/Nav";
-// import UserMenu from "./UserMenu";
-
-// interface NavbarProps {
-//   currentUser?: SafeUser | null;
-// }
-
-// const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
-//   const [isScrolled, setIsScrolled] = useState(false);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       // Set isScrolled to true when the user has scrolled down
-//       setIsScrolled(window.scrollY > 0);
-//     };
-
-//     // Attach the event listener when the component mounts
-//     window.addEventListener("scroll", handleScroll);
-
-//     // Cleanup the event listener when the component unmounts
-//     return () => {
-//       window.removeEventListener("scroll", handleScroll);
-//     };
-//   }, []); // Empty dependency array ensures the effect runs only once
-
-//   return (
-//     <nav
-//       className={`fixed py-1 w-full z-20 shadow-sm ${
-//           isScrolled ? "bg-white text-black hover:text-black" : "bg-black bg-opacity-50 text-white"
-//         }`}
-//       >
-//       <div className="nav">
-//         <Container>
-//           <div className="nav-logo">
-//             <Logo />
-//             <Nav />
-//             <UserMenu currentUser={currentUser} />
-//           </div>
-//         </Container>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
 'use client'
-
 // Navbar component
 import React, { useState, useEffect } from "react";
 import { SafeUser } from "@/app/types";
@@ -83,9 +29,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
 
   return (
     <nav
-      className={`fixed py-2 w-full z-20 shadow-sm ${
+      className={`fixed sm:py-4 md:py-3 lg:py-2 xl:py-2 2xl:py-2 max-2xl:py-2 w-full z-20 shadow-sm ${
         isScrolled ? "bg-white text-black hover:text-black" : "bg-black bg-opacity-50 text-white"
-      }`}
+      } ${isMenuOpen ? "h-screen" : ""}`} // Added conditional class for height
     >
       <Container>
         <div className="flex items-center justify-between">
@@ -95,9 +41,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
           </div>
 
           {/* Nav and UserMenu for Large Screens */}
-          <div className="hidden sm:flex flex-grow items-center justify-between gap-3">
+          <div className="hidden sm:flex flex-grow items-center justify-between sm:gap-6 sm:text-start sm:items-start sm:ml-10 gap-3">
             <div className="logos-nav-barss">
-             <Logo />
+              <Logo />
             </div>
             <Nav />
             <UserMenu currentUser={currentUser} />
@@ -106,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
           {/* Menu Button for Small Screens */}
           <div className="sm:hidden">
             <button
-              className="block text-white focus:outline-none"
+              className={`block focus:outline-none ${isScrolled ? "text-black" : "text-white"}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <svg

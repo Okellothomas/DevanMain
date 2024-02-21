@@ -98,7 +98,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <h1 className="color-h1-white">Tour in comfort and style</h1>
 
           <Container>
-            <div className="booking-card grid w-full px-5 gap-32 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 py-5 my-9">
+            <div className="booking-card grid w-full px-5 gap-32 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 sm:my-3 sm:py-2 py-5 my-9">
             <CardDisplay
               icon={FaStar}
               label="Insightful experiences"
@@ -204,7 +204,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           <h1 className="main-header-black w-full text-center">PREMIUM <span className="main-header-gradient">TRENDING TOURS</span></h1>
           <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
         </div>
-        <div className="trending-list-main-page pt-4 pl-16 pb-4 justify-between grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-6">
+        <div className="trending-list-main-page pt-4 pl-16 pb-4 justify-between grid grid-cols-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-6">
           {filteredToursss.map((tour: any) => (
             <ListingValue
               data={tour}

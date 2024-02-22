@@ -27,7 +27,7 @@ export type safeReservation = Omit<
     listing: safeListing; // Replace 'listing' property with a 'safeListing' type
 }
 
-// Define a type 'SafeUser' that is a modification of the 'User' type
+// Define a type 'SafeUser' that is a modification of the 'User' type 
 export type SafeUser = Omit<
     User, // Original User type
     "createdAt" | "updatedAt" | "emailVerified" | "userType" // Omit specified properties

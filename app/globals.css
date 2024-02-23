@@ -655,361 +655,7 @@ background: rgba(0,0,0,0.5);
   width: 0px!important;
 }
 
-/* small screens */
-
-@media (min-width: 545px) and (max-width: 641px) {
-  .my-logo-nav-bar{
-     display: visible!important;
-     visibility: visible!important;
-  }
-
-    .logo-image-background {
-      display: inline-flex;
-      padding: 4px!important;
-      align-items: flex-start;
-      gap: 4px!important;
-      border-radius: 60px;
-      background: var(--logocolor, #55E4D6);
-    }
-
-        .logo-image-background-image{
-         height: 20px!important;
-         width: 20px!important;
-        }
-
-    .carousel-container {
-      margin-top: -19% !important;
-    }
-  
-    .carousel-main-div {
-      margin-top: -116% !important;
-      z-index: 5 !important;
-      /* width: 100vw!important; */
-    }
-  
-    .carousel-main-div-carousel {
-      height: -8 !important;
-    }
-
-    .page-main-ctry{
-      display: none!important;
-    }
-
-    .main-image-small-screen{
-      height: 60vh!important;
-    }
-
-    .booking-card-one{
-      visibility: hidden !important;
-      display: none !important;
-    }
-
-    .booking-card-two {
-      visibility: hidden!important;
-      display: none!important;
-    }
-
-                display-card {
-                  display: flex;
-                  width: auto !important;
-                  height: auto !important;
-                  padding: 10.081px 10.081px 10.517px 10.838px !important;
-                  flex-direction: column;
-                  align-items: center;
-                  gap: 6.386px !important;
-                  flex-shrink: 0;
-                  border-radius: 17.519px;
-                }
-    
-        .display-card:hover {
-          background: rgba(255, 255, 255, 0.44);
-          cursor: pointer;
-        }
-
-      .footer-main-texts{
-        font-size: 12px!important;
-      }
-
-      .footer-main-images-one{
-        display: none !important;
-        visibility: hidden !important;
-      }
-
-            .SearchMain-page {
-              margin-top: -5% !important;
-              position: relative;
-              z-index: 10 !important;
-            }
-}
-
-@media (min-width: 501px) and (max-width: 544px) {
-  .my-logo-nav-bar {
-    display: visible !important;
-    visibility: visible !important;
-  }
-
-  .logo-image-background {
-    display: inline-flex;
-    padding: 4px !important;
-    align-items: flex-start;
-    gap: 4px !important;
-    border-radius: 60px;
-    background: var(--logocolor, #55E4D6);
-  }
-
-  .logo-image-background-image {
-    height: 20px !important;
-    width: 20px !important;
-  }
-
-  .carousel-container {
-    margin-top: -19% !important;
-  }
-
-  .carousel-main-div {
-    margin-top: -90% !important;
-    z-index: 5 !important;
-    /* width: 100vw!important; */
-  }
-
-  .carousel-main-div-carousel {
-    height: -8 !important;
-  }
-
-  .page-main-ctry {
-    display: none !important;
-  }
-
-  .main-image-small-screen {
-    height: 60vh !important;
-  }
-
-  .booking-card-one {
-    visibility: hidden !important;
-    display: none !important;
-  }
-
-  .booking-card-two {
-    visibility: hidden !important;
-    display: none !important;
-  }
-
- display-card {
-   display: flex;
-   width: auto !important;
-   height: auto !important;
-   padding: 10.081px 10.081px 10.517px 10.838px !important;
-   flex-direction: column;
-   align-items: center;
-   gap: 6.386px !important;
-   flex-shrink: 0;
-   border-radius: 17.519px;
- }
-
-  .display-card:hover {
-    background: rgba(255, 255, 255, 0.44);
-    cursor: pointer;
-  }
-
-  .footer-main-texts {
-    font-size: 12px !important;
-  }
-
-  .footer-main-images-one {
-    display: none !important;
-    visibility: hidden !important;
-  }
-
-  .SearchMain-page {
-    margin-top: -5% !important;
-    position: relative;
-    z-index: 10 !important;
-  }
-}
-
-
-@media (min-width: 381px) and (max-width: 500px) {
-  .my-logo-nav-bar {
-    display: visible !important;
-    visibility: visible !important;
-  }
-
-  .btn-main-page{
-    visibility: collapse !important;
-    width: 0px!important;
-  }
-
-  .logo-image-background {
-    display: inline-flex;
-    padding: 4px !important;
-    align-items: flex-start;
-    gap: 4px !important;
-    border-radius: 60px;
-    background: var(--logocolor, #55E4D6);
-  }
-
-  .logo-image-background-image {
-    height: 20px !important;
-    width: 20px !important;
-  }
-
-  .carousel-container {
-    margin-top: -19% !important;
-  }
-
-  .carousel-main-div {
-    margin-top: -160% !important;
-    z-index: 5 !important;
-    /* width: 100vw!important; */
-  }
-
-  .carousel-main-div-carousel {
-    height: -8 !important;
-  }
-
-  .page-main-ctry {
-    display: none !important;
-  }
-
-  .main-image-small-screen {
-    height: 60vh !important;
-  }
-
-  .booking-card-one {
-    visibility: hidden !important;
-    display: none !important;
-  }
-
-  .booking-card-two {
-    visibility: hidden !important;
-    display: none !important;
-  }
-
-    .display-card {
-      display: flex;
-      width: auto !important;
-      height: auto !important;
-      padding: 10.081px 10.081px 10.517px 10.838px !important;
-      flex-direction: column;
-      align-items: center;
-      gap: 6.386px !important;
-      flex-shrink: 0;
-      border-radius: 17.519px;
-    }
-
-  .display-card:hover {
-    background: rgba(255, 255, 255, 0.44);
-    cursor: pointer;
-  }
-
-  .footer-main-texts {
-    font-size: 12px !important;
-  }
-
-  .footer-main-images-one {
-    display: none !important;
-    visibility: hidden !important;
-  }
- .SearchMain-page {
-   margin-top: -5% !important;
-   position: relative;
-   z-index: 10 !important;
- }
-}
-
-
-@media (min-width: 0px) and (max-width: 380px) {
-  .my-logo-nav-bar {
-    display: visible !important;
-    visibility: visible !important;
-  }
-
-  .btn-main-page {
-    visibility: collapse !important;
-    width: 0px !important;
-  }
-
-  .booking-card-mj{
-    height: 45vh!important;
-  }
-
-  .logo-image-background {
-    display: inline-flex;
-    padding: 4px !important;
-    align-items: flex-start;
-    gap: 4px !important;
-    border-radius: 60px;
-    background: var(--logocolor, #55E4D6);
-  }
-
-  .logo-image-background-image {
-    height: 20px !important;
-    width: 20px !important;
-  }
-
-  .carousel-container {
-    margin-top: -19% !important;
-  }
-
-  .carousel-main-div {
-    margin-top: -130% !important;
-    z-index: 5 !important;
-    /* width: 100vw!important; */
-  }
-
-  .carousel-main-div-carousel {
-    height: -8 !important;
-  }
-
-  .page-main-ctry {
-    display: none !important;
-  }
-
-  .main-image-small-screen {
-    height: 60vh !important;
-  }
-
-  .booking-card-one {
-    visibility: hidden !important;
-    display: none !important;
-  }
-
-  .booking-card-two {
-    visibility: hidden !important;
-    display: none !important;
-  }
-
-  .display-card {
-    display: flex;
-    width: auto !important;
-    height: auto !important;
-    padding: 10.081px 10.081px 10.517px 10.838px !important;
-    flex-direction: column;
-    align-items: center;
-    gap: 6.386px !important;
-    flex-shrink: 0;
-    border-radius: 17.519px;
-  }
-
-  .display-card:hover {
-    background: rgba(255, 255, 255, 0.44);
-    cursor: pointer;
-  }
-
-  .footer-main-texts {
-    font-size: 12px !important;
-  }
-
-  .footer-main-images-one {
-    display: none !important;
-    visibility: hidden !important;
-  }
- .SearchMain-page {
-   margin-top: -5% !important;
-   position: relative;
-   z-index: 10 !important;
- }
-}
+/* small Screen */
 
 @media (min-width: 0px) and (max-width: 641px) { 
   .nav-small-dest {
@@ -1058,4 +704,471 @@ background: rgba(0,0,0,0.5);
                       z-index: 40 !important;
                       margin-top: -37% !important;
                     }
+
+      
+    .alldestinations-main {
+      background-image: url('../public/images/adventure2.jpg');
+      /* Replace 'your-image.jpg' with the path to your image */
+      background-color: rgba(0, 0, 0, 0.42);
+      /* Red color with 60% opacity */
+      background-blend-mode: overlay;
+      /* Blend the background image and color */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      flex-shrink: 0;
+      height: 34vh;
+      margin-top: -35% !important;
+    }
+
+             .all-destination-products {
+               grid-column: auto / span 0 !important;
+               display: none;
+               visibility: hidden;
+             }
+      
+             .all-destination-tours {
+               grid-column: span 5 / span 5 !important;
+             }
+
+        .main-image-small-screen{
+          height: 27vh!important;
+          width: 94vw !important;
+        }
+
+                 .main-image-small-image {
+                   height: 23vh !important;
+                   width: 26vw !important;
+                 }
+        .all-destination-filter{
+          visibility: hidden!important;
+          display: none!important;
+        }
+
+    .main-image-small-spans-c-title{
+      font-weight: 400!important;
+      font-style: normal!important;
+      font-size: 14px!important;
+    }
+
+    .alldestinations-white-main {
+      color: #FFF;
+      font-family: Kanit;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+      padding-top: 18% !important;
+    }
+  .main-image-small-spans-c{
+    display: none!important;
+    visibility: hidden!important;
+  }
+
+    .all-destinations-main-loader {
+      background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+      /* Replace 'your-image.jpg' with the path to your image */
+      background-color: rgba(0, 0, 0, 0.42);
+      /* Red color with 60% opacity */
+      background-blend-mode: overlay;
+      /* Blend the background image and color */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      flex-shrink: 0;
+      height: 6vh;
+      margin-top: -21% !important;
+    }
+
+}
+
+
+/* the screens */
+/* small screens */
+
+@media (min-width: 545px) and (max-width: 641px) {
+  .my-logo-nav-bar {
+    display: visible !important;
+    visibility: visible !important;
+  }
+
+  .logo-image-background {
+    display: inline-flex;
+    padding: 4px !important;
+    align-items: flex-start;
+    gap: 4px !important;
+    border-radius: 60px;
+    background: var(--logocolor, #55E4D6);
+  }
+
+  .logo-image-background-image {
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  .carousel-container {
+    margin-top: -19% !important;
+  }
+
+  .carousel-main-div {
+    margin-top: -116% !important;
+    z-index: 5 !important;
+    /* width: 100vw!important; */
+  }
+
+  .carousel-main-div-carousel {
+    height: -8 !important;
+  }
+
+  .page-main-ctry {
+    display: none !important;
+  }
+
+  .booking-card-one {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .booking-card-two {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .display-card {
+    display: flex;
+    width: auto !important;
+    height: auto !important;
+    padding: 10.081px 10.081px 10.517px 10.838px !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 6.386px !important;
+    flex-shrink: 0;
+    border-radius: 17.519px;
+  }
+
+  .display-card:hover {
+    background: rgba(255, 255, 255, 0.44);
+    cursor: pointer;
+  }
+
+  .footer-main-texts {
+    font-size: 12px !important;
+  }
+
+  .footer-main-images-one {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .SearchMain-page {
+    margin-top: -5% !important;
+    position: relative;
+    z-index: 10 !important;
+  }
+
+    .main-image-small-screen {
+      height: 27vh !important;
+      width: 92vw !important;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 544px) {
+  .my-logo-nav-bar {
+    display: visible !important;
+    visibility: visible !important;
+  }
+
+  .logo-image-background {
+    display: inline-flex;
+    padding: 4px !important;
+    align-items: flex-start;
+    gap: 4px !important;
+    border-radius: 60px;
+    background: var(--logocolor, #55E4D6);
+  }
+
+  .logo-image-background-image {
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  .carousel-container {
+    margin-top: -19% !important;
+  }
+
+  .carousel-main-div {
+    margin-top: -90% !important;
+    z-index: 5 !important;
+    /* width: 100vw!important; */
+  }
+
+  .carousel-main-div-carousel {
+    height: -8 !important;
+  }
+
+  .page-main-ctry {
+    display: none !important;
+  }
+
+    .main-image-small-screen {
+      height: 27vh !important;
+      width: 92vw !important;
+    }
+
+  .booking-card-one {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .booking-card-two {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  display-card {
+    display: flex;
+    width: auto !important;
+    height: auto !important;
+    padding: 10.081px 10.081px 10.517px 10.838px !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 6.386px !important;
+    flex-shrink: 0;
+    border-radius: 17.519px;
+  }
+
+  .display-card:hover {
+    background: rgba(255, 255, 255, 0.44);
+    cursor: pointer;
+  }
+
+  .footer-main-texts {
+    font-size: 12px !important;
+  }
+
+  .footer-main-images-one {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .SearchMain-page {
+    margin-top: -5% !important;
+    position: relative;
+    z-index: 10 !important;
+  }
+}
+
+
+@media (min-width: 381px) and (max-width: 500px) {
+  .my-logo-nav-bar {
+    display: visible !important;
+    visibility: visible !important;
+  }
+
+  .btn-main-page {
+    visibility: collapse !important;
+    width: 0px !important;
+  }
+
+  .logo-image-background {
+    display: inline-flex;
+    padding: 4px !important;
+    align-items: flex-start;
+    gap: 4px !important;
+    border-radius: 60px;
+    background: var(--logocolor, #55E4D6);
+  }
+
+  .logo-image-background-image {
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  .carousel-container {
+    margin-top: -19% !important;
+  }
+
+  .carousel-main-div {
+    margin-top: -160% !important;
+    z-index: 5 !important;
+    /* width: 100vw!important; */
+  }
+
+  .carousel-main-div-carousel {
+    height: -8 !important;
+  }
+
+  .page-main-ctry {
+    display: none !important;
+  }
+
+  .booking-card-one {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .booking-card-two {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .display-card {
+    display: flex;
+    width: auto !important;
+    height: auto !important;
+    padding: 10.081px 10.081px 10.517px 10.838px !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 6.386px !important;
+    flex-shrink: 0;
+    border-radius: 17.519px;
+  }
+
+  .display-card:hover {
+    background: rgba(255, 255, 255, 0.44);
+    cursor: pointer;
+  }
+
+  .footer-main-texts {
+    font-size: 12px !important;
+  }
+
+  .footer-main-images-one {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .SearchMain-page {
+    margin-top: -5% !important;
+    position: relative;
+    z-index: 10 !important;
+  }
+
+  .main-image-small-spans-c-btn {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .main-image-small-spans-c-main {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .main-image-small-screen {
+    height: 27vh !important;
+    width: 91vw !important;
+  }
+}
+
+
+@media (min-width: 0px) and (max-width: 380px) {
+  .my-logo-nav-bar {
+    display: visible !important;
+    visibility: visible !important;
+  }
+
+  .btn-main-page {
+    visibility: collapse !important;
+    width: 0px !important;
+  }
+
+  .booking-card-mj {
+    height: 45vh !important;
+  }
+
+  .logo-image-background {
+    display: inline-flex;
+    padding: 4px !important;
+    align-items: flex-start;
+    gap: 4px !important;
+    border-radius: 60px;
+    background: var(--logocolor, #55E4D6);
+  }
+
+  .logo-image-background-image {
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  .carousel-container {
+    margin-top: -19% !important;
+  }
+
+  .carousel-main-div {
+    margin-top: -130% !important;
+    z-index: 5 !important;
+    /* width: 100vw!important; */
+  }
+
+  .carousel-main-div-carousel {
+    height: -8 !important;
+  }
+
+  .page-main-ctry {
+    display: none !important;
+  }
+
+  .booking-card-one {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .booking-card-two {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .display-card {
+    display: flex;
+    width: auto !important;
+    height: auto !important;
+    padding: 10.081px 10.081px 10.517px 10.838px !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 6.386px !important;
+    flex-shrink: 0;
+    border-radius: 17.519px;
+  }
+
+  .display-card:hover {
+    background: rgba(255, 255, 255, 0.44);
+    cursor: pointer;
+  }
+
+  .footer-main-texts {
+    font-size: 12px !important;
+  }
+
+  .footer-main-images-one {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .SearchMain-page {
+    margin-top: -5% !important;
+    position: relative;
+    z-index: 10 !important;
+  }
+
+  .main-image-small-screen {
+    height: 27vh !important;
+    width: 92vw !important;
+  }
+
+
+
+  .main-image-small-image {
+    height: 23vh !important;
+    width: 26vw !important;
+  }
+
+  .main-image-small-spans-c-btn {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .main-image-small-spans-c-main {
+    display: none !important;
+    visibility: hidden !important;
+  }
 }

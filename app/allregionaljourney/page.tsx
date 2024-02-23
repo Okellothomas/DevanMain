@@ -58,10 +58,10 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
         <Container>
           <div className="flex flex-row justify-between items-center pb-11">
             <div className="flex font-bold flex-row gap-40 items-center">
-              <div className="filter-bg-color rounded-2xl items-center py-2 pl-2 pr-6 text-start">
+              <div className="filter-bg-color rounded-2xl items-center py-2 pl-2 pr-6 text-start all-destination-filter">
                 <p>Filter Results</p>
               </div>
-              <div className="font-semibold text-xl">{tours.length} Tours</div>
+              <div className="font-semibold text-xl">{visibleTours.length} Tours</div>
             </div>
             <div>
               <Sort products={products} />
@@ -70,14 +70,14 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
         </Container>
         <Container>
           <div className="pt-0 items-start grid grid-cols-5 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
-            <div className="col-span-1 flex flex-col gap-6">
+            <div className="col-span-1 flex flex-col gap-6 all-destination-products">
               <Contients products={products} />
               <TourStyles products={products} />
               <TourOperators products={products} />
               <TourSize products={products}/>
             </div>
             <div className="col-span-4">
-              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 gap-8 all-destination-tours">
                 {/* Map through the visible listings array and render ListingCard components */}
                 {visibleTours.map((tour: any) => (
                   <TourMainCard

@@ -159,7 +159,7 @@ const TourClient: React.FC<TourClientProps> = ({
             tourId: tour?.id,
             paymentDetails:data,
             userId:currentUser?.id,
-            slots:numberOfTourists,
+            slots:options.guests,
             tourists:tour? tour.tourists:[]
         })
             .then(async () => {

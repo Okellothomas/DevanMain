@@ -732,8 +732,8 @@ background: rgba(0,0,0,0.5);
              }
 
         .main-image-small-screen{
-          height: 27vh!important;
-          width: 94vw !important;
+          height: 35vh!important;
+          /* width: 94vw !important; */
         }
 
                  .main-image-small-image {
@@ -882,8 +882,8 @@ background: rgba(0,0,0,0.5);
   }
 
     .main-image-small-screen {
-      height: 27vh !important;
-      width: 92vw !important;
+      height: 35vh !important;
+      /* width: 92vw !important; */
     }
 }
 
@@ -926,8 +926,8 @@ background: rgba(0,0,0,0.5);
   }
 
     .main-image-small-screen {
-      height: 27vh !important;
-      width: 92vw !important;
+      height: 35vh !important;
+      /* width: 92vw !important; */
     }
 
   .booking-card-one {
@@ -1070,8 +1070,8 @@ background: rgba(0,0,0,0.5);
   }
 
   .main-image-small-screen {
-    height: 27vh !important;
-    width: 91vw !important;
+    height: 35vh !important;
+    /* width: 91vw !important; */
   }
 }
 
@@ -1166,8 +1166,8 @@ background: rgba(0,0,0,0.5);
   }
 
   .main-image-small-screen {
-    height: 27vh !important;
-    width: 92vw !important;
+    height: 35vh !important;
+    /* width: 92vw !important; */
   }
 
 

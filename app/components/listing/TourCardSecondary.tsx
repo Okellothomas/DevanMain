@@ -68,7 +68,7 @@ const TourCardSecondary: React.FC<ListingCardProps> = ({
         onClick={() => router.push(`/tours/${data?.id}`)} //added ?
         className="col-span-1 cursor-pointer group"
       >
-          <div className="flex flex-col gap-2 w-full main-image-small-screen">
+          <div className="flex h-[47vh] flex-col gap-2 w-full main-image-small-screen">
               <div className="aspect-square w-full relative overflow-hidden rounded-xl">
                   <Image
                       fill
@@ -83,7 +83,7 @@ const TourCardSecondary: React.FC<ListingCardProps> = ({
                       />
                   </div>
               </div>
-              <div className="text-sm font-semibold text-md truncate max-w-[20rem]">
+              <div className="text-sm pt-1 pb-2 font-semibold text-md truncate max-w-[20rem]">
                  <span className="text-neutral-700">{data.title}</span>
               </div>
               <div className="font-light text-neutral-500">

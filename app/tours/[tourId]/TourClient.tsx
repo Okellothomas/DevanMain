@@ -211,11 +211,11 @@ const TourClient: React.FC<TourClientProps> = ({
             setError('Specify number of tourists, must be greater than 0.');
             return;
           }
-        if (options.rooms > tour.roomCount) {
-            setError(`Rooms available cannot match your request, only ${tour.roomCount} available.`);
-            return;
-          }
-        if (numberOfTourists > (tour.guestCount - tour.tourists.length)) {
+        // if (options.rooms > tour.roomCount) {
+        //     setError(`Rooms available cannot match your request, only ${tour.roomCount} available.`);
+        //     return;
+        //   }
+        if (options.guests > (tour.guestCount - tour.tourists.length)) {
             setError(`Available slots not enough for requested slots, only ${tour.guestCount - tour.tourists.length} available`);
             return;
           }
@@ -829,11 +829,10 @@ const TourClient: React.FC<TourClientProps> = ({
                             </label>
                             <input
                                 id="guests"
-                                type="number"
+                                type="text"
+                                value={`${options.guests} Guests ${options.rooms} rooms`}
                                 className="shadow border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                value={numberOfTourists}
                                 onClick={toggleOptions}
-                               
                             />
 
 

@@ -780,6 +780,21 @@ background: rgba(0,0,0,0.5);
       margin-top: -21% !important;
     }
 
+        .all-destinations-main-main {
+          background-image: url('../public/images/adventure2.jpg');
+          /* Replace 'your-image.jpg' with the path to your image */
+          background-color: rgba(0, 0, 0, 0.22);
+          /* Red color with 60% opacity */
+          background-blend-mode: overlay;
+          /* Blend the background image and color */
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          flex-shrink: 0;
+          height: 55vh;
+          margin-top: -21% !important;
+        }
+
 }
 
 

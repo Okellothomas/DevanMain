@@ -74,8 +74,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
     const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
 
-
-
     const handlePaymentComplete = (data: any) => {
         // Handle the data passed from PaymentModal
         console.log('Payment completed with data:', data);
@@ -86,7 +84,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
       };
       const makeReservation = (data:any) =>
       {
-         
+        
        {
         setShowPay(false)
         console.log("Payment Data",dataa)
@@ -328,7 +326,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                        {listing.hotelLink !== "" && (
                         <div className="flex h-[66vh] flex-col gap-5 items-start py-4  w-full">
                         <iframe
-                            src={listing?.hotelLink? listing.hotelLink:""}
+                            src={listing.hotelLink}
                             title="YouTube video player"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -354,9 +352,9 @@ const ListingClient: React.FC<ListingClientProps> = ({
                       </div>
                   </div>
               </div> 
-              {showPay && <PayPalScriptProvider options={{ clientId: "AZ_ycPr5s3mAA-Xboaqc9ft8hHiaChcr42aZIauAYl3Ax0CDig8L3uc-V0P2Mgx70nQD4p7XKcTbCLBB" }}>
+              {showPay && <PayPalScriptProvider options={{ clientId: "ATNgosIlt76LLJdYbZjqNuhdI31gc3H_pV7mQa6h4CJ20Xz0F_O2zCDVlD_Xt91iHmftZ3cB4J2kiHS3" }}>
                   <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete} totalPrice={totalPrice.toString()}/>
-                </PayPalScriptProvider>}
+             </PayPalScriptProvider>}
           </div>  
     </Container>
   )

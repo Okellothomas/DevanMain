@@ -95,21 +95,23 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
       )}
 
       <div className="tour-inconfort flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-white">Tour in comfort and style</h1>
+        <h1 className="color-h1-white pb-4">Tour in comfort and style</h1>
 
           <Container>
-            <div className="booking-card grid w-full px-5 gap-32 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 sm:my-3 sm:py-2 py-5 my-9">
+            <div className="booking-card grid w-full px-5 gap-32 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 sm:my-3 sm:py-2 md:py-4 lg:py-5 xl:py-7 2xl:py-7 my-9">
             <CardDisplay
               icon={FaStar}
-              label="Insightful experiences"
+              // label="Insightful experiences"
+              label="1000+ Insightful Experiences"
               />
               <CardDisplay
               icon={FaThreads}
-              label="Make travel matter"
+              // label="Make travel matter"
+              label="60+ ways to make travel matter"
               />
               <CardDisplay
               icon={MdFoodBank}
-              label="Superior first class hotels"
+              label="800+ Superior first class hotels"
               />
               <CardDisplay
               icon={GiClockwork}

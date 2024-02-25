@@ -41,7 +41,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
           </div>
 
           {/* Nav and UserMenu for Large Screens */}
-          <div className="hidden sm:flex flex-grow items-center justify-between sm:gap-6 sm:text-start sm:items-start sm:ml-10 gap-3">
+          <div className="flex flex-grow items-center justify-between">
             <div className="logos-nav-barss">
               <Logo />
             </div>

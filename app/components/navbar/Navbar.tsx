@@ -125,6 +125,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to track menu toggle
+  const [isLoaded, setIsLoaded] = useState(false); // State to track initial load
   const isSmallScreen = useMediaQuery("(max-width: 640px)"); // Define a breakpoint for small screens
 
   useEffect(() => {
@@ -137,6 +138,15 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
+
+  // Marking initial load as complete after a short delay
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -153,7 +163,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
           </div>
 
           {/* Nav and UserMenu for Large Screens */}
-          {!isSmallScreen && (
+          {isLoaded && !isSmallScreen && (
             <div className="flex flex-grow items-center justify-between">
               <div className="logos-nav-barss">
                 <Logo />

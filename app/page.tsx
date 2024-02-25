@@ -71,7 +71,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <SearchMain />
       </div>
 
-      {tours && tours.length > 0 && (
+      {filteredTours && filteredTours.length > 0 && (
         <Container>
           <div className="flex flex-col gap-1 pt-12">
             <h1 className="main-header-black w-full text-center">AMAZING <span className="main-header-gradient">UPCOMING TOURS</span></h1>
@@ -200,7 +200,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
       
       {/* last part of the code */}
 
-      {tours && tours.length > 0 && (
+      {filteredToursss && filteredToursss.length > 0 && (
       <Container>
         <div className="flex w-full py-6 h-auto flex-col gap-1 pt-11">
           <h1 className="main-header-black w-full text-center">PREMIUM <span className="main-header-gradient">TRENDING TOURS</span></h1>

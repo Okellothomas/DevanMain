@@ -30,15 +30,24 @@ export const images = [
         title: "THE",
         desc: "GRAND",
         descrption: "TOUR SLAES",
-    },
+    }
+    ,
     {
         id: 5,
-        src: '/images/devance_cover_photo.jpg',
+        src: '/images/iceback.jpg',
         //src: "https://media.istockphoto.com/id/470172598/photo/hanging-out.jpg?s=2048x2048&w=is&k=20&c=hqH-1a2LWVnTDameLchNu2EJfbTCqZUMH_LQ8sN3fkc=",
         title: "THE",
         desc: "GRAND",
         descrption: "TOUR SLAES",
-    }
+    },
+    // {
+    //     id: 5,
+    //     src: '/images/devance_cover_photo.jpg',
+    //     //src: "https://media.istockphoto.com/id/470172598/photo/hanging-out.jpg?s=2048x2048&w=is&k=20&c=hqH-1a2LWVnTDameLchNu2EJfbTCqZUMH_LQ8sN3fkc=",
+    //     title: "THE",
+    //     desc: "GRAND",
+    //     descrption: "TOUR SLAES",
+    // }
     // {
     //     id: 1,
     //     src: "https://res.cloudinary.com/doamgn1l0/image/upload/v1705781708/phaozusyhgheyyawehzv.jpg",

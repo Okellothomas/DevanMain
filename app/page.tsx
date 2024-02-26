@@ -149,7 +149,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <div className="page-main-ctry">
         <div className="flex flex-col gap-1 pt-14">
         <h1 className="main-header-black w-full text-center">EXPLORE OUR <span className="main-header-gradient">PRIME DESTINATIONS</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
+        <p className="text-neutral-500 text-sm w-full text-center">Indulge in timeless luxury and impeccable service at our curated selection of iconic world tourist destinations. Discover the pinnacle of hospitality with Intercontinental Tours.</p>
         </div>
         <div className="pt-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4">
         <Categoriess />

@@ -273,11 +273,11 @@ const RentModal = () => {
             <div className="flex flex-col gap-8">
                 <Heading
                     title="How would you describe your place?"
-                    subtitle="Choose one!"
+                    subtitle="Choose one, enter house or hotel!"
                 />
                 <Input
                     id="house"
-                    label="house"
+                    label="house(strictly small letters)"
                     disabled={isLoading}
                     register={register}
                     error={errors}
@@ -285,7 +285,7 @@ const RentModal = () => {
                 <hr />
                 <Input
                     id="hotel"
-                    label="hotel"
+                    label="hotel(strictly small letters)"
                     disabled={isLoading}
                     register={register}
                     error={errors}
@@ -436,7 +436,7 @@ const RentModal = () => {
                 />
                 <Input
                     id="country"
-                    label="Host country of the facility"
+                    label="Host country(strictly small letters)"
                     disabled={isLoading}
                     register={register}
                     error={errors}
@@ -445,7 +445,7 @@ const RentModal = () => {
                 <hr />
                 <Input
                     id="continent"
-                    label="Host continent of the facility"
+                    label="Host continent(strictly small letters)"
                     disabled={isLoading}
                     register={register}
                     error={errors}
@@ -485,8 +485,6 @@ const RentModal = () => {
             </div>
         )
     }
-
-
 
   return (
       <Modal

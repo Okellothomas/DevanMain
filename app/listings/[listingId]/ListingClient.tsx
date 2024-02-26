@@ -323,7 +323,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                                   </div>
                               )}
 
-                       {listing.hotelLink !== "" && (
+                       {listing.hotelLink && listing.hotelLink.length > 0 && (
                         <div className="flex h-[66vh] flex-col gap-5 items-start py-4  w-full">
                         <iframe
                             src={listing.hotelLink}

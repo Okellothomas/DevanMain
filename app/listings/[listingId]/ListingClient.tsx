@@ -61,6 +61,9 @@ const ListingClient: React.FC<ListingClientProps> = ({
             });
 
             dates = [...dates, ...range]
+
+            console.log(dates)
+            console.log(reservations)
         })
 
         return dates;
@@ -260,6 +263,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                         </div>
 
                         <p className="pt-6 pb-5 text-lg font-bold text-neutral-500">Where you will sleep!</p>
+                        <p>{JSON.stringify(reservations)}</p>
 
                         <div className="border-[1px] gap-4 grid grid-cols-4 border-solid py-6 px-4 border-neutral-300 h-auto w-full rounded-lg">
                         
@@ -326,7 +330,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                        {listing.hotelLink !== "" && (
                         <div className="flex h-[66vh] flex-col gap-5 items-start py-4  w-full">
                         <iframe
-                            src={listing.hotelLink}
+                            src={listing?.hotelLink}
                             title="YouTube video player"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -352,9 +356,15 @@ const ListingClient: React.FC<ListingClientProps> = ({
                       </div>
                   </div>
               </div> 
-              {showPay && <PayPalScriptProvider options={{ clientId: "ATNgosIlt76LLJdYbZjqNuhdI31gc3H_pV7mQa6h4CJ20Xz0F_O2zCDVlD_Xt91iHmftZ3cB4J2kiHS3" }}>
+              {showPay && <PayPalScriptProvider options={{ 
+                // clientId: "ATNgosIlt76LLJdYbZjqNuhdI31gc3H_pV7mQa6h4CJ20Xz0F_O2zCDVlD_Xt91iHmftZ3cB4J2kiHS3" }}>
+                clientId: "AZ_ycPr5s3mAA-Xboaqc9ft8hHiaChcr42aZIauAYl3Ax0CDig8L3uc-V0P2Mgx70nQD4p7XKcTbCLBB" }}>
+
                   <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete} totalPrice={totalPrice.toString()}/>
              </PayPalScriptProvider>}
+
+
+
           </div>  
     </Container>
   )

@@ -1062,6 +1062,8 @@ const TourClient: React.FC<TourClientProps> = ({
     const [isOpen17, setIsOpen17] = useState(false);
     const [isOpen18, setIsOpen18] = useState(false);
     const [showPay, setShowPay] = useState(false)
+
+    const [partialAmount, setPartialAmount] = useState(0)
     const [selectedPaymentAmount, setSelectedPaymentAmount] = useState<number>(tour.price); // State to track the selected payment amount
     const [dataa, setDataa] = useState('')
     const { getByValue } = useCountries();
@@ -1088,6 +1090,8 @@ const TourClient: React.FC<TourClientProps> = ({
     setTotalPrice(tour.price * parseInt(event.target.value))
     
   };
+
+
     
      // Function to handle the payment amount selection
     const handlePaymentAmountSelect = (amount: number) => {
@@ -1877,12 +1881,14 @@ const TourClient: React.FC<TourClientProps> = ({
                     setShowPay(true);
                 }}
             >
-                Pay $100
+                Partial Pay ${0.1* tour.price}
             </button>
         </div>
     </div>
              
-              {showPay && <PayPalScriptProvider options={{ clientId: "ATNgosIlt76LLJdYbZjqNuhdI31gc3H_pV7mQa6h4CJ20Xz0F_O2zCDVlD_Xt91iHmftZ3cB4J2kiHS3" }}>
+              {showPay && <PayPalScriptProvider options={{ 
+                // clientId: "ATNgosIlt76LLJdYbZjqNuhdI31gc3H_pV7mQa6h4CJ20Xz0F_O2zCDVlD_Xt91iHmftZ3cB4J2kiHS3" }}>
+                clientId: "AZ_ycPr5s3mAA-Xboaqc9ft8hHiaChcr42aZIauAYl3Ax0CDig8L3uc-V0P2Mgx70nQD4p7XKcTbCLBB" }}>
                   {/* <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete} totalPrice={totalPrice.toString()}/> */}
                   <PaymentModal 
                         setShowPayModal={setShowPay} 

@@ -11,7 +11,7 @@ import usePaymentModal from "@/app/hooks/usePaymentModal";
 import { SafeUser, safeListing, safeReservation } from "@/app/types";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import axios from "axios";
-import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
+import { differenceInCalendarDays, eachDayOfInterval, startOfDay } from "date-fns";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Range } from "react-date-range";
@@ -26,6 +26,7 @@ import { LuBedDouble } from "react-icons/lu";
 import { BsPersonCircle } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { BsFileEarmarkPerson } from "react-icons/bs";
+
 
 const initialDateRange = {
     startDate: new Date(),
@@ -50,24 +51,68 @@ const ListingClient: React.FC<ListingClientProps> = ({
     const loginModal = useLoginModal();
     const paymentModal = usePaymentModal();
     const router = useRouter();
+    const [dispabledTarehe, setDisabledTareh]  =useState(null)
 
-    const disabledDates = useMemo(() => {
-        let dates: Date[] = [];
+    // const disabledDates = useMemo(() => {
+    //     let dates: Date[] = [];
 
-        reservations.forEach((reservations) => {
-            const range = eachDayOfInterval({
-                start: new Date(reservations.startDate),
-                end: new Date(reservations.endDate)
-            });
+    //     reservations.forEach((reservation) => {
+    //         const range = eachDayOfInterval({
+    //             start: new Date(reservation.startDate),
+    //             end: new Date(reservation.endDate)
+    //         });
 
-            dates = [...dates, ...range]
+    //         dates = [...dates, ...range]
 
-            console.log(dates)
-            console.log(reservations)
-        })
+    //         console.log("dates------",dates)
+    //         setDisabledTareh(dates)
+    //     })
+    //     console.log("reservations count--",reservations.length)
 
-        return dates;
-    }, [reservations])
+    //     return dates;
+    // }, [reservations])
+
+    // Inside your useMemo callback
+const disabledDates = useMemo(() => {
+    let dates: Date[] = [];
+
+    reservations.forEach((reservation) => {
+        const range = eachDayOfInterval({
+            start: new Date(reservation.startDate),
+            end: new Date(reservation.endDate)
+        }); // Include the end date in the range
+
+        dates = [...dates, ...range];
+    });
+
+    console.log("dates------", dates);
+    console.log("reservations count--", reservations.length);
+
+    return dates;
+}, [reservations]);
+
+
+
+// Function to find the first non-disabled date from today
+const findAvailableDate = () => {
+    const today = new Date();
+    let availableDate = today;
+    while (disabledDates.some((disabledDate) => disabledDate.getTime() === availableDate.getTime())) {
+      availableDate.setDate(availableDate.getDate() + 1); // Move to next day
+    }
+    return availableDate;
+  };
+
+  // Set initial date range on component mount
+  useEffect(() => {
+    const availableDate = findAvailableDate();
+    setDateRange({
+      startDate: availableDate,
+      endDate: availableDate,
+      key: 'selection',
+    });
+  }, [disabledDates]); // Update only when disabledDates change
+
 
     const [isLoading, setIsLoading] = useState(false);
     const [showPay, setShowPay] = useState(false)
@@ -75,8 +120,8 @@ const ListingClient: React.FC<ListingClientProps> = ({
     const [dataa, setDataa] = useState('')
     const [paymentMade, setPaymentMade] = useState(false)
     const [dateRange, setDateRange] = useState<Range>(initialDateRange);
-
-
+    
+    
     const handlePaymentComplete = (data: any) => {
         // Handle the data passed from PaymentModal
         console.log('Payment completed with data:', data);
@@ -166,7 +211,10 @@ const ListingClient: React.FC<ListingClientProps> = ({
             const dayCount = differenceInCalendarDays(
                 dateRange.endDate,
                 dateRange.startDate
-            );
+            ) +1;
+
+            console.log("Day range=====>", dateRange)
+            console.log("Day count:====>", dayCount)
 
             if (dayCount && listing.price) {
                 setTotalPrice(dayCount * listing.price);
@@ -263,7 +311,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                         </div>
 
                         <p className="pt-6 pb-5 text-lg font-bold text-neutral-500">Where you will sleep!</p>
-                        <p>{JSON.stringify(reservations)}</p>
+                        <p>{JSON.stringify(dispabledTarehe)}</p>
 
                         <div className="border-[1px] gap-4 grid grid-cols-4 border-solid py-6 px-4 border-neutral-300 h-auto w-full rounded-lg">
                         

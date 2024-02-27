@@ -82,6 +82,17 @@ export async function PUT(
     }
   
     const newTourists = updateData.tourists;
+
+
+    const newPaymentDetails = {
+      userId: formData.userId,
+      totalPrice: formData.totalPrice,
+      paymentDetails: formData.paymentDetails
+    };
+    
+    const newPaymentDets = Array.isArray(tour.paymentDetails) ?
+      [...tour.paymentDetails, newPaymentDetails] : [newPaymentDetails];
+    // const newPaymentDets = [...tour.paymentDetails, {userId: formData.userId, totalPrice: formData.totalPrice, paymentDetails:formData.paymentDetails}]
   
     // Validate newTourists array:
     if (!Array.isArray(newTourists)) {
@@ -116,6 +127,9 @@ export async function PUT(
         data: {
           tourists: {
             set: newTourists, // Use "set" for replacing the entire array
+          },
+          paymentDetails: {
+            set: newPaymentDets,
           },
         },
       });

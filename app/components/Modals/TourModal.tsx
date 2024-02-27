@@ -450,7 +450,7 @@ const TourModal = () => {
                 />
                 <Input
                     id="deal"
-                    label="premium, exclusive, popular, upcoming or trending"
+                    label="premium, exclusive, popular, upcoming or trending(choose one strictly small letters)"
                     disabled={isLoading}
                     register={register}
                     error={errors}
@@ -684,7 +684,7 @@ const TourModal = () => {
                 />
                 <Input
                     id="country"
-                    label="Host country of the facility"
+                    label="Host country(strictly small letters)"
                     disabled={isLoading}
                     register={register}
                     error={errors}
@@ -693,7 +693,7 @@ const TourModal = () => {
                 <hr />
                 <Input
                     id="continent"
-                    label="Host continent of the facility"
+                    label="Host continent(strictly small letters)"
                     disabled={isLoading}
                     register={register}
                     error={errors}

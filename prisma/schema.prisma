@@ -102,6 +102,8 @@ model Reservation {
   userId         String?  @db.ObjectId // Foreign key referencing the "User" model
   Listing        Listing? @relation(fields: [listingId], references: [id], onDelete: Cascade)
   listingId      String?  @db.ObjectId // Foreign key referencing the "Listing" model
+  numberOfGuests    Int // Guest specified for this reservatione
+  numberOfRooms     Int //Number of rooms specified for reservation
   startDate      DateTime // Start date of the reservation
   endDate        DateTime // End date of the reservation
   totalPrice     Int // Total price of the reservation
@@ -157,7 +159,7 @@ model Tour {
   category      String // Category of the listing
   roomCount     Int // Number of rooms in the listing
   bathRoomCount Int // Number of bathrooms in the listing
-  guestCount    Int // Number of guests the listing can accommodate
+  guestCount    Int // Number of guests the listing can accommodate 
   locationValue String // Location value of the listing
   userId        String   @db.ObjectId // Foreign key referencing the "User" model
   price         Int // Price of the listing

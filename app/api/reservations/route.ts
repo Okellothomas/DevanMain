@@ -6,8 +6,9 @@ import getCurrentUser from "@/app/actions/getCurrentUsers";
 export async function POST(
     request: Request
 ) {
-    const currentUser = await getCurrentUser();
-
+    try {
+        const currentUser = await getCurrentUser();
+        
     if (!currentUser) {
         return NextResponse.error();
     }
@@ -18,14 +19,16 @@ export async function POST(
         listingId,
         startDate,
         endDate,
-        totalPrice, 
-        paymentDetails
+        amountPayable, 
+        totalPrice,
+        paymentDetails,
+        guestDetails
     } = body;
 
-    if (!listingId || !startDate || !endDate || !totalPrice) {
+    if (!listingId || !startDate || !endDate || !amountPayable) {
         return NextResponse.error();
     }
-
+    
     const listingAndReservation = await prisma.listing.update({
         where: {
             id: listingId
@@ -37,12 +40,18 @@ export async function POST(
                     startDate,
                     endDate,
                     totalPrice,
-                    paymentDetails
+                    paymentDetails,
+                    numberOfRooms:guestDetails.rooms,
+                    numberOfGuests: guestDetails.guests,
                     
                 }
             }
         }
     });
-
+    
     return NextResponse.json(listingAndReservation);
+    
+} catch (error) {
+ console.log("server error occured:-  ", error)   
+}
 }

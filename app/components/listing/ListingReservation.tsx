@@ -3,15 +3,25 @@
 import { Range } from "react-date-range";
 import Calender from "../Inputs/Calender";
 import Button from "../container/Button";
+import React from "react";
 
 interface ListingReservationProps {
     price: number;
     dateRange: Range;
     totalPrice: number;
     onChangeDate: (value: Range) => void;
-    onSubmit: () => void;
+    onSubmit: (payAmount: number) => void;
     disabled?: boolean;
     disabledDates: Date[]
+    options:{ guests: number; rooms: number };
+    setOptions : React.Dispatch<React.SetStateAction<any>>
+    setError : React.Dispatch<React.SetStateAction<any>>
+    openoptions:boolean;
+    error:string
+    setOpenOptions:React.Dispatch<React.SetStateAction<any>>
+    numberOfGuestsRef:any;
+    handleOptions: (name: 'guests' | 'rooms', operations: any) => void; // Define the handleOptions prop type
+    toggleOptions: () => void; // Define the toggleOptions prop type
 }
 
 const ListingReservation: React.FC<ListingReservationProps> = ({
@@ -21,8 +31,19 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
     onChangeDate,
     onSubmit,
     disabled,
-    disabledDates
+    disabledDates,
+    error,
+    setError,
+    options,
+    setOptions,
+    openoptions,
+    setOpenOptions,
+    numberOfGuestsRef,
+    handleOptions,
+    toggleOptions
 }) => {
+
+    
 
     console.log("Date Range", dateRange)
     return (
@@ -41,14 +62,90 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
                 disabledDates={disabledDates}
                 onChange={(value) => onChangeDate(value.selection)}
             />
-            <hr />
-            <div className="p-4">
-                <Button
-                    disabled={disabled}
-                    label="Reserve"
-                    onClick={onSubmit}
-                />
+
+<div className="flex flex-col px-4 justify-between item-center gap-1">
+        {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
+        <div className="flex flex-row items-center mt-2">
+            <label htmlFor="guests" className="text-right mr-4 text-gray-700">
+                Number of Guests & Rooms:
+            </label>
+            <input
+                id="guests"
+                type="text"
+                value={`${options.guests} Guests ${options.rooms} Rooms`}
+                className="shadow border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                onClick={toggleOptions}
+            />
+        {openoptions && (
+            <div className="absolute bottom-0 left-0 bg-white p-5 md:p-7 shadow-md" ref={numberOfGuestsRef}>
+                <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-3">
+                        <span className="text-lg">Rooms</span>
+                        <div className="flex gap-3 items-center">
+                            <button
+                                className="border rounded-full py-1 px-3 focus:outline-none"
+                                onClick={() => handleOptions("rooms", "d")}
+                                disabled={options.rooms <= 0}
+                            >
+                                -
+                            </button>
+                            <span className="text-xl">{options.rooms}</span>
+                            <button
+                                className="border rounded-full py-1 px-3 focus:outline-none"
+                                onClick={() => handleOptions("rooms", "i")}
+                            >
+                                +
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-3">
+                        <span className="text-lg">Guests</span>
+                        <div className="flex gap-3 items-center">
+                            <button
+                                className="border rounded-full py-1 px-3 focus:outline-none"
+                                onClick={() => handleOptions("guests", "d")}
+                                disabled={options.guests <= 1}
+                            >
+                                -
+                            </button>
+                            <span className="text-xl">{options.guests}</span>
+                            <button
+                                className="border rounded-full py-1 px-3 focus:outline-none"
+                                onClick={() => handleOptions("guests", "i")}
+                            >
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
+        )}
+        </div>
+
+
+        <hr />
+
+        <div className="flex flex-col justify-center item-center gap-3">
+          
+            <button
+                className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white"
+                onClick={()=>onSubmit(totalPrice)}
+            >
+                Pay Full Amount ($ {totalPrice})
+            </button>
+            {totalPrice > 100 &&
+            <button
+                className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white"
+                onClick={()=>onSubmit(100)}
+            >
+                Partial Pay($100)
+            </button>
+}
+        </div>
+    </div>
+            <hr />
+         
             <div className="p-4 flex flex-row items-center justify-between font-semibold text-lg">
                 <div>
                     Total

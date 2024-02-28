@@ -25,6 +25,8 @@ export type safeReservation = Omit<
     startDate: string; // Replace 'startDate' property with a string type
     endDate: string; // Replace 'endDate' property with a string type
     listing: safeListing; // Replace 'listing' property with a 'safeListing' type
+    numberOfGuests:number;
+    numberOfRooms:number;
 }
 
 // Define a type 'SafeUser' that is a modification of the 'User' type 

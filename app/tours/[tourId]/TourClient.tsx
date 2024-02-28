@@ -1760,20 +1760,17 @@ const TourClient: React.FC<TourClientProps> = ({
                           <div className="px-4 py-3">
                           <hr />
                           </div>
-                          {tour.room && tour.room.length > 0 && (
-                              <div className="flex flex-row px-4 justify-between item-center gap-3">
-                                  <div className="flex flex-row gap-3 justify-between items-center">
-                                      <span className="text-green-400"><GiCash size={23} /></span><span>Price per room:</span>
-                                  </div>
-                                  <div className="flex flex-row gap-3 justify-between items-center">
-                                      <span>${tour.room}</span>
-                                  </div>
-                              </div>
-                          )}
+                                <div className="flex flex-row px-4 justify-between items-center gap-3">
+                                    <div className="flex flex-row gap-3 justify-between items-center">
+                                        <span className="text-green-400"><GiCash size={23} /></span><span>Price per room:</span>
+                                    </div>
+                                    <div className="flex flex-row gap-3 justify-between items-center">
+                                        <span>${tour.room}</span>
+                                    </div>
+                                </div>
                           <div className="px-4 py-3">
                           <hr />
                           </div>
-                          {tour.save && tour.save.length > 0 && (
                               <div className="flex flex-row px-4 justify-between item-center gap-3">
                                   <div className="flex flex-row gap-3 justify-between items-center">
                                       <span className="text-yellow-400"><GiReceiveMoney size={23} /></span><span>Save per person:</span>
@@ -1782,7 +1779,6 @@ const TourClient: React.FC<TourClientProps> = ({
                                       <span>${tour.save}</span>
                                   </div>
                               </div>
-                          )}
                           <div className="px-4 py-3">
                           <hr />
                           </div>
@@ -1932,20 +1928,20 @@ const TourClient: React.FC<TourClientProps> = ({
           )}
           
                                           {/* Button to pay $100 */}
-          {options.guests <= (tour.guestCount - tour.tourists.length) && `${calculateTotalPrice()}` > 100 ? (
-          <button
-            className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white"
-            onClick={() => {
-              handlePaymentAmountSelect(100); // Select $100 predefined amount
-              makeReservation(null); // Make reservation including guests and rooms count, pass null as data
-              setShowPay(true); // Show payment modal
-            }}
-          >
-            Pay $100
-        </button>
-         ) : (
+         {calculateTotalPrice() > 100 && options.guests <= (tour.guestCount - tour.tourists.length) ? (
+            <button
+                className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white"
+                onClick={() => {
+                handlePaymentAmountSelect(100); // Select $100 predefined amount
+                makeReservation(null); // Make reservation including guests and rooms count, pass null as data
+                setShowPay(true); // Show payment modal
+                }}
+            >
+                Pay $100
+            </button>
+            ) : (
             <div className="text-red-500"></div>
-          )}
+            )}
         </>
       )}
       {options.guests === 0 && (

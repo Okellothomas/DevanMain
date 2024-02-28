@@ -92,16 +92,6 @@ export default async function getmyTours(
             createAt: tour.createAt.toISOString(),
         }));
 
-        const deletedTours = [];
-        for (const tour of tours) {
-            const deletedTour = await prisma.tour.delete({
-                where: {
-                    id: tour.id // Assuming the tour object has an `id` field
-                }
-            });
-            deletedTours.push(deletedTour);
-        }
-
         return safeTour;
       
         

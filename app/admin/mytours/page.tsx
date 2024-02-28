@@ -7,12 +7,13 @@ import deleteUsers from "@/app/actions/deleteUsers";
 import getAdmins from "@/app/actions/getAdmins";
 import Image from "next/image";
 import ListingCard from "@/app/components/listing/ListingCard";
-import getMyTours, { IMyToursParams } from "@/app/aagetMethods/getMyTours";
 import getTours from "@/app/actions/getTours";
+import TourCard from "@/app/components/listing/TourCard";
+import getmyTours, { ImyToursParams } from "@/app/aagetMethods/getmyTours";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
-  searchParams: IMyToursParams; // Search parameters for fetching listings
+  searchParams: ImyToursParams; // Search parameters for fetching listings
   userParams: IUsersParams;
 }
 
@@ -28,7 +29,9 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
     }
 
     // Fetch tours that match the current user's ID
-    const tours = await getTours({ ...searchParams, userId: currentUser.id });
+    const tours = await getmyTours({ ...searchParams, userId: currentUser.id });
+
+
 
     // Render the component with the fetched tours
     return (
@@ -51,7 +54,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
               <div className="items-center pb-1">
                  <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                 {tours.map((tour: any) => (
-                  <ListingCard
+                  <TourCard
                     currentUser={currentUser ? {
                       ...currentUser,
                       createdAt: currentUser.createdAt.toISOString(),

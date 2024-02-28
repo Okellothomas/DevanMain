@@ -1,7 +1,7 @@
 import prisma from '@/app/libs/prismadb';
 
-export interface IMyToursParams {
-    currentUserId?: string;
+export interface ImyToursParams {
+    userId?: string;
     guestCount?: number;
     roomCount?: number;
     bathroomCount?: number;
@@ -11,12 +11,12 @@ export interface IMyToursParams {
     category?: string;
 }
 
-export default async function getMyTours(
-    params: IMyToursParams
+export default async function getmyTours(
+    params: ImyToursParams
 ) {
     try {
         const {
-            currentUserId,
+            userId,
             roomCount,
             guestCount,
             // bathRoomCount,
@@ -28,8 +28,11 @@ export default async function getMyTours(
         
         let query: any = {};
 
-        if (currentUserId) {
-            query.userId = currentUserId;
+        // Remove the userId from the destructuring and handle it separately
+       const { userId: userIdParam, ...restParams } = params || {};
+
+        if (userIdParam) {
+            query.userId = userIdParam;
         }
 
         if (category) {
@@ -89,6 +92,16 @@ export default async function getMyTours(
             createAt: tour.createAt.toISOString(),
         }));
 
+        const deletedTours = [];
+        for (const tour of tours) {
+            const deletedTour = await prisma.tour.delete({
+                where: {
+                    id: tour.id // Assuming the tour object has an `id` field
+                }
+            });
+            deletedTours.push(deletedTour);
+        }
+
         return safeTour;
       
         
@@ -96,3 +109,4 @@ export default async function getMyTours(
         throw new Error(error);
     }
 }
+

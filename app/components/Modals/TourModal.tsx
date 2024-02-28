@@ -729,7 +729,6 @@ const TourModal = () => {
                     disabled={isLoading}
                     register={register}
                     error={errors}
-                    required
                 />
                 <hr />
                 <Input
@@ -740,7 +739,6 @@ const TourModal = () => {
                     disabled={isLoading}
                     register={register}
                     error={errors}
-                    required
                 />
             </div>
         )

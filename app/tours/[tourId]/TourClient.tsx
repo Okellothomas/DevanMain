@@ -998,6 +998,7 @@ import { RiRadioButtonLine } from "react-icons/ri";
 import { GiCash } from "react-icons/gi";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import PaymentModal from "@/app/components/Modals/PaymentModal";
+import { IoIosPeople } from "react-icons/io";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -1062,8 +1063,6 @@ const TourClient: React.FC<TourClientProps> = ({
     const [isOpen17, setIsOpen17] = useState(false);
     const [isOpen18, setIsOpen18] = useState(false);
     const [showPay, setShowPay] = useState(false)
-
-    const [partialAmount, setPartialAmount] = useState(0)
     const [selectedPaymentAmount, setSelectedPaymentAmount] = useState<number>(tour.price); // State to track the selected payment amount
     const [dataa, setDataa] = useState('')
     const { getByValue } = useCountries();
@@ -1090,8 +1089,6 @@ const TourClient: React.FC<TourClientProps> = ({
     setTotalPrice(tour.price * parseInt(event.target.value))
     
   };
-
-
     
      // Function to handle the payment amount selection
     const handlePaymentAmountSelect = (amount: number) => {
@@ -1100,86 +1097,99 @@ const TourClient: React.FC<TourClientProps> = ({
 
 
 
-    const handlePaymentComplete = (data: any) => {
+    // const handlePaymentComplete = (data: any) => {
+    //     // Handle the data passed from PaymentModal
+    //     console.log('Payment completed with data:', data);
+    //     setDataa(data)
+    //     makeReservation(data)
+    //     // You can also update the state or trigger other actions
+    //     // ...
+    //   };
+
+        const handlePaymentComplete = (data: any) => {
         // Handle the data passed from PaymentModal
         console.log('Payment completed with data:', data);
-        setDataa(data)
-        makeReservation(data)
+        setDataa(data);
         // You can also update the state or trigger other actions
         // ...
-      };
-      const makeReservation = (data:any) =>
-      {
-         
-       {
-        setShowPay(false)
-        console.log("Payment Data",dataa)
+        // Check if payment was successful
+        if (data && data.status === 'COMPLETED') {
+            // Payment was successful, proceed to make reservation
+            makeReservation(data);
+        } else {
+            // Payment failed or was cancelled
+            // Handle accordingly, show error message or take appropriate action
+            console.log('Payment failed or cancelled.');
+            // Optionally, you can show a toast or error message
+            toast.error('Payment failed or was cancelled.');
+        }
+        };
+    
+      const makeReservation = (data:any) => {
+      
+          if (data && data.status === 'COMPLETED') {
+      
+              {
+                  setShowPay(false)
+                  console.log("Payment Data", dataa)
+                  axios.put(`/api/tours/${tour?.id}`, {
+                      totalPrice: selectedPaymentAmount,
+                      startDate: dateRange.startDate,
+                      endDate: dateRange.endDate,
+                      tourId: tour?.id,
+                      paymentDetails: data,
+                      userId: currentUser?.id,
+                      slots: options.guests, // Include guests count
+                      tourists: tour ? tour.tourists : [],
+                      rooms: options.rooms // Include rooms count
+                  })
+                      .then(async () => {
+                          toast.success('Listing reserved!');
 
-        // axios.post(`/api/reservations`, {
-        //     totalPrice,
-        //     startDate: dateRange.startDate,
-        //     endDate: dateRange.endDate,
-        //     tourId: tour?.id
-        // })
-        //     .then(() => {
-        //         toast.success('Tour reserved!');
-        //         setDateRange(initialDateRange);
-        //         // redirect to /trips
-        //        // router.push('/trips');
-        //     }).catch(() => {
-        //         toast.error('Something went wrong')
-        //     }).finally(() => {
-        //         setIsLoading(false);
-        //     })
-        axios.put(`/api/tours/${tour?.id}`, {
-            totalPrice: selectedPaymentAmount, 
-            startDate: dateRange.startDate,
-            endDate: dateRange.endDate,
-            tourId: tour?.id,
-            paymentDetails:data,
-            userId:currentUser?.id,
-            slots:options.guests,
-            tourists:tour? tour.tourists:[]
-        })
-            .then(async () => {
-                toast.success('Listing reserved!');
-
-                setDateRange(initialDateRange);
-                // redirect to /trips
-                try {
-                    const response = await axios.post('/api/mailing/', 
+                          setDateRange(initialDateRange);
+                          // redirect to /trips
+                          try {
+                              const response = await axios.post('/api/mailing/',
                   
-                      {sender:'Info@devancatours.com',
-                             recipient:'wanjooo.ken@gmail.com',
-                             subject:"Devance Reservations",
-                             user_name:currentUser?.name,
-                             templateName: 'tour_mail_template',
-                             baseUrl: baseUrl,
-                             mail_body:`This is a sample test mail from Devance Application and these are the reservatio`
+                                  {
+                                      sender: 'Info@devancatours.com',
+                                      recipient: 'wanjooo.ken@gmail.com',
+                                      subject: "Devance Reservations",
+                                      user_name: currentUser?.name,
+                                      templateName: 'tour_mail_template',
+                                      baseUrl: baseUrl,
+                                      mail_body: `This is a sample test mail from Devance Application and these are the reservatio`
 
-                                },
+                                  },
 
-                                {
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                    }
-                                }
-                    );
+                                  {
+                                      headers: {
+                                          'Content-Type': 'application/json'
+                                      }
+                                  }
+                              );
                 
-                    const data = await response.data;
-                    console.log(data); // handle success message
+                              const data = await response.data;
+                              console.log(data); // handle success message
                 
-                  } catch (error) {
-                    console.error(error); // handle error message
-                  }
-                //router.push('/trips');
-            }).catch(() => {
-                toast.error('Something went wrong')
-            }).finally(() => {
-                setIsLoading(false);
-            })
-    }
-      }
+                          } catch (error) {
+                              console.error(error); // handle error message
+                          }
+                          //router.push('/trips');
+                      }).catch(() => {
+                          toast.error('Something went wrong')
+                      }).finally(() => {
+                          setIsLoading(false);
+                      })
+              }
+           } else {
+                // Payment data is missing or payment was not successful
+                // Show error message or take appropriate action
+                // console.log('Error: Payment data is missing or payment was not successful.');
+                // // Optionally, you can show a toast or error message
+                // toast.error('Error: Payment data is missing or payment was not successful.');
+            }
+            };
 
 
       const onCreateReservation = useCallback(() => {
@@ -1190,10 +1200,6 @@ const TourClient: React.FC<TourClientProps> = ({
             setError('Specify number of tourists, must be greater than 0.');
             return;
           }
-        // if (options.rooms > tour.roomCount) {
-        //     setError(`Rooms available cannot match your request, only ${tour.roomCount} available.`);
-        //     return;
-        //   }
         if (options.guests > (tour.guestCount - tour.tourists.length)) {
             setError(`Available slots not enough for requested slots, only ${tour.guestCount - tour.tourists.length} available`);
             return;
@@ -1205,11 +1211,6 @@ const TourClient: React.FC<TourClientProps> = ({
             return loginModal.onOpen()
         }
 
-        // if(!tour?.tourists.includes(currentUser?.id))
-        // {
-        //     toast.error('Your are already reserved on this tour')
-        // }
-        // else{
        
         try {
             setShowPay(true)
@@ -1228,38 +1229,6 @@ const TourClient: React.FC<TourClientProps> = ({
         loginModal,
    
     ]);
-    // const onCreateReservation = useCallback(() => {
-    //     if (!currentUser) {
-    //         return loginModal.onOpen()
-    //     }
-
-    //     setIsLoading(true);
-
-    //     axios.post(`/api/reservations`, {
-    //         totalPrice,
-    //         startDate: dateRange.startDate,
-    //         endDate: dateRange.endDate,
-    //         tourId: tour?.id
-    //     })
-    //         .then(() => {
-    //             toast.success('Tour reserved!');
-    //             setDateRange(initialDateRange);
-    //             // redirect to /trips
-    //             router.push('/trips');
-    //         }).catch(() => {
-    //             toast.error('Something went wrong')
-    //         }).finally(() => {
-    //             setIsLoading(false);
-    //         })
-    // }, [
-    //     totalPrice,
-    //     dateRange,
-    //     tour?.id,
-    //     router,
-    //     currentUser,
-    //     loginModal
-    // ]);
-    
     const Map = dynamic(() => import('../../components/container/Map'), {
         ssr: false
     } )
@@ -1322,6 +1291,11 @@ const TourClient: React.FC<TourClientProps> = ({
         };
     }, []);
 
+
+  const calculateTotalPrice = () => {
+    return options.guests * tour.price + options.rooms * (tour.room || 0);
+  };
+
   return (
     <Container>
           <div className="max-w-sreen-lg mx-auto">
@@ -1381,33 +1355,48 @@ const TourClient: React.FC<TourClientProps> = ({
                                   <div>
                                       <span>{tour.operator }</span>
                                   </div>
-                              </div>   
-                        <div>
-                                  
-                        </div>
-                          </div>
-                    
-                  <div className="flex flex-col gap-5 items-start border-[1px] border-solid py-4 px-4 border-neutral-300 h-auto w-full rounded-lg">
-                          
-                        <div className="flex w-full flex-row items-center justify-between">
-                                  <div className="flex flex-row items-center gap-2">
-                                     <span className="text-xl font-bold">OVERVIEW</span>
-                                  </div>
-                              </div>
-                            <div className="py-1 w-full">
-                            <hr />
-                            </div>
+                              </div>  
                         
-                        <div className="flex w-full flex-row items-center justify-between"> 
+                        <div className="px-1 w-full">
+                          <hr />
+                          </div>
+
+                       <div className="flex w-full flex-row items-center justify-between">
+                                  <div className="flex flex-row items-center gap-2">
+                                      <span className="text-lime-500"><IoIosPeople size={ 23} /></span> <span>Number Of Tourists:</span>
+                                  </div> 
                                   <div>
-                                      <span className="text-md text-justify text-neutral-600">{tour.overView }</span>
+                                      <span>{tour.guestCount }</span>
                                   </div>
                               </div>  
                         <div>
                                   
                         </div>
-                    </div>   
-
+                          </div>
+                
+                          {tour.overView && tour.overView?.length > 0 && (
+                              <div className="flex flex-col gap-5 items-start border-[1px] border-solid py-4 px-4 border-neutral-300 h-auto w-full rounded-lg">
+                          
+                                  <div className="flex w-full flex-row items-center justify-between">
+                                      <div className="flex flex-row items-center gap-2">
+                                          <span className="text-xl font-bold">OVERVIEW</span>
+                                      </div>
+                                  </div>
+                                  <div className="py-1 w-full">
+                                      <hr />
+                                  </div>
+                        
+                                  <div className="flex w-full flex-row items-center justify-between">
+                                      <div>
+                                          <span className="text-md text-justify text-neutral-600">{tour.overView}</span>
+                                      </div>
+                                  </div>
+                                  <div>
+                                  
+                                  </div>
+                              </div>
+                          )}
+                          
 
                      <div className="flex flex-col gap-5 items-start border-[1px] border-solid py-4 px-4 border-neutral-300 h-auto w-full rounded-lg">
                           
@@ -1420,13 +1409,6 @@ const TourClient: React.FC<TourClientProps> = ({
                             <hr />
                             </div>
                         
-                        {/* <div className="flex w-full flex-row items-center justify-between"> 
-                                  <div className="flex flex-row items-center gap-3">
-                                      <span><RiRadioButtonLine size={23} /> </span>  <span className="text-md text-justify text-neutral-600">Day 1</span>
-                                      <p>{ tour.day1 }</p>
-                                  </div>
-                              </div>   */}
-
                         {tour.day1 !== "" && (
                         <div className="flex flex-col w-full items-start gap-3" onClick={() => setIsOpen(!isOpen)}>
                             <div className="flex flex-row items-center gap-3 cursor-pointer">
@@ -1715,20 +1697,21 @@ const TourClient: React.FC<TourClientProps> = ({
                         <div>           
                         </div>
                     </div>  
-
-                    <div className="flex h-[65vh] flex-col gap-5 items-start border-[1px] border-solid py-4 px-4 border-neutral-300 w-full rounded-lg">
-                       <iframe
-                        src={tour?.ourLink? tour?.ourLink :''}
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                        className="w-full h-full"
-                        ></iframe>
-                    </div>       
+                    {tour.ourLink && tour.ourLink.length > 0 && (
+                              <div className="flex h-[65vh] flex-col gap-5 items-start border-[1px] border-solid py-4 px-4 border-neutral-300 w-full rounded-lg">
+                                  <iframe
+                                      src={tour?.ourLink ? tour?.ourLink : ''}
+                                      title="YouTube video player"
+                                      frameBorder="0"
+                                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                      allowFullScreen
+                                      className="w-full h-full"
+                                  ></iframe>
+                              </div>
+                     )}    
                   </div>
 
-                    <div className="border-[1px] h-[110vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
+                    <div className="border-[1px] h-[123vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
                           <div className="flex flex-row px-4 justify-between item-center gap-3">
                               <div className="flex flex-row gap-3 justify-between items-center">
                                  <span className="text-blue-400"><SlCalender size={23 } /></span><span>Tour Length</span> 
@@ -1777,31 +1760,30 @@ const TourClient: React.FC<TourClientProps> = ({
                           <div className="px-4 py-3">
                           <hr />
                           </div>
-                          <div className="flex flex-row px-4 justify-between item-center gap-3">
-                              <div className="flex flex-row gap-3 justify-between items-center">
-                                <span className="text-green-400"><GiCash size={23} /></span><span>Price per room:</span> 
-                              </div>
-                              <div className="flex flex-row gap-3 justify-between items-center">
-                                 <span>${tour.room}</span>
-                              </div>
-                          </div>
+                                <div className="flex flex-row px-4 justify-between items-center gap-3">
+                                    <div className="flex flex-row gap-3 justify-between items-center">
+                                        <span className="text-green-400"><GiCash size={23} /></span><span>Price per room:</span>
+                                    </div>
+                                    <div className="flex flex-row gap-3 justify-between items-center">
+                                        <span>${tour.room}</span>
+                                    </div>
+                                </div>
                           <div className="px-4 py-3">
                           <hr />
                           </div>
-                        <div className="flex flex-row px-4 justify-between item-center gap-3">
-                              <div className="flex flex-row gap-3 justify-between items-center">
-                                <span className="text-yellow-400"><GiReceiveMoney size={23 } /></span><span>Save per person:</span> 
+                              <div className="flex flex-row px-4 justify-between item-center gap-3">
+                                  <div className="flex flex-row gap-3 justify-between items-center">
+                                      <span className="text-yellow-400"><GiReceiveMoney size={23} /></span><span>Save per person:</span>
+                                  </div>
+                                  <div className="flex flex-row gap-3 justify-between items-center">
+                                      <span>${tour.save}</span>
+                                  </div>
                               </div>
-                              <div className="flex flex-row gap-3 justify-between items-center">
-                                 <span>${tour.save}</span>
-                              </div>
-                          </div>
-
                           <div className="px-4 py-3">
                           <hr />
                           </div>
                           
-    <div className="flex flex-col px-4 justify-between item-center gap-1">
+    {/* <div className="flex flex-col px-4 justify-between item-center gap-1">
         {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
         <div className="flex flex-row items-center mt-2">
             <label htmlFor="guests" className="text-right mr-4 text-gray-700">
@@ -1820,7 +1802,7 @@ const TourClient: React.FC<TourClientProps> = ({
             <div className="absolute bottom-0 left-0 bg-white p-5 md:p-7 shadow-md" ref={numberOfGuestsRef}>
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-col gap-3">
-                        <span className="text-lg">Rooms</span>
+                        <span className="text-lg">Hotel Rooms</span>
                         <div className="flex gap-3 items-center">
                             <button
                                 className="border rounded-full py-1 px-3 focus:outline-none"
@@ -1840,7 +1822,68 @@ const TourClient: React.FC<TourClientProps> = ({
                     </div>
 
                     <div className="flex flex-col gap-3">
-                        <span className="text-lg">Guests</span>
+                        <span className="text-lg">Tourists</span>
+                        <div className="flex gap-3 items-center">
+                            <button
+                                className="border rounded-full py-1 px-3 focus:outline-none"
+                                onClick={() => handleOptions("guests", "d")}
+                                disabled={options.guests <= 1}
+                            >
+                                -
+                            </button>
+                            <span className="text-xl">{options.guests}</span>
+                            <button
+                                className="border rounded-full py-1 px-3 focus:outline-none"
+                                onClick={() => handleOptions("guests", "i")}
+                            >
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )} */}
+
+        <div className="flex flex-col px-4 justify-between items-center gap-1">
+        {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
+        <div className="flex flex-row items-center mt-2">
+            <label htmlFor="guests" className="text-right mr-4 text-gray-700">
+                Number of Guests & Rooms:
+            </label>
+            <input
+                id="guests"
+                type="text"
+                value={`${options.guests} Guests ${options.rooms} Rooms`}
+                className="shadow border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                onClick={toggleOptions}
+            />
+        </div>
+
+        {openoptions && (
+            <div className="bg-white p-2 md:p-2 shadow-md w-full"> {/* Remove absolute positioning */}
+                <div className="flex flex-col gap-3">
+                    <div className="flex flex-row gap-3">
+                        <span className="text-lg">Hotel Rooms: </span>
+                        <div className="flex gap-3 items-center">
+                            <button
+                                className="border rounded-full py-1 px-3 focus:outline-none"
+                                onClick={() => handleOptions("rooms", "d")}
+                                disabled={options.rooms <= 0}
+                            >
+                                -
+                            </button>
+                            <span className="text-xl">{options.rooms}</span>
+                            <button
+                                className="border rounded-full py-1 px-3 focus:outline-none"
+                                onClick={() => handleOptions("rooms", "i")}
+                            >
+                                +
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-row gap-3">
+                        <span className="text-lg">Tourists: </span>
                         <div className="flex gap-3 items-center">
                             <button
                                 className="border rounded-full py-1 px-3 focus:outline-none"
@@ -1862,34 +1905,55 @@ const TourClient: React.FC<TourClientProps> = ({
             </div>
         )}
 
+
         <hr />
 
         <div className="flex flex-col justify-center item-center gap-3">
+             {options.guests > 0 && (
+        <>
+          {/* Conditionally render PayPal button only if requested slots are available */}
+          {options.guests <= (tour.guestCount - tour.tourists.length) ? (
+            <button
+              className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white"
+              onClick={() => {
+                handlePaymentAmountSelect(calculateTotalPrice()); // Calculate total price including guests and rooms
+                makeReservation(null); // Make reservation including guests and rooms count, pass null as data
+                setShowPay(true); // Show payment modal
+              }}
+            >
+              Pay Full Amount (${calculateTotalPrice()})
+            </button>
+          ) : (
+            <div className="text-red-500">Tourists Slots available not enough for the number slots requested</div>
+          )}
+          
+                                          {/* Button to pay $100 */}
+         {calculateTotalPrice() > 100 && options.guests <= (tour.guestCount - tour.tourists.length) ? (
             <button
                 className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white"
                 onClick={() => {
-                    handlePaymentAmountSelect(selectedPaymentAmount); // Select the calculated amount by default
-                    setShowPay(true);
+                handlePaymentAmountSelect(100); // Select $100 predefined amount
+                makeReservation(null); // Make reservation including guests and rooms count, pass null as data
+                setShowPay(true); // Show payment modal
                 }}
             >
-                Pay Full Amount (${tour.price})
+                Pay $100
             </button>
-            <button
-                className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white"
-                onClick={() => {
-                    handlePaymentAmountSelect(100); // Select $100 predefined amount
-                    setShowPay(true);
-                }}
-            >
-                Partial Pay ${0.1* tour.price}
-            </button>
+            ) : (
+            <div className="text-red-500"></div>
+            )}
+        </>
+      )}
+      {options.guests === 0 && (
+        <div className="text-red-500">Please specify the number of tourists to place an order.</div>
+      )}
         </div>
     </div>
              
-              {showPay && <PayPalScriptProvider options={{ 
-                // clientId: "ATNgosIlt76LLJdYbZjqNuhdI31gc3H_pV7mQa6h4CJ20Xz0F_O2zCDVlD_Xt91iHmftZ3cB4J2kiHS3" }}>
-                clientId: "AZ_ycPr5s3mAA-Xboaqc9ft8hHiaChcr42aZIauAYl3Ax0CDig8L3uc-V0P2Mgx70nQD4p7XKcTbCLBB" }}>
-                  {/* <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete} totalPrice={totalPrice.toString()}/> */}
+        {showPay && <PayPalScriptProvider options={{ clientId: "ATNgosIlt76LLJdYbZjqNuhdI31gc3H_pV7mQa6h4CJ20Xz0F_O2zCDVlD_Xt91iHmftZ3cB4J2kiHS3" }}>
+         {/* {showPay && <PayPalScriptProvider options={{ clientId: "AZ_ycPr5s3mAA-Xboaqc9ft8hHiaChcr42aZIauAYl3Ax0CDig8L3uc-V0P2Mgx70nQD4p7XKcTbCLBB" }}> */}
+                              {/* <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete} totalPrice={totalPrice.toString()}/> */}
+                              
                   <PaymentModal 
                         setShowPayModal={setShowPay} 
                         onPaymentComplete={handlePaymentComplete} 

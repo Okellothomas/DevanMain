@@ -1,17 +1,18 @@
 'use client'
 import useCountries from "@/app/hooks/useCountries";
 import { SafeUser, safeListing, safeReservation } from "@/app/types";
-//import { Listing, Reservation } from "@prisma/client"
+import { Listing, Reservation } from "@prisma/client"
 import { useRouter } from "next/navigation";
-import { Key, useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { format } from 'date-fns';
 import Image from "next/image";
-import HeartButton from "../container/HeartButton";
-import Button from "../container/Button";
+import HeartButton from "../components/container/HeartButton";
+import Button from "../components/container/Button";
+import { safeTour } from "@/app/types";
 
 
 interface ListingCardProps {
-    data: safeListing;
+    data: safeTour;
     reservation?: safeReservation;
     onAction?: (id: string) => void;
     disabled?: boolean;
@@ -20,7 +21,7 @@ interface ListingCardProps {
     currentUser?: SafeUser | null;
 }
 
-const ListingCardMain: React.FC<ListingCardProps> = ({
+const TourMyCard: React.FC<ListingCardProps> = ({
     data,
     reservation,
     onAction,
@@ -64,11 +65,11 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
 
   return (
       <div
-        onClick={() => router.push(`/listings/${data?.id}`)} //added ?
-        className="col-span-1 bg-white shadow-sm pb-3 rounded-xl cursor-pointer group"
+        onClick={() => router.push(`/tours/${data?.id}`)} //added ?
+        className="col-span-1 cursor-pointer group"
       >
           <div className="flex flex-col gap-2 w-full main-image-small-screen">
-              <div className="aspect-square w-full relative overflow-hidden rounded-t-xl">
+              <div className="aspect-square w-full relative overflow-hidden rounded-xl">
                   <Image
                       fill
                       alt="Listing"
@@ -82,37 +83,19 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
                       />
                   </div>
               </div>
-
-              <div className="flex flex-row justify-between px-4">
-              <div>
-                <span className="font-bold">{data.city}</span>      
-              </div>
               <div className="text-sm">
                  <span>{location?.label},</span> {location?.region}
               </div>
-             </div>
-              <div className="font-light px-4 text-neutral-400">
-                  {/* {reservationDate || data.category}  */}
-                  <span>{ data.startDate}</span> to <span>{ data.endDate}</span>
+              <div className="font-light text-neutral-500">
+                 {reservationDate || data.category} 
               </div>
-              <div className="px-4">
-                  <hr />
-              </div>
-              <div className="flex flex-row px-4 justify-between items-center gap-1">
-                  {/* <div className="font-semibold">
-                     from ${price}
-                  </div> */}
-                  <div>
-                     from <span className="font-semibold">${price}</span> 
+              <div className="flex flex-row items-center gap-1">
+                  <div className="font-semibold">
+                      $ {price}
                   </div>
-                  {data.save && data.save > 0 && (
-                      <div>
-                          <span className="text-blue-500">save</span> <span className="font-semibold text-blue-600">${data.save}</span>
-                      </div>
-                  )}
-                  {/* {!reservation && (
+                  {!reservation && (
                       <div className="font-light">night</div>
-                  )} */}
+                  )}
               </div>
               {onAction && actionLabel && (
                   <Button
@@ -127,4 +110,4 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
   )
 }
 
-export default ListingCardMain
+export default TourMyCard

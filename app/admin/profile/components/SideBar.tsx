@@ -10,6 +10,9 @@ import { LiaAddressBookSolid } from "react-icons/lia";
 import { PiBookmarksSimpleBold } from "react-icons/pi";
 import { PiBookOpenTextBold } from "react-icons/pi";
 import { PiBookOpenTextFill } from "react-icons/pi";
+import { GiKangaroo } from "react-icons/gi";
+import { BiHotel } from "react-icons/bi";
+import { GiTreehouse } from "react-icons/gi";
 import Link from "next/link";
 
 // Define the interface for the Home component props
@@ -26,6 +29,21 @@ const ProfilePage = async () => {
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <FaRegUser className="text-neutral-500" size={26} /> 
           <Link href="/admin/profile">Personal Info</Link>
+          </div>
+         <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
+          <GiKangaroo className="text-neutral-500" size= {26} /> 
+          <Link href="/admin/mytours">My Tours</Link>
+         </div>
+           <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
+          <BiHotel className="text-neutral-500" size= {26} /> 
+          <Link href="/admin/myhotels">My Hotels</Link>
+          </div>
+           <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
+          <GiTreehouse className="text-neutral-500" size= {26} /> 
+          <Link href="/admin/myhouselistings">My House Listings</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">

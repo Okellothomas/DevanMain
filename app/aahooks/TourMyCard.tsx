@@ -97,12 +97,6 @@ const TourMyCard: React.FC<ListingCardProps> = ({
                       src={data?.imageSrc[0] || ""} // Handle null data or imageSrc
                       className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen"
                   />
-                  {/* <div className="absolute top-3 right-3">
-                      <HeartButton
-                          listingId={data?.id || ""} // Handle null data or id
-                          currentUser={currentUser}
-                      />
-                  </div> */}
               </div>
               <div className="text-sm">
                  <span>{data.title}</span>

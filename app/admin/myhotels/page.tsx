@@ -10,6 +10,7 @@ import Image from "next/image";
 import ListingCard from "@/app/components/listing/ListingCard";
 import getMyListingsHouses from "@/app/aagetMethods/getMyListingsHouses";
 import HouseMyCard from "@/app/aahooks/HouseMyCard";
+import getMyListingsHotels from "@/app/aagetMethods/getMyListingsHotels";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -26,7 +27,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
       currentUser = await getCurrentUser();
     }
 
-    const listings = await getMyListingsHouses({ ...searchParams, userId: currentUser?.id });
+    const listings = await getMyListingsHotels({ ...searchParams, userId: currentUser?.id });
 
     // Delete user function
     const handleDeleteUser = async (id: string) => {
@@ -65,11 +66,11 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
               <SideBar />
             </div>
             <div className="col-span-4">
-              <div className="pb-6">
-                <h1 className="text-2xl font-bold">All Booked Hotels</h1>
+              <div className="pb-2">
+                <h1 className="text-2xl font-bold">All My Hotels</h1>
               </div>
               <div className="items-center pb-1">
-                <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+                <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                   {listings.map((listing: any) => {
                     return (
                       <HouseMyCard

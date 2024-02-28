@@ -102,8 +102,8 @@ model Reservation {
   userId         String?  @db.ObjectId // Foreign key referencing the "User" model
   Listing        Listing? @relation(fields: [listingId], references: [id], onDelete: Cascade)
   listingId      String?  @db.ObjectId // Foreign key referencing the "Listing" model
-  numberOfGuests    Int // Guest specified for this reservatione
-  numberOfRooms     Int //Number of rooms specified for reservation
+  numberOfGuests Int // Guest specified for this reservatione
+  numberOfRooms  Int //Number of rooms specified for reservation
   startDate      DateTime // Start date of the reservation
   endDate        DateTime // End date of the reservation
   totalPrice     Int // Total price of the reservation
@@ -112,66 +112,63 @@ model Reservation {
 }
 
 model Tour {
-  id            String   @id @default(auto()) @map("_id") @db.ObjectId
-  title         String // Title of the listing
-  description   String // Description of the listing
-  imageSrc      String[] // URL for the listing image
-  depStart      String?
-  depEnd        String?
-  operator      String?
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  title          String // Title of the listing
+  description    String // Description of the listing
+  imageSrc       String[] // URL for the listing image
+  depStart       String?
+  depEnd         String?
+  operator       String?
   paymentDetails Json[]
-  days          Int?
-  day1          String?
-  day2          String?
-  Day3          String?
-  Day4          String?
-  Day5          String?
-  Day6          String?
-  Day7          String?
-  Day8          String?
-  Day9          String?
-  Day10         String?
-  Day11         String?
-  Day12         String?
-  Day13         String?
-  Day14         String?
-  Week3         String?
-  Week4         String?
-  week5         String?
-  week6         String?
-  Week7         String?
-  tripStyle     String?
-  save          Int?
-  room          Int?
-  deal          String?
-  overView      String?
-  countries     String?
-  counts        Int?
-  ourLink       String?
-  locs          Int?
-  locations     String?
-  country       String?
-  continent     String?
-  locStart      String?
-  locEnd        String?
-  itinery       String?
-  createAt      DateTime @default(now()) // Date and time when the listing was created
-  category      String // Category of the listing
-  roomCount     Int // Number of rooms in the listing
-  bathRoomCount Int // Number of bathrooms in the listing
-  guestCount    Int // Number of guests the listing can accommodate 
-  locationValue String // Location value of the listing
-  userId        String   @db.ObjectId // Foreign key referencing the "User" model
-  price         Int // Price of the listing
-  tourists      String[]
+  days           Int?
+  day1           String?
+  day2           String?
+  Day3           String?
+  Day4           String?
+  Day5           String?
+  Day6           String?
+  Day7           String?
+  Day8           String?
+  Day9           String?
+  Day10          String?
+  Day11          String?
+  Day12          String?
+  Day13          String?
+  Day14          String?
+  Week3          String?
+  Week4          String?
+  week5          String?
+  week6          String?
+  Week7          String?
+  tripStyle      String?
+  save           Int?
+  room           Int?
+  deal           String?
+  overView       String?
+  countries      String?
+  counts         Int?
+  ourLink        String?
+  locs           Int?
+  locations      String?
+  country        String?
+  continent      String?
+  locStart       String?
+  locEnd         String?
+  itinery        String?
+  createAt       DateTime @default(now()) // Date and time when the listing was created
+  category       String // Category of the listing
+  roomCount      Int // Number of rooms in the listing
+  bathRoomCount  Int // Number of bathrooms in the listing
+  guestCount     Int // Number of guests the listing can accommodate 
+  locationValue  String // Location value of the listing
+  userId         String   @db.ObjectId // Foreign key referencing the "User" model
+  price          Int // Price of the listing
+  tourists       String[]
 
   // Relationship with the "User" model
   user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   reserv Reserv[]
 }
-
-
-
 
 model Reserv {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId

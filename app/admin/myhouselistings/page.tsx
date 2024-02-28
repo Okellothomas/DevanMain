@@ -8,12 +8,12 @@ import deleteUsers from "@/app/actions/deleteUsers";
 import getAdmins from "@/app/actions/getAdmins";
 import Image from "next/image";
 import ListingCard from "@/app/components/listing/ListingCard";
-import getMyListingsHouses from "@/app/aagetMethods/getMyListingsHouses";
+import getMyListingsHouses, { IMyHouseListingsParams } from "@/app/aagetMethods/getMyListingsHouses";
 import HouseMyCard from "@/app/aahooks/HouseMyCard";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
-  searchParams: IListingsParams; // Search parameters for fetching listings
+  searchParams: IMyHouseListingsParams; // Search parameters for fetching listings
   userParams: IUsersParams;
 }
 
@@ -26,7 +26,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
       currentUser = await getCurrentUser();
     }
 
-    const listings = await getMyListingsHouses({ ...searchParams, userId: currentUser?.id });
+    const listings = await getMyListingsHouses(searchParams);
 
     // Delete user function
     const handleDeleteUser = async (id: string) => {

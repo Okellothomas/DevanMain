@@ -1760,26 +1760,29 @@ const TourClient: React.FC<TourClientProps> = ({
                           <div className="px-4 py-3">
                           <hr />
                           </div>
-                          <div className="flex flex-row px-4 justify-between item-center gap-3">
-                              <div className="flex flex-row gap-3 justify-between items-center">
-                                <span className="text-green-400"><GiCash size={23} /></span><span>Price per room:</span> 
+                          {tour.room && tour.room.length > 0 && (
+                              <div className="flex flex-row px-4 justify-between item-center gap-3">
+                                  <div className="flex flex-row gap-3 justify-between items-center">
+                                      <span className="text-green-400"><GiCash size={23} /></span><span>Price per room:</span>
+                                  </div>
+                                  <div className="flex flex-row gap-3 justify-between items-center">
+                                      <span>${tour.room}</span>
+                                  </div>
                               </div>
-                              <div className="flex flex-row gap-3 justify-between items-center">
-                                 <span>${tour.room}</span>
-                              </div>
-                          </div>
+                          )}
                           <div className="px-4 py-3">
                           <hr />
                           </div>
-                        <div className="flex flex-row px-4 justify-between item-center gap-3">
-                              <div className="flex flex-row gap-3 justify-between items-center">
-                                <span className="text-yellow-400"><GiReceiveMoney size={23 } /></span><span>Save per person:</span> 
+                          {tour.save && tour.save.length > 0 && (
+                              <div className="flex flex-row px-4 justify-between item-center gap-3">
+                                  <div className="flex flex-row gap-3 justify-between items-center">
+                                      <span className="text-yellow-400"><GiReceiveMoney size={23} /></span><span>Save per person:</span>
+                                  </div>
+                                  <div className="flex flex-row gap-3 justify-between items-center">
+                                      <span>${tour.save}</span>
+                                  </div>
                               </div>
-                              <div className="flex flex-row gap-3 justify-between items-center">
-                                 <span>${tour.save}</span>
-                              </div>
-                          </div>
-
+                          )}
                           <div className="px-4 py-3">
                           <hr />
                           </div>
@@ -1929,7 +1932,7 @@ const TourClient: React.FC<TourClientProps> = ({
           )}
           
                                           {/* Button to pay $100 */}
-          {options.guests <= (tour.guestCount - tour.tourists.length) ? (
+          {options.guests <= (tour.guestCount - tour.tourists.length) && `${calculateTotalPrice()}` > 100 ? (
           <button
             className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white"
             onClick={() => {

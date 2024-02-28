@@ -13,12 +13,14 @@ interface CalenderProps {
   
 const Calender: React.FC<CalenderProps> = ({
     value,
-    onChange,
+    onChange, 
     disabledDates
 }) => {
+    console.log("Value prop in calender:", value);
+
   return (
       <DateRange
-          rangeColors={["#262626"]} 
+          rangeColors={["#07608c"]} 
           ranges={[value]}
           date={new Date()}
           onChange={onChange}

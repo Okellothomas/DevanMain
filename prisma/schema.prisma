@@ -117,6 +117,7 @@ model Tour {
   depStart      String?
   depEnd        String?
   operator      String?
+  paymentDetails Json[]
   days          Int?
   day1          String?
   day2          String?
@@ -166,6 +167,9 @@ model Tour {
   user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   reserv Reserv[]
 }
+
+
+
 
 model Reserv {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId

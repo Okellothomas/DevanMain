@@ -125,11 +125,11 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
               <SideBar />
             </div>
             <div className="col-span-4">
-              <div className="pb-6">
+              <div className="pb-2">
                 <h1 className="text-2xl font-bold">All My Tours</h1>
               </div>
               <div className="items-center pb-1">
-                 <div className="pt-10 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+                 <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                 {tours.map((tour: any) => (
                   <TourMyCard
                     currentUser={currentUser ? {

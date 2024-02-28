@@ -13,9 +13,8 @@ import prisma from '@/app/libs/prismadb';
 import toast, { useToaster } from "react-hot-toast";
 import axios from "axios";
 
-
 interface ListingCardProps {
-    data: safeTour;
+    data: safeListing;
     reservation?: safeReservation;
     onAction?: (id: string) => void;
     disabled?: boolean;
@@ -24,7 +23,7 @@ interface ListingCardProps {
     currentUser?: SafeUser | null;
 }
 
-const TourMyCard: React.FC<ListingCardProps> = ({
+const HouseMyCard: React.FC<ListingCardProps> = ({
     data,
     reservation,
     onAction,
@@ -67,11 +66,12 @@ const TourMyCard: React.FC<ListingCardProps> = ({
         return `${format(start, 'pp')} - ${format(end, 'pp')}`
     }, [reservation])
 
+
     const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
         console.log("button clicked");
     try {
-        const response = await axios.delete(`/api/tours/${data?.id}`, {
+        const response = await axios.delete(`/api/listings/${data?.id}`, {
             method: 'DELETE',
         });
         console.log("try is working")
@@ -86,7 +86,7 @@ const TourMyCard: React.FC<ListingCardProps> = ({
 
   return (
       <div
-        onClick={() => router.push(`/tours/${data?.id || ""}`)} // Handle null data or id
+        onClick={() => router.push(`/listings/${data?.id || ""}`)} // Handle null data or id
         className="col-span-1 cursor-pointer group"
       >
           <div className="flex flex-col gap-2 w-full main-image-small-screen">
@@ -108,11 +108,11 @@ const TourMyCard: React.FC<ListingCardProps> = ({
                  <span>{data.title}</span>
               </div>
               <div className="font-light text-neutral-500">
-                Toursts: {data.guestCount} 
+                Guests: {data.guestCount} 
               </div>
               <div className="flex flex-row items-center gap-1">
                   <div className="text-sm">
-                    ${data.depStart} to ${data.depEnd}
+                   Location: ${data.city}
                   </div>
               </div>
 
@@ -135,4 +135,4 @@ const TourMyCard: React.FC<ListingCardProps> = ({
   )
 }
 
-export default TourMyCard;
+export default HouseMyCard;

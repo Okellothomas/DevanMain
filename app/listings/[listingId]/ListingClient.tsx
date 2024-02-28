@@ -13,7 +13,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import axios from "axios";
 import { differenceInCalendarDays, eachDayOfInterval, startOfDay } from "date-fns";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Range } from "react-date-range";
 import toast from "react-hot-toast";
 import { FaPersonShelter } from "react-icons/fa6";
@@ -53,6 +53,19 @@ const ListingClient: React.FC<ListingClientProps> = ({
     const router = useRouter();
     const [dispabledTarehe, setDisabledTareh]  =useState(null)
 
+    const [options, setOptions] = useState(
+        {
+        guests: 0,
+        rooms: 0}
+    )
+
+    const [openoptions, setOpenoptions] = useState(false)
+    const numberOfGuestsRef = useRef<HTMLInputElement>(null); 
+
+    const [numberOfDays, setNumberOfDays] = useState(0)
+
+    const [error, setError] = useState('');
+
     // const disabledDates = useMemo(() => {
     //     let dates: Date[] = [];
 
@@ -73,27 +86,88 @@ const ListingClient: React.FC<ListingClientProps> = ({
     // }, [reservations])
 
     // Inside your useMemo callback
-const disabledDates = useMemo(() => {
-    let dates: Date[] = [];
+    
+    
+    // const disabledDates = useMemo(() => {
+    //     let dates: Date[] = [];
+    
+    //     reservations.forEach((reservation) => {
+    //         const range = eachDayOfInterval({
+    //             start: new Date(reservation.startDate),
+    //             end: new Date(reservation.endDate)
+    //         }); // Include the end date in the range
+    
+    //         dates = [...dates, ...range];
+    //     });
+    
+    //     console.log("dates------", dates);
+    //     console.log("reservations count--", reservations.length);
+    
+    //     return dates;
+    // }, [reservations]);
 
-    reservations.forEach((reservation) => {
-        const range = eachDayOfInterval({
-            start: new Date(reservation.startDate),
-            end: new Date(reservation.endDate)
-        }); // Include the end date in the range
-
-        dates = [...dates, ...range];
-    });
-
-    console.log("dates------", dates);
-    console.log("reservations count--", reservations.length);
-
-    return dates;
-}, [reservations]);
 
 
+    //-----------------------------------------------------------------------------------------------
+    const disabledDates = useMemo(() => {
+        let dates: Date[] = [];
+    
+        // Filter reservations for the selected hotel
+        const reservationsForSelectedHotel = reservations.filter(reservation => reservation.listingId === listing.id);
+    
+        reservationsForSelectedHotel.forEach((reservation) => {
+            const range = eachDayOfInterval({
+                start: new Date(reservation.startDate),
+                end: new Date(reservation.endDate)
+            }); // Include the end date in the range
+    
+            dates = [...dates, ...range];
+        });
+    
+        // Filter out dates that are fully booked
+        const fullyBookedDates = dates.filter(date => {
+            const reservationsOnDate = reservationsForSelectedHotel.filter(reservation =>
+                date >= new Date(reservation.startDate) && date <= new Date(reservation.endDate)
+            );
+            const totalGuestsOnDate = reservationsOnDate.reduce((total, reservation) => total + reservation.numberOfGuests, 0);
+    
+            return totalGuestsOnDate >= listing.guestCount;
+        });
+    
+        return fullyBookedDates;
+    }, [reservations, listing]);
+    
+    
+    //-----------------------------------------------------------------------------------------------
 
 // Function to find the first non-disabled date from today
+
+const toggleOptions = () => {
+    setOpenoptions(!openoptions)
+};
+
+
+const handleOptions = (name: 'guests' | 'rooms', operations: any) => {
+      
+    const guestsDets = {
+        ...options,
+        [name]: operations === 'i' ? options[name] + 1 : options[name] - 1,
+    }
+
+    setTotalPrice((guestsDets.guests * listing.price)*numberOfDays)
+   // setTotalPrice(numberOfDays * listing.price*options.guests + options.rooms*(listing.save ||0));
+
+
+setOptions((prev) => {
+    return {
+        ...prev,
+        [name]: operations === 'i' ? options[name] + 1 : options[name] - 1,
+    };
+});
+
+};
+
+
 const findAvailableDate = () => {
     const today = new Date();
     let availableDate = today;
@@ -119,6 +193,7 @@ const findAvailableDate = () => {
     const [totalPrice, setTotalPrice] = useState(listing.price);
     const [dataa, setDataa] = useState('')
     const [paymentMade, setPaymentMade] = useState(false)
+    const [amountPayable, setAmountPeyable] = useState(0)
     const [dateRange, setDateRange] = useState<Range>(initialDateRange);
     
     
@@ -137,11 +212,12 @@ const findAvailableDate = () => {
         setShowPay(false)
         console.log("Payment Data",dataa)
         axios.post(`/api/reservations`, {
-            totalPrice,
+            totalPrice,  //for totalPrice
             startDate: dateRange.startDate,
             endDate: dateRange.endDate,
             listingId: listing?.id,
-            paymentDetails:data
+            paymentDetails:data,
+            guestDetails: options
         })
             .then(async () => {
                 toast.success('Listing reserved!');
@@ -181,7 +257,9 @@ const findAvailableDate = () => {
             })
     }
       }
-    const onCreateReservation = useCallback(() => {
+    const onCreateReservation = useCallback((payAmount: number) => {
+
+        setAmountPeyable(payAmount)
         if (!currentUser) {
             return loginModal.onOpen()
         }
@@ -213,11 +291,12 @@ const findAvailableDate = () => {
                 dateRange.startDate
             ) +1;
 
+            setNumberOfDays(dayCount)
             console.log("Day range=====>", dateRange)
             console.log("Day count:====>", dayCount)
 
             if (dayCount && listing.price) {
-                setTotalPrice(dayCount * listing.price);
+                setTotalPrice((listing.price*options.guests)*dayCount);
             } else {
                 setTotalPrice(listing.price);
             }
@@ -311,7 +390,7 @@ const findAvailableDate = () => {
                         </div>
 
                         <p className="pt-6 pb-5 text-lg font-bold text-neutral-500">Where you will sleep!</p>
-                        <p>{JSON.stringify(dispabledTarehe)}</p>
+                        
 
                         <div className="border-[1px] gap-4 grid grid-cols-4 border-solid py-6 px-4 border-neutral-300 h-auto w-full rounded-lg">
                         
@@ -397,9 +476,18 @@ const findAvailableDate = () => {
                               totalPrice={totalPrice}
                               onChangeDate={(value) => setDateRange(value)}
                               dateRange={dateRange}
-                              onSubmit={onCreateReservation}
+                              onSubmit={(payAmount:number)=>onCreateReservation(payAmount)}
                               disabled={isLoading}
                               disabledDates={disabledDates}
+                              options ={options}
+                              setOptions = {setOptions}
+                              openoptions ={openoptions}
+                              setOpenOptions = {setOpenoptions}
+                              numberOfGuestsRef = {numberOfGuestsRef}
+                              error = {error}
+                              setError = {setError}
+                              toggleOptions = {toggleOptions}
+                              handleOptions={handleOptions}
                           />
                       </div>
                   </div>

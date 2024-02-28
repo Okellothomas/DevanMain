@@ -22,7 +22,7 @@ const Logo = () => {
         <div className="text-2xl font-bold">
           {/* <h2 className="main-color-black">Devan<span className="main-color">ceTours</span></h2>      */}
           <div className="items-center">
-            <Link href="/"><h2>Deva</h2><span className="text-sm">ncaTours</span></Link>
+            <Link href="/"><h2>Deva<span className="text-sm">ncaTours</span></h2></Link>
           </div>
          
        </div>

@@ -266,7 +266,7 @@ const TourMyCard: React.FC<ListingCardProps> = ({
           </div>   
           <div className="flex flex-row items-center gap-1">
                  <div className="font-semibold">
-                    <button className="cursor-pointer rounded-lg bg-slate-500 text-white px-8 py-3" onClick={handleDelete}>Delete</button>
+                    <button className="outline-main-btn" onClick={handleDelete}>Delete</button>
                 </div>
          </div>
     </div>

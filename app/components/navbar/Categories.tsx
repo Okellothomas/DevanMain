@@ -11,7 +11,9 @@ import CategoryBox from "../container/CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
 import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline } from "react-icons/io5";
 import { useState } from "react";
-
+import { FaGem } from "react-icons/fa";
+import { MdOutlineHolidayVillage } from "react-icons/md";
+import { TbBuildingCottage } from "react-icons/tb";
 export const categories = [
     {
         label: 'Beach',
@@ -34,14 +36,34 @@ export const categories = [
         description: "This property is in the countryside!"
     },
     {
-        label: 'Pool',
+        label: 'Villas',
+        icon: MdOutlineHolidayVillage,
+        description: "This property is Villas!"
+    },
+    {
+        label: 'Swimming Pool',
         icon: TbPool,
         description: "This property has a pool!"
+    },
+    {
+        label: 'Hidden gems',
+        icon: FaGem,
+        description: "This property is a type of Hidden gems!"
     },
     {
         label: 'Island',
         icon: GiIsland,
         description: "This property is on an Island!"
+    },
+    {
+        label: 'Cottages',
+        icon: TbBuildingCottage,
+        description: "This property is a Cottages!"
+    },
+    {
+        label: 'Cottages',
+        icon: TbBuildingCottage,
+        description: "This property is a Cottages!"
     },
     {
         label: 'Lake and Ocean',

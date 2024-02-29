@@ -91,9 +91,10 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
                  <span>{location?.label},</span> {location?.region}
               </div>
              </div>
-              <div className="font-light px-4 text-neutral-400">
+              <div className="font-light px-4 text-sm text-neutral-400">
                   {/* {reservationDate || data.category}  */}
-                  <span>{ data.startDate}</span> to <span>{ data.endDate}</span>
+                  {/* <span>{ data.startDate}</span> to <span>{ data.endDate}</span> */}
+                  {data.category}
               </div>
               <div className="px-4">
                   <hr />

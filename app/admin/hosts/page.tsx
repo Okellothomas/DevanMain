@@ -22,22 +22,22 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
   const users = await getHosts({ ...userParams, userType: "host" });
 
   // Delete user function
-  const handleDeleteUser = async (id: string) => {
-    try {
-      // Call your deleteUsers function from the API to delete the user
-      await deleteUsers({ id });
+  // const handleDeleteUser = async (id: string) => {
+  //   try {
+  //     // Call your deleteUsers function from the API to delete the user
+  //     await deleteUsers({ id });
 
-      // After deletion, fetch the updated user list
-      const updatedUsers = await getUsers({ ...userParams, userType: "host" });
+  //     // After deletion, fetch the updated user list
+  //     const updatedUsers = await getUsers({ ...userParams, userType: "host" });
 
-      // Update the state or re-render the component with the updated user list
-      // (This depends on how you manage state in your application)
-      console.log("User deleted successfully");
-    } catch (error) {
-      console.error("Error deleting user:", error);
-      // Handle error as needed (e.g., show an error message)
-    }
-  };
+  //     // Update the state or re-render the component with the updated user list
+  //     // (This depends on how you manage state in your application)
+  //     console.log("User deleted successfully");
+  //   } catch (error) {
+  //     console.error("Error deleting user:", error);
+  //     // Handle error as needed (e.g., show an error message)
+  //   }
+  // };
 
   // Render the Home component with the fetched listings
   return (
@@ -68,7 +68,7 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
                         <p>{user.email}</p>
                         <p>{user.contact}</p>
                       </div>
-                      <button onClick={() => handleDeleteUser(user.id)}>Delete</button> {/* onClick={() => handleDeleteUser(user.id)} */}
+                      <button>Delete</button> {/* onClick={() => handleDeleteUser(user.id)} */}
                     </div>
                   ))
                 )}

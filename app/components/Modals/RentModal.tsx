@@ -23,11 +23,11 @@ enum STEPS {
     IMAGES = 3, 
     DESCRIPTION = 4,
     DESCRIPTION1 = 5,
-    DESCRIPTION2 = 6,
-    DESCRIPTION3 = 7,
-    DESCRIPTION4 = 8,
-    DESCRIPTION5 = 9,
-    PRICE = 10
+    // DESCRIPTION2 = 6,
+    DESCRIPTION3 = 6,
+    DESCRIPTION4 = 7,
+    DESCRIPTION5 = 8,
+    PRICE = 9
 }
 
 const RentModal = () => {
@@ -303,42 +303,42 @@ const RentModal = () => {
     }
 
     
-    if (step === STEPS.DESCRIPTION2) {
-        bodyContent = (
-            <div className="flex flex-col gap-8">
-                <Heading
-                    title="How would you describe your place?"
-                    subtitle="Short and sweet works best!"
-                />
-                <Input
-                    id="startDate"
-                    label="Start Date when the facility is free"
-                    disabled={isLoading}
-                    register={register}
-                    error={errors}
-                    required
-                />
-                <hr />
-                <Input
-                    id="endDate"
-                    label="End Date when the facility is free"
-                    disabled={isLoading}
-                    register={register}
-                    error={errors}
-                    required
-                />
-                <hr />
-                <Input
-                    id="distance"
-                    label="Approximate the distance from the city"
-                    disabled={isLoading}
-                    register={register}
-                    error={errors}
-                    required
-                />
-            </div>
-        )
-    }
+    // if (step === STEPS.DESCRIPTION2) {
+    //     bodyContent = (
+    //         <div className="flex flex-col gap-8">
+    //             <Heading
+    //                 title="How would you describe your place?"
+    //                 subtitle="Short and sweet works best!"
+    //             />
+    //             <Input
+    //                 id="startDate"
+    //                 label="Start Date when the facility is free"
+    //                 disabled={isLoading}
+    //                 register={register}
+    //                 error={errors}
+    //                 required
+    //             />
+    //             <hr />
+    //             <Input
+    //                 id="endDate"
+    //                 label="End Date when the facility is free"
+    //                 disabled={isLoading}
+    //                 register={register}
+    //                 error={errors}
+    //                 required
+    //             />
+    //             <hr />
+    //             <Input
+    //                 id="distance"
+    //                 label="Approximate the distance from the city"
+    //                 disabled={isLoading}
+    //                 register={register}
+    //                 error={errors}
+    //                 required
+    //             />
+    //         </div>
+    //     )
+    // }
 
     if (step === STEPS.DESCRIPTION3) {
         bodyContent = (

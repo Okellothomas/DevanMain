@@ -162,7 +162,6 @@
 
 // export default UserMenu;
 
-
 import { AiOutlineMenu } from "react-icons/ai";
 import Avater from "../container/Avater";
 import { useCallback, useState, useRef, useEffect } from "react";
@@ -266,8 +265,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                    <div>
                       <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => { router.push("/host/profile"); handleMenuItemClick(); }} label="My profile" /></div>
                       <div className="flex flex-row items-center"><IoIosHeartEmpty size={23} /> <MenuItem onClick={() => { router.push("/favorites"); handleMenuItemClick(); }} label="My favorites" /></div>
-                      <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={() => { rentModal.onOpen(); handleMenuItemClick(); }} label="Add hotel" /></div>
-                      <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={() => { rentModal.onOpen(); handleMenuItemClick(); }} label="Add house lease" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={() => { rentModal.onOpen(); handleMenuItemClick(); }} label="Add hotel/house" /></div>
+                      {/* <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={() => { rentModal.onOpen(); handleMenuItemClick(); }} label="Add house lease" /></div> */}
                       <hr />
                       <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={handleLogout} label="Logout" /></div>
                       </div>
@@ -279,8 +278,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                       <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => { router.push("/operator/profile"); handleMenuItemClick(); }} label="My profile" /></div>
                       <div className="flex flex-row items-center"><IoIosHeartEmpty size={23} /> <MenuItem onClick={() => { router.push("/favorites"); handleMenuItemClick(); }} label="My favorites" /></div>
                       <div className="flex flex-row items-center"><GiKangaroo size={23 } /><MenuItem onClick={() => { tourModal.onOpen(); handleMenuItemClick(); }} label="Add tour" /></div>
-                      <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={() => { rentModal.onOpen(); handleMenuItemClick(); }} label="Add hotel" /></div>
-                      <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={() => { rentModal.onOpen(); handleMenuItemClick(); }} label="Add house lease" /></div>
+                      <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={() => { rentModal.onOpen(); handleMenuItemClick(); }} label="Add hotel/house" /></div>
+                      {/* <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={() => { rentModal.onOpen(); handleMenuItemClick(); }} label="Add house lease" /></div> */}
                       <hr />
                       <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={handleLogout} label="Logout" /></div>
                       </div>

@@ -1,3 +1,4 @@
+
 import getCurrentUser from "@/app/actions/getCurrentUsers";
 import getListings, { IListingsParams } from "@/app/actions/getListings";
 import getTours, { IToursParams } from "@/app/actions/getTours";
@@ -5,36 +6,38 @@ import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
-import getAdmins from "@/app/actions/getAdmins";
 
 // Define the interface for the Home component props
-interface AdminPageProps {
+interface HotelPageProps {
+  searchParams: IListingsParams; // Search parameters for fetching listings
+  tourParams: IToursParams;
   userParams: IUsersParams;
 }
 
 // Home component is defined as an asynchronous function
-const AdministratorsPage = async ({ userParams }: AdminPageProps) => {
+const ClientsPage = async ({ searchParams, tourParams, userParams }: HotelPageProps) => {
   // Fetch listings, current user, and users asynchronously
   const currentUser = await getCurrentUser();
-  const users = await getAdmins({ ...userParams, userType: "admin" });
+  const users = await getUsers({ ...userParams, userType: "admin" });
 
   // Delete user function
- const handleDeleteUser = async (id: string) => {
-      try {
-        // Call your deleteUsers function from the API to delete the user
-        await deleteUsers({ id });
+  const handleDeleteUser = async (id: string) => {
+    try {
+      // Call your deleteUsers function from the API to delete the user
+      await deleteUsers({ id });
 
-        // After deletion, fetch the updated user list
-        const updatedUsers = await getUsers({ ...userParams, userType: "operator" });
+      // After deletion, fetch the updated user list
+      const updatedUsers = await getUsers({ ...userParams, userType: "client" });
 
-        // Update the state or re-render the component with the updated user list
-        // (This depends on how you manage state in your application)
-        console.log("User deleted successfully");
-      } catch (error) {
-        console.error("Error deleting user:", error);
-        // Handle error as needed (e.g., show an error message)
-      }
-    };
+      // Update the state or re-render the component with the updated user list
+      // (This depends on how you manage state in your application)
+      console.log("User deleted successfully");
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      // Handle error as needed (e.g., show an error message)
+    }
+  };
+
   // Render the Home component with the fetched listings
   return (
     <div>
@@ -51,7 +54,7 @@ const AdministratorsPage = async ({ userParams }: AdminPageProps) => {
           </div>
           <div className="col-span-4">
             <div className="pb-6">
-              <h1 className="text-2xl font-bold">All Administrators</h1>
+              <h1 className="text-2xl font-bold">All Clients</h1>
             </div>
             <div className="items-center pb-1">
                {users.length === 0 ? (
@@ -62,7 +65,7 @@ const AdministratorsPage = async ({ userParams }: AdminPageProps) => {
                       <div>
                         <p>{user.name}</p>
                         <p>{user.email}</p>
-                        <p>{user.contact}</p>
+                        <p>{user.contact }</p>
                       </div>
                       <button onClick={() => handleDeleteUser(user.id)}>Delete</button> {/* onClick={() => handleDeleteUser(user.id)} */}
                     </div>
@@ -77,5 +80,4 @@ const AdministratorsPage = async ({ userParams }: AdminPageProps) => {
   );
 };
 
-// eslint-disable-next-line import/no-default-export
-export default AdministratorsPage;
+export default ClientsPage;

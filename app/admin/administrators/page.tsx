@@ -4,7 +4,7 @@ import getTours, { IToursParams } from "@/app/actions/getTours";
 import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
-
+import deleteUsers from "@/app/actions/deleteUsers";
 import getAdmins from "@/app/actions/getAdmins";
 
 // Define the interface for the Home component props
@@ -17,8 +17,24 @@ const AdministratorsPage = async ({ userParams }: AdminPageProps) => {
   // Fetch listings, current user, and users asynchronously
   const currentUser = await getCurrentUser();
   const users = await getAdmins({ ...userParams, userType: "admin" });
-  // Delete user function
 
+  // Delete user function
+ const handleDeleteUser = async (id: string) => {
+      try {
+        // Call your deleteUsers function from the API to delete the user
+        await deleteUsers({ id });
+
+        // After deletion, fetch the updated user list
+        const updatedUsers = await getUsers({ ...userParams, userType: "operator" });
+
+        // Update the state or re-render the component with the updated user list
+        // (This depends on how you manage state in your application)
+        console.log("User deleted successfully");
+      } catch (error) {
+        console.error("Error deleting user:", error);
+        // Handle error as needed (e.g., show an error message)
+      }
+    };
   // Render the Home component with the fetched listings
   return (
     <div>
@@ -46,9 +62,9 @@ const AdministratorsPage = async ({ userParams }: AdminPageProps) => {
                       <div>
                         <p>{user.name}</p>
                         <p>{user.email}</p>
-                        <p>0702939929</p>
+                        <p>{user.contact}</p>
                       </div>
-                      <button>Delete</button> {/* onClick={() => handleDeleteUser(user.id)} */}
+                      <button onClick={() => handleDeleteUser(user.id)}>Delete</button> {/* onClick={() => handleDeleteUser(user.id)} */}
                     </div>
                   ))
                 )}

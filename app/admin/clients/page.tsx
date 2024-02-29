@@ -65,9 +65,9 @@ const ClientsPage = async ({ searchParams, tourParams, userParams }: HotelPagePr
                       <div>
                         <p>{user.name}</p>
                         <p>{user.email}</p>
-                        <p>0702939929</p>
+                        <p>{user.contact }</p>
                       </div>
-                      <button>Delete</button> {/* onClick={() => handleDeleteUser(user.id)} */}
+                      <button onClick={() => handleDeleteUser(user.id)}>Delete</button> {/* onClick={() => handleDeleteUser(user.id)} */}
                     </div>
                   ))
                 )}

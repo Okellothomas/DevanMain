@@ -50,7 +50,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
             </div>
             <div className="col-span-4">
               <div className="pb-2">
-                <h1 className="text-2xl font-bold">All My Booked  Hotels</h1>
+                <h1 className="text-2xl font-bold">All Booked  Hotels</h1>
               </div>
               <div className="items-center pb-1">
                 {listings.length === 0 ? (

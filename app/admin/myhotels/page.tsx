@@ -21,15 +21,16 @@ interface HotelPageProps {
 // Home component is defined as an asynchronous function
 const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) => {
   try {
-    // Fetch listings, current user, and users asynchronously
-    let currentUser: any;
-    if (searchParams.userId) {
-      currentUser = await getCurrentUser();
+    // Fetch current user
+    const currentUser = await getCurrentUser();
+
+    // Ensure currentUser is not null before accessing its properties
+    if (!currentUser) {
+      throw new Error("Current user not found");
     }
 
-    // const listings = await getMyListingsHotels(searchParams);
-
-    const listings = await getMyListingsHotels({ ...searchParams, userId: currentUser?.id, hotel: "hotel" });
+    // Fetch listings for the current user
+    const listings = await getMyListingsHotels({ ...searchParams, userId: currentUser.id });
 
     // Delete user function
     const handleDeleteUser = async (id: string) => {
@@ -49,16 +50,12 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
       }
     };
 
-    // Check if searchParams exists before accessing userId
-
-    // Render the Home component with the fetched listings
-
     // Render the Home component with the fetched listings
     return (
       <div>
         <div className="all-destinations-main-admin-profile flex flex-col items-center justify-center text-lg font-bold">
           <h1 className="color-h1-destinations-main-admin-profile">
-            {currentUser?.name}
+            {currentUser.name ?? "Unknown"} {/* Use nullish coalescing to provide a default value */}
             <span className="color-span-green"></span>
           </h1>
         </div>
@@ -76,12 +73,12 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
                   {listings.map((listing: any) => {
                     return (
                       <HouseMyCard
-                        currentUser={currentUser ? {
+                        currentUser={{
                           ...currentUser,
                           createdAt: currentUser.createdAt.toISOString(),
                           updatedAt: currentUser.updatedAt.toISOString(),
                           emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
-                        } : null} // Pass the current user to each ListingCard
+                        }} // Pass the current user to each ListingCard
                         key={listing.id} // Use the listing ID as the unique key
                         data={listing} // Pass the listing data to each ListingCard
                       />

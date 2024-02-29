@@ -124,7 +124,7 @@ const TourBookedMyCard: React.FC<ListingCardProps> = ({
               <div className="flex flex-row items-center gap-1">
                 Slots booked:
                   <div className="font-semibold">
-                       {(data.tourists.filter((item) => item === currentUser?.id)).length} 
+                       {data.tourists.length} 
                   </div>
                   
               </div>      

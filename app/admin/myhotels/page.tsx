@@ -30,7 +30,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
     }
 
     // Fetch listings for the current user
-    const listings = await getMyListingsHotels({ ...searchParams, userId: currentUser.id });
+    const listings = await getMyListingsHotels({ ...searchParams, userId: currentUser.id, hotel: "hotel" });
 
     // Delete user function
     const handleDeleteUser = async (id: string) => {

@@ -1,3 +1,4 @@
+
 import prisma from '@/app/libs/prismadb';
 import getCurrentUser from "@/app/actions/getCurrentUsers";
 import Container from "@/app/components/container/Container";
@@ -46,35 +47,39 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
                 <h1 className="text-2xl font-bold">All Booked Tours</h1>
               </div>
               <div className="items-center pb-1">
-                 <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-                  {filteredTours.map((tour: any) =>
-                    tour.tourists.length === tour.guestCount ?
-                  (
-                  <TourBookedMyCard
-                    currentUser={currentUser ? {
-                      ...currentUser,
-                      createdAt: currentUser.createdAt.toISOString(),
-                      updatedAt: currentUser.updatedAt.toISOString(),
-                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
-                    } : null} // Pass the current user to each ListingCard
-                    key={tour.id} // Use the tour ID as the unique key
+                {filteredTours.length === 0 ? (
+                  <div>Tour not found</div>
+                ) : (
+                  <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+                    {filteredTours.map((tour: any) =>
+                      tour.tourists.length === tour.guestCount ? (
+                        <TourBookedMyCard
+                          currentUser={currentUser ? {
+                            ...currentUser,
+                            createdAt: currentUser.createdAt.toISOString(),
+                            updatedAt: currentUser.updatedAt.toISOString(),
+                            emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                          } : null} // Pass the current user to each ListingCard
+                          key={tour.id} // Use the tour ID as the unique key
                           data={tour} // Pass the tour data to each ListingCard
-                    label={true}
-                  />
-                ): (
-                  <TourBookedMyCard
-                    currentUser={currentUser ? {
-                      ...currentUser,
-                      createdAt: currentUser.createdAt.toISOString(),
-                      updatedAt: currentUser.updatedAt.toISOString(),
-                      emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
-                    } : null} // Pass the current user to each ListingCard
-                    key={tour.id} // Use the tour ID as the unique key
+                          label={true}
+                        />
+                      ) : (
+                        <TourBookedMyCard
+                          currentUser={currentUser ? {
+                            ...currentUser,
+                            createdAt: currentUser.createdAt.toISOString(),
+                            updatedAt: currentUser.updatedAt.toISOString(),
+                            emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                          } : null} // Pass the current user to each ListingCard
+                          key={tour.id} // Use the tour ID as the unique key
                           data={tour} // Pass the tour data to each ListingCard
-                    label={false}
-                  />
-                ))}
-                </div>
+                          label={false}
+                        />
+                      )
+                    )}
+                  </div>
+                )}
               </div>
               {/* <AdminInfo userParams={userParams} /> */}
             </div>
@@ -90,4 +95,3 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
 };
 
 export default AdministratorsPage;
-

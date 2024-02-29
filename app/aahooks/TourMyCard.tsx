@@ -97,8 +97,9 @@ const TourMyCard: React.FC<ListingCardProps> = ({
                       src={data?.imageSrc[0] || ""} // Handle null data or imageSrc
                       className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen"
                   />
+                  
               </div>
-              <div className="text-sm">
+              <div className="text-sm max-w-[20rem]">
                  <span>{data.title}</span>
               </div>
               <div className="font-light text-neutral-500">

@@ -13,24 +13,27 @@ import prisma from '@/app/libs/prismadb';
 import toast, { useToaster } from "react-hot-toast";
 import axios from "axios";
 
+
 interface ListingCardProps {
-    data: safeListing;
+    data: safeTour;
     reservation?: safeReservation;
     onAction?: (id: string) => void;
     disabled?: boolean;
     actionLabel?: string;
     actionId?: string;
     currentUser?: SafeUser | null;
+    label: boolean;
 }
 
-const HouseMyCard: React.FC<ListingCardProps> = ({
+const TourBookedMyCard: React.FC<ListingCardProps> = ({
     data,
     reservation,
     onAction,
     disabled,
     actionLabel,
     actionId = "",
-    currentUser
+    currentUser, 
+    label,
 }) => {
     const router = useRouter();
     const { getByValue } = useCountries();
@@ -66,12 +69,11 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
         return `${format(start, 'pp')} - ${format(end, 'pp')}`
     }, [reservation])
 
-
     const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
         console.log("button clicked");
     try {
-        const response = await axios.delete(`/api/listings/${data?.id}`, {
+        const response = await axios.delete(`/api/tours/${data?.id}`, {
             method: 'DELETE',
         });
         console.log("try is working")
@@ -86,7 +88,7 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
 
   return (
       <div
-        onClick={() => router.push(`/listings/${data?.id || ""}`)} // Handle null data or id
+        onClick={() => router.push(`/tours/${data?.id || ""}`)} // Handle null data or id
         className="col-span-1 cursor-pointer group"
       >
           <div className="flex flex-col gap-2 w-full main-image-small-screen">
@@ -97,20 +99,35 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
                       src={data?.imageSrc[0] || ""} // Handle null data or imageSrc
                       className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen"
                   />
+                  <div className="absolute top-3 right-3">
+                      { label ? 
+                        <div className="bg-red-400 text-sm text-white outline-1 px-2 py-1 rounded-lg">
+                            fully booked
+                            </div> :
+                            <div className="bg-blue-400 text-sm text-white outline-1 px-2 py-1 rounded-lg">
+                            not fully booked   
+                            </div>
+                        }
+                  </div>
               </div>
               <div className="text-sm max-w-[20rem]">
                  <span>{data.title}</span>
               </div>
               <div className="font-light text-neutral-500">
-                Guests: {data.guestCount} 
+                Toursts: {data.guestCount} 
               </div>
               <div className="flex flex-row items-center gap-1">
                   <div className="text-sm">
-                   Location: ${data.city}
+                    ${data.depStart} to ${data.depEnd}
                   </div>
               </div>
-
-              
+              <div className="flex flex-row items-center gap-1">
+                Slots booked:
+                  <div className="font-semibold">
+                       {(data.tourists.filter((item) => item === currentUser?.id)).length} 
+                  </div>
+                  
+              </div>      
               {onAction && actionLabel && (
                   <Button
                       disabled={disabled}
@@ -129,4 +146,4 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
   )
 }
 
-export default HouseMyCard;
+export default TourBookedMyCard;

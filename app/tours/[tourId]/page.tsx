@@ -9,6 +9,7 @@ import Container from "@/app/components/container/Container";
 import TourCard from "@/app/components/listing/TourCard";
 import Link from "next/link";
 import TourClient from "./TourClient";
+import TourCardSecondary from "@/app/components/listing/TourCardSecondary";
 
 // Define the interface for the TourPage component props
 interface IParams {
@@ -68,7 +69,7 @@ const TourPage = async ({ params }: { params: IParams }) => {
           <div className="pt-10 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
             {/* Map through the tours array and render TourCard components */}
             {filteredTours.map((tour: any) => (
-              <TourCard
+              <TourCardSecondary
                 currentUser={currentUser ? {
                   ...currentUser,
                   createdAt: currentUser.createdAt.toISOString(),

@@ -7,6 +7,7 @@ import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
 import getHosts from "@/app/actions/getHost";
+import getClients from "@/app/actions/getClients";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -19,7 +20,7 @@ interface HotelPageProps {
 const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps) => {
   // Fetch listings, current user, and users asynchronously
   const currentUser = await getCurrentUser();
-  const users = await getHosts({ ...userParams, userType: "client" });
+  const users = await getClients({ ...userParams, userType: "client" });
 
   // Delete user function
   // const handleDeleteUser = async (id: string) => {

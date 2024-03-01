@@ -28,6 +28,7 @@ import { GoPerson } from "react-icons/go";
 import { BsFileEarmarkPerson } from "react-icons/bs";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { MdOutlineMeetingRoom } from "react-icons/md";
+import { MdOutlineBathroom } from "react-icons/md";
 
 
 const initialDateRange = {
@@ -344,9 +345,9 @@ const findAvailableDate = () => {
                            <hr />
                           </div>
 
-                              {listing.city !== "" && (
+                              {listing.bathRoomCount !==0 && (
                                   <div className="flex flex-row justify-between">
-                                      <div className="flex flex-row items-center gap-2"> <span className="text-blue-500"><GiPathDistance size={23} /></span><span className="text-md">City {listing.city}:</span></div> <span className="text-neutral-500">{listing.distance}</span>
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-blue-500"><MdOutlineBathroom size={23} /></span><span className="text-md">Bathrooms:</span></div> <span className="text-neutral-500">{listing.bathRoomCount}</span>
                                   </div>
                               )}
 

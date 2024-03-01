@@ -1760,29 +1760,37 @@ const TourClient: React.FC<TourClientProps> = ({
                           <div className="px-4 py-3">
                           <hr />
                           </div>
-                                <div className="flex flex-row px-4 justify-between items-center gap-3">
-                                    <div className="flex flex-row gap-3 justify-between items-center">
-                                        <span className="text-green-400"><GiCash size={23} /></span><span>Price per room:</span>
-                                    </div>
-                                    <div className="flex flex-row gap-3 justify-between items-center">
-                                        <span>${tour.room}</span>
-                                    </div>
-                                </div>
+                          {tour.room !== 0 && (
+                              <div className="flex flex-row px-4 justify-between items-center gap-3">
+                                  <div className="flex flex-row gap-3 justify-between items-center">
+                                      <span className="text-green-400"><GiCash size={23} /></span><span>Price per room:</span>
+                                  </div>
+                                  <div className="flex flex-row gap-3 justify-between items-center">
+                                      <span>${tour.room}</span>
+                                  </div>
+                              </div>
+                          )}
+                          {tour.room !== 0 && (
                           <div className="px-4 py-3">
                           <hr />
                           </div>
+                          )}
+                          {tour.save !== 0 && (
                               <div className="flex flex-row px-4 justify-between item-center gap-3">
                                   <div className="flex flex-row gap-3 justify-between items-center">
                                       <span className="text-yellow-400"><GiReceiveMoney size={23} /></span><span>Save per person:</span>
                                   </div>
+                                 
                                   <div className="flex flex-row gap-3 justify-between items-center">
                                       <span>${tour.save}</span>
                                   </div>
                               </div>
-                          <div className="px-4 py-3">
-                          <hr />
-                          </div>
-                          
+                          )}
+                          {tour.save !== 0 && (
+                              <div className="px-4 py-3">
+                                  <hr />
+                              </div>
+                          )}
     {/* <div className="flex flex-col px-4 justify-between item-center gap-1">
         {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
         <div className="flex flex-row items-center mt-2">

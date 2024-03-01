@@ -26,6 +26,8 @@ import { LuBedDouble } from "react-icons/lu";
 import { BsPersonCircle } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { BsFileEarmarkPerson } from "react-icons/bs";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { MdOutlineMeetingRoom } from "react-icons/md";
 
 
 const initialDateRange = {
@@ -342,9 +344,9 @@ const findAvailableDate = () => {
                            <hr />
                           </div>
 
-                              {listing.distance !== "" && (
+                              {listing.city !== "" && (
                                   <div className="flex flex-row justify-between">
-                                      <div className="flex flex-row items-center gap-2"> <span className="text-blue-500"><GiPathDistance size={23} /></span><span className="text-md">Distance from {listing.city}:</span></div> <span className="text-neutral-500">{listing.distance}</span>
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-blue-500"><GiPathDistance size={23} /></span><span className="text-md">City {listing.city}:</span></div> <span className="text-neutral-500">{listing.distance}</span>
                                   </div>
                               )}
 
@@ -352,18 +354,18 @@ const findAvailableDate = () => {
                            <hr />
                           </div>
 
-                              {listing.startDate !== "" && (
+                              {listing.guestCount !== 0 && (
                                   <div className="flex flex-row justify-between">
-                                      <div className="flex flex-row items-center gap-2"> <span className="text-lime-600"><CiCalendarDate size={23} /></span><span className="text-md">Start Booking Date:</span></div><span className="text-neutral-500">{listing.startDate}</span>
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-lime-600"><FaPeopleGroup size={23} /></span><span className="text-md">Guests:</span></div><span className="text-neutral-500">{listing.guestCount}</span>
                                   </div>
                               )}
                           <div className="w-full py-4">
                            <hr />
                          </div>
 
-                              {listing.endDate !== "" && (
+                              {listing.roomCount !== 0 && (
                                   <div className="flex flex-row justify-between">
-                                      <div className="flex flex-row items-center gap-2"> <span className="text-neutral-600"><MdOutlineUpdate size={23} /></span><span className="text-md">End Booking Date:</span></div><span className="text-neutral-500">{listing.endDate}</span>
+                                      <div className="flex flex-row items-center gap-2"> <span className="text-neutral-600"><MdOutlineMeetingRoom size={23} /></span><span className="text-md">Rooms:</span></div><span className="text-neutral-500">{listing.roomCount}</span>
                                   </div>
                               )}
                           <div className="w-full py-4">

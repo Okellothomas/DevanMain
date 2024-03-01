@@ -106,7 +106,7 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
                   <div>
                      from <span className="font-semibold">${price}</span> 
                   </div>
-                  {data.save && data.save > 0 && (
+                  {data.save !== 0 && (
                       <div>
                           <span className="text-blue-500">save</span> <span className="font-semibold text-blue-600">${data.save}</span>
                       </div>

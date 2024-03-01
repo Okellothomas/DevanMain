@@ -126,7 +126,7 @@ const TourPriceCard: React.FC<ListingCardProps> = ({
                   <div>
                        from <span className="font-bold text-md">${price}</span>
                       </div>
-                      {save && save > 0 && (
+                      {save !== 0 && (
                         <div className="text-blue-600">
                             save <span className="font-bold text-md">${save}</span>
                         </div>

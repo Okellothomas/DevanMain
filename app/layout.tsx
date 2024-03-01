@@ -18,10 +18,14 @@ import TourModal from './components/Modals/TourModal'
 
 // Define metadata for the page
 export const metadata: Metadata = {
-  title: 'Devanca Tours',
-  description: 'The great tour sales',
-  icons: {
-    icon: '../../public/images/logo.png',
+  title: {
+    default: "Devanca Tours: Your Ultimate Travel and Tour Agency!",
+    template: "%s - Devanca Tours: Your Ultimate Travel and Tour Agency!"
+  },
+  description: 'Book customized vacations, tours, and travel packages worldwide with Devanca Tours, your ultimate bespoke travel agency.',
+  keywords: "Tour Travel Vacations Holidays Packages Worldwide Bespoke", 
+  twitter: {
+    card: "summary_large_image",
   }
 }
 

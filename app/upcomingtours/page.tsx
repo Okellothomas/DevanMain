@@ -24,11 +24,17 @@ import getAfricanTours from "../actions/getAfricanTours";
 import EmptyStates from "../components/container/EmptyStates";
 import getAmericaTours from "../actions/getAmericanTours";
 import getUpcomingTours from "../actions/getUpcomingTours";
+import { Metadata } from "next";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
     searchParams: IListingsParams; // Search parameters for fetching listings
      tourParams: IToursParams;
+}
+
+export const metadata: Metadata =  {
+  title: "Upcoming Tours",
+  description: "Our ultimate upcoming tours"
 }
 
 // Home component is defined as an asynchronous function

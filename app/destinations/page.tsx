@@ -16,11 +16,17 @@ import TourPriceCard from "../components/listing/TourPriceCard";
 import TourCardSecondary from "../components/listing/TourCardSecondary";
 import ListingCardMain from "../components/listing/ListingCardMain";
 import EmptyStates from "../components/container/EmptyStates";
+import { Metadata } from "next";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
     searchParams: IListingsParams; // Search parameters for fetching listings
      tourParams: IToursParams;
+}
+
+export const metadata: Metadata =  {
+  title: "Prime Destinations",
+  description: "Our Prime destinations"
 }
 
 // Home component is defined as an asynchronous function

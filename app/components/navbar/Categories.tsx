@@ -61,11 +61,6 @@ export const categories = [
         description: "This property is a Cottages!"
     },
     {
-        label: 'Cottages',
-        icon: TbBuildingCottage,
-        description: "This property is a Cottages!"
-    },
-    {
         label: 'Lake and Ocean',
         icon: GiBoatFishing,
         description: "This property is close to a lake!"

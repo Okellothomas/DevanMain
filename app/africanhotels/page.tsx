@@ -13,6 +13,7 @@ import TourCard from "../components/listing/TourCard";
 import TheCategoriess from "./TheCategoriess";
 import getAfricanHotelLisings from "../acts/getAfricanHotelsListings";
 import { Metadata } from "next";
+import TourCardSecondary from "../components/listing/TourCardSecondary";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -117,7 +118,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           {/* Map through the listings array and render ListingCard components */}
         {tours.slice(0, 4).map((tour: any) => {
           return (
-            <TourCard
+            <TourCardSecondary
               currentUser={currentUser ? {
                       ...currentUser,
                       createdAt: currentUser.createdAt.toISOString(),

@@ -10,6 +10,7 @@ import getTours, { IToursParams } from "../actions/getTours";
 import TourCard from "../components/listing/TourCard";
 import getCurrentUser from "../actions/getCurrentUsers";
 import getOceanCruiseListing from "../act/getOceanCruiseListing";
+import TourCardSecondary from "../components/listing/TourCardSecondary";
 
 interface HotelPageProps {
     searchParams: IListingsParams;
@@ -94,7 +95,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           {/* Map through the listings array and render ListingCard components */}
         {filteredTours.map((tour: any) => {
           return (
-            <TourCard
+            <TourCardSecondary
               currentUser={currentUser ? {
                       ...currentUser,
                       createdAt: currentUser.createdAt.toISOString(),

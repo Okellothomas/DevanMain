@@ -12,6 +12,7 @@ import getTours, { IToursParams } from "../actions/getTours";
 import TourCard from "../components/listing/TourCard";
 import TheCategoriess from "./TheCategoriess";
 import getEuropeanHotelLisings from "../acts/getEuropeanHotelsListings";
+import TourCardSecondary from "../components/listing/TourCardSecondary";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -115,7 +116,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
             {/* Map through the listings array and render ListingCard components */}
             {filteredTours.map((tour: any) => {
               return (
-                <TourCard
+                <TourCardSecondary
                   currentUser={currentUser ? {
                     ...currentUser,
                     createdAt: currentUser.createdAt.toISOString(),

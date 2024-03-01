@@ -23,10 +23,7 @@ export const metadata: Metadata = {
     template: "%s - Devanca Tours: Your Ultimate Travel and Tour Agency!"
   },
   description: 'Book customized vacations, tours, and travel packages worldwide with Devanca Tours, your ultimate bespoke travel agency.',
-  keywords: "Tour Travel Vacations Holidays Packages Worldwide Bespoke", 
-  twitter: {
-    card: "summary_large_image",
-  }
+  keywords: "Tour Travel Vacations Holidays Packages Worldwide Bespoke"
 }
 
 // RootLayout function component definition

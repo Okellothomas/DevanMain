@@ -1,3 +1,4 @@
+
 import getCurrentUser from "@/app/actions/getCurrentUsers";
 import getListings, { IListingsParams } from "@/app/actions/getListings";
 import getTours, { IToursParams } from "@/app/actions/getTours";
@@ -5,6 +6,7 @@ import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
+import getHosts from "@/app/actions/getHost";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -14,10 +16,10 @@ interface HotelPageProps {
 }
 
 // Home component is defined as an asynchronous function
-const ClientsPage = async ({ searchParams, tourParams, userParams }: HotelPageProps) => {
+const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps) => {
   // Fetch listings, current user, and users asynchronously
   const currentUser = await getCurrentUser();
-  const users = await getUsers({ ...userParams, userType: "admin" });
+  const users = await getHosts({ ...userParams, userType: "admin" });
 
   // Delete user function
   // const handleDeleteUser = async (id: string) => {
@@ -26,7 +28,7 @@ const ClientsPage = async ({ searchParams, tourParams, userParams }: HotelPagePr
   //     await deleteUsers({ id });
 
   //     // After deletion, fetch the updated user list
-  //     const updatedUsers = await getUsers({ ...userParams, userType: "client" });
+  //     const updatedUsers = await getUsers({ ...userParams, userType: "host" });
 
   //     // Update the state or re-render the component with the updated user list
   //     // (This depends on how you manage state in your application)
@@ -53,18 +55,18 @@ const ClientsPage = async ({ searchParams, tourParams, userParams }: HotelPagePr
           </div>
           <div className="col-span-4">
             <div className="pb-6">
-              <h1 className="text-2xl font-bold">All Clients</h1>
+              <h1 className="text-2xl font-bold">All Administrators</h1>
             </div>
             <div className="items-center pb-1">
                {users.length === 0 ? (
-                  <p>No operators are currently available please come back later!</p>
+                  <p>No Administrator are currently available please come back later!</p>
                 ) : (
                   users.map((user) => (
                     <div className="flex flex-row py-7 justify-between border-b-2" key={user.id}>
                       <div>
                         <p>{user.name}</p>
                         <p>{user.email}</p>
-                        <p>{user.contact }</p>
+                        <p>{user.contact}</p>
                       </div>
                       <button>Delete</button> {/* onClick={() => handleDeleteUser(user.id)} */}
                     </div>
@@ -79,4 +81,4 @@ const ClientsPage = async ({ searchParams, tourParams, userParams }: HotelPagePr
   );
 };
 
-export default ClientsPage;
+export default HostPage;

@@ -16,6 +16,7 @@ import getTanzanianTours from "@/app/acts/getTanzanianTours";
 import getBrazilTours from "@/app/acts/getBrazilTours";
 import getChinaTours from "@/app/acts/getChinaTours";
 import EmptyStates from "@/app/components/container/EmptyStates";
+import { Metadata } from "next";
 
 // Define the interface for component props
 interface IParams {
@@ -23,6 +24,9 @@ interface IParams {
   tourParams: IToursParams;
 }
 
+export const metadata: Metadata =  {
+  title: "Chinese Desitations",
+}
 // Define the AllDestinationsPage component as a server component
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)

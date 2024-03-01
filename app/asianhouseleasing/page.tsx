@@ -11,6 +11,7 @@ import ListingValue from "../components/listing/ListingValue";
 import getTours, { IToursParams } from "../actions/getTours";
 import TourCard from "../components/listing/TourCard";
 import getAsianHouseLisings from "../acts/getAsianHouselsListings";
+import { Metadata } from "next";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -18,6 +19,9 @@ interface HotelPageProps {
      tourParams: IToursParams;
 }
 
+export const metadata: Metadata =  {
+  title: "Asian House Listings",
+}
 // Home component is defined as an asynchronous function
 const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => {
   // Fetch listings and current user asynchronously

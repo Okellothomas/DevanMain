@@ -11,6 +11,7 @@ import TourOperators from "./components/TourOperators";
 import TourSize from "./components/TourSize";
 import EmptyStates from "@/app/components/container/EmptyStates";
 import getEgyptTours from "@/app/acts/getEgyptTours";
+import { Metadata } from "next";
 
 // Define the interface for component props
 interface IParams {
@@ -18,6 +19,9 @@ interface IParams {
   tourParams: IToursParams;
 }
 
+export const metadata: Metadata =  {
+  title: "Egyptian Destinations",
+}
 // Define the AllDestinationsPage component as a server component
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)

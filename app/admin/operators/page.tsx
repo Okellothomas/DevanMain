@@ -1,79 +1,84 @@
-import prisma from '@/app/libs/prismadb';
+
 import getCurrentUser from "@/app/actions/getCurrentUsers";
+import getListings, { IListingsParams } from "@/app/actions/getListings";
+import getTours, { IToursParams } from "@/app/actions/getTours";
 import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
-import getmyTours, { ImyToursParams } from "@/app/aagetMethods/getmyTours";
-import TourMyCard from "@/app/aahooks/TourMyCard";
+import getUsers, { IUsersParams } from "@/app/actions/getUsers";
+import deleteUsers from "@/app/actions/deleteUsers";
+import getHosts from "@/app/actions/getHost";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
-  searchParams: ImyToursParams; // Search parameters for fetching listings
+  searchParams: IListingsParams; // Search parameters for fetching listings
+  tourParams: IToursParams;
+  userParams: IUsersParams;
 }
 
 // Home component is defined as an asynchronous function
-const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
-  try {
-    // Fetch the current user
-    const currentUser = await getCurrentUser();
+const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps) => {
+  // Fetch listings, current user, and users asynchronously
+  const currentUser = await getCurrentUser();
+  const users = await getHosts({ ...userParams, userType: "operator" });
 
-    if (!currentUser) {
-      // Handle case where currentUser is null
-      return <div>Error: Current user not found.</div>;
-    }
+  // Delete user function
+  // const handleDeleteUser = async (id: string) => {
+  //   try {
+  //     // Call your deleteUsers function from the API to delete the user
+  //     await deleteUsers({ id });
 
-    // Fetch tours that match the current user's ID
-    const tours = await getmyTours({ ...searchParams, userId: currentUser.id });
+  //     // After deletion, fetch the updated user list
+  //     const updatedUsers = await getUsers({ ...userParams, userType: "host" });
 
-    // Render the component with the fetched tours
-    return (
-      <div>
-        <div className="all-destinations-main-admin-profile flex flex-col items-center justify-center text-lg font-bold">
-          <h1 className="color-h1-destinations-main-admin-profile">
-            {currentUser.name}
-            <span className="color-span-green"></span>
-          </h1>
-        </div>
-        <Container>
-          <div className="grid grid-cols-5 gap-10 pt-16">
-            <div className="col-span-1">
-              <SideBar />
-            </div>
-            <div className="col-span-4">
-              <div className="pb-2">
-                <h1 className="text-2xl font-bold">All My Tours</h1>
-              </div>
-              <div className="items-center pb-1">
-                {tours.length === 0 ? (
-                  <div>No tours found</div>
-                ) : (
-                  <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-                    {tours.map((tour: any) => (
-                      <TourMyCard
-                        currentUser={currentUser ? {
-                          ...currentUser,
-                          createdAt: currentUser.createdAt.toISOString(),
-                          updatedAt: currentUser.updatedAt.toISOString(),
-                          emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
-                        } : null} // Pass the current user to each ListingCard
-                        key={tour.id} // Use the tour ID as the unique key
-                        data={tour} // Pass the tour data to each ListingCard
-                      />
-                    ))}
-                  </div>
-                )}
-              </div>
-              {/* <AdminInfo userParams={userParams} /> */}
-            </div>
-          </div>
-        </Container>
+  //     // Update the state or re-render the component with the updated user list
+  //     // (This depends on how you manage state in your application)
+  //     console.log("User deleted successfully");
+  //   } catch (error) {
+  //     console.error("Error deleting user:", error);
+  //     // Handle error as needed (e.g., show an error message)
+  //   }
+  // };
+
+  // Render the Home component with the fetched listings
+  return (
+    <div>
+      <div className="all-destinations-main-admin-profile flex flex-col items-center justify-center text-lg font-bold">
+        <h1 className="color-h1-destinations-main-admin-profile">
+          {currentUser?.name}
+          <span className="color-span-green"></span>
+        </h1>
       </div>
-    );
-  } catch (error) {
-    console.error("Error:", error);
-    // Handle error as needed
-    return <div>Error occurred while fetching data.</div>;
-  }
+      <Container>
+        <div className="grid grid-cols-5 gap-10 pt-16">
+          <div className="col-span-1">
+            <SideBar />
+          </div>
+          <div className="col-span-4">
+            <div className="pb-6">
+              <h1 className="text-2xl font-bold">All Operators</h1>
+            </div>
+            <div className="items-center pb-1">
+               {users.length === 0 ? (
+                  <p>No operators are currently available please come back later!</p>
+                ) : (
+                  users.map((user) => (
+                    <div className="flex flex-row py-7 justify-between border-b-2" key={user.id}>
+                      <div>
+                        <p>{user.name}</p>
+                        <p>{user.email}</p>
+                        <p>{user.contact}</p>
+                      </div>
+                      <button>Delete</button> {/* onClick={() => handleDeleteUser(user.id)} */}
+                    </div>
+                  ))
+                )}
+            </div>
+            {/* <AdminInfo userParams={userParams} /> */}
+          </div>
+        </div>
+      </Container>
+    </div>
+  );
 };
 
-export default AdministratorsPage;
-
+export default HostPage;

@@ -8,12 +8,16 @@ import Categories from "../components/navbar/Categories";
 import Search from "../components/navbar/Search";
 import Categoriess from "../mainpage/components/Categoriess";
 import getAmericanHotelLisings from "../acts/getAmericanHotelsListings";
+import { Metadata } from "next";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
   searchParams: IListingsParams; // Search parameters for fetching listings
 }
 
+export const metadata: Metadata =  {
+  title: "All American Hotels",
+}
 // Home component is defined as an asynchronous function
 const HotelPage = async ({ searchParams }: HotelPageProps) => {
   // Fetch listings and current user asynchronously

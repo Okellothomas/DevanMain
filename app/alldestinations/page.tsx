@@ -10,6 +10,7 @@ import Sort from "./components/Sort";
 import TourStyles from "./components/TourStyles";
 import TourOperators from "./components/TourOperators";
 import TourSize from "./components/TourSize";
+import { Metadata } from "next";
 
 // Define the interface for component props
 interface IParams {
@@ -17,6 +18,9 @@ interface IParams {
   tourParams: IToursParams;
 }
 
+export const metadata: Metadata =  {
+  title: "All Destinations",
+}
 // Define the AllDestinationsPage component as a server component
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)

@@ -12,6 +12,7 @@ import TourSize from "./components/TourSize";
 import TourMainAfricanCard from "../components/listing/TourMainAfricanCard";
 import getAfricanTours from "../actions/getAfricanTours";
 import getEuropeanTours from "../actions/getEuropeanTours";
+import { Metadata } from "next";
 
 // Define the interface for component props
 interface IParams {
@@ -19,6 +20,9 @@ interface IParams {
   tourParams: IToursParams;
 }
 
+export const metadata: Metadata =  {
+  title: "All European Destinations",
+}
 // Define the AllDestinationsPage component as a server component
 export default function AllDestinationsPage({ tourParams }: IParams) {
   // Fetch data inside the render function (server component behavior)

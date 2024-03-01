@@ -11,11 +11,16 @@ import TourOperators from "./components/TourOperators";
 import TourSize from "./components/TourSize";
 import getJapanTours from "@/app/acts/getJapanTours";
 import EmptyStates from "@/app/components/container/EmptyStates";
+import { Metadata } from "next";
 
 // Define the interface for component props
 interface IParams {
   tourId?: string;
   tourParams: IToursParams;
+}
+
+export const metadata: Metadata =  {
+  title: "Japanese Destinations",
 }
 
 // Define the AllDestinationsPage component as a server component

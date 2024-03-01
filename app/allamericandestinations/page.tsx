@@ -13,11 +13,16 @@ import TourMainAfricanCard from "../components/listing/TourMainAfricanCard";
 import getAfricanTours from "../actions/getAfricanTours";
 import getEuropeanTours from "../actions/getEuropeanTours";
 import getAmericaTours from "../actions/getAmericanTours";
+import { Metadata } from "next";
 
 // Define the interface for component props
 interface IParams {
   tourId?: string;
   tourParams: IToursParams;
+}
+
+export const metadata: Metadata =  {
+  title: "All American Destinations",
 }
 
 // Define the AllDestinationsPage component as a server component

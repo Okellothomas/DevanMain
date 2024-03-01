@@ -98,7 +98,7 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
                       className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen"
                   />
               </div>
-              <div className="text-sm max-w-[20rem]">
+              <div className="text-sm w-[25vw]">
                  <span>{data.title}</span>
               </div>
               <div className="font-light text-neutral-500">

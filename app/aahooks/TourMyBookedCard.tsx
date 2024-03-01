@@ -110,7 +110,7 @@ const TourBookedMyCard: React.FC<ListingCardProps> = ({
                         }
                   </div>
               </div>
-              <div className="text-sm max-w-[20rem]">
+              <div className="text-sm w-[25vw]">
                  <span>{data.title}</span>
               </div>
               <div className="font-light text-neutral-500">

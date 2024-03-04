@@ -79,7 +79,6 @@ export async function POST(
       listingId,
       startDate,
       endDate,
-      amountPayable,
       totalPrice,
       paymentDetails,
       guestDetails,
@@ -89,8 +88,8 @@ export async function POST(
     //   return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
     // }
 
-    if (!listingId || !startDate || !endDate || !amountPayable || totalPrice || paymentDetails || guestDetails) {
-        console.error("Missing required fields:", { listingId, startDate, endDate, amountPayable });
+    if (!listingId || !startDate || !endDate  || totalPrice || paymentDetails || guestDetails) {
+        console.error("Missing required fields:", { listingId, startDate, endDate, totalPrice, paymentDetails, guestDetails });
         return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
       }
     const listingAndReservation = await prisma.listing.update({

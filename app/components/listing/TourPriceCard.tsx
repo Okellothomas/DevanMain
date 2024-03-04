@@ -81,7 +81,7 @@ const TourPriceCard: React.FC<ListingCardProps> = ({
   return (
       <div
         onClick={() => router.push(`/tours/${data?.id}`)} //added ?
-        className="col-span-1 cursor-pointer group rounded-xl pb-3 shadow-sm bg-white"
+        className="col-span-1 cursor-pointer group rounded-xl pb-3 shadow-md bg-white"
       >
           <div className="flex flex-col gap-2 w-full main-image-small-screen">
               <div className="aspect-square w-full relative overflow-hidden rounded-t-xl">

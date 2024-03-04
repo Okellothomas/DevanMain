@@ -65,7 +65,7 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
   return (
       <div
         onClick={() => router.push(`/listings/${data?.id}`)} //added ?
-        className="col-span-1 bg-white shadow-sm pb-3 rounded-xl cursor-pointer group"
+        className="col-span-1 bg-white shadow-md pb-3 rounded-xl cursor-pointer group"
       >
           <div className="flex flex-col gap-2 w-full main-image-small-screen">
               <div className="aspect-square w-full relative overflow-hidden rounded-t-xl">
@@ -94,7 +94,7 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
               <div className="font-light px-4 text-neutral-400">
                   {/* {reservationDate || data.category}  */}
                   {/* <span>{ data.startDate}</span> to <span>{ data.endDate}</span> */}
-                  <span>{ data.category }</span>
+                  <span className="text-sm">{ data.category }</span>
               </div>
               <div className="px-4">
                   <hr />

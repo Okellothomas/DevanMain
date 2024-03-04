@@ -78,6 +78,31 @@ export default async function getMyReservationsHotels(
     //         }
         //     });
         
+        // const reservations = await prisma.reservation.findMany({
+        //     where: {
+        //         userId: userIdParam
+        //     },
+        //     orderBy: {
+        //         createdAt: 'desc'
+        //     },
+        //     include: {
+        //         Listing: true
+        //     },
+        //     select: {
+        //         Listing: {
+        //             select: {
+        //                 id: true // Assuming 'id' is a unique identifier for hotels
+        //                 // You can add other fields you want to select from the hotel model
+        //             }
+        //         }
+        //     },
+        //     groupBy: {
+        //         Listing: {
+        //             id: true // Group by the hotel id
+        //         }
+        //     }
+        // });
+
         const reservations = await prisma.reservation.findMany({
             where: {
                 userId: userIdParam
@@ -87,7 +112,8 @@ export default async function getMyReservationsHotels(
             },
             include: {
                 Listing: true
-            }
+            },
+            distinct: ['listingId'], // Fetch distinct listings
         });
 
         const safeReservation = reservations.map((reservation) => ({

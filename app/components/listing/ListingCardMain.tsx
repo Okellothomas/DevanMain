@@ -93,7 +93,8 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
              </div>
               <div className="font-light px-4 text-neutral-400">
                   {/* {reservationDate || data.category}  */}
-                  <span>{ data.startDate}</span> to <span>{ data.endDate}</span>
+                  {/* <span>{ data.startDate}</span> to <span>{ data.endDate}</span> */}
+                  <span>{ data.category }</span>
               </div>
               <div className="px-4">
                   <hr />
@@ -105,7 +106,7 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
                   <div>
                      from <span className="font-semibold">${price}</span> 
                   </div>
-                  {data.save && data.save > 0 && (
+                  { data.save !== 0 && (
                       <div>
                           <span className="text-blue-500">save</span> <span className="font-semibold text-blue-600">${data.save}</span>
                       </div>

@@ -14,6 +14,7 @@ import getMyListingsHotels from "@/app/aagetMethods/getMyListingsHotels";
 import getMyReservationsHotels from "@/app/aagetMethods/getMyReservationHotels";
 import HouseReservationCard from "@/app/aahooks/HouseReservationCard";
 import getOperaReservationsHotels from "@/app/aagetMethods/getOperaReservationHotels";
+import _ from "lodash";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -33,7 +34,15 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
     }
 
     // Fetch listings for the current user
-    const listings = await getOperaReservationsHotels({ ...searchParams, userId: currentUser.id });
+    const OperatorList = await getOperaReservationsHotels({ ...searchParams, userId: currentUser.id });
+
+    const houseLists = _.uniqBy(OperatorList, 'listingId');
+
+    const listings = houseLists.filter(listing => listing.Listing?.hotel == "hotel")
+
+    // const listings = Array.from(new Set((await getOperaReservationsHotels({ ...searchParams, userId: currentUser.id })).map(listing => listing.id))).map(listingId => {
+    //   return (await getOperaReservationsHotels({ ...searchParams, userId: currentUser.id })).find(listing => listing.id === listingId);
+    //  });
 
     // console.log("Listings found", listings);
     // const filteredListings = listings.filter(listing => listing.tourists.length > 0);

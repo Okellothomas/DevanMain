@@ -94,13 +94,13 @@ const TourMyCard: React.FC<ListingCardProps> = ({
                   <Image
                       fill
                       alt="Listing"
-                      src={data?.imageSrc[0] || ""} // Handle null data or imageSrc
+                      src={data?.imageSrc[0] || ""} // Handle null data or imageSrc sure one 
                       className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen"
                   />
                   
               </div>
               <div className="text-sm w-[25vw]">
-                 <span>{data.title}</span>
+                 <span>{data.title}</span> 
               </div>
               <div className="font-light text-neutral-500">
                 Toursts: {data.guestCount} 

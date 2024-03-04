@@ -88,7 +88,7 @@ export async function POST(
     //   return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
     // }
 
-    if (!listingId || !startDate || !endDate  || totalPrice || paymentDetails || guestDetails) {
+    if (!listingId || !startDate || !endDate  || !totalPrice || !paymentDetails || !guestDetails) {
         console.error("Missing required fields:", { listingId, startDate, endDate, totalPrice, paymentDetails, guestDetails });
         return NextResponse.json({ message: "Missing required fields" }, { status: 400 });
       }

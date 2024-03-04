@@ -344,13 +344,11 @@ const findAvailableDate = () => {
                           <div className="w-full py-4">
                            <hr />
                           </div>
-
                               {listing.bathRoomCount !==0 && (
                                   <div className="flex flex-row justify-between">
                                       <div className="flex flex-row items-center gap-2"> <span className="text-blue-500"><MdOutlineBathroom size={23} /></span><span className="text-md">Bathrooms:</span></div> <span className="text-neutral-500">{listing.bathRoomCount}</span>
                                   </div>
                               )}
-
                           <div className="w-full py-4">
                            <hr />
                           </div>

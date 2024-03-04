@@ -21,14 +21,19 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
       return <div>Error: Current user not found.</div>;
     }
 
-    // Fetch tours that match the current user's ID
-    const tours = await getmyTours({ ...searchParams, userId: currentUser.id });
+  //   // Fetch tours that match the current user's ID
+  //   const tours = await getmyTours({ ...searchParams, userId: currentUser.id });
 
-    // Modify tours to include currentUser.id in the tourists[] field
-    const updatedTours = tours.map((tour: any) => ({
-      ...tour,
-      tourists: [...tour.tourists, currentUser.id] // Add currentUser.id to tourists[] array
-    }));
+  //   // Modify tours to include currentUser.id in the tourists[] field
+  //  const updatedTours = tours.map((tour: any) => ({
+  //     ...tour,
+  //     isCurrentUserTourist: tour.tourists.includes(currentUser.id)
+  //   }));
+
+    const tours = (await getmyTours(searchParams))
+      .filter(tour => tour.tourists.includes(currentUser.id));
+
+    // console.log(tours);
 
     // Render the component with the fetched tours
     return (
@@ -49,11 +54,11 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
                 <h1 className="text-2xl font-bold">All My Tours</h1>
               </div>
               <div className="items-center pb-1">
-                {updatedTours.length === 0 ? (
+                {tours.length === 0 ? (
                   <div>No tours found</div>
                 ) : (
                   <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-                    {updatedTours.map((tour: any) => (
+                    {tours.map((tour: any) => (
                       <TourMyCard
                         currentUser={currentUser ? {
                           ...currentUser,

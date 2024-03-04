@@ -1,4 +1,3 @@
-// export default AdministratorsPage;
 import getCurrentUser from "@/app/actions/getCurrentUsers";
 import getListings, { IListingsParams } from "@/app/actions/getListings";
 import getTours, { IToursParams } from "@/app/actions/getTours";
@@ -9,12 +8,15 @@ import deleteUsers from "@/app/actions/deleteUsers";
 import getAdmins from "@/app/actions/getAdmins";
 import Image from "next/image";
 import ListingCard from "@/app/components/listing/ListingCard";
-import getMyListingsHouses, { IMyHouseListingsParams } from "@/app/aagetMethods/getMyListingsHouses";
+import getMyListingsHouses from "@/app/aagetMethods/getMyListingsHouses";
 import HouseMyCard from "@/app/aahooks/HouseMyCard";
+import getMyListingsHotels from "@/app/aagetMethods/getMyListingsHotels";
+import getMyReservationsHotels from "@/app/aagetMethods/getMyReservationHotels";
+import HouseReservationCard from "@/app/aahooks/HouseReservationCard";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
-  searchParams: IMyHouseListingsParams; // Search parameters for fetching listings
+  searchParams: IListingsParams; // Search parameters for fetching listings
   userParams: IUsersParams;
 }
 
@@ -30,13 +32,12 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
     }
 
     // Fetch listings for the current user
-    const listings = await getMyListingsHouses({ ...searchParams, userId: currentUser.id, house: "house" });
+    const houseLists = await getMyReservationsHotels({ ...searchParams, userId: currentUser.id })
 
-    const updatedListing = listings.map((listing: any) => ({
-      ...listing,
-      tourists: [...listing.tourists, currentUser.id] // Add currentUser.id to tourists[] array
-    }));
+      
+    const listings = houseLists.filter(listing => listing.Listing?.house == "house")
 
+    // console.log("Listings found", listings);
     // const filteredListings = listings.filter(listing => listing.tourists.length > 0);
 
     // Render the Home component with the fetched listings
@@ -55,21 +56,21 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
             </div>
             <div className="col-span-4">
               <div className="pb-2">
-                <h1 className="text-2xl font-bold">All My Booked House Listings</h1>
+                <h1 className="text-2xl font-bold">All My Booked Houses</h1>
               </div>
               <div className="items-center pb-1">
                 {listings.length === 0 ? (
-                  <div>No houses found</div>
+                  <div>No hotels found</div>
                 ) : (
                   <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-                    {listings.map((listing: any) => (
-                      <HouseMyCard
-                        currentUser={currentUser ? {
+                    {listings.map((listing: any, index: number) => (
+                      <HouseReservationCard
+                        currentUser={{
                           ...currentUser,
                           createdAt: currentUser.createdAt.toISOString(),
                           updatedAt: currentUser.updatedAt.toISOString(),
                           emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
-                        } : null} // Pass the current user to each ListingCard
+                        }} // Pass the current user to each ListingCard
                         key={listing.id} // Use the listing ID as the unique key
                         data={listing} // Pass the listing data to each ListingCard
                       />
@@ -86,7 +87,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
   } catch (error) {
     console.error("Error:", error);
     // Handle error as needed
-    // return <div>Error occurred: {error.message}</div>;
+    // return <safeReservation;rred: {error.message}</div>;
   }
 };
 

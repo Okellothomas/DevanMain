@@ -95,6 +95,17 @@ model Listing {
   Reserv        Reserv[]
 }
 
+// Blog Modal
+
+model Blog {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String // Title of the listing
+  hotelLink   String?
+  description String
+  imageSrc    String // URL for the listing image
+  category    String // Category of the listing
+}
+
 // Model representing the "Reservation" entity in the database
 model Reservation {
   id             String   @id @default(auto()) @map("_id") @db.ObjectId

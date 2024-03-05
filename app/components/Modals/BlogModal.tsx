@@ -24,7 +24,8 @@ enum STEPS {
     PRICE = 3
 }
 
-const TourModal = () => {
+const BlogModal = () => {
+
     const blogModal = useBlogModal();
     const router = useRouter()
     const [step, setStep] = useState(STEPS.CATEGORY);
@@ -215,4 +216,4 @@ const TourModal = () => {
   )
 }
 
-export default TourModal
+export default BlogModal

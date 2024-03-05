@@ -11,10 +11,12 @@ import useTourModal from "@/app/hooks/useTourModel";
 import useRentModal from "@/app/hooks/useRentModals";
 import { useRouter } from "next/navigation";
 import { CiUser } from "react-icons/ci";
+import { GrBlog } from "react-icons/gr";
 import { MdOutlineAdminPanelSettings, MdOutlineHotel, MdOutlineHouseboat } from "react-icons/md";
 import { GiKangaroo } from "react-icons/gi";
 import { CiLogin } from "react-icons/ci";
 import { IoIosHeartEmpty } from "react-icons/io";
+import useBlogModal from "@/app/hooks/useBlogModel";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -27,6 +29,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const rentModal = useRentModal();
   // declare the tour modal
   const tourModal = useTourModal();
+  const blogModal = useBlogModal();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const signUpModal = useRegisterModal();
@@ -127,7 +130,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                       <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => { router.push("/admin/profile"); handleMenuItemClick(); }} label="My profile" /></div>
                       <div className="flex flex-row items-center"><MdOutlineAdminPanelSettings size={23} /><MenuItem onClick={() => { signUpModal.onOpen('admin'); handleMenuItemClick(); }} label="Add administrator" /></div>
                       <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={() => { rentModal.onOpen(); handleMenuItemClick(); }} label="Add hotel/house" /></div>
-                      {/* <div className="flex flex-row items-center"><MdOutlineHouseboat size={23 } /><MenuItem onClick={rentModal.onOpen} label="Add house lease" /></div> */}
+                      <div className="flex flex-row items-center"><GrBlog size={23 } /><MenuItem onClick={() => { blogModal.onOpen(); handleMenuItemClick(); }} label="Add blog" /></div>
                       <div className="flex flex-row items-center"><GiKangaroo size={23 } /><MenuItem onClick={() => { tourModal.onOpen(); handleMenuItemClick(); }} label="Add tour" /></div>
                       <hr />
                       <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={handleLogout} label="Logout" /></div>

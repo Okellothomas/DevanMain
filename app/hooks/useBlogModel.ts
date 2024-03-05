@@ -1,12 +1,12 @@
 import { create } from 'zustand';
 
-interface TourModalStore {
+interface BlogModalStore {
     isOpen: boolean;
     onOpen: () => void;
     onClose: () => void;
 }
 
-const useBlogModal = create<TourModalStore>((set) => ({
+const useBlogModal = create<BlogModalStore>((set) => ({
     isOpen: false,
     onOpen: () => set({ isOpen: true }),
     onClose: () => set({isOpen:false})

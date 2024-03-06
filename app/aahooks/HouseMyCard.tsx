@@ -98,7 +98,7 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
                       className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen"
                   />
               </div>
-              <div className="text-sm w-[25vw]">
+              <div className="font-semibold text-md truncate max-w-[15rem]">
                  <span>{data.title}</span>
               </div>
               <div className="font-light text-neutral-500">
@@ -106,7 +106,7 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
               </div>
               <div className="flex flex-row items-center gap-1">
                   <div className="text-sm">
-                   Location: ${data.city}
+                   Host: {data.hostName}
                   </div>
               </div>
 

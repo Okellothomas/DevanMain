@@ -106,7 +106,8 @@ const UsersCard: React.FC<ListingCardProps> = ({
 
 
 
-  return (
+    return (
+      
       <div
         // onClick={() => router.push(`/register/${data?.id || ""}`)} // Handle null data or id
         className="col-span-4 cursor-pointer group flex flex-row justify-between items-center"

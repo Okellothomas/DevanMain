@@ -12,6 +12,7 @@ import axios from "axios";
 import deleteBtn from "@/app/actions/deleteBtn";
 import DeleteButton from "@/app/actions/deleteBtn";
 import UsersCard from "@/app/aahooks/UsersCard";
+import getClients from "@/app/actions/getClients";
 import getAdmins from "@/app/actions/getAdmins";
 // import toast from "react-hot-toast";
 // import Router, { useRouter } from "next/navigation";
@@ -70,11 +71,11 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
           </div>
           <div className="col-span-4">
             <div className="pb-6">
-              <h1 className="text-2xl font-bold">All Administrators</h1>
+              <h1 className="text-2xl font-bold">All Administators</h1>
             </div>
             <div className="items-center pb-1">
                 {users.length === 0 ? (
-                  <div>No administrator currently  registered in the system please come back later!</div>
+                  <div>No client currently registered in the system please come back later!</div>
                 ) : (
                   <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                     {users.map((listing: any) => (
@@ -89,14 +90,14 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
                         data={listing} // Pass the listing data to each ListingCard
                       />
                     ))}
+                    <div className="col-span-4">
+                      <hr />
+                    </div>
                   </div>
                 )}
             </div>
-            <div className="col-span-4">
-            <hr />
           </div>
-          </div>
-          
+         
           {/* <div className="col-span-4">
             <div className="pb-6">
               <h1 className="text-2xl font-bold">All Operators</h1>

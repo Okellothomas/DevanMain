@@ -99,11 +99,14 @@ const TourMyCard: React.FC<ListingCardProps> = ({
                   />
                   
               </div>
-              <div className="text-sm w-[25vw]">
+              <div className="font-semibold text-md truncate max-w-[15rem]">
                  <span>{data.title}</span> 
               </div>
               <div className="font-light text-neutral-500">
                 Toursts: {data.guestCount} 
+              </div>
+              <div className="font-light text-neutral-500">
+                Operator: {data.operator} 
               </div>
               <div className="flex flex-row items-center gap-1">
                   <div className="text-sm">

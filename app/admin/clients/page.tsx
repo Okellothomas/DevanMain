@@ -13,6 +13,7 @@ import deleteBtn from "@/app/actions/deleteBtn";
 import DeleteButton from "@/app/actions/deleteBtn";
 import UsersCard from "@/app/aahooks/UsersCard";
 import getClients from "@/app/actions/getClients";
+import getAdmins from "@/app/actions/getAdmins";
 // import toast from "react-hot-toast";
 // import Router, { useRouter } from "next/navigation";
 
@@ -89,12 +90,12 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
                         data={listing} // Pass the listing data to each ListingCard
                       />
                     ))}
+                    <div className="col-span-4">
+                      <hr />
+                    </div>
                   </div>
                 )}
             </div>
-             <div className="col-span-4">
-            <hr />
-          </div>
           </div>
          
           {/* <div className="col-span-4">

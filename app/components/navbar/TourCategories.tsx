@@ -11,6 +11,14 @@ import { FaRoad } from "react-icons/fa";
 import { GiRoad, GiElephant, GiLion, GiSpeedBoat, GiWorld } from "react-icons/gi";
 import { MdDownhillSkiing, MdOutlineDirectionsBoatFilled, MdOutlineEmojiNature } from "react-icons/md";
 import { FaPersonSkiing, FaPersonCircleCheck } from "react-icons/fa6";
+import { SiExpo } from "react-icons/si";
+import { FaHippo } from "react-icons/fa6";
+import { GiFamilyTree } from "react-icons/gi";
+import { GiIsland } from "react-icons/gi";
+import { FaHouseTsunami } from "react-icons/fa6";
+import { MdOutlineFamilyRestroom } from "react-icons/md";
+import { MdEditRoad } from "react-icons/md";
+import { SiBroadcom } from "react-icons/si";
 
 export const tours = [
     {
@@ -34,7 +42,7 @@ export const tours = [
         description: "This tour is for elderly people!"
     },
     {
-        label: 'Discovery Journey',
+        label: 'Discovery',
         icon: MdDownhillSkiing,
         description: "This tour is for discovery journey!"
     },
@@ -87,12 +95,56 @@ export const tours = [
         label: 'Adventure',
         icon: MdOutlineEmojiNature,
         description: "This is an adventerous tour!"
-    }
-    , 
+    }, 
     {
         label: 'Multi-Day tour',
         icon: PiRoadHorizonThin,
         description: "This is a multi-day tour!"
+    }, 
+    {
+        label: 'Expos',
+        icon: SiExpo,
+        description: "This is an expo tour!"
+    }, 
+    {
+        label: 'Game drive',
+        icon: FaHippo,
+        description: "This is a game drive tour!"
+    }, 
+    {
+        label: 'Vocation',
+        icon: GiFamilyTree,
+        description: "This is a vocation tour!"
+    }, 
+    {
+        label: 'Baecation',
+        icon: GiIsland,
+        description: "This is a baecation tour!"
+    }, 
+    {
+        label: 'Staycation',
+        icon: FaHouseTsunami,
+        description: "This is a staycation tour!"
+    }, 
+    {
+        label: 'Family vacay',
+        icon: MdOutlineFamilyRestroom,
+        description: "This is a family vacay tour!"
+    }, 
+    {
+        label: 'Road Trip',
+        icon: MdEditRoad,
+        description: "This is a road trip tour!"
+    }, 
+    {
+        label: 'Couple vacay',
+        icon: PiRoadHorizonThin,
+        description: "This is a couple vacay tour!"
+    }, 
+    {
+        label: 'Excursions',
+        icon: PiRoadHorizonThin,
+        description: "This is a excursions tour!"
     }
 ]
 

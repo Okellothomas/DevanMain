@@ -8,6 +8,12 @@ import getUsers, { IUsersParams } from "@/app/actions/getUsers";
 import deleteUsers from "@/app/actions/deleteUsers";
 import getHosts from "@/app/actions/getHost";
 import getOperators from "@/app/actions/getOperators";
+import axios from "axios";
+import deleteBtn from "@/app/actions/deleteBtn";
+import DeleteButton from "@/app/actions/deleteBtn";
+import UsersCard from "@/app/aahooks/UsersCard";
+// import toast from "react-hot-toast";
+// import Router, { useRouter } from "next/navigation";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -21,24 +27,31 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
   // Fetch listings, current user, and users asynchronously
   const currentUser = await getCurrentUser();
   const users = await getOperators({ ...userParams, userType: "operator" });
+  // const handleDelete = deleteBtn()
 
-  // Delete user function
-  // const handleDeleteUser = async (id: string) => {
-  //   try {
-  //     // Call your deleteUsers function from the API to delete the user
-  //     await deleteUsers({ id });
+  // const router = useRouter();
+  // const delt = deleteBtn();
 
-  //     // After deletion, fetch the updated user list
-  //     const updatedUsers = await getUsers({ ...userParams, userType: "host" });
+  
+  const handleDelete = async (id: string) => {
+        // e.stopPropagation();
+        console.log("button clicked");
+    try {
+        const response = await axios.delete(`/api/register/${id}`, {
+            method: 'DELETE',
+        });
+        console.log("try is working")
+        // toast.success("User deleted successfully")
+        // router.push("/")
+    } catch (error) {
+        console.error(error);
+        console.log('Failed to delete tour. Please try again.');
+    }
+  };
+  
+  // const handleDelete = () => {
 
-  //     // Update the state or re-render the component with the updated user list
-  //     // (This depends on how you manage state in your application)
-  //     console.log("User deleted successfully");
-  //   } catch (error) {
-  //     console.error("Error deleting user:", error);
-  //     // Handle error as needed (e.g., show an error message)
-  //   }
-  // };
+  // }
 
   // Render the Home component with the fetched listings
   return (
@@ -59,6 +72,35 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
               <h1 className="text-2xl font-bold">All Operators</h1>
             </div>
             <div className="items-center pb-1">
+                {users.length === 0 ? (
+                  <div>No operator currently  registered in the system please come back later!</div>
+                ) : (
+                  <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+                    {users.map((listing: any) => (
+                      <UsersCard
+                        currentUser={currentUser ? {
+                          ...currentUser,
+                          createdAt: currentUser.createdAt.toISOString(),
+                          updatedAt: currentUser.updatedAt.toISOString(),
+                          emailVerified: currentUser.emailVerified ? currentUser.emailVerified.toISOString() : null
+                        } : null} // Pass the current user to each ListingCard
+                        key={listing.id} // Use the listing ID as the unique key
+                        data={listing} // Pass the listing data to each ListingCard
+                      />
+                    ))}
+                  </div>
+                )}
+            </div>
+            <div className="col-span-4">
+            <hr />
+          </div>
+          </div>
+          
+          {/* <div className="col-span-4">
+            <div className="pb-6">
+              <h1 className="text-2xl font-bold">All Operators</h1>
+            </div>
+            <div className="items-center pb-1">
                {users.length === 0 ? (
                   <p>No operators are currently available please come back later!</p>
                 ) : (
@@ -69,13 +111,14 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
                         <p>{user.email}</p>
                         <p>{user.contact}</p>
                       </div>
-                      <button>Delete</button> {/* onClick={() => handleDeleteUser(user.id)} */}
+                      <DeleteButton
+                        onDelete={() => handleDelete(user.id)}
+                      > Delete</DeleteButton>
                     </div>
                   ))
                 )}
             </div>
-            {/* <AdminInfo userParams={userParams} /> */}
-          </div>
+          </div> */}
         </div>
       </Container>
     </div>
@@ -83,3 +126,4 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
 };
 
 export default HostPage;
+

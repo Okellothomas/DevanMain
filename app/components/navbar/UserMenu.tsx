@@ -74,7 +74,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     try { 
         await signOut({ callbackUrl: 'https://www.devancatour.com/' }); // Sign out the current user if exists
         // Ensure that the signOut is completed before redirection
-        // await router.push("/"); // Redirect to main page after successful logout
+        await router.push("/"); // Redirect to main page after successful logout
     } catch (error) {
         console.error("Error occurred during logout:", error);
     }

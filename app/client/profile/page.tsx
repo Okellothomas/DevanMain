@@ -40,7 +40,7 @@ const ProfilePage = async ({ searchParams, tourParams }: HotelPageProps) => {
             </div>
             <hr />
             <div className="flex flex-row justify-between items-center py-8">
-              <p>Admin Email</p>
+              <p>Email</p>
               <p>{ currentUser?.email}</p>            
             </div>
             <hr />

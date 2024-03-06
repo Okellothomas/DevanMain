@@ -106,6 +106,7 @@ import HouseMyCard from "@/app/aahooks/HouseMyCard";
 import getMyListingsHotels from "@/app/aagetMethods/getMyListingsHotels";
 import getMyReservationsHotels from "@/app/aagetMethods/getMyReservationHotels";
 import HouseReservationCard from "@/app/aahooks/HouseReservationCard";
+import ClientReservationCard from "@/app/aahooks/ClientReservationCard";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -157,7 +158,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
                 ) : (
                   <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                     {listings.map((listing: any, index: number) => (
-                      <HouseReservationCard
+                      <ClientReservationCard
                         currentUser={{
                           ...currentUser,
                           createdAt: currentUser.createdAt.toISOString(),

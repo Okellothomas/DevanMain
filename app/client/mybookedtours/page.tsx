@@ -4,6 +4,7 @@ import Container from "@/app/components/container/Container";
 import SideBar from "../profile/components/SideBar";
 import getmyTours, { ImyToursParams } from "@/app/aagetMethods/getmyTours";
 import TourMyCard from "@/app/aahooks/TourMyCard";
+import TourClientCard from '@/app/aahooks/TourClientCard';
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -59,7 +60,7 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
                 ) : (
                   <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                     {tours.map((tour: any) => (
-                      <TourMyCard
+                      <TourClientCard
                         currentUser={currentUser ? {
                           ...currentUser,
                           createdAt: currentUser.createdAt.toISOString(),

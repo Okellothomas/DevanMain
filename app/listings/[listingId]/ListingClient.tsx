@@ -344,7 +344,7 @@ const findAvailableDate = () => {
                           <div className="w-full py-4">
                            <hr />
                           </div>
-                              {listing.bathRoomCount !==0 && (
+                              {listing.bathRoomCount !== 0 && (
                                   <div className="flex flex-row justify-between">
                                       <div className="flex flex-row items-center gap-2"> <span className="text-blue-500"><MdOutlineBathroom size={23} /></span><span className="text-md">Bathrooms:</span></div> <span className="text-neutral-500">{listing.bathRoomCount}</span>
                                   </div>
@@ -494,9 +494,10 @@ const findAvailableDate = () => {
                   </div>
               </div> 
               {showPay && <PayPalScriptProvider options={{ 
-                // clientId: "ATNgosIlt76LLJdYbZjqNuhdI31gc3H_pV7mQa6h4CJ20Xz0F_O2zCDVlD_Xt91iHmftZ3cB4J2kiHS3" }}>
-                clientId: "AZ_ycPr5s3mAA-Xboaqc9ft8hHiaChcr42aZIauAYl3Ax0CDig8L3uc-V0P2Mgx70nQD4p7XKcTbCLBB" }}>
-
+               // clientId: "AZ_ycPr5s3mAA-Xboaqc9ft8hHiaChcr42aZIauAYl3Ax0CDig8L3uc-V0P2Mgx70nQD4p7XKcTbCLBB" }}>
+                  clientId: "ATNgosIlt76LLJdYbZjqNuhdI31gc3H_pV7mQa6h4CJ20Xz0F_O2zCDVlD_Xt91iHmftZ3cB4J2kiHS3"
+              }}>
+                  
                   <PaymentModal setShowPayModal={setShowPay} onPaymentComplete={handlePaymentComplete} totalPrice={totalPrice.toString()}/>
              </PayPalScriptProvider>}
 

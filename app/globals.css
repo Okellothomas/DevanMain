@@ -737,6 +737,17 @@ background: rgba(0,0,0,0.5);
           /* width: 94vw !important; */
         }
 
+                .main-image-small-screen-main-one {
+                  height: 25vh !important;
+                  width: 94vw !important;
+                  margin: 0px !important;
+                }
+        
+                .main-image-small-image-main-one {
+                  height: 22vh !important;
+                  width: 22vw !important;
+                }
+
                  .main-image-small-image {
                    height: 23vh !important;
                    width: 26vw !important;

@@ -68,7 +68,7 @@ const TourMainCard: React.FC<ListingCardProps> = ({
         onClick={() => router.push(`/tours/${data?.id}`)} //added ?
         className="col-span-1 group"
       >
-          <div className="flex flex-col h-[47vh] w-full bg-white py-4 px-4 rounded-xl shadow-md gap-3 main-image-small-screen">
+          <div className="flex flex-col h-[47vh] w-full bg-white py-4 px-4 rounded-xl shadow-md gap-3 main-image-small-screen-main-one">
             <div className="flex flex-row justify-between items-center ">
             <div className="flex flex-row items-center gap-4">
               <div className="aspect-square h-[42vh] w-full relative overflow-hidden rounded-xl main-image-small-image">
@@ -128,9 +128,9 @@ const TourMainCard: React.FC<ListingCardProps> = ({
                   </div>
                       </div>
                 <div>
-                  <span className=" border-white text-cyan-500 border-solid px-4 py-2 border-2 bg-cyan-500 hover:bg-cyan-500 cursor-pointer text-md hover:text-cyan-500 rounded-xl main-image-small-spans-c-btn" >View Tour</span>        
+                  <span className=" border-cyan-500 text-cyan-500 border-solid px-4 py-2 border-2 bg-white hover:bg-cyan-500 hover:text-white cursor-pointer text-md rounded-xl main-image-small-spans-c-btn" >View Tour</span>        
                 </div>
-                </div> 
+            </div> 
 
              </div>
               {onAction && actionLabel && (

@@ -50,20 +50,6 @@ const ClientReservationCard: React.FC<ListingCardProps> = ({
 }) => {
     const router = useRouter();
     const { getByValue } = useCountries();
-    // const location = getByValue(data?.locationValue || ""); // Handle null locationValue
-    // const toaster = useToaster();
-    // const [list, setList] = useState({
-    // // id: "",
-    // // userId: "",
-    // // listingId: "",
-    // // numberOfGuests: "",
-    // // numberOfRooms: "",
-    // // startDate: "",
-    // // endDate: "",
-    // // totalPrice: "",
-    // // paymentDetails: "",
-    // // createdAt: "",
-    // })
     const [list, setList] = useState<Listing | null>(null)
 
     const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
@@ -75,14 +61,6 @@ const ClientReservationCard: React.FC<ListingCardProps> = ({
 
         onAction?.(actionId);
     }, [onAction, actionId, disabled])
-
-    // const price = useMemo(() => {
-    //     if (reservation) {
-    //         return reservation.totalPrice;
-    //     }
-
-    //     return data?.price || 0; // Handle null data or price
-    // }, [reservation, data?.price])
 
     const reservationDate = useMemo(() => {
         if (!reservation) {

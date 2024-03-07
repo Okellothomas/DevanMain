@@ -78,8 +78,8 @@ const UsersCard: React.FC<ListingCardProps> = ({
             method: 'DELETE',
         });
         console.log("try is working")
-        toast.success("Tour deleted successfully")
-        router.push("/")
+        toast.success(`${data.name}, deleted successfully`)
+        router.push("/admin/profile")
     } catch (error) {
         console.error(error);
         console.log('Failed to delete tour. Please try again.');

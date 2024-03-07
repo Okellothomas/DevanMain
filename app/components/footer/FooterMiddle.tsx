@@ -16,13 +16,13 @@ const FooterMiddle = () => {
           <div onClick={() => router.push("/discoveryjourney")} className=" hover:underline cursor-pointer">Discovery Journeys</div>
           <div onClick={() => signUpModal.onOpen('host')} className=" hover:underline cursor-pointer">Host Sign Up</div> 
           <div onClick={() => signUpModal.onOpen('operator')} className=" hover:underline cursor-pointer">Operators Sign Up</div> 
-          <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Solo Travel</div> 
-          <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Camping</div>
-          <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">News</div>
+          <div onClick={() => router.push("/staycation")} className=" hover:underline cursor-pointer">Staycation</div> 
+          <div onClick={() => router.push("/couplevacay")} className=" hover:underline cursor-pointer">Couple Vacay</div>
+          <div onClick={() => router.push("/news")} className=" hover:underline cursor-pointer">News</div>
           <div onClick={() => router.push("/regionaljourney")} className=" hover:underline cursor-pointer">Regional Jouneys</div> 
           <div onClick={() => router.push("/oceancruise")} className=" hover:underline cursor-pointer">Ocean Cruises</div> 
           <div onClick={() => router.push("/countryroads")} className=" hover:underline cursor-pointer">Country Roads</div> 
-          <div onClick={() => router.push("/trips")} className=" hover:underline cursor-pointer">Group Size</div>
+          <div onClick={() => router.push("/vocations")} className=" hover:underline cursor-pointer">Vocations</div>
           <div onClick={() => router.push("/trendingtours")} className=" hover:underline cursor-pointer">Trending Tours</div>
           <div onClick={() => router.push("/contact")} className=" hover:underline cursor-pointer">Contact Us</div> 
           <div onClick={() => router.push("/premiumtours")} className=" hover:underline cursor-pointer">Premium Tours</div> 

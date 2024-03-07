@@ -19,6 +19,9 @@ import { FaHouseTsunami } from "react-icons/fa6";
 import { MdOutlineFamilyRestroom } from "react-icons/md";
 import { MdEditRoad } from "react-icons/md";
 import { SiBroadcom } from "react-icons/si";
+import { GiMountainRoad } from "react-icons/gi";
+import { GiLovers } from "react-icons/gi";
+import { GiHiking } from "react-icons/gi";
 
 export const tours = [
     {
@@ -53,7 +56,7 @@ export const tours = [
     },
     {
         label: 'Hiking',
-        icon: FaPersonSkiing,
+        icon: GiHiking,
         description: "This is a hiking tour!"
     },
     {
@@ -138,12 +141,12 @@ export const tours = [
     }, 
     {
         label: 'Couple vacay',
-        icon: PiRoadHorizonThin,
+        icon: GiLovers,
         description: "This is a couple vacay tour!"
     }, 
     {
         label: 'Excursions',
-        icon: PiRoadHorizonThin,
+        icon: GiMountainRoad,
         description: "This is a excursions tour!"
     }
 ]

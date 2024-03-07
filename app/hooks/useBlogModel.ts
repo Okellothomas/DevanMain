@@ -9,7 +9,7 @@ interface BlogModalStore {
 const useBlogModal = create<BlogModalStore>((set) => ({
     isOpen: false,
     onOpen: () => set({ isOpen: true }),
-    onClose: () => set({isOpen:false})
-}))
+    onClose: () => set({ isOpen: false }) // Fixed: Set isOpen to false directly
+}));
 
 export default useBlogModal;

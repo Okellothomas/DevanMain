@@ -80,6 +80,13 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     }
 };
 
+  const handleBlogClick = () => {
+  console.log("Opening blog modal...");
+  blogModal.onOpen();
+  console.log("Blog modal opened successfully.");
+  handleMenuItemClick(); // Make sure this is being called
+};
+
   return (
     <div className="relative" ref={menuRef}>
       <div className="flex flex-row items-center gap-3">
@@ -130,7 +137,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                       <div className="flex flex-row items-center"><CiUser size={23} /> <MenuItem onClick={() => { router.push("/admin/profile"); handleMenuItemClick(); }} label="My profile" /></div>
                       <div className="flex flex-row items-center"><MdOutlineAdminPanelSettings size={23} /><MenuItem onClick={() => { signUpModal.onOpen('admin'); handleMenuItemClick(); }} label="Add administrator" /></div>
                       <div className="flex flex-row items-center"><MdOutlineHotel size={23 } /><MenuItem onClick={() => { rentModal.onOpen(); handleMenuItemClick(); }} label="Add hotel/house" /></div>
-                      <div className="flex flex-row items-center"><GrBlog size={23 } /><MenuItem onClick={() => { blogModal.onOpen(); handleMenuItemClick(); }} label="Add blog" /></div>
+                        {/* <div className="flex flex-row items-center"><GrBlog size={23} /><MenuItem onClick={() => { blogModal.onOpen(); handleMenuItemClick(); }} label="Add blog" /></div> */}
+                      <div className="flex flex-row items-center"> <GrBlog size={23} /> <MenuItem onClick={handleBlogClick} label="Add blog" /></div>
                       <div className="flex flex-row items-center"><GiKangaroo size={23 } /><MenuItem onClick={() => { tourModal.onOpen(); handleMenuItemClick(); }} label="Add tour" /></div>
                       <hr />
                       <div className="flex flex-row items-center"><CiLogin size={23 } /><MenuItem onClick={handleLogout} label="Logout" /></div>

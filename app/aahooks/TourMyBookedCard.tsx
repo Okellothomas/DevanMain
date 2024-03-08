@@ -3,7 +3,7 @@ import useCountries from "@/app/hooks/useCountries";
 import { SafeUser, safeListing, safeReservation } from "@/app/types";
 import { Listing, Reservation } from "@prisma/client"
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { format } from 'date-fns';
 import Image from "next/image";
 import HeartButton from "../components/container/HeartButton";
@@ -12,6 +12,8 @@ import { safeTour } from "@/app/types";
 import prisma from '@/app/libs/prismadb';
 import toast, { useToaster } from "react-hot-toast";
 import axios from "axios";
+// import DialogBox from "./DialogBox";
+import { MouseEvent } from 'react';
 
 
 interface ListingCardProps {
@@ -39,6 +41,21 @@ const TourBookedMyCard: React.FC<ListingCardProps> = ({
     const { getByValue } = useCountries();
     const location = getByValue(data?.locationValue || ""); // Handle null locationValue
     const toaster = useToaster();
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+
+    const openDialog = (e: MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation(); // Stop event propagation to parent
+        setIsDialogOpen(true);
+    };
+
+    const handleDivClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+        openDialog(e);
+    };
+
+    const closeDialog = () => {
+        setIsDialogOpen(false);
+    };
 
     const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
@@ -137,10 +154,16 @@ const TourBookedMyCard: React.FC<ListingCardProps> = ({
                   />
               )}
           </div>   
-          <div className="flex flex-row items-center gap-1">
-                 <div className="font-semibold">
+          <div className="flex flex-row items-center  gap-1">
+                <div className="font-semibold">
                     <button className="outline-main-btn" onClick={handleDelete}>Delete</button>
-                </div>
+              </div>
+              <div className="font-semibold" onClick={handleDivClick}>
+                    <button className="outline-main-btn">View</button>
+              </div>
+              {/* <DialogBox isOpen={isDialogOpen} onClose={closeDialog}>
+                 
+              </DialogBox> */}
          </div>
     </div>
   )

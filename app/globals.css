@@ -740,7 +740,7 @@ background: rgba(0,0,0,0.5);
                 .main-image-small-screen-main-one {
                   height: 25vh !important;
                   width: 94vw !important;
-                  margin: 0px !important;
+                  margin-left: -2%!important;
                 }
         
                 .main-image-small-image-main-one {
@@ -789,7 +789,7 @@ background: rgba(0,0,0,0.5);
       background-repeat: no-repeat;
       flex-shrink: 0;
       height: 6vh;
-      margin-top: -21% !important;
+      margin-top: -30% !important;
     }
 
         .all-destinations-main-main {
@@ -804,7 +804,16 @@ background: rgba(0,0,0,0.5);
           background-repeat: no-repeat;
           flex-shrink: 0;
           height: 55vh;
-          margin-top: -21% !important;
+          margin-top: -30% !important;
+        }
+
+        .tour-p-main-c{
+          display: none;
+          visibility: hidden;
+        }
+
+        .all-destinations-main{
+          margin-top: -30%!important;
         }
 
 }
@@ -897,6 +906,11 @@ background: rgba(0,0,0,0.5);
       height: 35vh !important;
       /* width: 92vw !important; */
     }
+
+    .tour-p-main-c{
+      visibility: hidden;
+      display: none;
+    }
 }
 
 @media (min-width: 501px) and (max-width: 544px) {
@@ -983,6 +997,11 @@ background: rgba(0,0,0,0.5);
     position: relative;
     z-index: 10 !important;
   }
+
+        .main-image-small-image-main-one {
+          height: 20.5vh !important;
+          width: 20.5vw !important;
+        }
 }
 
 
@@ -1085,6 +1104,11 @@ background: rgba(0,0,0,0.5);
     height: 35vh !important;
     /* width: 91vw !important; */
   }
+
+        .main-image-small-image-main-one {
+          height: 20.5vh !important;
+          width: 20.5vw !important;
+        }
 }
 
 
@@ -1198,4 +1222,9 @@ background: rgba(0,0,0,0.5);
     display: none !important;
     visibility: hidden !important;
   }
+
+    .main-image-small-image-main-one {
+      height: 20.5vh !important;
+      width: 20.5vw !important;
+    }
 }

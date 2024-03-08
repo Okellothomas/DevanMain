@@ -16,50 +16,48 @@ import Link from "next/link";
 
 // Define the interface for the Home component props
 
-
 // Home component is defined as an asynchronous function
 const ProfilePage = async () => {
   // Fetch listings and current user asynchronousl
   return (
-      <div className="border-[2px] rounded-xl px-5">
+      <div className="border-[2px] sidebar-image-main rounded-xl px-5">
           <div className="w-full text-center items-center py-5">
-          <FaCircleUser className="text-neutral-500" size={ 40 } /> 
+          <FaCircleUser className="text-neutral-500" size={ 29 } /> 
           </div>
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center"> 
+          <Link href="/operator/profile"><FaRegUser className="text-neutral-500" size={26} /></Link>
+          <Link href="/operator/profile" className="sidebar-image">Personal Info</Link>
+          </div>
+          <hr />gi
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <FaRegUser className="text-neutral-500" size={26} /> 
-          <Link href="/operator/profile">Personal Info</Link>
+          <Link href="/operator/mytours"><PiBookOpenTextBold className="text-neutral-500" size={26} /></Link>
+          <Link href="/operator/mytours" className="sidebar-image">My Tours</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <PiBookOpenTextBold className="text-neutral-500" size={26} /> 
-          <Link href="/operator/mytours">My Tours</Link>
+          <Link href="/operator/myhotels"><BiBookmarkAltMinus className="text-neutral-500" size={26} /></Link>
+          <Link href="/operator/myhotels" className="sidebar-image">My Hotels</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <BiBookmarkAltMinus className="text-neutral-500" size= {26} /> 
-          <Link href="/operator/myhotels">My Hotels</Link>
+          <Link href="/operator/myhouses"><PiBookmarksSimpleBold className="text-neutral-500" size={26} /></Link>
+          <Link href="/operator/myhouses" className="sidebar-image">My Houses</Link>
+          </div>
+          <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center"> 
+          <Link href="/operator/mybookedtours"><IoBookmarks className="text-neutral-500" size={26} /></Link>
+          <Link href="/operator/mybookedtours" className="sidebar-image">My Booked Tours</Link>
+          </div>
+          <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center"> 
+          <Link href="/operator/mybookedhotels"><BsBookmarkCheck className="text-neutral-500" size={26} /></Link>
+          <Link href="/operator/mybookedhotels" className="sidebar-image">My Booked Hotels</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <PiBookmarksSimpleBold className="text-neutral-500" size= {26} /> 
-          <Link href="/operator/myhouses">My Houses</Link>
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <IoBookmarks className="text-neutral-500" size={26} /> 
-          <Link href="/operator/mybookedtours">My Booked Tours</Link>
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <BsBookmarkCheck className="text-neutral-500" size={26} /> 
-          <Link href="/operator/mybookedhotels">My Booked Hotels</Link>
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <PiBookOpenTextFill className="text-neutral-500" size={26} /> 
-          <Link href="/operator/mybookedhouses">My Booked Houses</Link>
-          </div>
-          
+          <Link href="/operator/mybookedhouses"><PiBookOpenTextFill className="text-neutral-500" size={26} /></Link>
+          <Link href="/operator/mybookedhouses" className="sidebar-image">My Booked Houses</Link>
+          </div>   
     </div>
   )
 }

@@ -25,8 +25,7 @@ const ProfilePage = async () => {
   return (
       <div className="border-[2px] sidebar-image-main rounded-xl px-5">
           <div className="w-full text-center items-center py-5"> 
-          <Link href="/admin/profile"><FaCircleUser className="text-neutral-500" size={32} /></Link>
-          <Link href="/admin/profile" className="sidebar-image">Personal Info</Link>
+          <FaCircleUser className="text-neutral-500" size={29} />
           </div>
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <Link href="/admin/profile"><FaRegUser className="text-neutral-500" size={26} /></Link>

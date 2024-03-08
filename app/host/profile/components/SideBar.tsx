@@ -14,38 +14,38 @@ import Link from "next/link";
 const ProfilePage = async () => {
   // Fetch listings and current user asynchronousl
   return (
-      <div className="border-[2px] rounded-xl px-5">
+      <div className="border-[2px] sidebar-image-main rounded-xl px-5">
           <div className="w-full text-center items-center py-5">
-          <FaCircleUser className="text-neutral-500" size={ 40 } /> 
+          <FaCircleUser className="text-neutral-500" size={ 29 } /> 
           </div>
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <FaRegUser className="text-neutral-500" size={26} /> 
-          <Link href="/host/profile">Personal Info</Link>
+          <Link href="/host/profile"><FaRegUser className="text-neutral-500" size={26} /></Link>
+          <Link href="/host/profile" className="sidebar-image">Personal Info</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <FaSwatchbook className="text-neutral-500" size= {26} /> 
-          <Link href="/host/myhotels">My Hotels</Link>
+          <Link href="/host/myhotels"> <FaSwatchbook className="text-neutral-500" size={26} /></Link>
+          <Link href="/host/myhotels" className="sidebar-image">My Hotels</Link>
           </div>
           <hr />
            <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <LiaSwatchbookSolid className="text-neutral-500" size={26} /> 
-          <Link href="/host/myhouses">My Houses</Link>
+          <Link href="/host/myhouses"> <LiaSwatchbookSolid className="text-neutral-500" size={26} /></Link>
+          <Link href="/host/myhouses" className="sidebar-image">My Houses</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <IoBookmarks className="text-neutral-500" size={26} /> 
-          <Link href="/host/mybookedhotels">My Booked Hotels</Link>
+          <Link href="/host/mybookedhotels"><IoBookmarks className="text-neutral-500" size={26} /></Link>
+          <Link href="/host/mybookedhotels" className="sidebar-image">My Booked Hotels</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <PiBookOpenTextFill className="text-neutral-500" size={26} /> 
-          <Link href="/host/mybookedhouses">My Booked Houses</Link>
+          <Link href="/host/mybookedhouses"><PiBookOpenTextFill className="text-neutral-500" size={26} /></Link>
+          <Link href="/host/mybookedhouses" className="sidebar-image">My Booked Houses</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <PiBookOpenTextBold className="text-neutral-500" size={26} /> 
-          <Link href="/host/mytours">My Tours</Link>
+          <Link href="/host/mytours"><PiBookOpenTextBold className="text-neutral-500" size={26} /></Link>
+          <Link href="/host/mytours" className="sidebar-image">My Tours</Link>
          </div>
     </div>
   )

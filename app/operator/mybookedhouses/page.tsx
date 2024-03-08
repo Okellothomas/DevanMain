@@ -40,12 +40,6 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
 
     const listings = houseLists.filter(listing => listing.Listing?.house == "house")
 
-    // const listings = Array.from(new Set((await getOperaReservationsHotels({ ...searchParams, userId: currentUser.id })).map(listing => listing.id))).map(listingId => {
-    //   return (await getOperaReservationsHotels({ ...searchParams, userId: currentUser.id })).find(listing => listing.id === listingId);
-    //  });
-
-    // console.log("Listings found", listings);
-    // const filteredListings = listings.filter(listing => listing.tourists.length > 0);
 
     // Render the Home component with the fetched listings
     return (
@@ -69,7 +63,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
                 {listings.length === 0 ? (
                   <div>No hotels found</div>
                 ) : (
-                  <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+                  <div className="pt-2 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                     {listings.map((listing: any, index: number) => (
                       <HouseReservationCard
                         currentUser={{

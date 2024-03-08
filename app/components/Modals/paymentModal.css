@@ -56,3 +56,15 @@
 {
    cursor: pointer;
 }
+
+@media (min-width: 0px) and (max-width: 641px) {
+  .payment_modal_main_body {
+      background: white;
+      margin: auto;
+      width: 95%;
+      height: 50%;
+      border-radius: 15px;
+      padding: 10px 20px;
+      position: relative;
+    }
+}

@@ -19,28 +19,23 @@ import Link from "next/link";
 const ProfilePage = async () => {
   // Fetch listings and current user asynchronousl
   return (
-      <div className="border-[2px] rounded-xl px-5">
+      <div className="border-[2px] sidebar-image-main rounded-xl px-5">
           <div className="w-full text-center items-center py-5">
           <FaCircleUser className="text-neutral-500" size={ 40 } /> 
           </div>
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <FaRegUser className="text-neutral-500" size={26} /> 
-          <Link href="/client/profile">Personal Info</Link>
+         <Link href="/client/profile"><FaRegUser className="text-neutral-500" size={26} /> </Link>
+          <Link href="/client/profile" className="sidebar-image">Personal Info</Link>
           </div>
           <hr />
            <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <LiaSwatchbookSolid className="text-neutral-500" size={26} /> 
-          <Link href="/client/mybookedtours">My Booked Tours</Link>
+          <Link href="/client/mybookedtours"><LiaSwatchbookSolid className="text-neutral-500" size={26} /></Link>
+          <Link href="/client/mybookedtours" className="sidebar-image">My Booked Tours</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <IoBookmarks className="text-neutral-500" size={26} /> 
-          <Link href="/client/mybookedhotels">My Booked Hotels</Link>
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <PiBookmarksSimpleBold className="text-neutral-500" size={26} /> 
-          <Link href="/client/mybookedhouses">My Booked Houses</Link>
+          <Link href="/client/mybookedhotels"><IoBookmarks className="text-neutral-500" size={26} /></Link>
+          <Link href="/client/mybookedhotels" className="sidebar-image">My Booked Hotels</Link>
           </div>
     </div>
   )

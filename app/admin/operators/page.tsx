@@ -75,7 +75,7 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
                 {users.length === 0 ? (
                   <div>No operator currently  registered in the system please come back later!</div>
                 ) : (
-                  <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+                  <div className="pt-2 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                     {users.map((listing: any) => (
                       <UsersCard
                         currentUser={currentUser ? {

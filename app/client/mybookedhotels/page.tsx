@@ -156,7 +156,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
                 {listings.length === 0 ? (
                   <div>No hotels found</div>
                 ) : (
-                  <div className="pt-2 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+                  <div className="pt-2 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                     {listings.map((listing: any, index: number) => (
                       <ClientReservationCard
                         currentUser={{

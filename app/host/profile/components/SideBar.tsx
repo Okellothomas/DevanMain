@@ -6,6 +6,7 @@ import { IoBookmarks } from "react-icons/io5";
 import { PiBookOpenTextBold } from "react-icons/pi";
 import { PiBookOpenTextFill } from "react-icons/pi";
 import Link from "next/link";
+import "./sidebar.css";
 
 // Define the interface for the Home component props
 

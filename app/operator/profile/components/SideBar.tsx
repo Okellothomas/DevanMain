@@ -13,6 +13,7 @@ import { PiBookOpenTextFill } from "react-icons/pi";
 import { BsBookmarkCheck } from "react-icons/bs";
 import { BiBookmarkAltMinus } from "react-icons/bi";
 import Link from "next/link";
+import "./sidebar.css";
 
 // Define the interface for the Home component props
 
@@ -28,7 +29,7 @@ const ProfilePage = async () => {
           <Link href="/operator/profile"><FaRegUser className="text-neutral-500" size={26} /></Link>
           <Link href="/operator/profile" className="sidebar-image">Personal Info</Link>
           </div>
-          <hr />gi
+          <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <Link href="/operator/mytours"><PiBookOpenTextBold className="text-neutral-500" size={26} /></Link>
           <Link href="/operator/mytours" className="sidebar-image">My Tours</Link>

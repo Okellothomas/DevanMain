@@ -36,6 +36,10 @@ const ProfilePage = async () => {
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <Link href="/client/mybookedhotels"><IoBookmarks className="text-neutral-500" size={26} /></Link>
           <Link href="/client/mybookedhotels" className="sidebar-image">My Booked Hotels</Link>
+           </div>
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
+          <Link href="/client/mybookedhouses"><FaRegAddressBook className="text-neutral-500" size={26} /></Link>
+          <Link href="/client/mybookedhouses" className="sidebar-image">My Booked Houses</Link>
           </div>
     </div>
   )

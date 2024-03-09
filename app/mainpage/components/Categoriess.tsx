@@ -145,7 +145,7 @@ const Categoriess = () => {
 
   return (
     <div className="">
-      <div className="flex flex-row w-full gap-40">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 w-full sm:gap-8 md:gap-8 lg:gap-40 xl:gap-40 2xl:gap-40 max-2xl:gap-40">
         {Object.keys(categoriesData).map((continent) => (
           <div
             className="flex gap-2 flex-row cursor-pointer"
@@ -172,7 +172,7 @@ const Categoriess = () => {
         <div className="py-4 full-width-container">
           <hr />
         </div>
-        <div className="full-width-container flex flex-row gap-8 w-full">
+        <div className="full-width-container grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8 w-full">
           {selectedCountries.map((country) => (
             <UpdatedCategoryBox
               key={country.label}

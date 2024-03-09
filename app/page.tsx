@@ -206,7 +206,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           <h1 className="main-header-black w-full text-center">PREMIUM <span className="main-header-gradient">TRENDING TOURS</span></h1>
           <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
         </div>
-        <div className="trending-list-main-page pt-4 pl-16 pb-4 justify-between grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-6">
+        <div className="trending-list-main-page pt-4 pl-16 pb-4 justify-between grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-6">
           {filteredToursss.map((tour: any) => (
             <ListingValue
               data={tour}

@@ -1236,3 +1236,24 @@ background: rgba(0,0,0,0.5);
       width: 20.5vw !important;
     }
 }
+
+@media (min-width: 642px) and (max-width: 768px) {
+  .carousel-container {
+      margin-top: -19% !important;
+      height: 66vh!important;
+    }
+
+    .carousel-images{
+      height: 66vh !important;
+    }
+  
+    .carousel-main-div {
+      margin-top: -90% !important;
+      z-index: 5 !important;
+      /* width: 100vw!important; */
+    }
+  
+    .carousel-main-div-carousel {
+      height: -8 !important;
+    }
+}

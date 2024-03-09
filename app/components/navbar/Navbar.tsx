@@ -126,7 +126,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to track menu toggle
   const [isLoaded, setIsLoaded] = useState(false); // State to track initial load
-  const isSmallScreen = useMediaQuery("(max-width: 640px)"); // Define a breakpoint for small screens
+  const isSmallScreen = useMediaQuery("(max-width: 768px)"); // Define a breakpoint for small screens
 
   useEffect(() => {
     const handleScroll = () => {

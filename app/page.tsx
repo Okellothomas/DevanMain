@@ -77,7 +77,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
             <h1 className="main-header-black w-full text-center">AMAZING <span className="main-header-gradient">UPCOMING TOURS</span></h1>
             <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
           </div>
-          <div className="pt-9 pb-4 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+          <div className="pt-9 pb-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
             {filteredTours.map((tour: any) => (
               <TourPriceCard
                 currentUser={currentUser ? {
@@ -98,7 +98,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <h1 className="color-h1-white pb-4">Tour in comfort and style</h1>
 
           <Container>
-            <div className="booking-card grid w-full px-5 gap-32 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 sm:my-3 sm:py-2 md:py-4 lg:py-5 xl:py-7 2xl:py-7 my-9">
+            <div className="booking-card grid w-full px-5 gap-32 grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 sm:my-3 sm:py-2 md:py-4 lg:py-5 xl:py-7 2xl:py-7 my-9">
             <CardDisplay
               icon={FaStar}
               // label="Insightful experiences"
@@ -127,7 +127,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           <h1 className="main-header-black w-full text-center">INTERCONTINENTAL <span className="main-header-gradient">CLASS HOTELS</span></h1>
           <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
         </div>
-        <div className="pt-10 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+        <div className="pt-10 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
           {listings.slice(0, 4).map((listing: any) => (
             <ListingCardMain
               currentUser={currentUser ? {
@@ -177,7 +177,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           <h1 className="main-header-black w-full text-center">CLASSIC <span className="main-header-gradient">ADVENTURE TOURS</span></h1>
           <p className="text-neutral-500 text-sm w-full text-center">Experience the thrill of a lifetime on our curated selection of active, immersive tours full of adrenaline, culture and natural wonder.</p>
         </div>
-        <div className="pt-10 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+        <div className="pt-10 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
           {/* Map through the listings array and render ListingCard components */}
           {filteredTourss.map((tour: any) => (
             <TourCardSecondary
@@ -206,7 +206,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
           <h1 className="main-header-black w-full text-center">PREMIUM <span className="main-header-gradient">TRENDING TOURS</span></h1>
           <p className="text-neutral-500 text-sm w-full text-center">Be the envy of your friends by booking one of our highly coveted, limited-availability tours to the world&lsquo;s hottest, must-visit destinations.</p>
         </div>
-        <div className="trending-list-main-page pt-4 pl-16 pb-4 justify-between grid grid-cols-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-6">
+        <div className="trending-list-main-page pt-4 pl-16 pb-4 justify-between grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-6">
           {filteredToursss.map((tour: any) => (
             <ListingValue
               data={tour}

@@ -1430,15 +1430,17 @@ background: rgba(0,0,0,0.5);
     }
 
     .order-first{
-      position:static !important;
+      position:absolute !important;
       grid-template-columns: repeat(7, minmax(0, 1fr))!important;
       width: 90vw !important;
-      margin-top: 2vh!important;
-      margin-bottom: 2vh!important;
+      margin-top: 90vh!important;
+      margin-bottom: 1vh!important;
     }
     .order-first-s-main{
       grid-template-columns: repeat(7, minmax(0, 1fr))!important;
       width: 90vw !important;
+      margin-top: 64vh !important;
+      margin-bottom: 2vh !important;
     }
     .order-first-second {
       position:relative !important;

@@ -331,7 +331,7 @@ const findAvailableDate = () => {
                           bathroomCount={listing.bathRoomCount}
                           locationValue={listing.locationValue}
                       /> */}
-                      <div className="w-full col-span-4">
+                      <div className="order-first-s-main w-full col-span-4">
                           
                           <div className="border-[1px] border-solid py-4 px-4 border-neutral-300 h-auto w-full rounded-lg">
                         

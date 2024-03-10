@@ -824,6 +824,19 @@ background: rgba(0,0,0,0.5);
           margin-top: -30% !important;
         }
 
+        .main-image-small-screen{
+          height: auto!important;
+        }
+
+    .nav-bar-btn-smallscreen {
+      display: block !important;
+    }
+  
+    .nav-bar-btn-smalls {
+      display: block !important;
+      ;
+    }
+
 }
 
 
@@ -1324,11 +1337,20 @@ background: rgba(0,0,0,0.5);
                 .all-destinations-main-admin-profile {
                   margin-top: -20% !important;
                 }
-     .order-first {
-       grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-       position: relative !important;
-       width: 98vw !important;
-     }
+         .order-first {
+           position: relative !important;
+           grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+           width: 98vw !important;
+           margin-top: -10vh !important;
+           margin-bottom: 1vh !important;
+         }
+    
+         .order-first-s-main {
+           grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+           width: 98vw !important;
+           margin-top: -22vh !important;
+           margin-bottom: 2vh !important;
+         }
   
      .order-first-second {
        position: relative !important;
@@ -1343,6 +1365,41 @@ background: rgba(0,0,0,0.5);
        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
        width: 98vw !important;
      }
+    .main-image-small-screen {
+      height: auto !important;
+    }
+    .main-image-small-screen-i {
+      height: 35vh !important;
+    }
+
+    .all-destination-products{
+      display: none!important;
+      visibility: hidden !important;
+    }
+
+        .all-destination-tour-main-card {
+          grid-column: span 5 / span 5;
+        }
+
+                 .main-image-small-screen-main-one {
+                   height: 33.5vh !important;
+                   width: 98vw !important;
+                 }
+        
+                 .main-image-small-image-main-one {
+                   height: 30.5vh !important;
+                   width: 34.5vw !important;
+                 }
+        
+                 .main-image-small-spans-c-btn {
+                   display: none !important;
+                   visibility: hidden !important;
+                 }
+        
+                 .tour-p-main-c {
+                   display: none !important;
+                   visibility: hidden !important;
+                 }
 }
 
 @media (min-width: 721px) and (max-width: 768px) {
@@ -1455,4 +1512,204 @@ background: rgba(0,0,0,0.5);
           grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
           width: 90vw !important;
         }
+    .main-image-small-screen {
+      height: auto !important;
+    }
+    .main-image-small-screen-i{
+      height: 35vh!important;
+    }
+
+        .all-destination-products {
+          display: none !important;
+          visibility: hidden !important;
+        }
+
+      .all-destination-tour-main-card{
+        grid-column: span 5 / span 5;
+      }
+    
+                .main-image-small-screen-main-one {
+                  height: 33.5vh !important;
+                  width: 90vw !important;
+                }
+        
+                .main-image-small-image-main-one {
+                  height: 30.5vh !important;
+                  width: 34.5vw !important;
+                }
+          .main-image-small-spans-c-btn{
+            display: none !important;
+            visibility: hidden !important;
+          }
+
+        .tour-p-main-c{
+          display: none !important;
+          visibility: hidden !important;
+        }
+}
+
+@media (min-width: 769px) and (max-width: 920px) {
+  .carousel-container {
+    margin-top: -19% !important;
+    height: 66vh !important;
+  }
+
+  .country-header-m {
+    visibility: hidden !important;
+    display: none !important;
+    gap: 40px !important;
+    justify-content: space-between !important;
+  }
+
+  .carousel-images {
+    height: 45vh !important;
+  }
+
+  .carousel-main-div {
+    margin-top: -105% !important;
+    z-index: 5 !important;
+    /* width: 100vw!important; */
+  }
+
+  .carousel-main-div-carousel {
+    height: -8 !important;
+  }
+
+  .grid-cols-page-s {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .page-main-ctry {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .nav-bar-btn-smallscreen {
+    display: block !important;
+  }
+
+  .nav-bar-btn-smalls {
+    display: block !important;
+  }
+
+  .trending-list-main-page {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .booking-card-nine {
+    height: auto !important;
+    width: auto !important;
+    gap: 230px !important;
+  }
+
+  .alldestinations-main {
+    height: 34vh;
+    margin-top: -15% !important;
+  }
+
+  .all-destination-filter {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .all-destinations-main-loader {
+
+    height: 6.6vh;
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main-main {
+    height: 55vh;
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main {
+    margin-top: -20% !important;
+  }
+
+  .european-hotel {
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main-admin-profile {
+    margin-top: -20% !important;
+  }
+
+  .order-first {
+    position: absolute !important;
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    width: 90vw !important;
+    margin-top: 90vh !important;
+    margin-bottom: 1vh !important;
+  }
+
+  .order-first-s-main {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    width: 90vw !important;
+    margin-top: 64vh !important;
+    margin-bottom: 2vh !important;
+  }
+
+  .order-first-second {
+    position: relative !important;
+    height: 95vh !important;
+    width: 90vw !important;
+    margin-bottom: 10vh !important;
+    margin-top: -10% !important;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  .order-first-second-first {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    width: 90vw !important;
+  }
+
+  .main-image-small-screen {
+    height: auto !important;
+  }
+
+  .main-image-small-screen-i {
+    height: 35vh !important;
+  }
+
+  .all-destination-products {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .all-destination-tour-main-card {
+    grid-column: span 5 / span 5;
+  }
+
+  .main-image-small-screen-main-one {
+    height: 27.9vh !important;
+    width: 90vw !important;
+  }
+
+  .main-image-small-image-main-one {
+    height: 25.5vh !important;
+    width: 30.5vw !important;
+  }
+
+  .main-image-small-spans-c-btn {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .tour-p-main-c {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .nav-bar-btn-smallscreen{
+    display: block!important;
+  }
+
+  .nav-bar-btn-smalls{
+    display: block!important;;
+  }
+
+  .booking-card-mj{
+    height: 30vh!important;
+  }
 }

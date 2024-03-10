@@ -74,7 +74,7 @@ const TourCardSecondary: React.FC<ListingCardProps> = ({
                       fill
                       alt="Listing"
                       src={data?.imageSrc[0]} //added ?
-                      className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen"
+                      className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen-i main-image-small-screen"
                   />
                   <div className="absolute top-3 right-3">
                       <HeartButton

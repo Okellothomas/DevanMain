@@ -98,7 +98,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
         <h1 className="color-h1-white pb-4">Tour in comfort and style</h1>
 
           <Container>
-            <div className="booking-card grid w-full px-5 gap-32 grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 sm:my-3 sm:py-2 md:py-4 lg:py-5 xl:py-7 2xl:py-7 my-9">
+            <div className="booking-card booking-card-nine grid w-full px-5 gap-32 grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 sm:my-3 sm:py-2 md:py-4 lg:py-5 xl:py-7 2xl:py-7 my-9">
             <CardDisplay
               icon={FaStar}
               // label="Insightful experiences"

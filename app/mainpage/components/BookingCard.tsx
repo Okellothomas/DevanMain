@@ -14,7 +14,7 @@ const BookingCard: React.FC<MenuItemProps> = ({
   icon: IconComponent, // Rename imageSrc to icon and use the imported icon component
 }) => {
   return (
-    <div className='booking-card booking-card-mj grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 items-center text-center w-full h-[38vh] rounded-xl justify-between'>
+    <div className='booking-card booking-card-mj grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 items-center text-center w-full h-[38vh] md:h-[45vh] lg:h-[38vh] xl:h-[38vh] 2xl:h-[38vh] max-2xl:h-[38vh] rounded-xl justify-between'>
     <div
       className="text-center flex p-6 flex-col gap-3 items-center aspect-square w-full"
       >
@@ -38,7 +38,7 @@ const BookingCard: React.FC<MenuItemProps> = ({
       </div>
 
       <div
-      className="booking-card-two text-center p-6 flex flex-col gap-3 items-center aspect-square w-full relative"
+      className="booking-card-two text-center p-6 flex booking-card-text-last flex-col gap-3 items-center aspect-square w-full relative"
       >
      <div className='bg-white p-3 rounded-full text-neutral-500'>
         <MdOutlineSupportAgent size={25} />

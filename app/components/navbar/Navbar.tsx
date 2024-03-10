@@ -174,7 +174,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
           )}
 
           {/* Menu Button for Small Screens */}
-          <div className="sm:hidden">
+          <div className="sm:hidden md:block lg:hidden xl:hidden 2xl:hidden max-2xl:hidden nav-bar-btn-smallscreen">
             <button
               className={`block focus:outline-none ${isScrolled ? "text-black" : "text-white"}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -198,7 +198,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
 
         {/* Responsive Menu for Small Screens */}
         {isMenuOpen && isSmallScreen && (
-          <div className="sm:hidden">
+          <div className="sm:hidden md:block nav-bar-btn-smalls">
             <div className="flex flex-col items-start gap-3 mt-3">
               <Nav />
               <UserMenu currentUser={currentUser} />

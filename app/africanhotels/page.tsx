@@ -63,7 +63,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           </div>
       </Container>
       <Container>
-      <div className="pt-6 pb-4 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+      <div className="grid-cols-page-s pt-6 pb-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
         {/* Map through the listings array and render ListingCard components */}
         {listings.slice(0, 5).map((listing: any) => {
           return (
@@ -94,27 +94,13 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           </div>
         </Container>
       </div>
-    
-    {/* The categories page */}
-      {/* <Container>
-        <div className="flex flex-col gap-1 pt-10">
-        <h1 className="main-header-black w-full text-center">SEARCH <span className="main-header-gradient">BY CONTINENT</span></h1>
-        <p className="text-neutral-500 text-sm w-full text-center">Experience timeless luxury and impeccable service at our handpicked collection of iconic five-star hotels spanning the globe.</p>
-        </div>
-        <div className="pt-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4">
-            <TheCategoriess />
-        </div>
-        <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alldestinations">View prime destinations</Link>
-        </div>
-          </Container> */}
           
         <Container>
         <div className="flex flex-col gap-1 pt-9">
         <h1 className="main-header-black w-full text-center">FEATURED <span className="main-header-gradient">PREMIUM TOURS</span></h1>
         <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
         </div>
-        <div className="pt-9 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+        <div className="grid-cols-page-s pt-9 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
           {/* Map through the listings array and render ListingCard components */}
         {tours.slice(0, 4).map((tour: any) => {
           return (

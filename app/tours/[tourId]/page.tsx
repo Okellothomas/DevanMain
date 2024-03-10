@@ -66,7 +66,7 @@ const TourPage = async ({ params }: { params: IParams }) => {
               You viewed the magical {tour.title} tour - continue your luxury adventure with these premium recommendations for similar exotic journeys handpicked just for you.
             </p>
           </div>
-          <div className="pt-10 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+          <div className="grid-cols-page-s pt-10 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
             {/* Map through the tours array and render TourCard components */}
             {filteredTours.map((tour: any) => (
               <TourCardSecondary

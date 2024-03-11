@@ -109,13 +109,13 @@ const TourPriceCard: React.FC<ListingCardProps> = ({
                  </div> */}
              </div>
             <div className="flex flex-row px-4 py-2 justify-between items-center">
-              <div className="flex flex-row gap-1 text-center text-sm">
+              <div className="flex flex-row gap-1 text-center text-sm tourpricecard-text">
               <SlCalender size={18} /> <span>{data.days}</span> days
               </div>
-             <div className="flex flex-row gap-1 text-center text-sm">
+             <div className="flex flex-row gap-1 text-center text-sm tourpricecard-text">
                <IoLocationOutline size={18} /> <span>{data.locs}</span> locations
                </div>
-             <div className="flex flex-row gap-1 text-center text-sm">
+             <div className="flex flex-row gap-1 text-center text-sm tourpricecard-text">
                 <GiWorld size={18} /> <span>{data.counts}</span> countries
                </div>
              </div>

@@ -87,7 +87,7 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
               <div>
                 <span className="font-bold">{data.city}</span>      
               </div>
-              <div className="text-sm">
+              <div className="text-sm truncate max-w-[10rem]">
                  <span>{location?.label},</span> {location?.region}
               </div>
              </div>

@@ -80,7 +80,7 @@ export default function AllDestinationsPage({ tourParams }: IParams) {
               <TourOperators products={products} />
               <TourSize products={products}/>
             </div>
-            <div className="col-span-4">
+            <div className="col-span-4 all-destination-tour-main-card">
               <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 gap-8 all-destination-tours">
                 {/* Map through the visible listings array and render ListingCard components */}
                 {visibleTours.map((tour: any) => (

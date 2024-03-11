@@ -743,7 +743,8 @@ const TourClient: React.FC<TourClientProps> = ({
                      )}    
                   </div>
 
-                    <div className="order-first-second border-[1px] h-[123vh] border-solid py-4 px-4 border-neutral-300 col-span-2 rounded-lg" style={{position: 'sticky', top: '10vh'}}>
+                      <div className="order-first-second col-span-2" style={{ position: 'sticky', top: '10vh' }}>
+                          <div className="border-neutral-300 pt-4 px-4 border-solid w-full rounded-lg h-auto border-[1px]">
                           <div className="flex flex-row px-4 justify-between item-center gap-3">
                               <div className="flex flex-row gap-3 justify-between items-center">
                                  <span className="text-blue-400"><SlCalender size={23 } /></span><span>Tour Length</span> 
@@ -828,12 +829,13 @@ const TourClient: React.FC<TourClientProps> = ({
         {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
         <div className="flex flex-row items-center mt-2">
             <label htmlFor="guests" className="text-right mr-4 text-gray-700">
-                Number of Guests & Rooms:
+                Number of Tourists:
             </label>
             <input
                 id="guests"
                 type="text"
-                value={`${options.guests} Guests ${options.rooms} Rooms`}
+                value={`${options.guests} Tourists`}
+                // value={`${options.guests} Guests ${options.rooms} Rooms`}
                 className="shadow border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 onClick={toggleOptions}
             />
@@ -843,7 +845,7 @@ const TourClient: React.FC<TourClientProps> = ({
             <div className="bg-white p-2 md:p-2 shadow-md w-full"> {/* Remove absolute positioning */}
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-row gap-3">
-                        <span className="text-lg">Hotel Rooms: </span>
+                        <span className="text-lg">Hotel Rooms(Optional): </span>
                         <div className="flex gap-3 items-center">
                             <button
                                 className="border rounded-full py-1 px-3 focus:outline-none"
@@ -917,7 +919,7 @@ const TourClient: React.FC<TourClientProps> = ({
                 setShowPay(true); // Show payment modal
                 }}
             >
-                Pay $100
+                Book With $100
             </button>
             ) : (
             <div className="text-red-500"></div>
@@ -939,7 +941,8 @@ const TourClient: React.FC<TourClientProps> = ({
                         onPaymentComplete={handlePaymentComplete} 
                         totalPrice={selectedPaymentAmount.toString()} 
                     />
-                </PayPalScriptProvider>}
+                          </PayPalScriptProvider>}
+                    </div>
                       </div> 
                   </div>
               </div>

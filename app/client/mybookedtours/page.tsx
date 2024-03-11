@@ -58,7 +58,7 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
                 {tours.length === 0 ? (
                   <div>No tours found</div>
                 ) : (
-                  <div className="pt-2 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+                  <div className="pt-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
                     {tours.map((tour: any) => (
                       <TourClientCard
                         currentUser={currentUser ? {

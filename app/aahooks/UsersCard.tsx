@@ -61,14 +61,6 @@ const UsersCard: React.FC<ListingCardProps> = ({
         onAction?.(actionId);
     }, [onAction, actionId, disabled])
 
-    // const price = useMemo(() => {
-    //     if (reservation) {
-    //         return reservation.totalPrice;
-    //     }
-
-    //     return data?.price || 0; // Handle null data or price
-    // }, [reservation, data?.price])
-
 
     const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
@@ -85,25 +77,6 @@ const UsersCard: React.FC<ListingCardProps> = ({
         console.log('Failed to delete tour. Please try again.');
     }
     };
-    
-    // useEffect(() => {
-    //     const getListing = async () => {
-    //         try {
-    //             const response = await axios.get(`/api/register/${data?.id}`);
-    //             setList(response.data)
-    //             console.log(response.data)
-    //         } catch (error) {
-    //             console.error(error);
-    //             console.log('Failed to delete tour. Please try again.');
-    //         }
-    //     };
-
-    //     getListing();
-    // }, [data?.id]);
-
-    // console.log('the data', data.Listing);
-    // console.log('the list', data);
-
 
 
     return (
@@ -112,7 +85,7 @@ const UsersCard: React.FC<ListingCardProps> = ({
         // onClick={() => router.push(`/register/${data?.id || ""}`)} // Handle null data or id
         className="col-span-4 cursor-pointer group flex flex-row justify-between items-center"
       >
-          <div className="flex flex-col gap-2 w-full main-image-small-screen">
+          <div className="flex flex-col gap-2">
               <div className="text-sm">
                   <span>{data.name}</span>
               </div>
@@ -122,16 +95,6 @@ const UsersCard: React.FC<ListingCardProps> = ({
               <div className="ftext-sm">
                 {data.contact} 
               </div>
-
-              
-              {onAction && actionLabel && (
-                  <Button
-                      disabled={disabled}
-                      small
-                      label={actionLabel}
-                      onClick={handleCancel}
-                  />
-              )}
           </div>   
           <div className="flex flex-row items-center gap-1">
                  <div className="font-semibold">

@@ -87,7 +87,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
           </Container>
           
       <div className="tour-booking flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-white">How to book with us</h1>
+        <h1 className="color-h1-white-page">How to book with us</h1>
         <Container>
           <div className="pt-10 pb-5 main-page-cards">
             <BookingCard />

@@ -93,7 +93,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         </Container>
           
       <div className="tour-inconfort flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-white">Tour in comfort and style</h1>
+        <h1 className="ccolor-h1-white-page">Tour in comfort and style</h1>
 
           <Container>
             <div className="booking-card grid w-full grid-cols-2 px-5 gap-32 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 py-5 my-9">

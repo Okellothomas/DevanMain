@@ -95,7 +95,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
       )}
 
       <div className="tour-inconfort flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-white pb-4">Tour in comfort and style</h1>
+        <h1 className="color-h1-white-page pb-4">Tour in comfort and style</h1>
 
           <Container>
             <div className="booking-card booking-card-nine grid w-full px-5 gap-32 grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 sm:my-3 sm:py-2 md:py-4 lg:py-5 xl:py-7 2xl:py-7 my-9">
@@ -162,7 +162,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
 
       {/* Next part of the page */}
       <div className="tour-booking flex flex-col py-12 my-9 items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-white">How to book with us</h1>
+        <h1 className="color-h1-white-page">How to book with us</h1>
         <Container>
           <div className="pt-10 pb-5 main-page-cards">
             <BookingCard />
@@ -192,7 +192,7 @@ const Home = async ({ searchParams, tourParams }: HomeProps) => {
             />
           ))}
         </div>
-        <div className="w-full text-center pt-8">
+        <div className="w-full text-center pt-4">
           <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alldestinations">View classic adventure tours</Link>
         </div>
       </Container>

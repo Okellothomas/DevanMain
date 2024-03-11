@@ -5,7 +5,7 @@ export interface IUsersParams {
     name?: string;
     email?: string;
     userType?: string;
-}
+} 
 
 export default async function getUsers(params: IUsersParams) {
     try {

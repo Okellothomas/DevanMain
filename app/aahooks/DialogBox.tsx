@@ -4,25 +4,24 @@ import { SafeUser, safeReservation, safeTour } from '../types';
 import getUsers, { IUsersParams } from '../actions/getUsers';
 
 interface DialogBoxProps {
-  searchParams: IUsersParams;
+
   data: safeTour;
-  reservation?: safeReservation;
   onAction?: (id: string) => void;
-  disabled?: boolean;
-  actionLabel?: string;
-  actionId?: string;
   currentUser?: SafeUser | null;
   isOpen: boolean;
   onClose: () => void;
-  children: ReactNode;
+ 
 }
 
 const DialogBox: React.FC<DialogBoxProps> = async ({ isOpen, onClose,
     data,
-    searchParams,
+  
 }) => {
   
-  const users = (await getUsers(searchParams)).filter(user => data.tourists.includes(user.id));
+  const users = (await getUsers({}));
+
+
+  const filteredUsers = users.filter(user => data.tourists.includes(user.id));
 
   const handleChildClick =  (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     onClose();
@@ -36,7 +35,7 @@ const DialogBox: React.FC<DialogBoxProps> = async ({ isOpen, onClose,
         <button className="close-button" onClick={handleChildClick}>X</button>
         <div>
           {/* Mapping through the users array to display names and emails */}
-          {users.map(user => (
+          {filteredUsers.map(user => (
             <div key={user.id}>
               <p>Name: {user.name}</p>
               <p>Email: {user.email}</p>

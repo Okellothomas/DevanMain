@@ -124,7 +124,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         <p className="text-neutral-500 text-sm w-full text-center">Don&lsquo;t miss out on these incredible, once-in-a-lifetime travel experiences launching soon - book your spot today for the adventure of a lifetime.</p>
         </div>
         <div className="grid-cols-page-s pt-9 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
-        {filteredTourss.slice(4, 8).map((tour: any) => {
+        {filteredTourss.map((tour: any) => {
           return (
             <TourCardSecondary
               currentUser={currentUser ? {

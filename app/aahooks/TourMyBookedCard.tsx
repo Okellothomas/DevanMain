@@ -12,7 +12,6 @@ import { safeTour } from "@/app/types";
 import prisma from '@/app/libs/prismadb';
 import toast, { useToaster } from "react-hot-toast";
 import axios from "axios";
-import DialogBox from "./DialogBox";
 import { MouseEvent } from 'react';
 
 
@@ -161,9 +160,9 @@ const TourBookedMyCard: React.FC<ListingCardProps> = ({
               <div className="font-semibold" onClick={handleDivClick}>
                     <button className="outline-main-btn">View</button>
               </div>
-              <DialogBox isOpen={isDialogOpen} onClose={closeDialog} data={data}>
+              {/* <DialogBox isOpen={isDialogOpen} onClose={closeDialog} data={data}>
                  
-              </DialogBox>
+              </DialogBox> */}
          </div>
     </div>
   )

@@ -3116,19 +3116,19 @@ background: rgba(0,0,0,0.5);
 @media (min-width: 1410px) and (max-width:1465px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 69vh !important;
+    height: 71vh !important;
   }
 
   .country-header-m {
-    gap: 145px !important;
+    gap: 138px !important;
   }
 
   .carousel-images {
-    height: 69vh !important;
+    height: 71vh !important;
   }
 
   .carousel-main-div {
-    margin-top: -25% !important;
+    margin-top: -24% !important;
     z-index: 5 !important;
     /* width: 100vw!important; */
   }

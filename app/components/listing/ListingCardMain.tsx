@@ -67,7 +67,7 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
         onClick={() => router.push(`/listings/${data?.id}`)} //added ?
         className="col-span-1 bg-white shadow-md pb-3 rounded-xl cursor-pointer group"
       >
-          <div className="flex h-[47vh] flex-col gap-2 w-full main-image-small-screen">
+          <div className="flex h-[50vh] flex-col gap-2 w-full main-image-small-screen">
               <div className="aspect-square w-full relative overflow-hidden rounded-t-xl">
                   <Image
                       fill

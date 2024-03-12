@@ -2907,7 +2907,213 @@ background: rgba(0,0,0,0.5);
   }
 }
 
-@media (min-width: 1366px) and (max-width:1465px) {
+@media (min-width: 1366px) and (max-width:1411px) {
+  .carousel-container {
+    margin-top: -19% !important;
+    height: 72vh !important;
+  }
+
+  .country-header-m {
+    gap: 145px !important;
+  }
+
+  .carousel-images {
+    height: 72vh !important;
+  }
+
+  .carousel-main-div {
+    margin-top: -25% !important;
+    z-index: 5 !important;
+    /* width: 100vw!important; */
+  }
+
+  .carousel-main-div-carousel {
+    height: -8 !important;
+  }
+
+  .grid-cols-page-s {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .page-main-ctry {
+    display: block !important;
+    /* visibility: hidden !important; */
+  }
+
+  .nav-bar-btn-smallscreen {
+    display: block !important;
+  }
+
+  .nav-bar-btn-smalls {
+    display: block !important;
+  }
+
+  .trending-list-main-page {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+
+  .booking-card-nine {
+    height: auto !important;
+    width: auto !important;
+    gap: 230px !important;
+  }
+
+  .alldestinations-main {
+    height: 40vh;
+    margin-top: -15% !important;
+  }
+
+  .all-destination-filter {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .all-destinations-main-loader {
+
+    height: 30.5vh;
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main-main {
+    height: 59vh;
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main {
+    margin-top: -20% !important;
+  }
+
+  .european-hotel {
+    height: 40vh !important;
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main-admin-profile {
+    height: 40vh;
+    margin-top: -20% !important;
+  }
+
+  .color-h1-destinations-main-admin-profile {
+    margin-top: 11% !important;
+  }
+
+  .order-first {
+    /* position: absolute !important;
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    width: 90vw !important;
+    margin-top: 90vh !important;
+    margin-bottom: 1vh !important; */
+  }
+
+  .order-first-s-main {
+    /* grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    width: 90vw !important;
+    margin-top: 64vh !important;
+    margin-bottom: 2vh !important; */
+  }
+
+  .order-first-second {
+    height: auto !important;
+  }
+
+  .order-first-second-first {
+    /* grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    width: 90vw !important; */
+  }
+
+  .main-image-small-screen {
+    height: auto !important;
+  }
+
+  .main-image-small-screen-i {
+    height: 35vh !important;
+  }
+
+  .all-destination-products {
+    display: block !important;
+    /* visibility: hidden !important; */
+  }
+
+  .all-destination-tour-main-card {
+    grid-column: span 4 / span 4 !important;
+  }
+
+  .all-destination-tours {
+    grid-column: span 4 / span 4 !important;
+  }
+
+  .main-image-small-screen-main-one {
+    height: 44.9vh !important;
+    width: auto !important;
+  }
+
+  .main-image-small-image-main-one {
+    height: 40.5vh !important;
+    width: 20.5vw !important;
+  }
+
+  .main-image-small-spans-c-btn {
+    display: block !important;
+    /* visibility: hidden !important; */
+  }
+
+  .tour-p-main-c {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .nav-bar-btn-smallscreen {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .nav-bar-btn-smalls {
+    display: block !important;
+  }
+
+  .booking-card-mj {
+    height: 37vh !important;
+  }
+
+  .booking-card-nine {
+    gap: 8rem !important;
+  }
+
+  .display-card {
+    display: flex;
+    width: 210px;
+    height: 210px;
+    padding: 25px 25px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20.386px;
+    flex-shrink: 0;
+    border-radius: 17.519px;
+  }
+
+  .main-image-small-screen {
+    height: 45vh !important;
+  }
+
+  .european-hotel-main {
+    height: 45vh;
+    margin-top: -16% !important;
+  }
+
+  .tourpricecard-text {
+    font-size: 13px !important;
+  }
+
+  .alldestinations-white-main {
+    margin-top: 7% !important;
+  }
+
+  .color-h1-white {
+    margin-top: 15% !important;
+  }
+}
+
+@media (min-width: 1410px) and (max-width:1465px) {
   .carousel-container {
     margin-top: -19% !important;
     height: 69vh !important;
@@ -2922,7 +3128,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-main-div {
-    margin-top: -26% !important;
+    margin-top: -25% !important;
     z-index: 5 !important;
     /* width: 100vw!important; */
   }

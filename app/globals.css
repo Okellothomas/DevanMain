@@ -2910,7 +2910,7 @@ background: rgba(0,0,0,0.5);
 @media (min-width: 1366px) and (max-width:1411px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 74vh !important;
+    height: 76vh !important;
   }
 
   .country-header-m {
@@ -2918,7 +2918,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-images {
-    height: 74vh !important;
+    height: 76vh !important;
   }
 
   .carousel-main-div {
@@ -3116,7 +3116,7 @@ background: rgba(0,0,0,0.5);
 @media (min-width: 1410px) and (max-width:1465px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 73vh !important;
+    height: 75vh !important;
   }
 
   .country-header-m {
@@ -3124,7 +3124,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-images {
-    height: 73vh !important;
+    height: 75vh !important;
   }
 
   .carousel-main-div {

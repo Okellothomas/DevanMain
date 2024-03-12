@@ -14,7 +14,7 @@ const SearchMain = () => {
     const router = useRouter();
   return (
       <Container>
-        <div className="bg-white rounded-2xl z-20 pb-6">
+        <div className="bg-white shadow-md rounded-2xl z-20 pb-6">
           <div className="justify-between grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-5 gap-12 py-8 px-9 shadow-sm">
               <div className="main-item-border">
                   <MainItem onClick={() => router.push('/alldiscoveryjourney')} icon={GiSpeedBoat} label="Discoveries" />

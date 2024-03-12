@@ -34,7 +34,7 @@ const TourPage = async ({ params }: { params: IParams }) => {
   return (
     <div>
       {/* Header section */}
-      <div className="european-hotel flex flex-col items-center justify-center text-lg font-bold">
+      <div className="european-hotel european-hotel-tour flex flex-col items-center justify-center text-lg font-bold">
         <h1 className="color-h1-white">
           {tour.title}
           <span className="color-span-green"></span>

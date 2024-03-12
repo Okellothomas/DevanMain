@@ -32,7 +32,7 @@ const ListingPage = async ({ params }: { params: IParams }) => {
     return (
         <div>
         <div className="european-hotel flex flex-col items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-white">
+        <h1 className="color-h1-white color-h1-white-listing">
           {listing.title}
           <span className="color-span-green"></span>
         </h1>

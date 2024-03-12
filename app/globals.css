@@ -2691,7 +2691,7 @@ background: rgba(0,0,0,0.5);
 @media (orientation: landscape) and (min-width: 1025px) and (max-width: 1280px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 73vh !important;
+    height: 77vh !important;
   }
 
   .country-header-m {
@@ -2699,11 +2699,11 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-images {
-    height: 73vh !important;
+    height: 77vh !important;
   }
 
   .carousel-main-div {
-    margin-top: -2% !important; /* -32% */
+    margin-top: -20% !important; /* -32% */
     z-index: 5 !important;
     /* width: 100vw!important; */
   }
@@ -2751,7 +2751,7 @@ background: rgba(0,0,0,0.5);
 
   .all-destinations-main-loader {
 
-    height: 26.6vh;
+    height: 30vh;
     margin-top: -20% !important;
   }
 
@@ -2862,8 +2862,8 @@ background: rgba(0,0,0,0.5);
 
   .display-card {
     display: flex;
-    width: 200px;
-    height: 200px;
+    width: 192px;
+    height: 192px;
     padding: 20px 20px;
     flex-direction: column;
     align-items: center;

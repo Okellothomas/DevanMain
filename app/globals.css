@@ -2914,7 +2914,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .country-header-m {
-    gap: 145px !important;
+    gap: 130px !important;
   }
 
   .carousel-images {
@@ -3090,10 +3090,10 @@ background: rgba(0,0,0,0.5);
     flex-shrink: 0;
     border-radius: 17.519px;
   }
-
+/* 
   .main-image-small-screen {
     height: 45vh !important;
-  }
+  } */
 
   .european-hotel-main {
     height: 45vh;
@@ -3297,9 +3297,9 @@ background: rgba(0,0,0,0.5);
     border-radius: 17.519px;
   }
 
-  .main-image-small-screen {
+  /* .main-image-small-screen {
     height: 45vh !important;
-  }
+  } */
 
   .european-hotel-main {
     height: 45vh;

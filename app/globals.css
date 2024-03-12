@@ -3092,7 +3092,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .main-image-small-screen {
-    height: 45vh !important;
+    height: 49vh !important;
   }
 
   .european-hotel-main {
@@ -3227,9 +3227,9 @@ background: rgba(0,0,0,0.5);
     width: 90vw !important; */
   }
 
-  .main-image-small-screen {
+  /* .main-image-small-screen {
     height: auto !important;
-  }
+  } */
 
   .main-image-small-screen-i {
     height: 35vh !important;
@@ -3298,7 +3298,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .main-image-small-screen {
-    height: 45vh !important;
+    height: 49vh !important;
   }
 
   .european-hotel-main {

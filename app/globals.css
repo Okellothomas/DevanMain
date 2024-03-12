@@ -742,7 +742,7 @@ background: rgba(0,0,0,0.5);
              }
 
         .main-image-small-screen{
-          height: 35vh!important;
+          height: auto!important;
           /* width: 94vw !important; */
         }
 
@@ -3072,7 +3072,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .booking-card-mj {
-    height: 37vh !important;
+    height: 39vh !important;
   }
 
   .booking-card-nine {
@@ -3116,7 +3116,7 @@ background: rgba(0,0,0,0.5);
 @media (min-width: 1410px) and (max-width:1465px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 75vh !important;
+    height: 79vh !important;
   }
 
   .country-header-m {
@@ -3124,7 +3124,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-images {
-    height: 75vh !important;
+    height: 79vh !important;
   }
 
   .carousel-main-div {
@@ -3278,7 +3278,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .booking-card-mj {
-    height: 33vh !important;
+    height: 39vh !important;
   }
 
   .booking-card-nine {

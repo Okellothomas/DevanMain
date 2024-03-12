@@ -2910,7 +2910,7 @@ background: rgba(0,0,0,0.5);
 @media (min-width: 1366px) and (max-width:1411px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 76vh !important;
+    height: 80vh !important;
   }
 
   .country-header-m {
@@ -2918,7 +2918,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-images {
-    height: 76vh !important;
+    height: 78vh !important;
   }
 
   .carousel-main-div {
@@ -3072,7 +3072,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .booking-card-mj {
-    height: 39vh !important;
+    height: 42vh !important;
   }
 
   .booking-card-nine {
@@ -3091,7 +3091,7 @@ background: rgba(0,0,0,0.5);
     border-radius: 17.519px;
   }
 
-  .main-image-small-screen-x {
+  .main-image-small-screen {
     height: 45vh !important;
   }
 
@@ -3116,7 +3116,7 @@ background: rgba(0,0,0,0.5);
 @media (min-width: 1410px) and (max-width:1465px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 79vh !important;
+    height: 82vh !important;
   }
 
   .country-header-m {
@@ -3124,7 +3124,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-images {
-    height: 79vh !important;
+    height: 82vh !important;
   }
 
   .carousel-main-div {
@@ -3278,7 +3278,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .booking-card-mj {
-    height: 39vh !important;
+    height: 42vh !important;
   }
 
   .booking-card-nine {
@@ -3297,7 +3297,7 @@ background: rgba(0,0,0,0.5);
     border-radius: 17.519px;
   }
 
-  .main-image-small-screen-x {
+  .main-image-small-screen {
     height: 45vh !important;
   }
 

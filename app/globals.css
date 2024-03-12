@@ -2703,7 +2703,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-main-div {
-    margin-top: -32% !important;
+    margin-top: -32% !important; /* -32% */
     z-index: 5 !important;
     /* width: 100vw!important; */
   }

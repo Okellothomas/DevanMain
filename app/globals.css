@@ -2691,7 +2691,7 @@ background: rgba(0,0,0,0.5);
 @media (orientation: landscape) and (min-width: 1025px) and (max-width: 1280px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 77vh !important;
+    height: 82vh !important;
   }
 
   .country-header-m {
@@ -2699,11 +2699,11 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-images {
-    height: 77vh !important;
+    height: 82vh !important;
   }
 
   .carousel-main-div {
-    margin-top: -20% !important; /* -32% */
+    margin-top: -23% !important; /* -32% */
     z-index: 5 !important;
     /* width: 100vw!important; */
   }
@@ -2750,8 +2750,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .all-destinations-main-loader {
-
-    height: 30vh;
+    height: 40vh; /* 30 */
     margin-top: -20% !important;
   }
 
@@ -2765,17 +2764,17 @@ background: rgba(0,0,0,0.5);
   }
 
   .european-hotel {
-    height: 40vh!important;
+    height: 50vh!important;
     margin-top: -20% !important;
   }
 
   .all-destinations-main-admin-profile {
-    height: 40vh;
+    height: 50vh;
     margin-top: -20% !important;
   }
 
   .color-h1-destinations-main-admin-profile{
-    margin-top: 11% !important;
+    margin-top: 6% !important;
   }
 
   .order-first {
@@ -2853,7 +2852,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .booking-card-mj {
-    height: 40vh !important;
+    height: 46vh !important;
   }
 
   .booking-card-nine {
@@ -2877,7 +2876,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .european-hotel-main {
-    height: 45vh;
+    height: 50vh;
     margin-top: -16% !important;
   }
   .tourpricecard-text{

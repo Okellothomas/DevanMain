@@ -2715,7 +2715,7 @@
 @media (orientation: landscape) and (min-width: 1025px) and (max-width: 1280px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 83vh !important;
+    height: 85vh !important;
   }
 
   .country-header-m {
@@ -2723,7 +2723,7 @@
   }
 
   .carousel-images {
-    height: 83vh !important;
+    height: 85vh !important;
   }
 
   .carousel-main-div {
@@ -2775,7 +2775,7 @@
   }
 
   .all-destinations-main-loader {
-    height: 45vh;
+    height: 32vh;
     /* 30 */
     margin-top: -20% !important;
   }
@@ -2878,7 +2878,7 @@
   }
 
   .booking-card-mj {
-    height: 50vh !important;
+    height: 52vh !important;
   }
 
   .booking-card-nine {
@@ -2916,6 +2916,10 @@
 
   .color-h1-white {
     margin-top: 15% !important;
+  }
+
+  .color-h1-destinations-main{
+    margin-top: 5%!important;
   }
 }
 

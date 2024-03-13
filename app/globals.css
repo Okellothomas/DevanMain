@@ -2715,7 +2715,7 @@
 @media (orientation: landscape) and (min-width: 1025px) and (max-width: 1280px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 87vh !important;
+    height: 88vh !important;
   }
 
   .country-header-m {
@@ -2723,7 +2723,7 @@
   }
 
   .carousel-images {
-    height: 87vh !important;
+    height: 88vh !important;
   }
 
   .carousel-main-div {
@@ -2775,13 +2775,13 @@
   }
 
   .all-destinations-main-loader {
-    height: 38vh;
+    height: 37.4vh;
     /* 30 */
     margin-top: -20% !important;
   }
 
   .all-destinations-main-main {
-    height: 61vh;
+    height: 64vh;
     margin-top: -20% !important;
   }
 
@@ -2790,7 +2790,7 @@
   }
   
   .destination-search-main{
-    margin-top: -2%!important;
+    margin-top: -1%!important;
   }
 
   .european-hotel {
@@ -2799,7 +2799,7 @@
   }
 
   .all-destinations-main-admin-profile {
-    height: 60vh;
+    height: 50vh;
     margin-top: -20% !important;
   }
 
@@ -2923,7 +2923,7 @@
   }
 
   .color-h1-destinations-main{
-    margin-top: 2%!important;
+    margin-top: 1%!important;
   }
 }
 

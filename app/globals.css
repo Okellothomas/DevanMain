@@ -2775,18 +2775,22 @@
   }
 
   .all-destinations-main-loader {
-    height: 32vh;
+    height: 39vh;
     /* 30 */
     margin-top: -20% !important;
   }
 
   .all-destinations-main-main {
-    height: 59vh;
+    height: 61vh;
     margin-top: -20% !important;
   }
 
   .all-destinations-main {
     margin-top: -20% !important;
+  }
+
+  .destination-search-main{
+    margin-top: -7%!important;
   }
 
   .european-hotel {
@@ -2795,12 +2799,12 @@
   }
 
   .all-destinations-main-admin-profile {
-    height: 50vh;
+    height: 60vh;
     margin-top: -20% !important;
   }
 
   .color-h1-destinations-main-admin-profile {
-    margin-top: 6% !important;
+    margin-top: 14% !important;
   }
 
   .order-first {
@@ -2849,12 +2853,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 44.9vh !important;
+    height: auto !important; /*44.9 */
     width: auto !important;
   }
 
   .main-image-small-image-main-one {
-    height: 40.5vh !important;
+    height: auto !important; /*40.5 */
     width: 20.5vw !important;
   }
 
@@ -2878,7 +2882,7 @@
   }
 
   .booking-card-mj {
-    height: 52vh !important;
+    height: 53vh !important;
   }
 
   .booking-card-nine {

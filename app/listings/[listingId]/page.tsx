@@ -38,7 +38,7 @@ const ListingPage = async ({ params }: { params: IParams }) => {
         </h1>
         </div>
             
-        <div className="py-10">
+        <div className="py-10 mb-2">
         <ListingClient
             listing={listing}
             reservations={reservations}
@@ -54,7 +54,7 @@ const ListingPage = async ({ params }: { params: IParams }) => {
         {/* Classic Adventure Tours section */}
         {filteredTours && filteredTours.length > 0 && (
           <Container>
-            <div className="flex flex-col gap-1 pt-5">
+            <div className="flex flex-col gap-1 pt-5 mt-2">
               <h1 className="main-header-black w-full text-center">
                 OUR <span className="main-header-gradient">PREMIUM TOURS</span>
               </h1>

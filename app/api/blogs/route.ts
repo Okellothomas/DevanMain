@@ -19,30 +19,7 @@ export async function POST(
         description,
         imageSrc,
         category,
-        roomCount,
-        bathRoomCount,
-        guestCount,
-        location,
-        city,
-        cohostName,
-        hostContact,
-        save,
-        country,
-        continent, 
-        oneBedroom,
-        twoBedroom,
-        threebedRoom,
-        commonPlace,
-        hostName,
-        house,
-        hotel,
         hotelLink,
-        startDate,
-        endDate,
-        distance,
-        offers,
-        overView,
-        price
     } = body;
 
     Object.keys(body).forEach((value: any) => {
@@ -51,41 +28,17 @@ export async function POST(
         }
     });
 
-    const listing = await prisma.listing.create({
+    const blog = await prisma.blog.create({
         data: {
             title,
             description,
             imageSrc,
             category,
-            roomCount,
-            city,
-            hostName,
-            startDate,
-            endDate,
-            distance,
-            cohostName,
-            hostContact,
-            oneBedroom,
-            twoBedroom,
-            threebedRoom,
-            commonPlace,
-            offers,
-            country,  
-            continent, 
-            save: parseInt(save, 10),
-            house,
-            hotel,
             hotelLink,
-            overView,
-            bathRoomCount,
-            guestCount,
-            locationValue: location.value,
-            price: parseInt(price, 10),
-            userId: currentUser.id
         }
     });
 
-    return NextResponse.json(listing);
+    return NextResponse.json(blog);
 }
 
 // import { NextResponse } from "next/server";

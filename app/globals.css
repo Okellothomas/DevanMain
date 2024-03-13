@@ -122,10 +122,10 @@
     /* @apply w-full justify-center flex flex-row; */
   }
 
-  .user-menu-width{
+  .user-menu-width {
     /* @apply w-[40vw] md: w-3/4;  */
     width: max-content;
-    font-weight: 400!important;
+    font-weight: 400 !important;
   }
 }
 
@@ -147,36 +147,36 @@
   width: 100% !important;
 }
 
-.footer-main{
+.footer-main {
   background-color: #092635;
 }
 
-.footer-main hr{
-  background: linear-gradient(96deg, rgba(154, 110, 107, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(171, 34, 26, 0.77) 108.87%)!important;
+.footer-main hr {
+  background: linear-gradient(96deg, rgba(154, 110, 107, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(171, 34, 26, 0.77) 108.87%) !important;
   width: 100%;
   height: 1px;
 }
 
-.footer-main-images{
+.footer-main-images {
   border-radius: 5px;
-  height: 25px!important;
+  height: 25px !important;
   width: 35px !important;
   object-fit: cover;
 }
 
-.european-hotel-main{
+.european-hotel-main {
   background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-    /* Replace 'your-image.jpg' with the path to your image */
-    background-color: rgba(0, 0, 0, 0.42);
-    /* Red color with 60% opacity */
-    background-blend-mode: overlay;
-    /* Blend the background image and color */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    flex-shrink: 0;
-    height: 35vh;
-    margin-top: -8%!important;
+  /* Replace 'your-image.jpg' with the path to your image */
+  background-color: rgba(0, 0, 0, 0.42);
+  /* Red color with 60% opacity */
+  background-blend-mode: overlay;
+  /* Blend the background image and color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  height: 35vh;
+  margin-top: -8% !important;
 }
 
 .european-hotel {
@@ -194,32 +194,32 @@
   margin-top: -8% !important;
 }
 
-.hotel-search{
-  background-color: white!important;
+.hotel-search {
+  background-color: white !important;
   margin-top: 2.8%;
   border-radius: 15px;
 }
 
-.european-hotel h1{
+.european-hotel h1 {
   margin-top: 5%;
 }
 
-.color-span-green{
+.color-span-green {
   color: var(--logocolor, #55E4D6);
-    font-family: Kanit;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+  font-family: Kanit;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
 }
 
-.color-h1-white{
+.color-h1-white {
   color: #FFF;
-    font-family: Kanit;
-      font-size: 30px;
-      font-style: normal;
-      font-weight: 800;
-      line-height: normal;
+  font-family: Kanit;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
 }
 
 .color-h1-white-page {
@@ -241,47 +241,48 @@
   padding-top: 10% !important;
 }
 
-.carousel-images{
+.carousel-images {
   width: 100%;
-  height: 80vh!important;
+  height: 80vh !important;
   /* object-fit: cover; */
 }
 
-.carousel-images-main{
+.carousel-images-main {
   /* width: 100vw!important; */
   overflow: hidden;
 }
 
 
-.layout-navbar{
-  z-index: 40!important;
+.layout-navbar {
+  z-index: 40 !important;
 }
 
 .secondary-button {
   display: inline-flex;
-    padding: 10px 25px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 20px;
-    border: 2px solid var(--whitebutton-Color, #FFF);
+  padding: 10px 25px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  border: 2px solid var(--whitebutton-Color, #FFF);
 }
 
 .secondary-btn-p {
   color: var(--WhiteColor, #FFF);
   font-family: Kanit;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-.banner-btn-r{
-  margin-top: -28%!important;
-  z-index: 10!important;
-  margin-bottom: 10%!important;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
-.banner-btn h1{
+.banner-btn-r {
+  margin-top: -28% !important;
+  z-index: 10 !important;
+  margin-bottom: 10% !important;
+}
+
+.banner-btn h1 {
   color: rgb(6, 4, 36);
   /* color: var(--logocolor, #55E4D6); */
   font-family: "Abril Fatface", serif;
@@ -291,15 +292,16 @@
   line-height: normal;
 }
 
-.banner-btn h2{
+.banner-btn h2 {
   color: #FFF;
-    text-align: center;
-    font-family: Kanit;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+  text-align: center;
+  font-family: Kanit;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
 }
+
 .main-item-border {
   display: flex;
   padding: 10px 20px 25px 20px;
@@ -315,13 +317,13 @@
   line-height: normal;
 }
 
-.SearchMain-page{
-  margin-top: -7%!important;
+.SearchMain-page {
+  margin-top: -7% !important;
   position: relative;
-  z-index: 10!important;
+  z-index: 10 !important;
 }
 
-.main-item-border-r{
+.main-item-border-r {
   border: 1px solid #A1A1A1;
   color: #666;
   padding: 5px 10px 5px 10px;
@@ -341,54 +343,54 @@
 
 .main-header-gradient {
   background: var(--Button-Main, linear-gradient(96deg, rgba(42, 77, 72, 0.77) -10.44%, rgba(46, 22, 57, 0.77) 108.53%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: Kanit;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Kanit;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
 }
 
 .main-header-black {
   color: #000;
-    font-family: Kanit;
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+  font-family: Kanit;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
 }
 
-.outline-main-btn{
+.outline-main-btn {
   display: inline-flex;
-    padding: 6px 30px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 20px;
-    border: 1px solid var(--Button-Main, #2A4D48);
-    font-family: Kanit;
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-   background: var(--Button-Main, linear-gradient(96deg, rgba(42, 77, 72, 0.77) -10.44%, rgba(46, 22, 57, 0.77) 108.53%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  padding: 6px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  border: 1px solid var(--Button-Main, #2A4D48);
+  font-family: Kanit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: var(--Button-Main, linear-gradient(96deg, rgba(42, 77, 72, 0.77) -10.44%, rgba(46, 22, 57, 0.77) 108.53%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.tour-inconfort{
+.tour-inconfort {
   background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-    /* Replace 'your-image.jpg' with the path to your image */
-    background-color: rgba(0, 0, 0, 0.52);
-    /* Red color with 60% opacity */
-    background-blend-mode: overlay;
-    /* Blend the background image and color */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  /* Replace 'your-image.jpg' with the path to your image */
+  background-color: rgba(0, 0, 0, 0.52);
+  /* Red color with 60% opacity */
+  background-blend-mode: overlay;
+  /* Blend the background image and color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .display-card {
@@ -403,22 +405,22 @@
   border-radius: 17.519px;
 }
 
-.display-card:hover{
+.display-card:hover {
   background: rgba(255, 255, 255, 0.44);
   cursor: pointer;
 }
 
-.main-page-cards{
-  gap: 140px!important;
+.main-page-cards {
+  gap: 140px !important;
 }
 
-.full-width-container{
-  width: 88.4vw!important;
+.full-width-container {
+  width: 88.4vw !important;
 }
 
-.country-labels{
-  margin-top: -18%!important;
-  z-index: 10!important;
+.country-labels {
+  margin-top: -18% !important;
+  z-index: 10 !important;
 }
 
 .tour-booking {
@@ -436,7 +438,7 @@
 .booking-card {
   border-radius: 17.519px;
   background: rgba(255, 255, 255, 0.74);
-  line-height: 40px!important;
+  line-height: 40px !important;
 }
 
 .booking-card:hover {
@@ -444,22 +446,22 @@
   cursor: pointer; */
 }
 
-.booking-card-text{
-  line-height: 29px!important;
+.booking-card-text {
+  line-height: 29px !important;
 }
 
-.trending-list-main-page{
+.trending-list-main-page {
   border-radius: 17.191px;
   border: 1.146px solid #A1A1A1;
 }
 
-.carousel-overlay{ 
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0,0,0,0.5);
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .image-gallery {
@@ -494,19 +496,19 @@ background: rgba(0,0,0,0.5);
   height: auto;
 }
 
-.all-destinations-main{
+.all-destinations-main {
   background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-    /* Replace 'your-image.jpg' with the path to your image */
-    background-color: rgba(0, 0, 0, 0.42);
-    /* Red color with 60% opacity */
-    background-blend-mode: overlay;
-    /* Blend the background image and color */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    flex-shrink: 0;
-    height: 60vh;
-    margin-top: -8% !important;
+  /* Replace 'your-image.jpg' with the path to your image */
+  background-color: rgba(0, 0, 0, 0.42);
+  /* Red color with 60% opacity */
+  background-blend-mode: overlay;
+  /* Blend the background image and color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  height: 60vh;
+  margin-top: -8% !important;
 }
 
 .all-destinations-main-main {
@@ -559,7 +561,7 @@ background: rgba(0,0,0,0.5);
   padding-top: 4% !important;
 }
 
-.destination-search{
+.destination-search {
   background-color: white !important;
   margin-top: 8.8%;
   border-radius: 15px;
@@ -611,13 +613,13 @@ background: rgba(0,0,0,0.5);
   padding-top: 4% !important;
 }
 
-.filter-bg-color{
+.filter-bg-color {
   background-color: var(--logocolor, #55E4D6);
 }
 
-.carousel-container{
-  margin-top: -8%!important;
-  height: 80vh!important;
+.carousel-container {
+  margin-top: -8% !important;
+  height: 80vh !important;
 }
 
 .carousel-main-div {
@@ -626,12 +628,12 @@ background: rgba(0,0,0,0.5);
   /* width: 100vw!important; */
 }
 
-.carousel-main-div-carousel{
-  height: 85vh!important;
+.carousel-main-div-carousel {
+  height: 85vh !important;
 }
 
-.overlay-pro{
-  height: 80vh!important;
+.overlay-pro {
+  height: 80vh !important;
 }
 
 .all-destinations-main-admin-profile {
@@ -659,195 +661,198 @@ background: rgba(0,0,0,0.5);
   padding-top: 4% !important;
 }
 
-.logos-nav-barss{
+.logos-nav-barss {
   visibility: collapse;
-  height: 0px!important;
-  width: 0px!important;
+  height: 0px !important;
+  width: 0px !important;
 }
 
 /* small Screen */
 
-@media (orientation: portrait) and (min-width: 0px) and (max-width: 641px) { 
+@media (orientation: portrait) and (min-width: 0px) and (max-width: 641px) {
   .nav-small-dest {
-      position: absolute !important;
-      left: 22vw !important;
-      /* Adjust left position */
-      z-index: 40 !important;
-      margin-top: -25% !important;
+    position: absolute !important;
+    left: 22vw !important;
+    /* Adjust left position */
+    z-index: 40 !important;
+    margin-top: -25% !important;
   }
 
-    .nav-small-hotel {
-      position: absolute !important;
-      left: 21vw !important;
-      /* Adjust left position */
-      z-index: 40 !important;
-      margin-top: -37% !important;
-    }
-
-        .nav-small-house {
-          position: absolute !important;
-          left: 21vw !important;
-          /* Adjust left position */
-          z-index: 40 !important;
-          margin-top: -27% !important;
-        }
-
-                .nav-small-tour {
-                  position: absolute !important;
-                  left: 21vw !important;
-                  /* Adjust left position */
-                  z-index: 40 !important;
-                  margin-top: -27% !important;
-                }
-
-                                .nav-small-way {
-                                  position: absolute !important;
-                                  left: 21vw !important;
-                                  /* Adjust left position */
-                                  z-index: 40 !important;
-                                  margin-top: -27% !important;
-                                }
-                    .nav-small-menu {
-                      position: absolute !important;
-                      left: 10.5vw !important;
-                      /* Adjust left position */
-                      z-index: 40 !important;
-                      margin-top: -37% !important;
-                    }
-
-      
-    .alldestinations-main {
-      background-image: url('../public/images/adventure2.jpg');
-      /* Replace 'your-image.jpg' with the path to your image */
-      background-color: rgba(0, 0, 0, 0.42);
-      /* Red color with 60% opacity */
-      background-blend-mode: overlay;
-      /* Blend the background image and color */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      flex-shrink: 0;
-      height: 34vh;
-      margin-top: -35% !important;
-    }
-
-             .all-destination-products {
-               grid-column: auto / span 0 !important;
-               display: none;
-               visibility: hidden;
-             }
-      
-             .all-destination-tours {
-               grid-column: span 5 / span 5 !important;
-             }
-
-        .main-image-small-screen{
-          height: auto!important;
-          /* width: 94vw !important; */
-        }
-
-                .main-image-small-screen-main-one {
-                  height: 25vh !important;
-                  width: 94vw !important;
-                  margin-left: -2%!important;
-                }
-        
-                .main-image-small-image-main-one {
-                  height: 22vh !important;
-                  width: 22vw !important;
-                }
-
-                 .main-image-small-image {
-                   height: 23vh !important;
-                   width: 26vw !important;
-                 }
-        .all-destination-filter{
-          visibility: hidden!important;
-          display: none!important;
-        }
-
-    .main-image-small-spans-c-title{
-      font-weight: 400!important;
-      font-style: normal!important;
-      font-size: 14px!important;
-    }
-
-    .alldestinations-white-main {
-      color: #FFF;
-      font-family: Kanit;
-      font-size: 30px;
-      font-style: normal;
-      font-weight: 800;
-      line-height: normal;
-      padding-top: 18% !important;
-    }
-  .main-image-small-spans-c{
-    display: none!important;
-    visibility: hidden!important;
+  .nav-small-hotel {
+    position: absolute !important;
+    left: 21vw !important;
+    /* Adjust left position */
+    z-index: 40 !important;
+    margin-top: -37% !important;
   }
 
-    .all-destinations-main-loader {
-      background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-      /* Replace 'your-image.jpg' with the path to your image */
-      background-color: rgba(0, 0, 0, 0.42);
-      /* Red color with 60% opacity */
-      background-blend-mode: overlay;
-      /* Blend the background image and color */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      flex-shrink: 0;
-      height: 6.6vh;
-      margin-top: -30% !important;
-    }
+  .nav-small-house {
+    position: absolute !important;
+    left: 21vw !important;
+    /* Adjust left position */
+    z-index: 40 !important;
+    margin-top: -27% !important;
+  }
 
-        .all-destinations-main-main {
-          background-image: url('../public/images/adventure2.jpg');
-          /* Replace 'your-image.jpg' with the path to your image */
-          background-color: rgba(0, 0, 0, 0.22);
-          /* Red color with 60% opacity */
-          background-blend-mode: overlay;
-          /* Blend the background image and color */
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          flex-shrink: 0;
-          height: 55vh;
-          margin-top: -30% !important;
-        }
+  .nav-small-tour {
+    position: absolute !important;
+    left: 21vw !important;
+    /* Adjust left position */
+    z-index: 40 !important;
+    margin-top: -27% !important;
+  }
 
-        .tour-p-main-c{
-          display: none;
-          visibility: hidden;
-        }
+  .nav-small-way {
+    position: absolute !important;
+    left: 21vw !important;
+    /* Adjust left position */
+    z-index: 40 !important;
+    margin-top: -27% !important;
+  }
 
-        .all-destinations-main{
-          margin-top: -30%!important;
-        }
+  .nav-small-menu {
+    position: absolute !important;
+    left: 10.5vw !important;
+    /* Adjust left position */
+    z-index: 40 !important;
+    margin-top: -37% !important;
+  }
 
-        .european-hotel{
-          margin-top: -30% !important;
-        }
 
-        .all-destinations-main-admin-profile{
-          margin-top: -30% !important;
-        }
+  .alldestinations-main {
+    background-image: url('../public/images/adventure2.jpg');
+    /* Replace 'your-image.jpg' with the path to your image */
+    background-color: rgba(0, 0, 0, 0.42);
+    /* Red color with 60% opacity */
+    background-blend-mode: overlay;
+    /* Blend the background image and color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    height: 34vh;
+    margin-top: -35% !important;
+  }
 
-        .main-image-small-screen{
-          height: auto!important;
-        }
+  .all-destination-products {
+    grid-column: auto / span 0 !important;
+    display: none;
+    visibility: hidden;
+  }
 
-    .nav-bar-btn-smallscreen {
-      display: block !important;
-    }
-  
-    .nav-bar-btn-smalls {
-      display: block !important;
-    }
+  .all-destination-tours {
+    grid-column: span 5 / span 5 !important;
+  }
+
+  .main-image-small-screen {
+    height: auto !important;
+    /* width: 94vw !important; */
+  }
+
+  .main-image-small-screen-main-one {
+    height: 25vh !important;
+    width: 94vw !important;
+    margin-left: -2% !important;
+  }
+
+  .main-image-small-image-main-one {
+    height: 22vh !important;
+    width: 22vw !important;
+  }
+
+  .main-image-small-image {
+    height: 23vh !important;
+    width: 26vw !important;
+  }
+
+  .all-destination-filter {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .main-image-small-spans-c-title {
+    font-weight: 400 !important;
+    font-style: normal !important;
+    font-size: 14px !important;
+  }
+
+  .alldestinations-white-main {
+    color: #FFF;
+    font-family: Kanit;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    padding-top: 18% !important;
+  }
+
+  .main-image-small-spans-c {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .all-destinations-main-loader {
+    background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    /* Replace 'your-image.jpg' with the path to your image */
+    background-color: rgba(0, 0, 0, 0.42);
+    /* Red color with 60% opacity */
+    background-blend-mode: overlay;
+    /* Blend the background image and color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    height: 6.6vh;
+    margin-top: -30% !important;
+  }
+
+  .all-destinations-main-main {
+    background-image: url('../public/images/adventure2.jpg');
+    /* Replace 'your-image.jpg' with the path to your image */
+    background-color: rgba(0, 0, 0, 0.22);
+    /* Red color with 60% opacity */
+    background-blend-mode: overlay;
+    /* Blend the background image and color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    height: 55vh;
+    margin-top: -30% !important;
+  }
+
+  .tour-p-main-c {
+    display: none;
+    visibility: hidden;
+  }
+
+  .all-destinations-main {
+    margin-top: -30% !important;
+  }
+
+  .european-hotel {
+    margin-top: -30% !important;
+  }
+
+  .all-destinations-main-admin-profile {
+    margin-top: -30% !important;
+  }
+
+  .main-image-small-screen {
+    height: auto !important;
+  }
+
+  .nav-bar-btn-smallscreen {
+    display: block !important;
+  }
+
+  .nav-bar-btn-smalls {
+    display: block !important;
+  }
 
   .trending-list-main-page {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    padding-left: -10%!important;
+    padding-left: -10% !important;
   }
 
 }
@@ -934,19 +939,19 @@ background: rgba(0,0,0,0.5);
     z-index: 10 !important;
   }
 
-    .main-image-small-screen {
-      height: 35vh !important;
-      /* width: 92vw !important; */
-    }
+  .main-image-small-screen {
+    height: 35vh !important;
+    /* width: 92vw !important; */
+  }
 
-    .tour-p-main-c{
-      visibility: hidden;
-      display: none;
-    }
+  .tour-p-main-c {
+    visibility: hidden;
+    display: none;
+  }
 
-.trending-list-main-page {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-}
+  .trending-list-main-page {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 }
 
 @media (min-width: 501px) and (max-width: 544px) {
@@ -987,10 +992,10 @@ background: rgba(0,0,0,0.5);
     display: none !important;
   }
 
-    .main-image-small-screen {
-      height: 35vh !important;
-      /* width: 92vw !important; */
-    }
+  .main-image-small-screen {
+    height: 35vh !important;
+    /* width: 92vw !important; */
+  }
 
   .booking-card-one {
     visibility: hidden !important;
@@ -1034,13 +1039,14 @@ background: rgba(0,0,0,0.5);
     z-index: 10 !important;
   }
 
-        .main-image-small-image-main-one {
-          height: 20.5vh !important;
-          width: 20.5vw !important;
-        }
-.trending-list-main-page {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-}
+  .main-image-small-image-main-one {
+    height: 20.5vh !important;
+    width: 20.5vw !important;
+  }
+
+  .trending-list-main-page {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 }
 
 
@@ -1144,13 +1150,14 @@ background: rgba(0,0,0,0.5);
     /* width: 91vw !important; */
   }
 
-        .main-image-small-image-main-one {
-          height: 20.5vh !important;
-          width: 20.5vw !important;
-        }
-.trending-list-main-page {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-}
+  .main-image-small-image-main-one {
+    height: 20.5vh !important;
+    width: 20.5vw !important;
+  }
+
+  .trending-list-main-page {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 }
 
 
@@ -1265,311 +1272,323 @@ background: rgba(0,0,0,0.5);
     visibility: hidden !important;
   }
 
-    .main-image-small-image-main-one {
-      height: 20.5vh !important;
-      width: 20.5vw !important;
-    }
-.trending-list-main-page {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-}
+  .main-image-small-image-main-one {
+    height: 20.5vh !important;
+    width: 20.5vw !important;
+  }
+
+  .trending-list-main-page {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 }
 
 @media (min-width: 642px) and (max-width: 720px) {
   .carousel-container {
-      margin-top: -19% !important;
-      height: 66vh!important;
-    }
-    
-    .country-header-m{
-      visibility: hidden!important;
-      display: none!important;
-      gap: 40px!important;
-      justify-content: space-between!important;
-    }
+    margin-top: -19% !important;
+    height: 66vh !important;
+  }
 
-    .carousel-images{
-      height: 66vh !important;
-    }
-  
-    .carousel-main-div {
-      margin-top: -110% !important;
-      z-index: 5 !important;
-      /* width: 100vw!important; */
-    }
-  
-    .carousel-main-div-carousel {
-      height: -8 !important;
-    }
-    .grid-cols-page-s {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
-    .page-main-ctry{
-      display: none!important;
-      visibility: hidden!important;
-    }
+  .country-header-m {
+    visibility: hidden !important;
+    display: none !important;
+    gap: 40px !important;
+    justify-content: space-between !important;
+  }
 
-    .nav-bar-btn-smallscreen{
-      display: block!important;
-    }
+  .carousel-images {
+    height: 66vh !important;
+  }
 
-    .nav-bar-btn-smalls{
-      display: none!important;
-    }
+  .carousel-main-div {
+    margin-top: -110% !important;
+    z-index: 5 !important;
+    /* width: 100vw!important; */
+  }
 
-    .booking-card-text-last{
-      display: none!important;
-      visibility: hidden!important;
-    }
+  .carousel-main-div-carousel {
+    height: -8 !important;
+  }
 
-    .nav-bar-btn-smalls{
-      display: block!important;
-    }
+  .grid-cols-page-s {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 
-    .trending-list-main-page{
-      grid-template-columns: repeat(3, minmax(0, 1fr))!important;
-    }
+  .page-main-ctry {
+    display: none !important;
+    visibility: hidden !important;
+  }
 
-                .alldestinations-main {
-                  height: 34vh;
-                  margin-top: -20% !important;
-                }
-      
-                .all-destination-filter {
-                  visibility: hidden !important;
-                  display: none !important;
-                }
+  .nav-bar-btn-smallscreen {
+    display: block !important;
+  }
 
-                .all-destinations-main-loader {
-                 
-                  height: 6.6vh;
-                  margin-top: -20% !important;
-                }
-        
-                .all-destinations-main-main {
-                  height: 55vh;
-                  margin-top: -20% !important;
-                }
-        
-                .all-destinations-main {
-                  margin-top: -20% !important;
-                }
-        
-                .european-hotel {
-                  margin-top: -20% !important;
-                }
-        
-                .all-destinations-main-admin-profile {
-                  margin-top: -20% !important;
-                }
-         .order-first {
-           position: relative !important;
-           grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
-           width: 98vw !important;
-           margin-top: -10vh !important;
-           margin-bottom: 1vh !important;
-         }
-    
-         .order-first-s-main {
-           grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
-           width: 98vw !important;
-           margin-top: -22vh !important;
-           margin-bottom: 2vh !important;
-         }
-  
-     .order-first-second {
-       position: relative !important;
-       height: 85vh !important;
-       width: 98vw !important;
-       margin-bottom: 10vh !important;
-       margin-top: -10% !important;
-       grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-     }
-  
-     .order-first-second-first {
-       grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-       width: 98vw !important;
-     }
-    .main-image-small-screen {
-      height: auto !important;
-    }
-    .main-image-small-screen-i {
-      height: 35vh !important;
-    }
+  .nav-bar-btn-smalls {
+    display: none !important;
+  }
 
-    .all-destination-products{
-      display: none!important;
-      visibility: hidden !important;
-    }
+  .booking-card-text-last {
+    display: none !important;
+    visibility: hidden !important;
+  }
 
-        .all-destination-tour-main-card {
-          grid-column: span 5 / span 5;
-        }
+  .nav-bar-btn-smalls {
+    display: block !important;
+  }
 
-                 .main-image-small-screen-main-one {
-                   height: 33.5vh !important;
-                   width: 98vw !important;
-                 }
-        
-                 .main-image-small-image-main-one {
-                   height: 30.5vh !important;
-                   width: 34.5vw !important;
-                 }
-        
-                 .main-image-small-spans-c-btn {
-                   display: none !important;
-                   visibility: hidden !important;
-                 }
-        
-                 .tour-p-main-c {
-                   display: none !important;
-                   visibility: hidden !important;
-                 }
+  .trending-list-main-page {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .alldestinations-main {
+    height: 34vh;
+    margin-top: -20% !important;
+  }
+
+  .all-destination-filter {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .all-destinations-main-loader {
+
+    height: 6.6vh;
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main-main {
+    height: 55vh;
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main {
+    margin-top: -20% !important;
+  }
+
+  .european-hotel {
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main-admin-profile {
+    margin-top: -20% !important;
+  }
+
+  .order-first {
+    position: relative !important;
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    width: 98vw !important;
+    margin-top: -10vh !important;
+    margin-bottom: 1vh !important;
+  }
+
+  .order-first-s-main {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    width: 98vw !important;
+    margin-top: -22vh !important;
+    margin-bottom: 2vh !important;
+  }
+
+  .order-first-second {
+    position: relative !important;
+    height: 85vh !important;
+    width: 98vw !important;
+    margin-bottom: 10vh !important;
+    margin-top: -10% !important;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  .order-first-second-first {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    width: 98vw !important;
+  }
+
+  .main-image-small-screen {
+    height: auto !important;
+  }
+
+  .main-image-small-screen-i {
+    height: 35vh !important;
+  }
+
+  .all-destination-products {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .all-destination-tour-main-card {
+    grid-column: span 5 / span 5;
+  }
+
+  .main-image-small-screen-main-one {
+    height: 33.5vh !important;
+    width: 98vw !important;
+  }
+
+  .main-image-small-image-main-one {
+    height: 30.5vh !important;
+    width: 34.5vw !important;
+  }
+
+  .main-image-small-spans-c-btn {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .tour-p-main-c {
+    display: none !important;
+    visibility: hidden !important;
+  }
 }
 
 @media (min-width: 721px) and (max-width: 768px) {
   .carousel-container {
-      margin-top: -19% !important;
-      height: 66vh !important;
-    }
-  
-    .country-header-m {
-      visibility: hidden !important;
-      display: none !important;
-      gap: 40px !important;
-      justify-content: space-between !important;
-    }
-  
-    .carousel-images {
-      height: 66vh !important;
-    }
-  
-    .carousel-main-div {
-      margin-top: -93% !important;
-      z-index: 5 !important;
-      /* width: 100vw!important; */
-    }
-  
-    .carousel-main-div-carousel {
-      height: -8 !important;
-    }
-  
-    .grid-cols-page-s {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
-  
-    .page-main-ctry {
-      display: none !important;
-      visibility: hidden !important;
-    }
-  
-    .nav-bar-btn-smallscreen {
-      display: block !important;
-    }
-  
-    .nav-bar-btn-smalls {
-      display: block !important;
-    }
+    margin-top: -19% !important;
+    height: 66vh !important;
+  }
 
-    .trending-list-main-page{
-      grid-template-columns: repeat(3, minmax(0, 1fr))!important;
-    }
+  .country-header-m {
+    visibility: hidden !important;
+    display: none !important;
+    gap: 40px !important;
+    justify-content: space-between !important;
+  }
 
-    .booking-card{
-      height: auto!important;
-    }
-    .alldestinations-main {
-      height: 34vh;
-      margin-top: -15% !important;
-    }
-  
-    .all-destination-filter {
-      visibility: hidden !important;
-      display: none !important;
-    }
-  
-    .all-destinations-main-loader {
-  
-      height: 6.6vh;
-      margin-top: -20% !important;
-    }
-  
-    .all-destinations-main-main {
-      height: 55vh;
-      margin-top: -20% !important;
-    }
-  
-    .all-destinations-main {
-      margin-top: -20% !important;
-    }
-  
-    .european-hotel {
-      margin-top: -20% !important;
-    }
-  
-    .all-destinations-main-admin-profile {
-      margin-top: -20% !important;
-    }
+  .carousel-images {
+    height: 66vh !important;
+  }
 
-    .order-first{
-      position:absolute !important;
-      grid-template-columns: repeat(7, minmax(0, 1fr))!important;
-      width: 90vw !important;
-      margin-top: 90vh!important;
-      margin-bottom: 1vh!important;
-    }
-    .order-first-s-main{
-      grid-template-columns: repeat(7, minmax(0, 1fr))!important;
-      width: 90vw !important;
-      margin-top: 64vh !important;
-      margin-bottom: 2vh !important;
-    }
-    .order-first-second {
-      position:relative !important;
-        height: 95vh !important;
-        width: 90vw !important;
-        margin-bottom: 10vh !important;
-        margin-top: -10%!important;
-        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-    }
+  .carousel-main-div {
+    margin-top: -93% !important;
+    z-index: 5 !important;
+    /* width: 100vw!important; */
+  }
 
-        .order-first-second-first {
-          grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-          width: 90vw !important;
-        }
-    .main-image-small-screen {
-      height: auto !important;
-    }
-    .main-image-small-screen-i{
-      height: 35vh!important;
-    }
+  .carousel-main-div-carousel {
+    height: -8 !important;
+  }
 
-        .all-destination-products {
-          display: none !important;
-          visibility: hidden !important;
-        }
+  .grid-cols-page-s {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
 
-      .all-destination-tour-main-card{
-        grid-column: span 5 / span 5;
-      }
-    
-                .main-image-small-screen-main-one {
-                  height: 33.5vh !important;
-                  width: 90vw !important;
-                }
-        
-                .main-image-small-image-main-one {
-                  height: 30.5vh !important;
-                  width: 34.5vw !important;
-                }
-          .main-image-small-spans-c-btn{
-            display: none !important;
-            visibility: hidden !important;
-          }
+  .page-main-ctry {
+    display: none !important;
+    visibility: hidden !important;
+  }
 
-        .tour-p-main-c{
-          display: none !important;
-          visibility: hidden !important;
-        }
+  .nav-bar-btn-smallscreen {
+    display: block !important;
+  }
+
+  .nav-bar-btn-smalls {
+    display: block !important;
+  }
+
+  .trending-list-main-page {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .booking-card {
+    height: auto !important;
+  }
+
+  .alldestinations-main {
+    height: 34vh;
+    margin-top: -15% !important;
+  }
+
+  .all-destination-filter {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  .all-destinations-main-loader {
+
+    height: 6.6vh;
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main-main {
+    height: 55vh;
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main {
+    margin-top: -20% !important;
+  }
+
+  .european-hotel {
+    margin-top: -20% !important;
+  }
+
+  .all-destinations-main-admin-profile {
+    margin-top: -20% !important;
+  }
+
+  .order-first {
+    position: absolute !important;
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    width: 90vw !important;
+    margin-top: 90vh !important;
+    margin-bottom: 1vh !important;
+  }
+
+  .order-first-s-main {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    width: 90vw !important;
+    margin-top: 64vh !important;
+    margin-bottom: 2vh !important;
+  }
+
+  .order-first-second {
+    position: relative !important;
+    height: 95vh !important;
+    width: 90vw !important;
+    margin-bottom: 10vh !important;
+    margin-top: -10% !important;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+
+  .order-first-second-first {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    width: 90vw !important;
+  }
+
+  .main-image-small-screen {
+    height: auto !important;
+  }
+
+  .main-image-small-screen-i {
+    height: 35vh !important;
+  }
+
+  .all-destination-products {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .all-destination-tour-main-card {
+    grid-column: span 5 / span 5;
+  }
+
+  .main-image-small-screen-main-one {
+    height: 33.5vh !important;
+    width: 90vw !important;
+  }
+
+  .main-image-small-image-main-one {
+    height: 30.5vh !important;
+    width: 34.5vw !important;
+  }
+
+  .main-image-small-spans-c-btn {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .tour-p-main-c {
+    display: none !important;
+    visibility: hidden !important;
+  }
 }
 
 
@@ -1893,16 +1912,17 @@ background: rgba(0,0,0,0.5);
     visibility: hidden !important;
   }
 
-  .nav-bar-btn-smallscreen{
-    display: block!important;
+  .nav-bar-btn-smallscreen {
+    display: block !important;
   }
 
-  .nav-bar-btn-smalls{
-    display: block!important;;
+  .nav-bar-btn-smalls {
+    display: block !important;
+    ;
   }
 
-  .booking-card-mj{
-    height: 33vh!important;
+  .booking-card-mj {
+    height: 33vh !important;
   }
 }
 
@@ -2093,20 +2113,20 @@ background: rgba(0,0,0,0.5);
     width: auto !important;
   }
 
-  .nav-main-page{
-    height: 24vh!important;
+  .nav-main-page {
+    height: 24vh !important;
   }
 
   .main-image-small-screen {
-    height: 100vh!important;
+    height: 100vh !important;
   }
 
-  .booking-card{
-    height: auto!important;
+  .booking-card {
+    height: auto !important;
   }
 
-  .color-h1-destinations-main{
-    margin-top: 4%!important; 
+  .color-h1-destinations-main {
+    margin-top: 4% !important;
   }
 }
 
@@ -2137,25 +2157,25 @@ background: rgba(0,0,0,0.5);
     height: -8 !important;
   }
 
-  .main-image-small-screen{
-    height: 65vh!important;
+  .main-image-small-screen {
+    height: 65vh !important;
   }
 
   /* .main-image-small-screen-x{
     height: 75vh!important;
   } */
 
-    .display-card {
-      display: flex;
-      width: 300px;
-      height: 210px;
-      padding: 39.081px 45.081px 47.517px 43.838px;
-      flex-direction: column;
-      align-items: center;
-      gap: 36.386px;
-      flex-shrink: 0;
-      border-radius: 17.519px;
-    }
+  .display-card {
+    display: flex;
+    width: 300px;
+    height: 210px;
+    padding: 39.081px 45.081px 47.517px 43.838px;
+    flex-direction: column;
+    align-items: center;
+    gap: 36.386px;
+    flex-shrink: 0;
+    border-radius: 17.519px;
+  }
 
   .grid-cols-page-s {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -2209,18 +2229,18 @@ background: rgba(0,0,0,0.5);
   }
 
   .european-hotel {
-    height: 50vh!important;
+    height: 50vh !important;
     margin-top: -15% !important;
   }
 
-  .european-hotel-tour{
-    height: 60vh!important;
+  .european-hotel-tour {
+    height: 60vh !important;
     margin-top: -10% !important;
   }
 
   .all-destinations-main-admin-profile {
     margin-top: -15% !important;
-    height: 50vh!important;
+    height: 50vh !important;
   }
 
   .order-first {
@@ -2252,9 +2272,10 @@ background: rgba(0,0,0,0.5);
     width: 90vw !important;
   }
 
-  .color-h1-white-listing{
-    margin-top: 5%!important;
+  .color-h1-white-listing {
+    margin-top: 5% !important;
   }
+
   /* .main-image-small-screen-i {
     height: 35vh !important;
   } */
@@ -2300,9 +2321,9 @@ background: rgba(0,0,0,0.5);
     height: 94vh !important;
   }
 
-    .sidebar-image-main {
-      width: auto !important;
-    }
+  .sidebar-image-main {
+    width: auto !important;
+  }
 }
 
 
@@ -2472,28 +2493,30 @@ background: rgba(0,0,0,0.5);
     height: 30vh !important;
   }
 
-  .booking-card-nine{
+  .booking-card-nine {
     gap: 8rem !important;
   }
 
-    .display-card {
-      display: flex;
-      width: 150px;
-      height: 230px;
-      padding: 10px 35px;
-      flex-direction: column;
-      align-items: center;
-      gap: 36.386px;
-      flex-shrink: 0;
-      border-radius: 17.519px;
-    }
-    .main-image-small-screen{
-      height: 28vh!important;
-    }
-         .european-hotel-main {
-           height: 25vh;
-           margin-top: -16% !important;
-         }
+  .display-card {
+    display: flex;
+    width: 150px;
+    height: 230px;
+    padding: 10px 35px;
+    flex-direction: column;
+    align-items: center;
+    gap: 36.386px;
+    flex-shrink: 0;
+    border-radius: 17.519px;
+  }
+
+  .main-image-small-screen {
+    height: 28vh !important;
+  }
+
+  .european-hotel-main {
+    height: 25vh;
+    margin-top: -16% !important;
+  }
 }
 
 
@@ -2677,21 +2700,22 @@ background: rgba(0,0,0,0.5);
     flex-shrink: 0;
     border-radius: 17.519px;
   }
-    .main-image-small-screen {
-      height: 45vh !important;
-    }
 
-    .european-hotel-main {
-      height: 45vh;
-      margin-top: -16% !important;
-    }
+  .main-image-small-screen {
+    height: 45vh !important;
+  }
+
+  .european-hotel-main {
+    height: 45vh;
+    margin-top: -16% !important;
+  }
 }
 
 
 @media (orientation: landscape) and (min-width: 1025px) and (max-width: 1280px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 82vh !important;
+    height: 83vh !important;
   }
 
   .country-header-m {
@@ -2699,11 +2723,12 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-images {
-    height: 82vh !important;
+    height: 83vh !important;
   }
 
   .carousel-main-div {
-    margin-top: -23% !important; /* -32% */
+    margin-top: -20% !important;
+    /* -32% */
     z-index: 5 !important;
     /* width: 100vw!important; */
   }
@@ -2740,7 +2765,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .alldestinations-main {
-    height: 40vh;
+    height: 50vh;
     margin-top: -15% !important;
   }
 
@@ -2750,7 +2775,8 @@ background: rgba(0,0,0,0.5);
   }
 
   .all-destinations-main-loader {
-    height: 40vh; /* 30 */
+    height: 50vh;
+    /* 30 */
     margin-top: -20% !important;
   }
 
@@ -2764,7 +2790,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .european-hotel {
-    height: 50vh!important;
+    height: 50vh !important;
     margin-top: -20% !important;
   }
 
@@ -2773,7 +2799,7 @@ background: rgba(0,0,0,0.5);
     margin-top: -20% !important;
   }
 
-  .color-h1-destinations-main-admin-profile{
+  .color-h1-destinations-main-admin-profile {
     margin-top: 6% !important;
   }
 
@@ -2818,7 +2844,7 @@ background: rgba(0,0,0,0.5);
     grid-column: span 4 / span 4 !important;
   }
 
-  .all-destination-tours{
+  .all-destination-tours {
     grid-column: span 4 / span 4 !important;
   }
 
@@ -2844,7 +2870,7 @@ background: rgba(0,0,0,0.5);
 
   .nav-bar-btn-smallscreen {
     display: none !important;
-    visibility: hidden!important;
+    visibility: hidden !important;
   }
 
   .nav-bar-btn-smalls {
@@ -2852,7 +2878,7 @@ background: rgba(0,0,0,0.5);
   }
 
   .booking-card-mj {
-    height: 46vh !important;
+    height: 50vh !important;
   }
 
   .booking-card-nine {
@@ -2879,16 +2905,17 @@ background: rgba(0,0,0,0.5);
     height: 50vh;
     margin-top: -16% !important;
   }
-  .tourpricecard-text{
-    font-size: 13px!important;
+
+  .tourpricecard-text {
+    font-size: 13px !important;
   }
 
-  .alldestinations-white-main{
-    margin-top: 7%!important;
+  .alldestinations-white-main {
+    margin-top: 7% !important;
   }
 
-  .color-h1-white{
-    margin-top: 15%!important;
+  .color-h1-white {
+    margin-top: 15% !important;
   }
 }
 
@@ -2908,7 +2935,8 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-main-div {
-    margin-top: -22% !important; /* 22% */
+    margin-top: -22% !important;
+    /* 22% */
     z-index: 5 !important;
     /* width: 100vw!important; */
   }
@@ -3114,7 +3142,8 @@ background: rgba(0,0,0,0.5);
   }
 
   .carousel-main-div {
-    margin-top: -23% !important; /* 30% */
+    margin-top: -23% !important;
+    /* 30% */
     z-index: 5 !important;
     /* width: 100vw!important; */
   }

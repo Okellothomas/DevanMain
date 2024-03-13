@@ -68,7 +68,7 @@ const TourMainCard: React.FC<ListingCardProps> = ({
         onClick={() => router.push(`/tours/${data?.id}`)} //added ?
         className="col-span-1 group"
       >
-          <div className="flex flex-col h-[50vh] w-full bg-white py-4 px-4 rounded-xl shadow-md gap-3 main-image-small-screen-main-one">
+          <div className="flex flex-col h-[50vh] w-full bg-white pt-4 pb-2 px-4 rounded-xl shadow-md gap-3 main-image-small-screen-main-one">
             <div className="flex flex-row justify-between items-center ">
             <div className="flex flex-row items-center gap-4">
               <div className="aspect-square h-[42vh] w-full relative overflow-hidden rounded-xl main-image-small-image-main-one">

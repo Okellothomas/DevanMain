@@ -750,13 +750,13 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 25vh !important;
+    height: auto !important;
     width: 94vw !important;
     margin-left: -2% !important;
   }
 
   .main-image-small-image-main-one {
-    height: 22vh !important;
+    height: auto !important;
     width: 22vw !important;
   }
 
@@ -1419,12 +1419,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 33.5vh !important;
+    height: auto !important;
     width: 98vw !important;
   }
 
   .main-image-small-image-main-one {
-    height: 30.5vh !important;
+    height: auto !important;
     width: 34.5vw !important;
   }
 
@@ -1571,12 +1571,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 33.5vh !important;
+    height: auto !important;
     width: 90vw !important;
   }
 
   .main-image-small-image-main-one {
-    height: 30.5vh !important;
+    height: auto !important;
     width: 34.5vw !important;
   }
 
@@ -1726,12 +1726,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 27.9vh !important;
+    height: auto !important;
     width: 90vw !important;
   }
 
   .main-image-small-image-main-one {
-    height: 25.5vh !important;
+    height: auto !important;
     width: 30.5vw !important;
   }
 
@@ -1893,12 +1893,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 27.9vh !important;
+    height: auto !important;
     width: 90vw !important;
   }
 
   .main-image-small-image-main-one {
-    height: 25.5vh !important;
+    height: auto !important;
     width: 30.5vw !important;
   }
 
@@ -2078,12 +2078,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 129.9vh !important;
+    height: auto !important;
     width: 97.2vw !important;
   }
 
   .main-image-small-image-main-one {
-    height: 110.5vh !important;
+    height: auto !important;
     width: 23.5vw !important;
   }
 
@@ -2290,12 +2290,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 79.9vh !important;
+    height: auto !important;
     width: 91vw !important;
   }
 
   .main-image-small-image-main-one {
-    height: 72.5vh !important;
+    height: auto !important;
     width: 23.5vw !important;
   }
 
@@ -2462,12 +2462,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 27.9vh !important;
+    height: auto !important;
     width: 92.5vw !important;
   }
 
   .main-image-small-image-main-one {
-    height: 25.5vh !important;
+    height: auto !important;
     width: 30.5vw !important;
   }
 
@@ -2654,12 +2654,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 47.9vh !important;
+    height: auto !important;
     width: 92.5vw !important;
   }
 
   .main-image-small-image-main-one {
-    height: 42.5vh !important;
+    height: auto !important;
     width: 30.5vw !important;
   }
 
@@ -2715,7 +2715,7 @@
 @media (orientation: landscape) and (min-width: 1025px) and (max-width: 1280px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 85vh !important;
+    height: 87vh !important;
   }
 
   .country-header-m {
@@ -2723,7 +2723,7 @@
   }
 
   .carousel-images {
-    height: 85vh !important;
+    height: 87vh !important;
   }
 
   .carousel-main-div {
@@ -2775,7 +2775,7 @@
   }
 
   .all-destinations-main-loader {
-    height: 39vh;
+    height: 38vh;
     /* 30 */
     margin-top: -20% !important;
   }
@@ -2788,9 +2788,9 @@
   .all-destinations-main {
     margin-top: -20% !important;
   }
-
+  
   .destination-search-main{
-    margin-top: -7%!important;
+    margin-top: -2%!important;
   }
 
   .european-hotel {
@@ -2923,7 +2923,7 @@
   }
 
   .color-h1-destinations-main{
-    margin-top: 5%!important;
+    margin-top: 2%!important;
   }
 }
 
@@ -3065,12 +3065,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 44.9vh !important;
+    height: auto !important;
     width: auto !important;
   }
 
   .main-image-small-image-main-one {
-    height: 40.5vh !important;
+    height: auto !important;
     width: 20.5vw !important;
   }
 
@@ -3272,12 +3272,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 44.9vh !important;
+    height: auto !important;
     width: auto !important;
   }
 
   .main-image-small-image-main-one {
-    height: 40.5vh !important;
+    height: auto !important;
     width: 20.5vw !important;
   }
 
@@ -3478,12 +3478,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 44.9vh !important;
+    height: auto !important;
     width: auto !important;
   }
 
   .main-image-small-image-main-one {
-    height: 40.5vh !important;
+    height: auto !important;
     width: 20.5vw !important;
   }
 
@@ -3684,12 +3684,12 @@
   }
 
   .main-image-small-screen-main-one {
-    height: 44.9vh !important;
+    height: auto !important;
     width: auto !important;
   }
 
   .main-image-small-image-main-one {
-    height: 40.5vh !important;
+    height: auto !important;
     width: 20.5vw !important;
   }
 

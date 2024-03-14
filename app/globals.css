@@ -3420,11 +3420,11 @@
 
   .all-destinations-main {
     height: 40vh!important;
-    margin-top: -15% !important;
+    margin-top: -10% !important;
   }
 
   .color-h1-destinations-main{
-    margin-top: 7%!important;
+    margin-top: 0%!important;
   }
 
   .european-hotel {
@@ -3557,7 +3557,7 @@
   }
 
   .destination-search{
-    margin-top: -20%!important;
+    margin-top: -10%!important;
   }
 }
 

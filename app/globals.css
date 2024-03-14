@@ -3143,7 +3143,7 @@
 @media (min-width: 1281px) and (max-width:1365px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 107vh !important; /* 67 */
+    height: 70vh !important; /* 67 */
   }
 
   .country-header-m {
@@ -3151,7 +3151,7 @@
   }
 
   .carousel-images {
-    height: 107vh !important; /* 67 */
+    height: 70vh !important; /* 67 */
   }
 
   .carousel-main-div {
@@ -3350,7 +3350,7 @@
 @media (min-width: 1366px) and (max-width:1411px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 180vh !important; /* 80 */
+    height: 81vh !important; /* 80 */
   }
 
   .country-header-m {
@@ -3358,7 +3358,7 @@
   }
 
   .carousel-images {
-    height: 178vh !important;  /* 78 */
+    height: 81vh !important;  /* 78 */
   }
 
   .carousel-main-div {

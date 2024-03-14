@@ -52,13 +52,13 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
     <div>
     <div className="all-destinations-main flex flex-col items-center justify-center text-lg font-bold">
         <h1 className="color-h1-destinations-main">All Prime <span className="color-span-green">House Listings</span></h1>
-        <div className="destination-search">
+        {/* <div className="destination-search">
           <Search /> 
-        </div>
+        </div> */}
       </div>
      <Container>
         <div className="flex flex-col gap-1 pt-6 pb-4">
-        <h1 className="main-header-black w-full text-center pt-9 pb-0">ALL PRIME <span className="main-header-gradient py-1">HOUSE LISTING</span></h1>
+        {/* <h1 className="main-header-black w-full text-center pt-9 pb-0">ALL PRIME <span className="main-header-gradient py-1">HOUSE LISTING</span></h1> */}
         <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on unparalleled house listings with our prime selection. Curated by experts, these properties bring sought-after destinations to your doorstep. From African safaris to cruising the Galápagos Islands, and from breathtaking landscapes in the Swiss Alps to cultural immersions in historic Rome, immerse yourself in luxurious stays filled with natural beauty, wildlife, and historic treasures. Enhance your experience with helicopter tours, redefining your travel expectations.</p>
         </div>
       </Container>

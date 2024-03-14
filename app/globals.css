@@ -2775,17 +2775,18 @@
   }
 
   .all-destinations-main-loader {
-    height: 37.4vh;
+    height: 37vh;
     /* 30 */
     margin-top: -20% !important;
   }
 
   .all-destinations-main-main {
-    height: 66vh;
+    height: 60vh;
     margin-top: -20% !important;
   }
 
   .all-destinations-main {
+    height: 50vh!important;
     margin-top: -20% !important;
   }
   
@@ -2923,7 +2924,11 @@
   }
 
   .color-h1-destinations-main{
-    margin-top: 1%!important;
+    margin-top: 0%!important;
+  }
+
+  .destination-search-main{
+    margin-top: 0%!important;
   }
 }
 
@@ -3138,7 +3143,7 @@
 @media (min-width: 1281px) and (max-width:1365px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 67vh !important;
+    height: 107vh !important; /* 67 */
   }
 
   .country-header-m {
@@ -3146,7 +3151,7 @@
   }
 
   .carousel-images {
-    height: 67vh !important;
+    height: 107vh !important; /* 67 */
   }
 
   .carousel-main-div {

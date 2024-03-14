@@ -3350,7 +3350,7 @@
 @media (min-width: 1366px) and (max-width:1411px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 80vh !important;
+    height: 180vh !important; /* 80 */
   }
 
   .country-header-m {
@@ -3358,7 +3358,7 @@
   }
 
   .carousel-images {
-    height: 78vh !important;
+    height: 178vh !important;  /* 78 */
   }
 
   .carousel-main-div {

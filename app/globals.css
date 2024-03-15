@@ -4183,7 +4183,7 @@
 @media (min-width: 2000px) {
   .carousel-container {
     margin-top: -19% !important;
-    height: 76vh !important;
+    height: 70vh !important;
   }
 
   .country-header-m {
@@ -4191,11 +4191,11 @@
   }
 
   .carousel-images {
-    height: 76vh !important;
+    height: 70vh !important;
   }
 
   .carousel-main-div {
-    margin-top: -11% !important;
+    margin-top: -14% !important;
     z-index: 5 !important;
     /* width: 100vw!important; */
   }

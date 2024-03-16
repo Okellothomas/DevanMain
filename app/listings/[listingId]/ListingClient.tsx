@@ -90,24 +90,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
     // Inside your useMemo callback
     
-    
-    // const disabledDates = useMemo(() => {
-    //     let dates: Date[] = [];
-    
-    //     reservations.forEach((reservation) => {
-    //         const range = eachDayOfInterval({
-    //             start: new Date(reservation.startDate),
-    //             end: new Date(reservation.endDate)
-    //         }); // Include the end date in the range
-    
-    //         dates = [...dates, ...range];
-    //     });
-    
-    //     console.log("dates------", dates);
-    //     console.log("reservations count--", reservations.length);
-    
-    //     return dates;
-    // }, [reservations]);
+
 
 
 

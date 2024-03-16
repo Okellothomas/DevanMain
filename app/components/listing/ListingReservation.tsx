@@ -228,23 +228,19 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
 
             <div className="flex flex-col px-4 justify-between item-center gap-1">
                 {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
-                {!guestsEntered && (
-                    <div className="text-gray-700 mt-2">Please enter the number of guests to book</div>
-                )}
-                {guestsEntered && (
-                    <div className="flex flex-row items-center mt-2">
-                        <label htmlFor="guests" className="text-right mr-4 text-gray-700">
-                            Guests:
-                        </label>
-                        <input
-                            id="guests"
-                            type="text"
-                            value={`${options.guests} Guests ${options.rooms} Rooms`}
-                            className="shadow border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            onClick={toggleOptions}
-                        />
-                    </div>
-                )}
+                <div className="flex flex-row items-center mt-2">
+                    <label htmlFor="guests" className="text-right mr-4 text-gray-700">
+                        Guests:
+                    </label>
+                    <input
+                        id="guests"
+                        type="text"
+                        value={`${options.guests} Guests ${options.rooms} Rooms`}
+                        className="shadow border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        onClick={toggleOptions}
+                        readOnly
+                    />
+                </div>
                 {openoptions && (
                     <div className="listing-rooms-main-id bg-white p-5 md:p-7 shadow-md" ref={numberOfGuestsRef}>
                         <div className="flex flex-col gap-3">
@@ -333,3 +329,4 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
 }
 
 export default ListingReservation;
+

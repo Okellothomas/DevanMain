@@ -63,7 +63,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
                 onChange={(value) => onChangeDate(value.selection)}
             />
 
-<div className="flex flex-row px-4 justify-between item-center gap-1">
+<div className="flex flex-col px-4 justify-between item-center gap-1">
         {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
         <div className="flex flex-row items-center mt-2">
             <label htmlFor="guests" className="text-right mr-4 text-gray-700">
@@ -77,7 +77,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
                 onClick={toggleOptions}
             />
         {openoptions && (
-            <div className="bg-white p-5 md:p-7 shadow-md" ref={numberOfGuestsRef}>
+            <div className="listing-rooms-main-id bg-white p-5 md:p-7 shadow-md" ref={numberOfGuestsRef}>
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-col gap-3">
                         <span className="text-lg">Rooms</span>

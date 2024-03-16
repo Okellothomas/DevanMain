@@ -847,6 +847,11 @@
     align-items: flex-start!important;
     padding: 2px!important;
   }
+
+  .listing-rooms-main-id{
+    margin-top: 10vh!important;
+    margin-bottom: 10vh!important;
+  }
 }
 
 /* the screens */

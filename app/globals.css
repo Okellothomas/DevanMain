@@ -827,8 +827,7 @@
   }
 
   .order-first-second{
-    grid-template-columns: repeat(1, minmax(0, 1fr))!important;
-    width: 100%!important;
+    grid-column: span 3 / span 3 !important;
   }
 
   .order-first-second-first{

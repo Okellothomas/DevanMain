@@ -396,25 +396,25 @@ const findAvailableDate = () => {
                         <div className="border-[1px] gap-4 grid grid-cols-4 border-solid py-6 px-4 border-neutral-300 h-auto w-full rounded-lg">
                         
                           {listing.oneBedroom !== "" && (
-                          <div className="border-[1px] where-you-sl border-solid rounded-lg border-neutral-300 p-4 col-span-1">
+                          <div className="border-[1px] where-you-sleep border-solid rounded-lg border-neutral-300 p-4 col-span-1">
                             <div className="flex flex-col p-2 items-start gap-2"> <span className="text-neutral-500"><LuBedDouble size={ 23 } /></span><span className="text-md">One Bedroom</span></div> <span className="text-neutral-500">{listing.oneBedroom} qeen bed</span>
                           </div>
                           )}
                               
                           {listing.twoBedroom !== "" && (
-                          <div className="border-[1px] border-solid rounded-lg border-neutral-300 p-4 col-span-1">
+                          <div className="border-[1px] where-you-sleep border-solid rounded-lg border-neutral-300 p-4 col-span-1">
                             <div className="flex flex-col p-2 items-start gap-2"> <span className="text-neutral-500"><LuBedDouble size={23} /></span><span className="text-md">Two Bedroom</span></div> <span className="text-neutral-500">{listing.twoBedroom} qeen bed</span>
                                   </div>
                           )}
                             
                           {listing.threebedRoom !== "" && (
-                          <div className="border-[1px] border-solid rounded-lg border-neutral-300 p-4 col-span-1">
+                          <div className="border-[1px] where-you-sleep border-solid rounded-lg border-neutral-300 p-4 col-span-1">
                             <div className="flex flex-col p-2 items-start gap-2"> <span className="text-neutral-600"><LuBedDouble size={23} /></span><span className="text-md">Three Bedroom</span></div><span className="text-neutral-500">{listing.threebedRoom} queen bed</span>
                           </div>
                           )}
                               
                            {listing.commonPlace !== "" && (
-                            <div className="border-[1px] border-solid rounded-lg border-neutral-300 p-4 col-span-1">
+                            <div className="border-[1px] where-you-sleep border-solid rounded-lg border-neutral-300 p-4 col-span-1">
                                 <div className="flex flex-col p-2 items-start gap-2"> 
                                 <span className="text-neutral-600"><LuBedDouble size={23} /></span>
                                 <span className="text-md">Common spaces</span>

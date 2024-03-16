@@ -809,7 +809,6 @@
   .all-destinations-main-admin-profile {
     margin-top: -30% !important;
   }
-
   .main-image-small-screen {
     height: auto !important;
   }
@@ -827,6 +826,13 @@
     padding-left: -10% !important;
   }
 
+  .order-first-second{
+    grid-template-columns: repeat(1, minmax(0, 1fr))!important;
+  }
+
+  .order-first-second-first{
+    grid-template-columns: repeat(1, minmax(0, 1fr))!important;
+  }
 }
 
 /* the screens */

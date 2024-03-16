@@ -828,12 +828,12 @@
 
   .order-first-second{
     grid-template-columns: repeat(1, minmax(0, 1fr))!important;
-    width: 100vw!important;
+    width: 100%!important;
   }
 
   .order-first-second-first{
     grid-template-columns: repeat(4, minmax(0, 1fr))!important;
-    width: 100vw!important;
+    width: 100%!important;
   }
 }
 

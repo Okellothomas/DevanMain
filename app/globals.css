@@ -847,6 +847,10 @@
     align-items: flex-start!important;
     padding: 1px!important;
   }
+
+  .payment-options-rooms-reservation{
+    position: relative!important;;
+  }
 }
 
 /* the screens */

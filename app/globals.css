@@ -833,6 +833,10 @@
   .order-first-second-first{
     
   }
+
+  .order-first{
+    position: relative!important;
+  }
 }
 
 /* the screens */

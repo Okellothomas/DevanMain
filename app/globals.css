@@ -845,13 +845,7 @@
   .where-you-sleep{
     font-size: 11px!important;
     align-items: flex-start!important;
-    padding: 1px!important;
-  }
-
-  .payment-options-rooms-reservation{
-    /* position: relative!important; */
-    margin-top: 1vh!important;
-    margin-bottom: 1vh!important;
+    padding: 2px!important;
   }
 }
 

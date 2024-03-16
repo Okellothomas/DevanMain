@@ -55,13 +55,13 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
     <div>
     <div className="all-destinations-main-main flex flex-col items-center justify-center text-lg font-bold">
         <h1 className="color-h1-destinations-main">Prime Australian <span className="color-span-green">Destinations</span></h1>
-        <div className="destination-search-main">
+        {/* <div className="destination-search-main">
           <Search /> 
-        </div>
+        </div> */}
       </div>
      <Container>
         <div className="flex flex-col gap-1 pt-6 pb-4">
-        <h1 className="main-header-black w-full text-center pt-9 pb-0">AUSTRALIAN <span className="main-header-gradient py-1">LISTINGS</span></h1>
+        {/* <h1 className="main-header-black w-full text-center pt-9 pb-0">AUSTRALIAN <span className="main-header-gradient py-1">LISTINGS</span></h1> */}
         <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on unparalleled Australian housing listings with our prime selection. Curated by experts, these properties bring sought-after destinations to your doorstep. From coastal retreats to urban dwellings, immerse yourself in luxurious stays filled with natural beauty, wildlife, and cultural richness. Enhance your experience with personalized tours, redefining your living expectations.</p>
         </div>
       </Container>

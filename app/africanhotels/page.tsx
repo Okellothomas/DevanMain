@@ -47,13 +47,13 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
     <div>
     <div className="all-destinations-main flex flex-col items-center justify-center text-lg font-bold">
         <h1 className="color-h1-destinations-main">African <span className="color-span-green">Hotels</span></h1>
-        <div className="destination-search">
+        {/* <div className="destination-search">
           <Search /> 
-        </div>
+        </div> */}
       </div>
       <Container>
         <div className="flex flex-col gap-1 pt-6 pb-4">
-        <h1 className="main-header-black w-full text-center pt-9 pb-0">AFRICAN <span className="main-header-gradient py-1">HOTELS</span></h1>
+        {/* <h1 className="main-header-black w-full text-center pt-9 pb-0">AFRICAN <span className="main-header-gradient py-1">HOTELS</span></h1> */}
         <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on unparalleled African hotel experiences with our prime selection. Curated by experts, these accommodations bring sought-after destinations to your doorstep. From safari lodges to coastal resorts, immerse yourself in luxurious stays filled with natural beauty, wildlife, and cultural richness. Enhance your experience with guided tours, redefining your travel expectations.</p>
         </div>
       </Container>

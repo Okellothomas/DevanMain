@@ -50,13 +50,13 @@ const DestinationPage = async ({ tourParams }: HotelPageProps) => {
     <div>
     <div className="all-destinations-main-main flex flex-col items-center justify-center text-lg font-bold">
         <h1 className="color-h1-destinations-main">Prime Trending <span className="color-span-green">Tours</span></h1>
-        <div className="destination-search-main">
+        {/* <div className="destination-search-main">
           <Search /> 
-        </div>
+        </div> */}
       </div>
       <Container>
         <div className="flex flex-col gap-1 pt-6 pb-4">
-        <h1 className="main-header-black w-full text-center pt-9 pb-0">PRIME TRENDING <span className="main-header-gradient py-1">TOURS</span></h1>
+        {/* <h1 className="main-header-black w-full text-center pt-9 pb-0">PRIME TRENDING <span className="main-header-gradient py-1">TOURS</span></h1> */}
         <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on an unforgettable Global adventure with our premier tour selection. Meticulously curated by experts, these trending journeys whisk you away to sought-after destinations across the continent. From awe-inspiring landscapes in the Rocky Mountains to cultural immersions in vibrant New Orleans, indulge in luxurious experiences brimming with natural wonders, architectural marvels, and profound heritage. Delve into picturesque countryside, grandiose castles, and ancient ruins, uncovering the essence of global&lsquo;s diverse landscapes and captivating cultures.</p>
         </div>
       </Container>

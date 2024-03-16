@@ -58,13 +58,13 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
     <div>
     <div className="all-destinations-main-main flex flex-col items-center justify-center text-lg font-bold">
         <h1 className="color-h1-destinations-main">Prime Upcoming <span className="color-span-green">Tours</span></h1>
-        <div className="destination-search-main">
+        {/* <div className="destination-search-main">
           <Search /> 
-        </div>
+        </div> */}
       </div>
       <Container>
         <div className="flex flex-col gap-1 pt-6 pb-4">
-        <h1 className="main-header-black w-full text-center pt-9 pb-0">PRIME UPCOMING <span className="main-header-gradient py-1">TOURS</span></h1>
+        {/* <h1 className="main-header-black w-full text-center pt-9 pb-0">PRIME UPCOMING <span className="main-header-gradient py-1">TOURS</span></h1> */}
         <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Experience a remarkable upcoming global adventure with our premier tour selection. Meticulously curated by experts, these journeys transport you to sought-after destinations across the continent. From breathtaking landscapes in the Himalayas to cultural immersions in vibrant Tokyo, immerse yourself in opulent experiences filled with natural wonders, architectural masterpieces, and rich heritage. Traverse through verdant countryside, majestic temples, and ancient ruins, revealing the essence of globe&lsquo;s diverse landscapes and captivating cultures.</p>
         </div>
       </Container>

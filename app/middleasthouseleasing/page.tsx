@@ -44,16 +44,16 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
     <div>
     <div className="all-destinations-main flex flex-col items-center justify-center text-lg font-bold">
         <h1 className="color-h1-destinations-main">All Prime <span className="color-span-green">House Leases</span></h1>
-        <div className="destination-search">
+        {/* <div className="destination-search">
           <Search /> 
-        </div>
+        </div> */}
       </div>
       {/* <div className="py-4">
         <Categories />
       </div> */}
       <Container>
         <div className="flex flex-col gap-1 py-9">
-        <h1 className="main-header-black w-full text-center">ALL PRIME <span className="main-header-gradient py-1">HOUSE LEASES</span></h1>
+        {/* <h1 className="main-header-black w-full text-center">ALL PRIME <span className="main-header-gradient py-1">HOUSE LEASES</span></h1> */}
         <p className="text-neutral-500 text-sm w-full text-justify">Our prime tour selection offers once-in-a-lifetime travel opportunities to the world&lsquo;s most sought-after and awe-inspiring destinations, curated by our experts to provide the ultimate luxurious and immersive experience. From African safaris in search of the Big Five, to cruising the turquoise waters of the Galápagos Islands, to helicopter tours over the Grand Canyon, you&lsquo;ll be transported to magical realms brimming with natural beauty, exotic wildlife, and historic treasures beyond your wildest imagination. With unique access, top-notch guides, luxury accommodations, bespoke services, and unparalleled attention to detail, our prime tours redefine high-end, exclusive travel so you can immerse yourself fully in your choice of remarkable destinations. Don&lsquo;t just dream about that trip of a lifetime - make it a reality with our premium all-inclusive prime tour packages, offering once-in-a-lifetime memories carefully crafted for the discerning traveler.</p>
         </div>
       <div className="grid-cols-page-s pt-0 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5 gap-8">

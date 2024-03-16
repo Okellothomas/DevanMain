@@ -56,13 +56,13 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
     <div>
     <div className="all-destinations-main-main flex flex-col items-center justify-center text-lg font-bold">
         <h1 className="color-h1-destinations-main">Country Roads <span className="color-span-green">Destinations</span></h1>
-        <div className="destination-search-main">
+        {/* <div className="destination-search-main">
           <Search /> 
-        </div>
+        </div> */}
       </div>
       <Container>
         <div className="flex flex-col gap-1 pt-6 pb-4">
-        <h1 className="main-header-black w-full text-center pt-9 pb-0">COUNTRY ROADS <span className="main-header-gradient py-1">DESTINATIONS</span></h1>
+        {/* <h1 className="main-header-black w-full text-center pt-9 pb-0">COUNTRY ROADS <span className="main-header-gradient py-1">DESTINATIONS</span></h1> */}
         <p className="text-md text-neutral-600 leading-8 pt-6 pb-0 text-md w-full text-justify">Embark on unparalleled Country Roads tours with our prime selection. Curated by experts, these journeys bring sought-after destinations to your doorstep. From scenic routes to charming countryside vistas, immerse yourself in luxurious travels filled with natural wonders and cultural experiences. Enhance your journey with personalized excursions, redefining your travel expectations.</p>
         </div>
       </Container>

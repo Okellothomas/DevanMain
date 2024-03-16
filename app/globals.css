@@ -720,17 +720,7 @@
 
 
   .alldestinations-main {
-    background-image: url('../public/images/adventure2.jpg');
-    /* Replace 'your-image.jpg' with the path to your image */
-    background-color: rgba(0, 0, 0, 0.42);
-    /* Red color with 60% opacity */
-    background-blend-mode: overlay;
-    /* Blend the background image and color */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    flex-shrink: 0;
-    height: 34vh;
+    height: 25vh;
     margin-top: -35% !important;
   }
 
@@ -3424,7 +3414,7 @@
   }
 
   .color-h1-destinations-main{
-    margin-bottom: 1%!important;
+    margin-bottom: 0%!important;
   }
 
   .european-hotel {

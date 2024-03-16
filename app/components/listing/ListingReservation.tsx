@@ -207,6 +207,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
 }) => {
 
     const [guestsEntered, setGuestsEntered] = useState(false);
+    const [partialPay, setPartialPay] = useState(false);
 
     console.log("Date Range", dateRange)
     return (
@@ -228,6 +229,9 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
 
             <div className="flex flex-col px-4 justify-between item-center gap-1">
                 {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
+                {!guestsEntered && (
+                    <div className="text-gray-700 mt-2">Please enter the number of guests to book</div>
+                )}
                 <div className="flex flex-row items-center mt-2">
                     <label htmlFor="guests" className="text-right mr-4 text-gray-700">
                         Guests:
@@ -305,11 +309,28 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
                         {totalPrice > 100 &&
                             <button
                                 className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white"
-                                onClick={() => onSubmit(100)}
+                                onClick={() => {
+                                    setPartialPay(true);
+                                }}
                             >
                                 Partial Pay($100)
                             </button>
                         }
+                    </div>
+                </>
+            )}
+
+            {partialPay && (
+                <>
+                    <hr />
+
+                    <div className="flex flex-col justify-center item-center gap-3">
+                        <button
+                            className="border-[1px] border-solid border-blue-500 hover:bg-blue-500 px-3 py-2 text-blue-600 rounded-2xl hover:text-white"
+                            onClick={() => onSubmit(100)}
+                        >
+                            Partial Pay($100)
+                        </button>
                     </div>
                 </>
             )}
@@ -329,4 +350,5 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
 }
 
 export default ListingReservation;
+
 

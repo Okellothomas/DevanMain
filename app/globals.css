@@ -782,32 +782,12 @@
   }
 
   .all-destinations-main-loader {
-    background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-    /* Replace 'your-image.jpg' with the path to your image */
-    background-color: rgba(0, 0, 0, 0.42);
-    /* Red color with 60% opacity */
-    background-blend-mode: overlay;
-    /* Blend the background image and color */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    flex-shrink: 0;
     height: 6.6vh;
     margin-top: -30% !important;
   }
 
   .all-destinations-main-main {
-    background-image: url('../public/images/adventure2.jpg');
-    /* Replace 'your-image.jpg' with the path to your image */
-    background-color: rgba(0, 0, 0, 0.22);
-    /* Red color with 60% opacity */
-    background-blend-mode: overlay;
-    /* Blend the background image and color */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    flex-shrink: 0;
-    height: 55vh;
+    height: 30vh;
     margin-top: -30% !important;
   }
 
@@ -821,6 +801,7 @@
   }
 
   .european-hotel {
+    height: 40vh;
     margin-top: -30% !important;
   }
 

@@ -229,7 +229,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
                 {error && <div className="text-red-400 text-sm pt-1">{error}</div>}
                 <div className="flex flex-row items-center mt-2">
                     <label htmlFor="guests" className="text-right mr-4 text-gray-700">
-                        Number of Guests & Rooms:
+                        Guests:
                     </label>
                     <input
                         id="guests"

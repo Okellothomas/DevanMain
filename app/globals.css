@@ -844,6 +844,7 @@
 
   .where-you-sleep{
     font-size: 11px!important;
+    align-items: flex-start!important;
   }
 }
 

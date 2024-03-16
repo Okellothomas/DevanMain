@@ -849,7 +849,9 @@
   }
 
   .payment-options-rooms-reservation{
-    position: relative!important;;
+    position: relative!important;
+    margin-top: 1vh!important;
+    margin-bottom: 1vh!important;
   }
 }
 

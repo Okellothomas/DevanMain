@@ -667,6 +667,10 @@
   width: 0px !important;
 }
 
+.order-first{
+  height: auto!important;
+}
+
 /* small Screen */
 
 @media (orientation: portrait) and (min-width: 0px) and (max-width: 641px) {

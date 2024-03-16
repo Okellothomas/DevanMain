@@ -38,7 +38,7 @@ const ListingPage = async ({ params }: { params: IParams }) => {
         </h1>
         </div>
             
-        <div className="py-10 mb-2">
+        <div className="european-hotel-listing py-10 mb-2">
         <ListingClient
             listing={listing}
             reservations={reservations}

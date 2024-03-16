@@ -304,7 +304,7 @@ const findAvailableDate = () => {
                       id={listing.id}
                       currentUser={currentUser}
                   /> 
-                  <div className="grid grid-cols-1 gap-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 2xl:grid-cols-7 md:grid-10 mt-6">
+                  <div className="order-first-main-main grid grid-cols-1 gap-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 2xl:grid-cols-7 md:grid-10 mt-6">
                       {/* <ListingInfo
                           user={listing.user}
                           category={category}

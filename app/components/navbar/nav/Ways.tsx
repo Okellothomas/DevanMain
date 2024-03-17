@@ -48,7 +48,7 @@ const Ways: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
           onClick={toggleOpen}
         >
           <div className="text-sm">Ways to travel</div>
-          <SlArrowDown size={12} />
+          <SlArrowDown className="nav-icons-items" size={12} />
         </div>
       </div>
       {isOpen && (

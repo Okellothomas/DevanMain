@@ -305,15 +305,6 @@ const findAvailableDate = () => {
                       currentUser={currentUser}
                   /> 
                   <div className="order-first-main-main grid grid-cols-1 gap-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 2xl:grid-cols-7 md:grid-10 mt-6">
-                      {/* <ListingInfo
-                          user={listing.user}
-                          category={category}
-                          description={listing.description}
-                          roomCount={listing.roomCount}
-                          guestCount={listing.guestCount}
-                          bathroomCount={listing.bathRoomCount}
-                          locationValue={listing.locationValue}
-                      /> */}
                       <div className="order-first-s-main w-full col-span-4">
                           
                           <div className="border-[1px] border-solid py-4 px-4 border-neutral-300 h-auto w-full rounded-lg">

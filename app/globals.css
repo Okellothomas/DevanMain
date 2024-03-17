@@ -677,6 +677,121 @@
 
 /* small Screen */
 
+@media (orientation: portrait) and (min-width: 0px) and (max-width: 1024px) {
+  .nav-main-nav{
+    flex-direction: column!important;
+    align-items: flex-start!important;
+    text-align: start!important;
+    /* background-color: #333!important;
+    color: white!important; */
+  }
+
+  .nav-main-nav-open{
+    text-align: start !important;
+    align-items: center !important;
+    /* margin-left: 25vw !important; */
+  }
+
+  .nav-small-dest{
+    background-color: rgba(0, 0, 0, 0)!important;
+    padding: 0px!important;
+    margin: 0px !important;
+    margin-left: 2vw!important;
+    --tw-shadow: none;
+    --tw-shadow-colored: none;
+    box-shadow: none;
+    color: black !important;
+    text-decoration: underline!important;
+    align-items: flex-start!important;
+    text-align: start!important;
+  }
+
+  .nav-small-hotel{
+  background-color: rgba(0, 0, 0, 0) !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    margin-left: 2vw !important;
+    --tw-shadow: none;
+    --tw-shadow-colored: none;
+    box-shadow: none;
+    color: black !important;
+    text-decoration: underline !important;
+    align-items: flex-start !important;
+    text-align: start !important;
+  }
+
+  .nav-small-house{
+background-color: rgba(0, 0, 0, 0) !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  margin-left: 2vw !important;
+  --tw-shadow: none;
+  --tw-shadow-colored: none;
+  box-shadow: none;
+  color: black !important;
+  text-decoration: underline !important;
+  align-items: flex-start !important;
+  text-align: start !important;
+  }
+
+  .nav-small-tour{
+  background-color: rgba(0, 0, 0, 0) !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    margin-left: 2vw !important;
+    --tw-shadow: none;
+    --tw-shadow-colored: none;
+    box-shadow: none;
+  color: black !important;
+    text-decoration: underline !important;
+    align-items: flex-start !important;
+    text-align: start !important;
+  }
+
+  .nav-small-way{
+background-color: rgba(0, 0, 0, 0) !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  margin-left: 2vw !important;
+  --tw-shadow: none;
+  --tw-shadow-colored: none;
+  box-shadow: none;
+  color: black !important;
+  text-decoration: underline !important;
+  align-items: flex-start !important;
+  text-align: start !important;
+  }
+
+  .nav-small-menu{
+    background-color: rgba(0, 0, 0, 0) !important;
+      padding: 0px !important;
+      margin: 0px !important;
+      margin-left: 2vw !important;
+      --tw-shadow: none;
+      --tw-shadow-colored: none;
+      box-shadow: none;
+      color: black !important;
+      text-decoration: underline !important;
+      align-items: flex-start !important;
+      text-align: start !important;
+  }
+
+  .nav-bar-btn-smalls{
+    background-color: rgba(255, 255, 255, 0.0);
+    padding: 0px!important;
+    margin: 0px!important;
+    width: 105vw!important;
+    height: 110vh!important;
+    color: black!important;
+    margin-left: -5vw!important;
+  }
+
+  .nav-icons-items{
+    display: none!important;
+  }
+
+}
+
 @media (orientation: portrait) and (min-width: 0px) and (max-width: 641px) {
   .nav-small-dest {
     position: absolute !important;

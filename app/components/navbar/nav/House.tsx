@@ -48,7 +48,7 @@ const House: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
           onClick={toggleOpen}
         >
           <div className="text-sm">House Listing</div>
-          <SlArrowDown size={12} />
+          <SlArrowDown className="nav-icons-items" size={12} />
         </div>
       </div>
       {isOpen && (

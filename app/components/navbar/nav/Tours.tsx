@@ -8,9 +8,10 @@ import { SlArrowDown } from "react-icons/sl";
 interface DestinationsItemProp {
   onClick?: () => void;
   label?: string;
+  handleMenuToggle: () => void;
 }
 
-const Tours: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
+const Tours: React.FC<DestinationsItemProp> = ({ onClick, label, handleMenuToggle }) => {
   const router = useRouter();
   const rentModal = useRentModal();
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,12 @@ const Tours: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+
+  const handleMenuItemClick = useCallback(() => {
+    if (window.innerWidth <= 1024) {
+      handleMenuToggle(); // Close the entire menu for small screens
+    }
+  }, [handleMenuToggle]);
 
   const handleClickOutside = useCallback(
   (event: MouseEvent) => {
@@ -55,17 +62,29 @@ const Tours: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div className="absolute nav-small-tour rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex px-6 flex-col w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/upcomingtours")} label="Upcoming tours" />
+              <MenuItem onClick={() => {
+                router.push("/upcomingtours");
+                handleMenuItemClick();
+              }} label="Upcoming tours" />
               <MenuItem
-                onClick={() => router.push("/trendingtours")}
+                onClick={() => {
+                  router.push("/trendingtours");
+                  handleMenuItemClick();
+                }}
                 label="Trending tours"
               />
               <MenuItem
-                onClick={() => router.push("/populartours")}
+                onClick={() => {
+                  router.push("/populartours");
+                  handleMenuItemClick();
+                }}
                 label="Popular tours"
               />
               <MenuItem
-                onClick={() => router.push("/premiumtours")}
+                onClick={() => {
+                  router.push("/premiumtours");
+                  handleMenuItemClick();
+                }}
                 label="Premium tours"
               />
             </>

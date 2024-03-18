@@ -95,9 +95,10 @@ import useRentModal from "@/app/hooks/useRentModals";
 interface DestinationsItemProp {
   onClick?: () => void;
   label?: string;
+  handleMenuToggle: () => void;
 }
 
-const Destinations: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
+const Destinations: React.FC<DestinationsItemProp> = ({ onClick, label, handleMenuToggle }) => {
   const router = useRouter();
   const rentModal = useRentModal();
   const [isOpen, setIsOpen] = useState(false);
@@ -106,6 +107,12 @@ const Destinations: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+
+  const handleMenuItemClick = useCallback(() => {
+    if (window.innerWidth <= 1024) {
+      handleMenuToggle(); // Close the entire menu for small screens
+    }
+  }, [handleMenuToggle]);
 
   const handleClickOutside = useCallback(
     (event: MouseEvent) => {
@@ -142,12 +149,12 @@ const Destinations: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div className="absolute nav-small-dest rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex flex-col px-6 font-normal w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => { router.push("/destinations"); setIsOpen(false); }} label="Destinations" />
-              <MenuItem onClick={() => { router.push("/africandestinations"); setIsOpen(false); }} label="African" />
-              <MenuItem onClick={() => { router.push("/europeandestinations"); setIsOpen(false); }} label="European" />
-              <MenuItem onClick={() => { router.push("/americandestinations"); setIsOpen(false); }} label="The Americas" />
-              <MenuItem onClick={() => { router.push("/asiandestinations"); setIsOpen(false); }} label="Asian" />
-              <MenuItem onClick={() => { router.push("/australiandestinations"); setIsOpen(false); }} label="Australian" />
+              <MenuItem onClick={() => { router.push("/destinations"); handleMenuItemClick(); }} label="Destinations" />
+              <MenuItem onClick={() => { router.push("/africandestinations"); handleMenuItemClick(); }} label="African" />
+              <MenuItem onClick={() => { router.push("/europeandestinations"); handleMenuItemClick(); }} label="European" />
+              <MenuItem onClick={() => { router.push("/americandestinations"); handleMenuItemClick(); }} label="The Americas" />
+              <MenuItem onClick={() => { router.push("/asiandestinations"); handleMenuItemClick(); }} label="Asian" />
+              <MenuItem onClick={() => { router.push("/australiandestinations"); handleMenuItemClick(); }} label="Australian" />
             </>
           </div>
         </div>

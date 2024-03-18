@@ -8,9 +8,10 @@ import { SlArrowDown } from "react-icons/sl";
 interface DestinationsItemProp {
   onClick?: () => void;
   label?: string;
+  handleMenuToggle: () => void;
 }
 
-const House: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
+const House: React.FC<DestinationsItemProp> = ({ onClick, label, handleMenuToggle }) => {
   const router = useRouter();
   const rentModal = useRentModal();
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,12 @@ const House: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+
+  const handleMenuItemClick = useCallback(() => {
+    if (window.innerWidth <= 1024) {
+      handleMenuToggle(); // Close the entire menu for small screens
+    }
+  }, [handleMenuToggle]);
 
   const handleClickOutside = useCallback(
   (event: MouseEvent) => {
@@ -55,21 +62,36 @@ const House: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div className="absolute nav-small-house rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex flex-col px-6 w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/houseleasing")} label="House Listing" />
+              <MenuItem onClick={() => {
+                router.push("/houseleasing");
+                handleMenuItemClick();
+              }} label="House Listing" />
               <MenuItem
-                onClick={() => router.push("/africanhouseleasing")}
+                onClick={() => {
+                  router.push("/africanhouseleasing");
+                  handleMenuItemClick();
+                }}
                 label="African"
               />
               <MenuItem
-                onClick={() => router.push("/europeanhouseleasing")}
+                onClick={() => {
+                  router.push("/europeanhouseleasing");
+                  handleMenuItemClick();
+                }}
                 label="European"
               />
               <MenuItem
-                onClick={() => router.push("/americanhouseleasing")}
+                onClick={() => {
+                  router.push("/americanhouseleasing");
+                  handleMenuItemClick();
+                }}
                 label="The Americas"
               />
               <MenuItem
-                onClick={() => router.push("/asianhouseleasing")}
+                onClick={() => {
+                  router.push("/asianhouseleasing");
+                  handleMenuItemClick();
+                }}
                 label="Asian"
               />
               {/* <MenuItem
@@ -77,7 +99,10 @@ const House: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
                 label="The Middle East"
               /> */}
               <MenuItem
-                onClick={() => router.push("/australianhouseleasing")}
+                onClick={() => {
+                  router.push("/australianhouseleasing");
+                  handleMenuItemClick();
+                }}
                 label="Australian"
               />
             </>

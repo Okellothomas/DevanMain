@@ -664,7 +664,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
               <div className="logos-nav-barss">
                 <Logo />
               </div>
-              <Nav />
+              <Nav handleMenuToggle={handleMenuToggle}/>
               <UserMenu currentUser={currentUser} handleMenuToggle={handleMenuToggle} />
             </div>
           )}
@@ -710,7 +710,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
         {isMenuOpen && isSmallScreen && (
           <div className="sm:hidden md:block nav-bar-btn-smalls">
             <div className="nav-main-nav-open flex flex-col items-start gap-3 mt-3">
-              <Nav />
+              <Nav handleMenuToggle={handleMenuToggle}/>
               <UserMenu currentUser={currentUser} handleMenuToggle={handleMenuToggle} />
             </div>
           </div>

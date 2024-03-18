@@ -8,9 +8,10 @@ import { SlArrowDown } from "react-icons/sl";
 interface DestinationsItemProp {
   onClick?: () => void;
   label?: string;
+  handleMenuToggle: () => void;
 }
 
-const Ways: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
+const Ways: React.FC<DestinationsItemProp> = ({ onClick, label, handleMenuToggle }) => {
   const router = useRouter();
   const rentModal = useRentModal();
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,12 @@ const Ways: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+
+  const handleMenuItemClick = useCallback(() => {
+    if (window.innerWidth <= 1024) {
+      handleMenuToggle(); // Close the entire menu for small screens
+    }
+  }, [handleMenuToggle]);
 
   const handleClickOutside = useCallback(
   (event: MouseEvent) => {
@@ -55,17 +62,29 @@ const Ways: React.FC<DestinationsItemProp> = ({ onClick, label }) => {
         <div className="absolute nav-small-way rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
           <div className="flex flex-col px-6 w-full cursor-pointer">
             <>
-              <MenuItem onClick={() => router.push("/discoveryjourney")} label="Discovery Journey" />
+              <MenuItem onClick={() => {
+                router.push("/discoveryjourney");
+                handleMenuItemClick();
+              }} label="Discovery Journey" />
               <MenuItem
-                onClick={() => router.push("/regionaljourney")}
+                onClick={() => {
+                  router.push("/regionaljourney");
+                  handleMenuItemClick();
+                }}
                 label="Regional Journey"
               />
               <MenuItem
-                onClick={() => router.push("/countryroads")}
+                onClick={() => {
+                  router.push("/countryroads");
+                  handleMenuItemClick();
+                }}
                 label="Country Roads"
               />
               <MenuItem
-                onClick={() => router.push("/oceancruise")}
+                onClick={() => {
+                  router.push("/oceancruise");
+                  handleMenuItemClick();
+                }}
                 label="Ocean cruise"
               />
               {/* <MenuItem

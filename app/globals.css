@@ -677,121 +677,6 @@
 
 /* small Screen */
 
-@media (orientation: portrait) and (min-width: 0px) and (max-width: 1024px) {
-  .nav-main-nav{
-    flex-direction: column!important;
-    align-items: flex-start!important;
-    text-align: start!important;
-    /* background-color: #333!important;
-    color: white!important; */
-  }
-
-  .nav-main-nav-open{
-    text-align: start !important;
-    align-items: center !important;
-    /* margin-left: 25vw !important; */
-  }
-
-  .nav-small-dest{
-    background-color: rgba(0, 0, 0, 0)!important;
-    padding: 0px!important;
-    margin: 0px !important;
-    margin-left: 2vw!important;
-    --tw-shadow: none;
-    --tw-shadow-colored: none;
-    box-shadow: none;
-    color: rgba(255, 255, 255, 0.6) !important;
-    text-decoration: underline!important;
-    align-items: flex-start!important;
-    text-align: start!important;
-  }
-
-  .nav-small-hotel{
-  background-color: rgba(0, 0, 0, 0) !important;
-    padding: 0px !important;
-    margin: 0px !important;
-    margin-left: 2vw !important;
-    --tw-shadow: none;
-    --tw-shadow-colored: none;
-    box-shadow: none;
-    color: rgba(255, 255, 255, 0.6) !important;
-    text-decoration: underline !important;
-    align-items: flex-start !important;
-    text-align: start !important;
-  }
-
-  .nav-small-house{
-  background-color: rgba(0, 0, 0, 0) !important;
-  padding: 0px !important;
-  margin: 0px !important;
-  margin-left: 2vw !important;
-  --tw-shadow: none;
-  --tw-shadow-colored: none;
-  box-shadow: none;
-  color: rgba(255, 255, 255, 0.6) !important;
-  text-decoration: underline !important;
-  align-items: flex-start !important;
-  text-align: start !important;
-  }
-
-  .nav-small-tour{
-  background-color: rgba(0, 0, 0, 0) !important;
-    padding: 0px !important;
-    margin: 0px !important;
-    margin-left: 2vw !important;
-    --tw-shadow: none;
-    --tw-shadow-colored: none;
-    box-shadow: none;
-  color: rgba(255, 255, 255, 0.6) !important;
-    text-decoration: underline !important;
-    align-items: flex-start !important;
-    text-align: start !important;
-  }
-
-  .nav-small-way{
-background-color: rgba(0, 0, 0, 0) !important;
-  padding: 0px !important;
-  margin: 0px !important;
-  margin-left: 2vw !important;
-  --tw-shadow: none;
-  --tw-shadow-colored: none;
-  box-shadow: none;
-  color: rgba(255, 255, 255, 0.6) !important;
-  text-decoration: underline !important;
-  align-items: flex-start !important;
-  text-align: start !important;
-  }
-
-  .nav-small-menu{
-    background-color: rgba(0, 0, 0, 0) !important;
-      padding: 0px !important;
-      margin: 0px !important;
-      margin-left: 2vw !important;
-      --tw-shadow: none;
-      --tw-shadow-colored: none;
-      box-shadow: none;
-      color: rgba(255, 255, 255, 0.6) !important;
-      text-decoration: underline !important;
-      align-items: flex-start !important;
-      text-align: start !important;
-  }
-
-  .nav-bar-btn-smalls{
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 0px!important;
-    margin: 0px!important;
-    width: 105vw!important;
-    height: 110vh!important;
-    color: rgba(255, 255, 255, 0.6);
-    margin-left: -5vw!important;
-  }
-
-  .nav-icons-items{
-    display: none!important;
-  }
-
-}
-
 @media (orientation: portrait) and (min-width: 0px) and (max-width: 641px) {
   .nav-small-dest {
     position: absolute !important;
@@ -2236,6 +2121,7 @@ background-color: rgba(0, 0, 0, 0) !important;
 
   .nav-main-page {
     height: 24vh !important;
+    /* border-bottom: 1px solid rgba(225, 225, 225, 0.92)!important; */
   }
 
   .main-image-small-screen {
@@ -2830,6 +2716,143 @@ background-color: rgba(0, 0, 0, 0) !important;
     height: 45vh;
     margin-top: -16% !important;
   }
+}
+
+
+@media (orientation: portrait) and (min-width: 0px) and (max-width: 1024px) {
+  .nav-main-nav {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: start !important;
+    /* background-color: #333!important;
+    color: white!important; */
+  }
+
+  .nav-main-nav-open {
+    text-align: start !important;
+    align-items: flex-start !important;
+    /* margin-left: 25vw !important; */
+  }
+
+  .nav-small-dest {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    margin-left: 10vw !important;
+    margin-top: -4% !important;
+    --tw-shadow: none;
+    --tw-shadow-colored: none;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: underline !important;
+    align-items: flex-start !important;
+    text-align: start !important;
+  }
+
+  /* .nav-small-menu{
+    margin-left: 4vw !important;
+    margin-top: -34% !important;
+  } */
+
+  .nav-small-hotel {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    margin-left: 10vw !important;
+    margin-top: -4% !important;
+    --tw-shadow: none;
+    --tw-shadow-colored: none;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: underline !important;
+    align-items: flex-start !important;
+    text-align: start !important;
+  }
+
+  .nav-small-house {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    padding: 0px !important;
+    margin-left: 10vw !important;
+    margin-top: -4% !important;
+    --tw-shadow: none;
+    --tw-shadow-colored: none;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: underline !important;
+    align-items: flex-start !important;
+    text-align: start !important;
+  }
+
+  .nav-small-tour {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    margin-left: 10vw !important;
+    margin-top: -4% !important;
+    --tw-shadow: none;
+    --tw-shadow-colored: none;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: underline !important;
+    align-items: flex-start !important;
+    text-align: start !important;
+  }
+
+  .nav-small-way {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    margin-left: 10vw !important;
+    margin-top: -4% !important;
+    --tw-shadow: none;
+    --tw-shadow-colored: none;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: underline !important;
+    align-items: flex-start !important;
+    text-align: start !important;
+  }
+
+  .nav-small-menu {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    margin-left: 10vw !important;
+    margin-top: -4% !important;
+    --tw-shadow: none;
+    --tw-shadow-colored: none;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: underline !important;
+    align-items: flex-start !important;
+    text-align: start !important;
+  }
+
+  .nav-bar-btn-smalls {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0px !important;
+    margin: 0px !important;
+    width: 105vw !important;
+    height: 110vh !important;
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: -5vw !important;
+  }
+
+  .nav-icons-items {
+    display: none !important;
+  }
+
+  .nav-main-nav-divs {
+    border-bottom: 1px solid white !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    width: 100vh !important;
+  }
+
+  .nav-main-nav-divs:hover {
+    background-color: #092635 !important;
+  }
+
 }
 
 

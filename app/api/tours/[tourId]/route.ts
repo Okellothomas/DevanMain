@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import getCurrentUser from "@/app/actions/getCurrentUsers";
 import prisma from "@/app/libs/prismadb";
+import { IoLocationSharp } from "react-icons/io5";
 
 interface IParams {
     tourId?: string;
@@ -54,8 +55,11 @@ export async function PUT(
     const { tourId } = params;
     const formData = await request.json(); // Assuming JSON data
 
+    const from_flag = formData.from_flag
 
     const tour = await prisma.tour.findUnique({ where: { id:tourId } });
+    if(from_flag === 'reservation')
+    {
     const slots = formData.slots;
 
     if (tour?.guestCount !== undefined && tour?.tourists !== undefined && slots > (tour.guestCount - tour.tourists.length)) {
@@ -90,7 +94,7 @@ export async function PUT(
       paymentDetails: formData.paymentDetails
     };
     
-    const newPaymentDets = Array.isArray(tour.paymentDetails) ?
+    const newPaymentDets = Array.isArray(tour?.paymentDetails) ?
       [...tour.paymentDetails, newPaymentDetails] : [newPaymentDetails];
     // const newPaymentDets = [...tour.paymentDetails, {userId: formData.userId, totalPrice: formData.totalPrice, paymentDetails:formData.paymentDetails}]
   
@@ -145,6 +149,58 @@ export async function PUT(
         // Return 500 for unexpected errors
     }
   }
+
+  else if(from_flag === 'update')
+  {
+
+
+    const {from_flag,id,guestCount,save, room,roomCount,
+      title, depStart, depEnd, tripStyle, rooms, ourLink,price,country,continent,locations,description
+    } = formData
+
+    const finalUpdateValues ={guestCount: parseInt(guestCount, 10),
+      //title, depStart, depEnd, tripStyle,save, rooms, ourLink, guestCount,price,country,continent,Locations,desciption
+      room: parseInt(room, 10),
+      save: parseInt(save, 10),
+      roomCount: parseInt(roomCount, 10),
+      price: parseInt(price, 10),
+      title:title,
+      depEnd:depEnd,
+      depStart:depStart,
+      tripStyle:tripStyle,
+      ourLink:ourLink,
+      country:country,
+      locations:locations,
+      description:description,
+      rooms:rooms,
+     continent:continent,
+    
+    }
+
+    try {
+
+      const updateTour = await prisma.tour.update({
+        where: {
+          id: tourId,
+        },
+        data: finalUpdateValues, // Use updatedTourData object for selective updates
+      });
+      return NextResponse.json(updateTour);
+
+    } catch (error) {
+
+      console.error("Error updating tour:", error);
+      return NextResponse.json({
+          message: "Internal Server error"
+        }, {
+          status: 500,
+        }) 
+        // Return 500 for unexpected errors
+    }
+      
+    }
+  }
+  
 
 // import { NextResponse } from "next/server";
 // import getCurrentUser from "@/app/actions/getCurrentUsers";

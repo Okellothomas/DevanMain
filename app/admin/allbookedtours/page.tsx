@@ -6,11 +6,13 @@ import SideBar from "../profile/components/SideBar";
 import getmyTours, { ImyToursParams } from "@/app/aagetMethods/getmyTours";
 import TourMyCard from "@/app/aahooks/TourMyCard";
 import TourBookedMyCard from '@/app/aahooks/TourMyBookedCard';
+import getUsers from '@/app/actions/getUsers';
 
 // Define the interface for the Home component props
 interface HotelPageProps {
   searchParams: ImyToursParams; // Search parameters for fetching listings
 }
+
 
 // Home component is defined as an asynchronous function
 const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
@@ -25,7 +27,7 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
 
     // Fetch tours that match the current user's ID
     const tours = await getmyTours({ ...searchParams });
-
+    const all_users = await getUsers({})
     const filteredTours = tours.filter(tour => tour.tourists.length > 0);
 
     // Render the component with the fetched tours
@@ -63,6 +65,7 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
                           key={tour.id} // Use the tour ID as the unique key
                           data={tour} // Pass the tour data to each ListingCard
                           label={true}
+                          users ={all_users}
                         />
                       ) : (
                         <TourBookedMyCard
@@ -75,6 +78,7 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
                           key={tour.id} // Use the tour ID as the unique key
                           data={tour} // Pass the tour data to each ListingCard
                           label={false}
+                          users ={all_users}
                         />
                       )
                     )}

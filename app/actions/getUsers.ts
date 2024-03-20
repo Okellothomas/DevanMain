@@ -1,7 +1,7 @@
 import prisma from '@/app/libs/prismadb';
 
 export interface IUsersParams {
-    id?: string; // Making id optional
+    id?: string; // Making id optional..
     name?: string;
     email?: string;
     userType?: string;
@@ -43,7 +43,7 @@ export default async function getUsers(params: IUsersParams) {
             // }
         });
 
-        const safeUsers = users.map((user) => ({
+        const safeUsers = users.map((user: any) => ({
             ...user,
             // createAt: user.createAt.toISOString(),
         }));

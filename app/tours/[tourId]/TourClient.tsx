@@ -165,6 +165,7 @@ const TourClient: React.FC<TourClientProps> = ({
                   setShowPay(false)
                   console.log("Payment Data", dataa)
                   axios.put(`/api/tours/${tour?.id}`, {
+                      from_flag:'reservation',
                       totalPrice: selectedPaymentAmount,
                       startDate: dateRange.startDate,
                       endDate: dateRange.endDate,

@@ -27,3 +27,25 @@
     border: none;
     cursor: pointer;
 }
+
+.user-table {
+    border-collapse: collapse;
+    width: 100%; /* Adjust width as needed */
+    margin: 1rem 0; /* Add some margin for better spacing */
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 0.5rem 1rem; /* Adjust padding for cell content */
+    border: 1px solid #ddd;
+    text-align: left; /* Align content to the left */
+  }
+  
+  .user-table thead th {
+    background-color: #f2f2f2; /* Light background for header */
+    font-weight: bold; /* Make header text bold */
+  }
+  
+  .number-column {
+    text-align: right; /* Align number of slots to the right */
+  }

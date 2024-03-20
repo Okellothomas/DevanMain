@@ -9,6 +9,7 @@ import bcrypt from 'bcrypt'
 // import NextAuth from "next-auth/next";
 
 // Configuration options for NextAuth
+
 export const authOptions: AuthOptions = {
     // Use PrismaAdapter with the Prisma instance for session management
     adapter: PrismaAdapter(prisma), 
@@ -76,9 +77,11 @@ export const authOptions: AuthOptions = {
     debug: process.env.NODE_ENV === 'development',
     
     // Configuration for session handling using JWT
+    
     session: {
         strategy: 'jwt'
     },
+
 }
 
 // Initialize NextAuth with the specified configuration options

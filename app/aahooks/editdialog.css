@@ -1,0 +1,114 @@
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100!important;
+}
+
+.dialog {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.form-groups-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow form groups to wrap to next row */
+  gap: 1rem; /* Add spacing between form groups */
+}
+
+
+.edit-tour-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .edit-tour-form h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group input[type="url"],
+  .form-group textarea {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    min-width: 100%;
+  }
+  
+  .form-group textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    resize: vertical;
+    min-height: 100px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+  }
+  
+  .form-group select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+  }
+  
+  .form-group button {
+    background-color: #4CAF50; /* Green color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .form-group button:hover {
+    background-color: #45a049; /* Green hover color */
+  }

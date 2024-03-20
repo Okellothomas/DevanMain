@@ -25,7 +25,7 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
     // Fetch tours that match the current user's ID
     const tours = await getmyTours({ ...searchParams, userId: currentUser.id });
 
-    const filteredTours = tours.filter(tour => tour.tourists.length > 0);
+    const filteredTours = tours.filter((tour: { tourists: string | any[]; }) => tour.tourists.length > 0);
 
     // Render the component with the fetched tours
     return (

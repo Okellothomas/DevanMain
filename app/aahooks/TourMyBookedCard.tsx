@@ -1,9 +1,8 @@
 'use client'
 import useCountries from "@/app/hooks/useCountries";
 import { SafeUser, safeListing, safeReservation } from "@/app/types";
-import { Listing, Reservation } from "@prisma/client"
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { format } from 'date-fns';
 import Image from "next/image";
 import HeartButton from "../components/container/HeartButton";
@@ -13,8 +12,24 @@ import prisma from '@/app/libs/prismadb';
 import toast, { useToaster } from "react-hot-toast";
 import axios from "axios";
 import { MouseEvent } from 'react';
+import DialogBox from "./DialogBox";
+import { useUsers } from "../actions/useUsers";
 
 
+interface UserData {
+    id: string;
+    name: string | null;
+    contact: string | null;
+    country: string | null;
+    email: string | null;
+    emailVerified: Date | null;
+    image: string | null;
+    hashedPassword: string | null;
+    createdAt: Date;
+    updatedAt: Date;
+    favoriteIds: string[];
+    userType: string | null;
+  }
 interface ListingCardProps {
     data: safeTour;
     reservation?: safeReservation;
@@ -24,6 +39,7 @@ interface ListingCardProps {
     actionId?: string;
     currentUser?: SafeUser | null;
     label: boolean;
+    users?:SafeUser[];
 }
  
 const TourBookedMyCard: React.FC<ListingCardProps> = ({
@@ -35,14 +51,15 @@ const TourBookedMyCard: React.FC<ListingCardProps> = ({
     actionId = "",
     currentUser, 
     label,
+    users
 }) => {
     const router = useRouter();
     const { getByValue } = useCountries();
     const location = getByValue(data?.locationValue || ""); // Handle null locationValue
     const toaster = useToaster();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-
+    //const [users, setUsers] = useState<UserData[]>([]);
+ 
     const openDialog = (e: MouseEvent<HTMLDivElement>) => {
         e.stopPropagation(); // Stop event propagation to parent
         setIsDialogOpen(true);
@@ -100,6 +117,41 @@ const TourBookedMyCard: React.FC<ListingCardProps> = ({
         console.log('Failed to delete tour. Please try again.');
     }
 };
+
+
+
+useEffect(() => {
+
+    console.log("Getting users------------------")
+    const fetchUsers = async () => {
+    //   try {
+    //    // const currentUser = getCurrentUser()
+       
+    //     console.log("current User-----", currentUser)
+    //     const fetchedUsers = await getUsers({});
+    //     console.log('Fetched users:', fetchedUsers); // Log fetched users
+    //     setUsers(fetchedUsers);
+    //   } catch (error) {
+    //     console.error('Error fetching users:', error);
+    //   }
+    // try {
+    //     const response = await axios.get('/api/users', {
+    //         headers: {
+            
+    //           'Content-Type': 'application/json',
+    //           // Add other headers as needed
+    //         },
+    //       }); // Send params as query string
+    //     setUsers(response.data); 
+    //   } catch (error) {
+    //     console.error(error);
+    //     // Handle errors (e.g., display an error message to the user)
+    //     console.log("Error fetching users axiosss", error) // Return an empty array in case of error (optional)
+    //   }
+    };
+  
+    fetchUsers();
+  }, []);
 
 
   return (
@@ -160,9 +212,11 @@ const TourBookedMyCard: React.FC<ListingCardProps> = ({
               <div className="font-semibold" onClick={handleDivClick}>
                     <button className="outline-main-btn">View</button>
               </div>
-              {/* <DialogBox isOpen={isDialogOpen} onClose={closeDialog} data={data}>
+              {isDialogOpen &&
+              <DialogBox isOpen={isDialogOpen} onClose={closeDialog} data={data} users={users}>
                  
-              </DialogBox> */}
+              </DialogBox>}
+              
          </div>
     </div>
   )

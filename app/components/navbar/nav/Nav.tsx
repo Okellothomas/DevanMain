@@ -22,11 +22,11 @@ const Nav:React.FC<UserMenuProps> = ({ handleMenuToggle }) => {
 
   return (
     <div className="nav-main-nav flex flex-col sm:flex-row sm:mx-8 sm:gap-8 justify-between sm:items-start items-center">
-      <Destinations  handleMenuToggle={handleMenuToggle}/>
-      <Hotels handleMenuToggle={handleMenuToggle} />
-      <Ways handleMenuToggle={handleMenuToggle}/>
-      <House handleMenuToggle={handleMenuToggle}/>
-      <Tours handleMenuToggle={handleMenuToggle}/> 
+      <div className="nav-main-nav-divs"><Destinations handleMenuToggle={handleMenuToggle} /></div>
+      <div className="nav-main-nav-divs"><Hotels handleMenuToggle={handleMenuToggle} /></div>
+      <div className="nav-main-nav-divs"><Ways handleMenuToggle={handleMenuToggle} /></div>
+      <div className="nav-main-nav-divs"><House handleMenuToggle={handleMenuToggle} /></div>
+      <div className="nav-main-nav-divs"><Tours handleMenuToggle={handleMenuToggle}/></div> 
     </div>
   )
 }

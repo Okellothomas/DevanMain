@@ -1,4 +1,3 @@
-
 import getCurrentUser from "@/app/actions/getCurrentUsers";
 import getListings, { IListingsParams } from "@/app/actions/getListings";
 import getTours, { IToursParams } from "@/app/actions/getTours";
@@ -97,30 +96,6 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
                 )}
             </div>
           </div>
-         
-          {/* <div className="col-span-4">
-            <div className="pb-6">
-              <h1 className="text-2xl font-bold">All Operators</h1>
-            </div>
-            <div className="items-center pb-1">
-               {users.length === 0 ? (
-                  <p>No operators are currently available please come back later!</p>
-                ) : (
-                  users.map((user) => (
-                    <div className="flex flex-row py-7 justify-between border-b-2" key={user.id}>
-                      <div>
-                        <p>{user.name}</p>
-                        <p>{user.email}</p>
-                        <p>{user.contact}</p>
-                      </div>
-                      <DeleteButton
-                        onDelete={() => handleDelete(user.id)}
-                      > Delete</DeleteButton>
-                    </div>
-                  ))
-                )}
-            </div>
-          </div> */}
         </div>
       </Container>
     </div>

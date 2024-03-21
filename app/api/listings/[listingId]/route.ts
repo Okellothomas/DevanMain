@@ -64,53 +64,78 @@ export async function GET(
     return NextResponse.json(listing);
 }
 
+export async function PUT(
+    request: Request,
+    { params }: { params: IParams }
+  ) {
+  
+    console.log("Update reached...")
+    const currentUser = await getCurrentUser();
+  
+    if (!currentUser) {
+      return NextResponse.json({
+          message: "Unauthorised"
+        }, {
+          status: 401,
+        }) // Return 401 for unauthorized access
+    }
+  
+    const { listingId } = params;
+    const formData = await request.json(); // Assuming JSON data
 
 
-// import { NextResponse } from "next/server";
-// import getCurrentUser from "@/app/actions/getCurrentUsers";
-// import prisma from "@/app/libs/prismadb";
+    const listing = await prisma.listing.findUnique({ where: { id:listingId } });
 
-// interface IParams {
-//     listingId?: string;
-// }
 
-// export async function DELETE(
-//     request: Request,
-//     { params }: { params: IParams }
-// ) {
-//     const currentUser = await getCurrentUser();
+    const {id,guestCount,save, room,roomCount,
+      title, overView, house, hotel, hostName, cohostName, hostContact, hotelLink, oneBedroom, twoBedroom, threebedRoom, commonPlace,price, description
+    } = formData
 
-//     if (!currentUser) {
-//         return NextResponse.error();
-//     }
 
-//     const { listingId } = params;
+    const finalUpdateValues ={guestCount: parseInt(guestCount, 10),
+      //title, depStart, depEnd, tripStyle,save, rooms, ourLink, guestCount,price,country,continent,Locations,desciption
+      room: parseInt(room, 10),
+      save: parseInt(save, 10),
+      roomCount: parseInt(roomCount, 10),
+      price: parseInt(price, 10),
+      title:title,
+      overView:overView,
+      house:house,
+      hotel:hotel,
+      hotelLink:hotelLink,
+      hostName:hostName,
+      cohostName:cohostName,
+      hostContact:hostContact,
+      oneBedroom:oneBedroom,
+      twoBedroom: twoBedroom,
+      threebedRoom: threebedRoom,
+      commonPlace:commonPlace,
+    //   locations:locations,
+      description:description,
+    //   country:country,
+    //   continent:continent,
+    
+    }
 
-//     if (!listingId || typeof listingId !== 'string') {
-//         throw new Error('Invalid ID');
-//     }
+    try {
 
-//     const listing = await prisma.listing.deleteMany({
-//         where: {
-//             id: listingId,
-//             userId: currentUser.id
-//         }
-//     });
+      const updateTour = await prisma.listing.update({
+        where: {
+          id: listingId,
+        },
+        data: finalUpdateValues, // Use updatedTourData object for selective updates
+      });
+      return NextResponse.json(updateTour);
 
-//     return NextResponse.json(listing);
-// }
+    } catch (error) {
 
-// // Generate static paths for pre-rendering
-// export async function generateStaticParams() {
-//     try {
-//         // Fetch all possible listing IDs from your data source
-//         const listings = await prisma.listing.findMany();
-
-//         const listingIds = listings.map((listing) => ({ params: { listingId: listing.id } }));
-
-//         return listingIds;
-//     } catch (error) {
-//         console.error("Error generating static params:", error);
-//         return [];
-//     }
-// }
+      console.error("Error updating tour:", error);
+      return NextResponse.json({
+          message: "Internal Server error"
+        }, {
+          status: 500,
+        }) 
+        // Return 500 for unexpected errors
+    }
+      
+    }

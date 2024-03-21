@@ -41,10 +41,10 @@ interface DialogBoxProps {
 
     const makeUpdate = () => {
      
-              axios.put(`/api/listings/${data?.id}`, {
-                  from_flag:'update',
-                 ...formData
-              })
+              axios.put(`/api/listings/${data?.id}`, 
+                  // from_flag:'update',
+                 formData
+              )
                   .then(async () => {
                       toast.success('Hotel/House update successful!');
                       

@@ -110,38 +110,38 @@ interface DialogBoxProps {
 
               
      <div className="form-group">
-        <label htmlFor="onebed">Number of 1 Bedrooms:</label>
-        <input type="text" id="onebed" 
+        <label htmlFor="oneBedroom">Number of 1 Bedrooms:</label>
+        <input type="text" id="oneBedroom" 
         onChange={handleChange}
         value={formData.oneBedroom || ''}
-        name="onebed" />
+        name="oneBedroom" />
         {/** Add error message container here if needed */}
       </div>
 
       <div className="form-group">
-        <label htmlFor="twobed">Number of 2 Bedrooms:</label>
-        <input type="text" id="twobed" 
+        <label htmlFor="twoBedroom">Number of 2 Bedrooms:</label>
+        <input type="text" id="twoBedroom" 
         onChange={handleChange}
         value={formData.twoBedroom || ''}
-        name="twobed" />
+        name="twoBedroom" />
         {/** Add error message container here if needed */}
       </div>
 
       <div className="form-group">
-        <label htmlFor="threebed">Number of 3 Bedrooms:</label>
-        <input type="text" id="threebed" 
+        <label htmlFor="threebedRoom">Number of 3 Bedrooms:</label>
+        <input type="text" id="threebedRoom" 
         onChange={handleChange}
         value={formData.threebedRoom || ''}
-        name="threebed" />
+        name="threebedRoom" />
         {/** Add error message container here if needed */}
       </div>
 
       <div className="form-group">
-        <label htmlFor="commonp">Number of CommonPlaces:</label>
-        <input type="text" id="common" 
+        <label htmlFor="commonPlace">Number of CommonPlaces:</label>
+        <input type="text" id="commonPlace" 
         onChange={handleChange}
         value={formData.commonPlace || ''}
-        name="common" />
+        name="commonPlace" />
         {/** Add error message container here if needed */}
       </div>
      
@@ -162,45 +162,45 @@ interface DialogBoxProps {
         {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
-        <label htmlFor="room">Rooms Count:</label>
-        <input type="number" id="room" 
+        <label htmlFor="roomCount">Rooms Count:</label>
+        <input type="number" id="roomCount" 
         onChange={handleChange}
-        value={formData.roomCount || 0}  name="room" min="0" />
+        value={formData.roomCount || 0}  name="roomCount" min="0" />
         {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
-        <label htmlFor="guest">Guests Count:</label>
-        <input type="number" id="guest" 
+        <label htmlFor="guestCount">Guests Count:</label>
+        <input type="number" id="guestCount" 
         onChange={handleChange}
-        value={formData.guestCount || 0}  name="guest" min="0" />
+        value={formData.guestCount || 0}  name="guestCount" min="0" />
         {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
-        <label htmlFor="hostname">Host Name:</label>
-        <input type="text" id="hostname" 
+        <label htmlFor="hostName">Host Name:</label>
+        <input type="text" id="hostName" 
         onChange={handleChange}
-        value={formData.hostName || ''} name="hostname" />
+        value={formData.hostName || ''} name="hostName" />
         {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
-        <label htmlFor="cohost">Cohost Name:</label>
-        <input type="text" id="cohost" 
+        <label htmlFor="cohostName">Cohost Name:</label>
+        <input type="text" id="cohostName" 
         onChange={handleChange}
-        value={formData.cohostName || ''} name="cohost"/>
+        value={formData.cohostName || ''} name="cohostName"/>
         {/** Add error message container here if needed */}
               </div>
       <div className="form-group">
-        <label htmlFor="hostcontact">Host Contact:</label>
-        <input type="text" id="hostcontact" 
+        <label htmlFor="hostContact">Host Contact:</label>
+        <input type="text" id="hostContact" 
         onChange={handleChange}
-        value={formData.hostContact || ''} name="hostcontact" />
+        value={formData.hostContact || ''} name="hostContact" />
         {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
-        <label htmlFor="overview">Overview:</label>
-        <input type="text" id="overview" 
+        <label htmlFor="overView">Overview:</label>
+        <input type="text" id="overView" 
         onChange={handleChange}
-        value={formData.overView  || ''} name="overview" />
+        value={formData.overView  || ''} name="overView" />
         {/** Add error message container here if needed */}
       </div>
       </div>

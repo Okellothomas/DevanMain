@@ -5,7 +5,7 @@ import Modal from "./Modal"
 import { useMemo, useState } from "react"
 import Heading from "../container/Heading"
 import CategoryInput from "../Inputs/CategoryInput"
-import { tours } from "../navbar/TourCategories";
+import { news } from "../navbar/NewCategories";
 import CountrySelect from "../Inputs/CountrySelect"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import dynamic from "next/dynamic"
@@ -16,6 +16,7 @@ import axios from "axios"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
 import useBlogModal from "@/app/hooks/useBlogModel";
+import Modals from "./Modals";
 
 enum STEPS {
     CATEGORY = 0,
@@ -27,6 +28,7 @@ enum STEPS {
 const BlogModal = () => {
 
     const blogModal = useBlogModal();
+    const tourModal  = useTourModal()
     const router = useRouter()
     const [step, setStep] = useState(STEPS.CATEGORY);
     const [isLoading, setIsLoading] = useState(false);
@@ -98,7 +100,7 @@ const BlogModal = () => {
         
         axios.post('/api/blogs', data)
             .then(() => {
-                toast.success('Tours Created!');
+                toast.success('blog Created!');
                 router.refresh();
                 reset();
                 setStep(STEPS.CATEGORY);
@@ -128,7 +130,7 @@ const BlogModal = () => {
             />
             <div className="
             grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto">
-            {tours.map((item) => (
+            {news.map((item) => (
                 <div key={item.label} className="col-span-1">
                     <CategoryInput
                         onClick={(category) => setCustomValue(
@@ -189,14 +191,14 @@ const BlogModal = () => {
                     title="Add 4 photos of your place"
                     subtitle="Show guests what your place looks like!"
                 />
-                <ImageUpload
-                    value={imageSrc}
-                    onChange={(value) => setCustomValue('imageSrc', value)}
-                />
                 {/* <ImageUpload
                     value={imageSrc}
-                    onChange={(value) => setCustomValue('imageSrc', [...imageSrc,value])}
+                    onChange={(value) => setCustomValue('imageSrc', value)}
                 /> */}
+                <ImageUpload
+                    value={imageSrc}
+                    onChange={(value) => setCustomValue('imageSrc', [...imageSrc,value])}
+                />
             </div>
         )
     }

@@ -40,7 +40,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    max-width: 80%;
+    width: 80%!important;
     margin-left: 10%;
     height: auto!important;
     padding: 2rem;
@@ -85,8 +85,8 @@
     border-radius: 3px;
     outline: none;
     resize: vertical;
-    /* min-height: 100px; */
-    width: 70% !important;
+    min-height: 100px;
+    /* width: 70% !important; */
     box-sizing: border-box; /* Ensure padding and border are included in width calculation */
   }
   

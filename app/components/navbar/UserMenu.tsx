@@ -17,6 +17,7 @@ import { GiKangaroo } from "react-icons/gi";
 import { CiLogin } from "react-icons/ci";
 import { IoIosHeartEmpty } from "react-icons/io";
 import useBlogModal from "@/app/hooks/useBlogModel";
+import useNewsModal from "@/app/hooks/useNewsModel";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -30,9 +31,11 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser, handleMenuToggle }) =>
   const rentModal = useRentModal();
   const tourModal = useTourModal();
   const blogModal = useBlogModal();
+  const newsModal = useNewsModal();
   const signUpModal = useRegisterModal();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
+  const { onOpen, onClose } = useBlogModal();
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
@@ -57,10 +60,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser, handleMenuToggle }) =>
     }
   };
 
-  const handleBlogClick = () => {
-    blogModal.onOpen();
-    handleMenuItemClick(); // Close menu after opening Blog Modal
-  };
+  // const handleBlogClick = () => {
+  //   blogModal.onOpen();
+  //   handleMenuItemClick(); // Close menu after opening Blog Modal
+  // };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -216,9 +219,19 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser, handleMenuToggle }) =>
                         label="Add hotel/house"
                       />
                     </div>
+                    {/* <div className="flex flex-row items-center">
+                      <GrBlog className="nav-icons-items" size={23} />{" "}
+                          <MenuItem onClick={() => {
+                              newsModal.onOpen();
+                              handleMenuItemClick();
+                          }} label="Add blog" />
+                        </div> */}
                     <div className="flex flex-row items-center">
                       <GrBlog className="nav-icons-items" size={23} />{" "}
-                      <MenuItem onClick={handleBlogClick} label="Add blog" />
+                          <MenuItem onClick={() => {
+                              blogModal.onOpen();
+                              handleMenuItemClick();
+                          }} label="Add blog" />
                     </div>
                     <div className="flex flex-row items-center">
                       <GiKangaroo className="nav-icons-items" size={23} />

@@ -98,11 +98,11 @@ model Listing {
 // Blog Modal
 
 model Blog {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
   title       String // Title of the listing
   hotelLink   String?
   description String
-  imageSrc    String // URL for the listing image
+  imageSrc    String[] // URL for the listing image
   category    String // Category of the listing
 }
 

@@ -22,12 +22,12 @@ const FooterMiddle = () => {
           <div onClick={() => router.push("/regionaljourney")} className=" hover:underline cursor-pointer">Regional Jouneys</div> 
           <div onClick={() => router.push("/oceancruise")} className=" hover:underline cursor-pointer">Ocean Cruises</div> 
           <div onClick={() => router.push("/countryroads")} className=" hover:underline cursor-pointer">Country Roads</div> 
-          <div onClick={() => router.push("/vocations")} className=" hover:underline cursor-pointer">Vocations</div>
+          <div onClick={() => router.push("/gallery")} className=" hover:underline cursor-pointer">Gallery</div>
           <div onClick={() => router.push("/trendingtours")} className=" hover:underline cursor-pointer">Trending Tours</div>
           <div onClick={() => router.push("/contact")} className=" hover:underline cursor-pointer">Contact Us</div> 
           <div onClick={() => router.push("/premiumtours")} className=" hover:underline cursor-pointer">Premium Tours</div> 
           <div onClick={() => router.push("/destinations")} className=" hover:underline cursor-pointer">Destinations</div> 
-          <div onClick={() => router.push("/hotels")} className=" hover:underline cursor-pointer">Hotels</div>
+          <div onClick={() => router.push("/blogs")} className=" hover:underline cursor-pointer">Blogs</div>
     </div>
   )
 }

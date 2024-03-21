@@ -125,7 +125,7 @@ const BlogModal = () => {
     let bodyContent = (
         <div className="flex flex-col gap-8">
             <Heading
-                title="Which of these best describe your Tour?"
+                title="Which of these best describe your venture?"
                 subtitle="Pick a category"
             />
             <div className="

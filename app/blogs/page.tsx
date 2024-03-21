@@ -48,7 +48,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
   return (
     <div>
     <div className="all-destinations-main flex flex-col items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-destinations-main">Important <span className="color-span-green">Updates</span></h1>
+        <h1 className="color-h1-destinations-main">All New <span className="color-span-green">Blogs</span></h1>
         {/* <div className="destination-search">
           <Search /> 
         </div> */}

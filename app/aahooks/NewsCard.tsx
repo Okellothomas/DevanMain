@@ -1,7 +1,9 @@
+'use client'
 import React from 'react';
 import { format } from 'date-fns';
 import Image from 'next/image';
 import { SafeUser, safeBlog, safeReservation } from '@/app/types';
+import { useRouter } from 'next/navigation';
 
 interface ListingCardProps {
     data: safeBlog;
@@ -34,8 +36,11 @@ const NewsCard: React.FC<ListingCardProps> = ({
         return `${format(start, 'pp')} - ${format(end, 'pp')}`;
     }, [reservation]);
 
+    const router = useRouter();
+
     return (
-        <div>
+        <div onClick={() => router.push(`/blog/${data?.id}`)} //added ?
+            className="col-span-1 cursor-pointer group rounded-xl pb-3 shadow-md">
             <div className="flex flex-col gap-2 w-full main-image-small-screen">
                 <div className="flex flex-row items-center gap-1">
                     <div className="font-bold text-lg text-green-600">
@@ -62,12 +67,9 @@ const NewsCard: React.FC<ListingCardProps> = ({
                     ) : null}
                 </div>
                 <div className="flex flex-row items-center gap-1">
-                    <div className="text-md text-neutral-600">
+                    <div className="text-md text-neutral-600 truncate max-w-[20rem]">
                         {data.description}
                     </div>
-                </div>
-                <div className="text-green-600 py-3">
-                    <hr />
                 </div>
             </div>
         </div>

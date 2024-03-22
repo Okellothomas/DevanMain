@@ -1,156 +1,3 @@
-// 'use client'
-// import React, { useState } from 'react';
-// import { format } from 'date-fns';
-// import Image from 'next/image';
-// import { Dialog, Transition } from '@headlessui/react';
-// import { IoMdClose } from "react-icons/io";
-// import { PiImagesSquareLight } from "react-icons/pi";
-// import { SafeUser, safeBlog, safeReservation } from '@/app/types';
-
-// interface ListingCardProps {
-//     data: safeBlog;
-//     reservation?: safeReservation;
-//     onAction?: (id: string) => void;
-//     disabled?: boolean;
-//     actionLabel?: string;
-//     actionId?: string;
-//     currentUser?: SafeUser | null;
-// }
-
-// const BlogsCard: React.FC<ListingCardProps> = ({
-//     data,
-//     reservation,
-//     onAction,
-//     disabled,
-//     actionLabel,
-//     actionId = '',
-//     currentUser,
-// }) => {
-//     const [isOpen, setIsOpen] = useState(false);
-//     const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-//     const openDialog = (image: string) => {
-//         setSelectedImage(image);
-//         setIsOpen(true);
-//     };
-
-//     const closeDialog = () => {
-//         setIsOpen(false);
-//         setSelectedImage(null);
-//     };
-
-//     const reservationDate = React.useMemo(() => {
-//         if (!reservation) {
-//             return null;
-//         }
-
-//         const start = new Date(reservation.startDate);
-//         const end = new Date(reservation.endDate);
-
-//         return `${format(start, 'pp')} - ${format(end, 'pp')}`;
-//     }, [reservation]);
-
-//     return (
-//         <div>
-//             <div className="flex flex-col gap-2 w-full main-image-small-screen">
-//                 <div className="flex flex-row items-center gap-1">
-//                     <div className="font-bold text-md text-green-600">
-//                         {data.title.toUpperCase()}
-//                     </div>
-//                 </div>
-//                 <div className="aspect-square h-[60vh] w-full relative overflow-hidden rounded-xl">
-//                     {data.imageSrc.map((image, index) => (
-//                         <Image
-//                             key={index}
-//                             fill
-//                             alt={`Image ${index + 1}`}
-//                             src={image}
-//                             className="object-cover h-full w-full transition group-hover:scale-110 cursor-pointer"
-//                             onClick={() => openDialog(image)}
-//                         />
-//                     ))}
-//                     {data.imageSrc.length > 1 && (
-//                         <div className="absolute bottom-4 right-4 bg-white p-2 rounded-full cursor-pointer">
-//                             <PiImagesSquareLight className="h-6 w-6 text-gray-600" onClick={() => openDialog(data.imageSrc[0])} />
-//                         </div>
-//                     )}
-//                 </div>
-//             </div>
-
-//             {/* Dialog */}
-//             <Transition appear show={isOpen} as={React.Fragment}>
-//                 <Dialog
-//                     as="div"
-//                     className="fixed inset-0 z-10 overflow-y-auto"
-//                     onClose={closeDialog}
-//                 >
-//                     <div className="min-h-screen px-4 text-center">
-//                         <Transition.Child
-//                             as={React.Fragment}
-//                             enter="ease-out duration-300"
-//                             enterFrom="opacity-0"
-//                             enterTo="opacity-100"
-//                             leave="ease-in duration-200"
-//                             leaveFrom="opacity-100"
-//                             leaveTo="opacity-0"
-//                         >
-//                             <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-//                         </Transition.Child>
-
-//                         {/* This element is to trick the browser into centering the modal contents. */}
-//                         <span className="inline-block h-screen align-middle" aria-hidden="true">
-//                             &#8203;
-//                         </span>
-
-//                         <Transition.Child
-//                             as={React.Fragment}
-//                             enter="ease-out duration-300"
-//                             enterFrom="opacity-0 scale-95"
-//                             enterTo="opacity-100 scale-100"
-//                             leave="ease-in duration-200"
-//                             leaveFrom="opacity-100 scale-100"
-//                             leaveTo="opacity-0 scale-95"
-//                         >
-//                             <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-//                                 <Dialog.Title
-//                                     as="h3"
-//                                     className="text-lg font-medium leading-6 text-gray-900"
-//                                 >
-//                                     Image Gallery
-//                                 </Dialog.Title>
-//                                 <div className="mt-2 grid grid-cols-1 gap-4">
-//                                     {data.imageSrc.map((image, index) => (
-//                                         <div key={index} className={selectedImage === image ? "block" : "hidden"}>
-//                                             <Image
-//                                                 fill
-//                                                 alt={`Image ${index + 1}`}
-//                                                 src={image}
-//                                                 className="object-cover h-80 w-full rounded-lg"
-//                                             />
-//                                         </div>
-//                                     ))}
-//                                 </div>
-//                                 <div className="mt-4">
-//                                     <button
-//                                         type="button"
-//                                         className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-//                                         onClick={closeDialog}
-//                                     >
-//                                     <IoMdClose className="w-5 h-5 mr-2" />
-//                                         Close
-//                                     </button>
-//                                 </div>
-//                             </div>
-//                         </Transition.Child>
-//                     </div>
-//                 </Dialog>
-//             </Transition>
-//         </div>
-//     );
-// };
-
-// export default BlogsCard;
-
 'use client'
 import React, { useState } from 'react';
 import { format } from 'date-fns';
@@ -159,6 +6,8 @@ import { Dialog, Transition } from '@headlessui/react';
 import { IoMdClose } from "react-icons/io";
 import { PiImagesSquareLight } from "react-icons/pi";
 import { SafeUser, safeBlog, safeReservation } from '@/app/types';
+import { TbPlayerTrackPrev } from "react-icons/tb";
+import { TbPlayerTrackNext } from "react-icons/tb";
 
 interface ListingCardProps {
     data: safeBlog;
@@ -211,7 +60,7 @@ const BlogsCard: React.FC<ListingCardProps> = ({
         <div>
             <div className="flex flex-col gap-2 w-full main-image-small-screen">
                 <div className="flex flex-row items-center gap-1">
-                    <div className="font-bold text-md text-green-600">
+                    <div className="font-bold text-md text-green-600 truncate max-w-[20rem]">
                         {data.title.toUpperCase()}
                     </div>
                 </div>
@@ -268,7 +117,7 @@ const BlogsCard: React.FC<ListingCardProps> = ({
                                     as="h3"
                                     className="text-lg align-middle text-center font-medium leading-6 text-gray-900"
                                 >
-                                    Our Gallery
+                                    {data.title}
                                 </Dialog.Title>
                                 <div className="mt-2">
                                     <Image
@@ -284,22 +133,21 @@ const BlogsCard: React.FC<ListingCardProps> = ({
                                         className="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                                         onClick={handlePrevImage}
                                     >
-                                        Prev
+                                    <TbPlayerTrackPrev className="w-5 h-5 mr-2"/>
                                     </button>
                                     <button
                                         type="button"
                                         className="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                                         onClick={handleNextImage}
                                     >
-                                        Next
+                                    <TbPlayerTrackNext className="w-5 h-5 mr-2"/>
                                     </button>
                                     <button
                                         type="button"
                                         className="inline-flex justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                                         onClick={closeDialog}
                                     >
-                                        <IoMdClose className="w-5 h-5 mr-2" />
-                                        Close
+                                        <IoMdClose className="w-5 h-5 mr-2"/>
                                     </button>
                                 </div>
                             </div>

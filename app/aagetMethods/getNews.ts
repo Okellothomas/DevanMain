@@ -1,12 +1,12 @@
 import prisma from '@/app/libs/prismadb';
 
-export interface IListingsParams {
+export interface IBlogParams {
     userId?: string;
     category?: string;
 }
 
 export default async function getNews(
-    params: IListingsParams
+    params: IBlogParams
 ) {
     try {
         const {

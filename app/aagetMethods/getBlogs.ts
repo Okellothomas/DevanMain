@@ -1,12 +1,12 @@
 import prisma from '@/app/libs/prismadb';
 
-export interface IListingsParams {
+export interface IBlogParams {
     userId?: string;
     category?: string;
 }
 
 export default async function getBlogs(
-    params: IListingsParams
+    params: IBlogParams
 ) {
     try {
         const {
@@ -34,11 +34,6 @@ export default async function getBlogs(
                 createdAt: 'desc'
             }
         });
-
-        // const safeBlog = news.map((listing) => ({
-        //     ...listing,
-        //     createAt: listing.createdAt?.toISOString() || null,
-        // }));
 
         const safeBlog = news
         .filter(listing => listing.createdAt !== null) // Filter out records with null createdAt

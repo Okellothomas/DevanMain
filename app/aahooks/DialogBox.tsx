@@ -58,15 +58,17 @@ const DialogBox: React.FC<DialogBoxProps> = async ({ isOpen, onClose,
   }, []);
 
 
-
-  console.log("all userss ---",users)
+  // console.log("Total Price:", data.paymentDetails[0]?.totalPrice);
+  // console.log("Amount Payed", data.paymentDetails[0]?.paymentDetails.purchase_units[0].amount.value)
+  // console.log("all userss ---",users)
   const filterUsers = users.filter((user: { id: string; }) => data.tourists.includes(user.id));
   
-  console.log("filtered users--->", filterUsers)
+  // console.log("filtered users--->", filterUsers)
 
   const handleChildClick =  (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     onClose();
   };
+  
 
   if (!isOpen) return null;
 
@@ -86,7 +88,10 @@ const DialogBox: React.FC<DialogBoxProps> = async ({ isOpen, onClose,
                           <tr>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Contact</th>
                             <th>Number of Slots</th>
+                            <th>Total Price</th>
+                            <th>Amount Payed</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -94,7 +99,11 @@ const DialogBox: React.FC<DialogBoxProps> = async ({ isOpen, onClose,
                             <tr key={user.id}>
                               <td>{user.name}</td>
                               <td>{user.email}</td>
-                              <td className="number-column">{data.tourists.filter(x => x==user.id).length}</td>
+                              <td>{user.contact}</td>
+                              <td className="number-column">{data.tourists.filter(x => x == user.id).length}</td>
+                              {/* <td className="number-column">{data.paymentDetails[0]?.totalPrice}</td> */}
+                              <td className="number-column">{data.price * data.tourists.filter(x => x == user.id).length}</td>
+                              <td className="number-column">{data.paymentDetails[0]?.paymentDetails.purchase_units[0].amount.value}</td>
                             </tr>
                           ))}
                         </tbody>

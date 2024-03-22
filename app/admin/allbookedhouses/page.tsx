@@ -11,6 +11,7 @@ import Image from "next/image";
 import ListingCard from "@/app/components/listing/ListingCard";
 import getMyListingsHouses, { IMyHouseListingsParams } from "@/app/aagetMethods/getMyListingsHouses";
 import HouseMyCard from "@/app/aahooks/HouseMyCard";
+import ListingBookedMyCard from "@/app/aahooks/ListingMyBookedCard";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -23,6 +24,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
   try {
     // Fetch current user
     const currentUser = await getCurrentUser();
+    const all_users = await getUsers({})
 
     // Ensure currentUser is not null before accessing its properties
     if (!currentUser) {
@@ -58,7 +60,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
                 ) : (
                   <div className="pt-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
                     {listings.map((listing: any) => (
-                      <HouseMyCard
+                      <ListingBookedMyCard
                         currentUser={currentUser ? {
                           ...currentUser,
                           createdAt: currentUser.createdAt.toISOString(),
@@ -67,6 +69,8 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
                         } : null} // Pass the current user to each ListingCard
                         key={listing.id} // Use the listing ID as the unique key
                         data={listing} // Pass the listing data to each ListingCard
+                        label={true}
+                        users ={all_users}
                       />
                     ))}
                   </div>

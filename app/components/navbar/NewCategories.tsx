@@ -25,7 +25,7 @@ export const news = [
         description: "These are blogs events!"
     },
     {
-        label: 'Gallery',
+        label: 'gallery',
         icon: RiGalleryLine,
         description: "These are memorable events!"
     }

@@ -4,6 +4,7 @@ import { SafeUser, safeListing, safeReservation, safeTour } from '../types';
 import getUsers, { IUsersParams } from '../actions/getUsers';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 interface DialogBoxProps {
     searchParams?: IUsersParams;
     data: safeListing;
@@ -26,6 +27,7 @@ interface DialogBoxProps {
     const [formData, setFormData] = useState(data);
 
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter()
   
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       const { name, value } = event.target;
@@ -47,11 +49,11 @@ interface DialogBoxProps {
               )
                   .then(async () => {
                       toast.success('Hotel/House update successful!');
-                      
+    
                      // setDateRange(initialDateRange);
                       // redirect to /trips
                      
-                      //router.push('/trips');
+                    router.push('/admin/profile');
                   }).catch(() => {
                       toast.error('Something went wrong')
                   }).finally(() => {

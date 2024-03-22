@@ -167,8 +167,8 @@ export async function middleware(request: NextRequest) {
        const token = await getToken({ req: request });
        
 
-   console.log("Token stored ---",token)
-   console.log("User gotten--->", token?.user)
+//    console.log("Token stored ---",token)
+//    console.log("User gotten--->", token?.user)
     if (request.nextUrl.pathname === '/api/listings/[listingId]') {
         return NextResponse.redirect(new URL('/', request.url)); // Redirect elsewhere
     }

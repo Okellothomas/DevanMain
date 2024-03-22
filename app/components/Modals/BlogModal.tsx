@@ -47,7 +47,7 @@ const BlogModal = () => {
             category: '',
             imageSrc: [],
             title: '',
-            ourLink: '',
+            hotelLink: '',
             description: '', // not done
         }
     });
@@ -169,11 +169,10 @@ const BlogModal = () => {
                     disabled={isLoading}
                     register={register}
                     error={errors}
-                    required
                 />
                 <hr />
                 <Input
-                    id="ourLink"
+                    id="hotelLink"
                     label="Youtube link"
                     disabled={isLoading}
                     register={register}

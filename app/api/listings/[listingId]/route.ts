@@ -87,15 +87,15 @@ export async function PUT(
     const listing = await prisma.listing.findUnique({ where: { id:listingId } });
 
 
-    const {id,guestCount,save, room,roomCount,
+    const {id,guestCount,save, roomCount,
       title, overView, house, hotel, hostName, cohostName, hostContact, hotelLink, oneBedroom, twoBedroom, threebedRoom, commonPlace,price, description
     } = formData
 
 
     const finalUpdateValues ={guestCount: parseInt(guestCount, 10),
       //title, depStart, depEnd, tripStyle,save, rooms, ourLink, guestCount,price,country,continent,Locations,desciption
-      room: parseInt(room, 10),
-      save: parseInt(save, 10),
+    //   room: parseInt(room, 10),
+     save: parseInt(save, 10),
       roomCount: parseInt(roomCount, 10),
       price: parseInt(price, 10),
       title:title,

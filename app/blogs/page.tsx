@@ -13,6 +13,9 @@ import TourCard from "../components/listing/TourCard";
 import getListingsHotels from "../actions/getListingsHotels";
 import { Metadata } from "next";
 import TourCardSecondary from "../components/listing/TourCardSecondary";
+import getNews from "../aagetMethods/getNews";
+import NewsCard from "../aahooks/NewsCard";
+import getBlogs from "../aagetMethods/getBlogs";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -31,9 +34,9 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
     if (searchParams.userId) {
         currentUser = await getCurrentUser();
     }
-  const listings = await getListingsHotels({ ...searchParams, hotel: "hotel" });
+  const listings = await getBlogs({ ...searchParams, category: "blogs" });
   const tours = await getTours(tourParams);
-  const filteredTours = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 4);
+  const filteredListings = listings.slice(0, 7);
   const filteredTourss = tours.filter(tour => tour.tourists.length < tour.guestCount).slice(0, 20);
   // const isEmpty = true;
 
@@ -48,17 +51,17 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
   return (
     <div>
     <div className="all-destinations-main flex flex-col items-center justify-center text-lg font-bold">
-        <h1 className="color-h1-destinations-main">All New <span className="color-span-green">Blogs</span></h1>
+        <h1 className="color-h1-destinations-main">Our New <span className="color-span-green">Blogs</span></h1>
         {/* <div className="destination-search">
           <Search /> 
         </div> */}
       </div>
       <Container>
-      <div className="grid-cols-page-s pt-6 pb-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
+      <div className="grid-cols-page-s pt-6 pb-4 grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 gap-6">
         {/* Map through the listings array and render ListingCard components */}
-        {listings.slice(0, 4).map((listing: any) => {
+        {filteredListings.map((listing: any) => {
           return (
-            <ListingCard
+            <NewsCard
               currentUser={currentUser ? {
                       ...currentUser,
                       createdAt: currentUser.createdAt.toISOString(),
@@ -70,9 +73,6 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
             />
           );
         })}
-        </div>
-        <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allhotels">View all hotels</Link>
         </div>
         </Container>
     </div>

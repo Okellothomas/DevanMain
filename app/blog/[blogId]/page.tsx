@@ -43,13 +43,13 @@ const TourPage = async ({ params }: { params: IParams }) => {
       </div>
 
       <Container>
-        <div className="flex flex-col pt-9 gap-2 w-full main-image-small-screen">
+        <div className="flex flex-col pt-9 gap-2 w-full h-auto mb-2 blog-screen">
                 <div className="flex flex-row items-center gap-1">
                     <div className="font-bold pb-3 text-lg text-green-600">
                         {tour.title.toUpperCase()}
                     </div>
                 </div>
-                <div className="aspect-square h-[60vh] w-full relative overflow-hidden rounded-xl">
+                <div className="aspect-square h-[60vh] w-full blog-images-main relative overflow-hidden rounded-xl">
                     {tour?.imageSrc[0] ? (
                         <Image
                             fill

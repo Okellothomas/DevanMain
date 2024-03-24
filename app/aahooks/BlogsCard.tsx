@@ -64,14 +64,14 @@ const BlogsCard: React.FC<ListingCardProps> = ({
                         {data.title.toUpperCase()}
                     </div>
                 </div>
-                <div className="aspect-square h-[60vh] w-full relative overflow-hidden rounded-xl">
+                {/* <div className="h-[60vh] w-full overflow-hidden rounded-xl">
                     {data.imageSrc.map((image, index) => (
                         <Image
                             key={index}
-                            fill
+                            // fill
                             alt={`Image ${index + 1}`}
                             src={image}
-                            className="object-cover h-full w-full transition group-hover:scale-110 cursor-pointer"
+                            className="object-cover h-full w-full  transition group-hover:scale-110 cursor-pointer"
                             onClick={() => openDialog(index)}
                         />
                     ))}
@@ -80,14 +80,35 @@ const BlogsCard: React.FC<ListingCardProps> = ({
                             <PiImagesSquareLight className="h-6 w-6 text-gray-600" onClick={() => openDialog(0)} />
                         </div>
                     )}
-                </div>
+                </div> */}
+
+               <div className="h-[60vh] w-full overflow-hidden rounded-xl relative">
+                {data.imageSrc.map((image, index) => (
+                    <div key={index} className={`absolute top-0 left-0 w-full h-full transition-opacity ${index === 0 ? 'opacity-100' : 'opacity-0'}`}>
+                        <Image
+                            // fill
+                            alt={`Image ${index + 1}`}
+                            src={image}
+                            className="object-cover h-full w-full cursor-pointer"
+                            onClick={() => openDialog(index)}
+                        />
+                    </div>
+                ))}
+                {data.imageSrc.length > 1 && (
+                    <div className="absolute bottom-4 right-4 bg-white p-2 rounded-full cursor-pointer">
+                        <PiImagesSquareLight className="h-6 w-6 text-gray-600" onClick={() => openDialog(0)} />
+                    </div>
+                )}
+            </div>
+
+
             </div>
 
             {/* Dialog */}
             <Transition appear show={isOpen} as={React.Fragment}>
                 <Dialog
                     as="div"
-                    className="fixed mt-11 inset-0 z-1000 overflow-y-auto"
+                    className="fixed  mt-11 inset-0 z-1000 overflow-y-auto"
                     onClose={closeDialog}
                 >
                     <div className="min-h-screen px-4 text-center">
@@ -98,7 +119,7 @@ const BlogsCard: React.FC<ListingCardProps> = ({
                             enterTo="opacity-100"
                             leave="ease-in duration-200"
                             leaveFrom="opacity-100"
-                            leaveTo="opacity-0"
+                            leaveTo="opacity-0" 
                         >
                             <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
                         </Transition.Child>

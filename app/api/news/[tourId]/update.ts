@@ -61,7 +61,6 @@ export async function PUT(
   }
 
  
-
   // Update tour with Prisma:
   try {
     const updatedTour = await prisma.tour.update({

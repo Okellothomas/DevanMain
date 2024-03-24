@@ -47,7 +47,7 @@ const NewsCard: React.FC<ListingCardProps> = ({
                         {data.title.toUpperCase()}
                     </div>
                 </div>
-                <div className="aspect-square h-[60vh] w-full relative overflow-hidden rounded-xl">
+                <div className="h-[60vh] w-full relative overflow-hidden rounded-xl">
                     {data?.imageSrc[0] ? (
                         <Image
                             fill

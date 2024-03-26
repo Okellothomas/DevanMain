@@ -103,14 +103,8 @@
 
 
 
-import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
-import getCurrentUser from "./app/actions/getCurrentUsers";
-import { useAuth } from "./app/components/utility/Auth";
-import { getSession } from "next-auth/react";
-import { getServerSession } from "next-auth";
-import { authOptions } from "./pages/api/auth/[...nextauth]";
 // import { authOptions } from "./pages/api/auth/[...nextauth]";
 
 // Import the default export from the "next-auth/middleware" module

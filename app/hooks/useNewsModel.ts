@@ -1,16 +1,15 @@
 import { create } from 'zustand';
 
-interface BlogModalStore {
+interface NewsModalStore {
     isOpen: boolean;
     onOpen: () => void;
     onClose: () => void;
 }
 
-const useBlogModal = create<BlogModalStore>((set) => ({
+const useNewsModal = create<NewsModalStore>((set) => ({
     isOpen: false,
     onOpen: () => set({ isOpen: true }),
     onClose: () => set({isOpen:false})
 }))
 
-export default useBlogModal;
-
+export default useNewsModal;

@@ -1,6 +1,6 @@
 'use client'
 import useCountries from "@/app/hooks/useCountries";
-import { SafeUser, safeListing, safeReservation } from "@/app/types";
+import { SafeUser, safeBlog, safeListing, safeReservation } from "@/app/types";
 import { Listing, Reservation } from "@prisma/client"
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
@@ -12,11 +12,13 @@ import { safeTour } from "@/app/types";
 import prisma from '@/app/libs/prismadb';
 import toast, { useToaster } from "react-hot-toast";
 import axios from "axios";
-import EditDialogBoxListing from "./EditDialogBoxListing";
 import { MouseEvent } from 'react';
 
+import EditDialogBox from "./EditDialogBox";
+
+
 interface ListingCardProps {
-    data: safeListing;
+    data: safeBlog;
     reservation?: safeReservation;
     onAction?: (id: string) => void;
     disabled?: boolean;
@@ -25,7 +27,7 @@ interface ListingCardProps {
     currentUser?: SafeUser | null;
 }
 
-const HouseMyCard: React.FC<ListingCardProps> = ({
+const NewsMyCard: React.FC<ListingCardProps> = ({
     data,
     reservation,
     onAction,
@@ -36,9 +38,10 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
 }) => {
     const router = useRouter();
     const { getByValue } = useCountries();
-    const location = getByValue(data?.locationValue || ""); // Handle null locationValue
     const toaster = useToaster();
+
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    
 
     const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
@@ -49,14 +52,6 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
 
         onAction?.(actionId);
     }, [onAction, actionId, disabled])
-
-    const price = useMemo(() => {
-        if (reservation) {
-            return reservation.totalPrice;
-        }
-
-        return data?.price || 0; // Handle null data or price
-    }, [reservation, data?.price])
 
     const reservationDate = useMemo(() => {
         if (!reservation) {
@@ -69,12 +64,11 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
         return `${format(start, 'pp')} - ${format(end, 'pp')}`
     }, [reservation])
 
-
     const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
         console.log("button clicked");
     try {
-        const response = await axios.delete(`/api/listings/${data?.id}`, {
+        const response = await axios.delete(`/api/tours/${data?.id}`, {
             method: 'DELETE',
         });
         console.log("try is working")
@@ -84,10 +78,11 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
         console.error(error);
         console.log('Failed to delete tour. Please try again.');
     }
-    };
-    
+};
 
-   const openDialog = (e: MouseEvent<HTMLDivElement>) => {
+
+
+    const openDialog = (e: MouseEvent<HTMLDivElement>) => {
         e.stopPropagation(); // Stop event propagation to parent
         setIsDialogOpen(true);
     };
@@ -100,10 +95,9 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
         setIsDialogOpen(false);
     };
 
-
   return (
       <div
-        onClick={() => router.push(`/listings/${data?.id || ""}`)} // Handle null data or id
+        onClick={() => router.push(`/tours/${data?.id || ""}`)} // Handle null data or id
         className="col-span-1 cursor-pointer group"
       >
           <div className="flex flex-col gap-2 w-full main-image-small-screen">
@@ -111,21 +105,25 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
                   <Image
                       fill
                       alt="Listing"
-                      src={data?.imageSrc[0] || ""} // Handle null data or imageSrc
+                      src={data?.imageSrc[0] || ""} // Handle null data or imageSrc sure one 
                       className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen"
                   />
+                  
               </div>
-              <div className="font-semibold text-md mb-2 truncate max-w-[15rem]">
-                 <span>{data.title}</span>
+              <div className="font-semibold text-md truncate max-w-[15rem]">
+                 <span>{data.title}</span> 
               </div>
               <div className="font-light text-neutral-500">
-                Guests: {data.guestCount} 
+                Toursts: {data.description} 
+              </div>
+              {/* <div className="font-light text-neutral-500">
+                Operator: {data.operator} 
               </div>
               <div className="flex flex-row items-center gap-1">
                   <div className="text-sm">
-                   Host: {data.hostName}
+                    ${data.depStart} to ${data.depEnd}
                   </div>
-              </div>
+              </div> */}
 
               
               {onAction && actionLabel && (
@@ -140,18 +138,18 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
           <div className="flex flex-row items-center gap-1">
                  <div className="font-semibold">
                     <button className="outline-main-btn" onClick={handleDelete}>Delete</button>
-               </div>
-              <div className="font-semibold">
+                </div>
+                 {/* <div className="font-semibold">
                     <button className="outline-main-btn" onClick={handleEdit}>Edit</button>
                 </div>
 
                 {isDialogOpen &&
-                   <EditDialogBoxListing isOpen={isDialogOpen} onClose={closeDialog} data={data} users={data}>
+                   <EditDialogBox isOpen={isDialogOpen} onClose={closeDialog} data={data} users={data}>
                  
-                  </EditDialogBoxListing>}
+                  </EditDialogBox>} */} 
          </div>
     </div>
   )
 }
 
-export default HouseMyCard;
+export default NewsMyCard;

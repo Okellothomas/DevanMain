@@ -1,9 +1,8 @@
 'use client'
 import useCountries from "@/app/hooks/useCountries";
 import { SafeUser, safeListing, safeReservation } from "@/app/types";
-import { Listing, Reservation } from "@prisma/client"
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { format } from 'date-fns';
 import Image from "next/image";
 import HeartButton from "../components/container/HeartButton";
@@ -12,9 +11,25 @@ import { safeTour } from "@/app/types";
 import prisma from '@/app/libs/prismadb';
 import toast, { useToaster } from "react-hot-toast";
 import axios from "axios";
-import EditDialogBoxListing from "./EditDialogBoxListing";
 import { MouseEvent } from 'react';
+import DialogBox from "./DialogBox";
+import { useUsers } from "../actions/useUsers";
 
+
+interface UserData {
+    id: string;
+    name: string | null;
+    contact: string | null;
+    country: string | null;
+    email: string | null;
+    emailVerified: Date | null;
+    image: string | null;
+    hashedPassword: string | null;
+    createdAt: Date;
+    updatedAt: Date;
+    favoriteIds: string[];
+    userType: string | null;
+  }
 interface ListingCardProps {
     data: safeListing;
     reservation?: safeReservation;
@@ -23,22 +38,40 @@ interface ListingCardProps {
     actionLabel?: string;
     actionId?: string;
     currentUser?: SafeUser | null;
+    label: boolean;
+    users?:SafeUser[];
 }
-
-const HouseMyCard: React.FC<ListingCardProps> = ({
+ 
+const ListingBookedMyCard: React.FC<ListingCardProps> = ({
     data,
     reservation,
     onAction,
     disabled,
     actionLabel,
     actionId = "",
-    currentUser
+    currentUser, 
+    label,
+    users
 }) => {
     const router = useRouter();
     const { getByValue } = useCountries();
     const location = getByValue(data?.locationValue || ""); // Handle null locationValue
     const toaster = useToaster();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    //const [users, setUsers] = useState<UserData[]>([]);
+ 
+    const openDialog = (e: MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation(); // Stop event propagation to parent
+        setIsDialogOpen(true);
+    };
+
+    const handleDivClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+        openDialog(e);
+    };
+
+    const closeDialog = () => {
+        setIsDialogOpen(false);
+    };
 
     const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
@@ -69,12 +102,11 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
         return `${format(start, 'pp')} - ${format(end, 'pp')}`
     }, [reservation])
 
-
     const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
         console.log("button clicked");
     try {
-        const response = await axios.delete(`/api/listings/${data?.id}`, {
+        const response = await axios.delete(`/api/tours/${data?.id}`, {
             method: 'DELETE',
         });
         console.log("try is working")
@@ -84,21 +116,18 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
         console.error(error);
         console.log('Failed to delete tour. Please try again.');
     }
-    };
-    
+};
 
-   const openDialog = (e: MouseEvent<HTMLDivElement>) => {
-        e.stopPropagation(); // Stop event propagation to parent
-        setIsDialogOpen(true);
-    };
 
-    const handleEdit: React.MouseEventHandler<HTMLDivElement> = (e) => {
-        openDialog(e);
-    };
 
-    const closeDialog = () => {
-        setIsDialogOpen(false);
+useEffect(() => {
+
+    console.log("Getting users------------------")
+    const fetchUsers = async () => {
     };
+  
+    fetchUsers();
+  }, []);
 
 
   return (
@@ -114,20 +143,35 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
                       src={data?.imageSrc[0] || ""} // Handle null data or imageSrc
                       className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen"
                   />
+                  <div className="absolute top-3 right-3">
+                      { label ? 
+                        <div className="bg-red-400 text-sm text-white outline-1 px-2 py-1 rounded-lg">
+                            fully booked
+                            </div> :
+                            <div className="bg-blue-400 text-sm text-white outline-1 px-2 py-1 rounded-lg">
+                            not fully booked   
+                            </div>
+                        }
+                  </div>
               </div>
-              <div className="font-semibold text-md mb-2 truncate max-w-[15rem]">
+              <div className="font-semibold text-md truncate max-w-[15rem]">
                  <span>{data.title}</span>
               </div>
               <div className="font-light text-neutral-500">
-                Guests: {data.guestCount} 
+                Rooms: {data.roomCount} 
               </div>
               <div className="flex flex-row items-center gap-1">
                   <div className="text-sm">
-                   Host: {data.hostName}
+                    {data.hostName}: {data.hostContact}
                   </div>
               </div>
-
-              
+              {/* <div className="flex flex-row items-center gap-1">
+                Slots booked:
+                  <div className="font-semibold">
+                       {data.tourists.length} 
+                  </div>
+                  
+              </div>       */}
               {onAction && actionLabel && (
                   <Button
                       disabled={disabled}
@@ -137,21 +181,21 @@ const HouseMyCard: React.FC<ListingCardProps> = ({
                   />
               )}
           </div>   
-          <div className="flex flex-row items-center gap-1">
-                 <div className="font-semibold">
+          <div className="flex flex-row items-center  gap-1">
+                <div className="font-semibold">
                     <button className="outline-main-btn" onClick={handleDelete}>Delete</button>
-               </div>
-              <div className="font-semibold">
-                    <button className="outline-main-btn" onClick={handleEdit}>Edit</button>
-                </div>
-
-                {isDialogOpen &&
-                   <EditDialogBoxListing isOpen={isDialogOpen} onClose={closeDialog} data={data} users={data}>
+              </div>
+              <div className="font-semibold" onClick={handleDivClick}>
+                    <button className="outline-main-btn">View</button>
+              </div>
+              {isDialogOpen &&
+              <DialogBox isOpen={isDialogOpen} onClose={closeDialog} data={data} users={users}>
                  
-                  </EditDialogBoxListing>}
+              </DialogBox>}
+              
          </div>
     </div>
   )
 }
 
-export default HouseMyCard;
+export default ListingBookedMyCard;

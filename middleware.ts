@@ -170,30 +170,14 @@ export const config = {
 }
 
 // Middleware function
-export async function middleware(req: NextApiRequest, res: NextApiResponse) {
+export async function middleware(request: NextRequest) {
+       const token = await getToken({ req: request });
        
 
-    // const session = await getSession({req})
-      //  const session = await getToken({ req: req, secret: process.env.NEXTAUTH_SECRET }); // I am getting the session here
-
-      //const session = await getServerSession(req, res, authOptions);
-
-      //getServerSession(req, res, authOptions)
-
-
-
-   //console.log("Current User", session)
-  // console.log("Current User", token)
-
-
-
-        
-
-
-
-
-//    if (request.  === '/api/listings/[listingId]') {
-//         return NextResponse.redirect(new URL('/', request.url)); // Redirect elsewhere
-//     }
+//    console.log("Token stored ---",token)
+//    console.log("User gotten--->", token?.user)
+    if (request.nextUrl.pathname === '/api/listings/[listingId]') {
+        return NextResponse.redirect(new URL('/', request.url)); // Redirect elsewhere
+    }
     return NextResponse.next(); // Pass through other requests
 }

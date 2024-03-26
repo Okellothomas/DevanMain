@@ -47,11 +47,6 @@ const ProfilePage = async () => {
           <Link href="/admin/myhouselistings" className="sidebar-image">My House Listings</Link>
           </div>
           <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center"> 
-          <Link href="/admin/allbookedtours"><FaSwatchbook className="text-neutral-500" size={26} /></Link>
-          <Link href="/admin/allbookedtours" className="sidebar-image">All Booked Tours</Link>
-          </div>
-          <hr />
            <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <Link href="/admin/mybookedtours"><LiaSwatchbookSolid className="text-neutral-500" size={26} /></Link>
           <Link href="/admin/mybookedtours" className="sidebar-image">My Booked Tours</Link>
@@ -60,6 +55,16 @@ const ProfilePage = async () => {
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
           <Link href="/admin/mybookedhotels"><IoBookmarks className="text-neutral-500" size={26} /></Link>
           <Link href="/admin/mybookedhotels" className="sidebar-image">My Booked Hotels</Link>
+         </div>
+        <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
+          <Link href="/admin/mybookedhouses"><PiBookmarksSimpleBold className="text-neutral-500" size={26} /></Link>
+          <Link href="/admin/mybookedhouses" className="sidebar-image">My Booked Houses</Link>
+          </div>
+         <hr />
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center"> 
+          <Link href="/admin/allbookedtours"><FaSwatchbook className="text-neutral-500" size={26} /></Link>
+          <Link href="/admin/allbookedtours" className="sidebar-image">All Booked Tours</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
@@ -70,11 +75,6 @@ const ProfilePage = async () => {
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center"> 
           <Link href="/admin/allbookedhouses"><PiBookOpenTextBold className="text-neutral-500" size={26} /></Link>
           <Link href="/admin/allbookedhouses" className="sidebar-image">All Booked Houses</Link>
-          </div>
-          <hr />
-          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <Link href="/admin/mybookedhouses"><PiBookmarksSimpleBold className="text-neutral-500" size={26} /></Link>
-          <Link href="/admin/mybookedhouses" className="sidebar-image">My Booked Houses</Link>
           </div>
           <hr />
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">

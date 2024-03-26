@@ -811,7 +811,7 @@
 
   .european-hotel {
     height: 30vh;
-    margin-top: -29% !important;
+    margin-top: -32% !important;
   }
 
   .all-destinations-main-admin-profile {
@@ -860,6 +860,14 @@
   .listing-rooms-main-id{
     margin-top: 2vh!important;
     margin-bottom: 2vh!important;
+  }
+
+  .blog-images-main{
+    height: 40vh!important;
+  }
+
+  .gallery-images-main{
+    width: 10%!important;
   }
 }
 

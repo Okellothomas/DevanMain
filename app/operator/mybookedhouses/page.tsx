@@ -15,6 +15,7 @@ import getMyReservationsHotels from "@/app/aagetMethods/getMyReservationHotels";
 import HouseReservationCard from "@/app/aahooks/HouseReservationCard";
 import getOperaReservationsHotels from "@/app/aagetMethods/getOperaReservationHotels";
 import _ from "lodash";
+import ListingBookedMyCard from "@/app/aahooks/ListingMyBookedCard";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -27,6 +28,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
   try {
     // Fetch current user
     const currentUser = await getCurrentUser();
+    const all_users = await getUsers({})
 
     // Ensure currentUser is not null before accessing its properties
     if (!currentUser) {
@@ -65,7 +67,7 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
                 ) : (
                   <div className="pt-2 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-8">
                     {listings.map((listing: any, index: number) => (
-                      <HouseReservationCard
+                      <ListingBookedMyCard
                         currentUser={{
                           ...currentUser,
                           createdAt: currentUser.createdAt.toISOString(),
@@ -74,6 +76,8 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
                         }} // Pass the current user to each ListingCard
                         key={listing.id} // Use the listing ID as the unique key
                         data={listing} // Pass the listing data to each ListingCard
+                        label={true}
+                        users ={all_users}
                       />
                     ))}
                   </div>

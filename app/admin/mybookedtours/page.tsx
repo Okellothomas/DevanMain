@@ -5,6 +5,7 @@ import SideBar from "../profile/components/SideBar";
 import getmyTours, { ImyToursParams } from "@/app/aagetMethods/getmyTours";
 import TourMyCard from "@/app/aahooks/TourMyCard";
 import TourBookedMyCard from '@/app/aahooks/TourMyBookedCard';
+import getUsers from '@/app/actions/getUsers';
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -24,6 +25,7 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
 
     // Fetch tours that match the current user's ID
     const tours = await getmyTours({ ...searchParams, userId: currentUser.id });
+    const all_users = await getUsers({})
 
     const filteredTours = tours.filter((tour: { tourists: string | any[]; }) => tour.tourists.length > 0);
 
@@ -62,6 +64,7 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
                           key={tour.id}
                           data={tour}
                           label={true}
+                          users ={all_users}
                         />
                       ) : (
                         <TourBookedMyCard
@@ -74,6 +77,7 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
                           key={tour.id}
                           data={tour}
                           label={false}
+                          users ={all_users}
                         />
                       )
                     )

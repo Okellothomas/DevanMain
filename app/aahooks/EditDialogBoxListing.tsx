@@ -1,12 +1,13 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import "./editdialog.css"
-import { SafeUser, safeReservation, safeTour } from '../types';
+import { SafeUser, safeListing, safeReservation, safeTour } from '../types';
 import getUsers, { IUsersParams } from '../actions/getUsers';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 interface DialogBoxProps {
     searchParams?: IUsersParams;
-    data: safeTour;
+    data: safeListing;
     reservation?: safeReservation;
     onAction?: (id: string) => void;
     disabled?: boolean;
@@ -22,10 +23,11 @@ interface DialogBoxProps {
   }
 
 
-  const EditDialogBox: React.FC<DialogBoxProps> = ({ isOpen, onClose, data }) => {
+  const EditDialogBoxListing: React.FC<DialogBoxProps> = ({ isOpen, onClose, data }) => {
     const [formData, setFormData] = useState(data);
 
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter()
   
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       const { name, value } = event.target;
@@ -38,21 +40,20 @@ interface DialogBoxProps {
       makeUpdate()
       // Add your logic to handle form submission (e.g., send data to backend, update state, etc.)
     };
-  
 
     const makeUpdate = () => {
      
-              axios.put(`/api/tours/${data?.id}`, {
-                  from_flag:'update',
-                 ...formData
-              })
+              axios.put(`/api/listings/${data?.id}`, 
+                  // from_flag:'update',
+                 formData
+              )
                   .then(async () => {
-                      toast.success('Tour update successful!');
-                      
+                      toast.success('Hotel/House update successful!');
+    
                      // setDateRange(initialDateRange);
                       // redirect to /trips
                      
-                      //router.push('/trips');
+                    router.push('/admin/profile');
                   }).catch(() => {
                       toast.error('Something went wrong')
                   }).finally(() => {
@@ -78,7 +79,7 @@ interface DialogBoxProps {
 
         <div className="editFormContainer">
     <form className="edit-tour-form" onSubmit={handleSubmit}>
-      <h2>Edit Tour</h2>
+      <h2>Edit Hotel/House Listing</h2>
       <div className="form-groups-container">
 
       <div className="form-group">
@@ -86,97 +87,124 @@ interface DialogBoxProps {
         <input type="text" id="title" 
         value={formData.title}
         onChange={handleChange}
-        name="title" required />
+        name="title"/>
         {/** Add error message container here if needed */}
       </div>
      
       <div className="form-group">
-        <label htmlFor="depStart">Departure Start Date:</label>
-        <input type="text" id="depStart" 
+        <label htmlFor="house">House:</label>
+        <input type="text" id="house" 
         onChange={handleChange}
-        value={formData.depStart || ''}
-        name="depStart" required />
+        value={formData.house || ''}
+        name="house" />
         {/** Add error message container here if needed */}
-      </div>
-      <div className="form-group">
-        <label htmlFor="depEnd">Departure End Date:</label>
+       </div>
+              
+    <div className="form-group">
+        <label htmlFor="hotel">Hotel:</label>
         <input type="text" 
-        id="depEnd" 
-        value={formData?.depEnd || ''}
-        name="depEnd" required
+        id="hotel" 
+        value={formData?.hotel || ''}
+        name="hotel"
         onChange={handleChange} />
         {/** Add error message container here if needed */}
       </div>
 
+              
+     <div className="form-group">
+        <label htmlFor="oneBedroom">Number of 1 Bedrooms:</label>
+        <input type="text" id="oneBedroom" 
+        onChange={handleChange}
+        value={formData.oneBedroom || ''}
+        name="oneBedroom" />
+        {/** Add error message container here if needed */}
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="twoBedroom">Number of 2 Bedrooms:</label>
+        <input type="text" id="twoBedroom" 
+        onChange={handleChange}
+        value={formData.twoBedroom || ''}
+        name="twoBedroom" />
+        {/** Add error message container here if needed */}
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="threebedRoom">Number of 3 Bedrooms:</label>
+        <input type="text" id="threebedRoom" 
+        onChange={handleChange}
+        value={formData.threebedRoom || ''}
+        name="threebedRoom" />
+        {/** Add error message container here if needed */}
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="commonPlace">Number of CommonPlaces:</label>
+        <input type="text" id="commonPlace" 
+        onChange={handleChange}
+        value={formData.commonPlace || ''}
+        name="commonPlace" />
+        {/** Add error message container here if needed */}
+      </div>
      
       <div className="form-group">
-        <label htmlFor="tripStyle">Trip Style:</label>
-        <input type="text" id="tripStyle" value={formData.tripStyle || ''} onChange={handleChange} name="tripStyle" />
+        <label htmlFor="hotelLink">YouTube Link:</label>
+        <input type="text" id="hotelLink" value={formData.hotelLink || ''} onChange={handleChange} name="hotelLink" />
 
         {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
-        <label htmlFor="save">Save:</label>
+        <label htmlFor="price">Price Per Night ($):</label>
+        <input type="number" id="price" value={formData.price || 0} onChange={handleChange} name="price" />
+        {/** Add error message container here if needed */}
+      </div>
+      <div className="form-group">
+        <label htmlFor="save">Save Per Night ($):</label>
         <input type="number" id="save" value={formData.save || 0} onChange={handleChange} name="save" />
         {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
-        <label htmlFor="room">Rooms:</label>
-        <input type="number" id="room" 
+        <label htmlFor="roomCount">Rooms Count:</label>
+        <input type="number" id="roomCount" 
         onChange={handleChange}
-        value={formData.room || 0}  name="room" min="0" />
+        value={formData.roomCount || 0}  name="roomCount" min="0" />
         {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
-        <label htmlFor="ourLink">Our Link:</label>
-        <input type="url" id="ourLink" 
-        onChange={handleChange}
-        value={formData.ourLink || ''} name="ourLink" />
-        {/** Add error message container here if needed */}
-      </div>
-      <div className="form-group">
-        <label htmlFor="guestCount">Tourists Count:</label>
+        <label htmlFor="guestCount">Guests Count:</label>
         <input type="number" id="guestCount" 
         onChange={handleChange}
-        value={formData.guestCount}
-        name="guestCount" min="0" />
+        value={formData.guestCount || 0}  name="guestCount" min="0" />
         {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
-        <label htmlFor="price">Price ($):</label>
-        <input type="number" id="price" 
+        <label htmlFor="hostName">Host Name:</label>
+        <input type="text" id="hostName" 
         onChange={handleChange}
-        value={formData.price} name="price" min="0" required />
+        value={formData.hostName || ''} name="hostName" />
         {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
-        <label htmlFor="country">Country:</label>
-        <input type="text" id="country" 
+        <label htmlFor="cohostName">Cohost Name:</label>
+        <input type="text" id="cohostName" 
         onChange={handleChange}
-        value={formData.country || ''} name="country" required />
+        value={formData.cohostName || ''} name="cohostName"/>
+        {/** Add error message container here if needed */}
+              </div>
+      <div className="form-group">
+        <label htmlFor="hostContact">Host Contact:</label>
+        <input type="text" id="hostContact" 
+        onChange={handleChange}
+        value={formData.hostContact || ''} name="hostContact" />
         {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
-        <label htmlFor="continent">Continent:</label>
-        <input type="text" id="continent" 
+        <label htmlFor="overView">Overview:</label>
+        <input type="text" id="overView" 
         onChange={handleChange}
-        value={formData.continent  || ''} name="continent" required />
+        value={formData.overView  || ''} name="overView" />
         {/** Add error message container here if needed */}
       </div>
-      <div className="form-group">
-        <label htmlFor="locations">Locations (comma-separated):</label>
-        <input type='text' id="locations" 
-        onChange={handleChange}
-        value={formData.locations || ''}name="locations"/>
-        {/** Add error message container here if needed */}
-      </div>
-      </div>
-      <div className="form-group">
-        <label htmlFor="description">Description:</label>
-        <textarea id="description" name="description"
-        onChange={handleChange}
-        value={formData.description}required></textarea>
-        {/** Add error message container here if needed */}
       </div>
       <div className="form-group">
           <button type="submit">Save Changes</button>
@@ -189,4 +217,4 @@ interface DialogBoxProps {
   )
 }
 
-export default EditDialogBox
+export default EditDialogBoxListing

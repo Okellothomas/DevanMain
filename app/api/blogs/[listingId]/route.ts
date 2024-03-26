@@ -4,7 +4,7 @@ import getCurrentUser from "@/app/actions/getCurrentUsers";
 import prisma from "@/app/libs/prismadb";
 
 interface IParams {
-    listingId?: string;
+    blogId?: string;
 }
 
 export async function DELETE(
@@ -17,16 +17,16 @@ export async function DELETE(
         return NextResponse.error();
     }
 
-    const { listingId } = params;
+    const { blogId } = params;
 
-    if (!listingId || typeof listingId !== 'string') {
+    if (!blogId || typeof blogId !== 'string') {
         throw new Error('Invalid ID');
     }
 
-    const listing = await prisma.listing.deleteMany({
+    const listing = await prisma.blog.deleteMany({
         where: {
-            id: listingId,
-            userId: currentUser.id
+            id: blogId,
+            // userId: currentUser.id
         }
     });
 
@@ -44,15 +44,15 @@ export async function GET(
         return NextResponse.error();
     }
 
-    const { listingId } = params;
+    const { blogId } = params;
 
-    if (!listingId || typeof listingId !== 'string') {
+    if (!blogId || typeof blogId !== 'string') {
         throw new Error('Invalid ID');
     }
 
-    const listing = await prisma.listing.findUnique({
+    const listing = await prisma.blog.findUnique({
         where: {
-            id: listingId
+            id: blogId
         }
     });
    

@@ -103,8 +103,15 @@
 
 
 
+import { NextApiRequest, NextApiResponse } from "next";
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
+import getCurrentUser from "./app/actions/getCurrentUsers";
+import { useAuth } from "./app/components/utility/Auth";
+import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./pages/api/auth/[...nextauth]";
+// import { authOptions } from "./pages/api/auth/[...nextauth]";
 
 // Import the default export from the "next-auth/middleware" module
 export { default } from "next-auth/middleware";
@@ -163,14 +170,30 @@ export const config = {
 }
 
 // Middleware function
-export async function middleware(request: NextRequest) {
-       const token = await getToken({ req: request });
+export async function middleware(req: NextApiRequest, res: NextApiResponse) {
        
 
-   console.log("Token stored ---",token)
-   console.log("User gotten--->", token?.user)
-    if (request.nextUrl.pathname === '/api/listings/[listingId]') {
-        return NextResponse.redirect(new URL('/', request.url)); // Redirect elsewhere
-    }
+    // const session = await getSession({req})
+      //  const session = await getToken({ req: req, secret: process.env.NEXTAUTH_SECRET }); // I am getting the session here
+
+      //const session = await getServerSession(req, res, authOptions);
+
+      //getServerSession(req, res, authOptions)
+
+
+
+   //console.log("Current User", session)
+  // console.log("Current User", token)
+
+
+
+        
+
+
+
+
+//    if (request.  === '/api/listings/[listingId]') {
+//         return NextResponse.redirect(new URL('/', request.url)); // Redirect elsewhere
+//     }
     return NextResponse.next(); // Pass through other requests
 }

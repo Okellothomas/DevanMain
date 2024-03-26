@@ -7,6 +7,7 @@ import getmyTours, { ImyToursParams } from "@/app/aagetMethods/getmyTours";
 import TourMyCard from "@/app/aahooks/TourMyCard";
 import TourBookedMyCard from '@/app/aahooks/TourMyBookedCard';
 import getUsers from '@/app/actions/getUsers';
+import { useRouter } from 'next/navigation';
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -16,15 +17,22 @@ interface HotelPageProps {
 
 // Home component is defined as an asynchronous function
 const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
+  const router = useRouter()
+
   try {
     // Fetch the current user
     const currentUser = await getCurrentUser();
-
+  
     if (!currentUser) {
       // Handle case where currentUser is null
       return <div>Error: Current user not found.</div>;
     }
 
+    if(currentUser.userType ==='admin')
+    {
+      router.push('/')
+    }
+    
     // Fetch tours that match the current user's ID
     const tours = await getmyTours({ ...searchParams });
     const all_users = await getUsers({})

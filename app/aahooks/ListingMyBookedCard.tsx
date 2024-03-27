@@ -14,6 +14,8 @@ import axios from "axios";
 import { MouseEvent } from 'react';
 import DialogBox from "./DialogBox";
 import { useUsers } from "../actions/useUsers";
+import getReservations from "../actions/getReservation";
+import DialogBoxHouses from "./DialogBoxHouses";
 
 
 interface UserData {
@@ -58,6 +60,7 @@ const ListingBookedMyCard: React.FC<ListingCardProps> = ({
     const location = getByValue(data?.locationValue || ""); // Handle null locationValue
     const toaster = useToaster();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [bookedhouses, setBookedHOuses] = useState(null)
     //const [users, setUsers] = useState<UserData[]>([]);
  
     const openDialog = (e: MouseEvent<HTMLDivElement>) => {
@@ -123,10 +126,12 @@ const ListingBookedMyCard: React.FC<ListingCardProps> = ({
 useEffect(() => {
 
     console.log("Getting users------------------")
-    const fetchUsers = async () => {
+    const fetchReservations = async () => {
+         const houses = await getReservations({})
+         setBookedHouses(house)
     };
   
-    fetchUsers();
+    fetchReservations();
   }, []);
 
 
@@ -189,9 +194,9 @@ useEffect(() => {
                     <button className="outline-main-btn">View</button>
               </div>
               {isDialogOpen &&
-              <DialogBox isOpen={isDialogOpen} onClose={closeDialog} data={data} users={users}>
+              <DialogBoxHouses isOpen={isDialogOpen} onClose={closeDialog} data={data} users={users} houses={bookedhouses}>
                  
-              </DialogBox>}
+              </DialogBoxHouses>}
               
          </div>
     </div>

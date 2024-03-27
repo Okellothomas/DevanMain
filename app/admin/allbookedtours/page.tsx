@@ -7,7 +7,9 @@ import getmyTours, { ImyToursParams } from "@/app/aagetMethods/getmyTours";
 import TourMyCard from "@/app/aahooks/TourMyCard";
 import TourBookedMyCard from '@/app/aahooks/TourMyBookedCard';
 import getUsers from '@/app/actions/getUsers';
-import { useRouter } from 'next/navigation';
+
+import Link from 'next/link'; // Import Link from 'next/link'
+import RestrictedEmptyState from '@/app/components/container/RestrictedEmptyState';
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -17,7 +19,7 @@ interface HotelPageProps {
 
 // Home component is defined as an asynchronous function
 const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
-  const router = useRouter()
+
 
   try {
     // Fetch the current user
@@ -28,9 +30,16 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
       return <div>Error: Current user not found.</div>;
     }
 
-    if(currentUser.userType ==='admin')
-    {
-      router.push('/')
+    // if(currentUser?.userType !=="admin")
+    // {
+    //   window.location.href = '/'; // Redirect using client-side JavaScript
+    // }
+
+    if(currentUser?.userType !== "admin") {
+      // Render link to homepage if the current user is not an admin
+      return (
+        <RestrictedEmptyState/>
+      );
     }
     
     // Fetch tours that match the current user's ID

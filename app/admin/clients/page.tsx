@@ -13,6 +13,7 @@ import DeleteButton from "@/app/actions/deleteBtn";
 import UsersCard from "@/app/aahooks/UsersCard";
 import getClients from "@/app/actions/getClients";
 import getAdmins from "@/app/actions/getAdmins";
+import RestrictedEmptyState from "@/app/components/container/RestrictedEmptyState";
 // import toast from "react-hot-toast";
 // import Router, { useRouter } from "next/navigation";
 
@@ -53,6 +54,13 @@ const HostPage = async ({ searchParams, tourParams, userParams }: HotelPageProps
   // const handleDelete = () => {
 
   // }
+
+  if(currentUser?.userType !== "admin") {
+      // Render link to homepage if the current user is not an admin
+      return (
+        <RestrictedEmptyState/>
+      );
+    }
 
   // Render the Home component with the fetched listings
   return (

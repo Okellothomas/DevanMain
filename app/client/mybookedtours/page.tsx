@@ -5,6 +5,7 @@ import SideBar from "../profile/components/SideBar";
 import getmyTours, { ImyToursParams } from "@/app/aagetMethods/getmyTours";
 import TourMyCard from "@/app/aahooks/TourMyCard";
 import TourClientCard from '@/app/aahooks/TourClientCard';
+import RestrictedEmptyState from '@/app/components/container/RestrictedEmptyState';
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -37,6 +38,12 @@ const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
     // console.log(tours);
 
     // Render the component with the fetched tours
+    if(currentUser?.userType !== "client") {
+      // Render link to homepage if the current user is not an admin
+      return (
+        <RestrictedEmptyState/>
+      );
+    }
     return (
       <div>
         <div className="all-destinations-main-admin-profile flex flex-col items-center justify-center text-lg font-bold">

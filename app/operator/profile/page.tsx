@@ -6,6 +6,7 @@ import ListingCard from "@/app/components/listing/ListingCard";
 import Link from "next/link";
 import SideBar from "./components/SideBar";
 import AdminInfo from "./components/AdminInfo";
+import RestrictedEmptyState from "@/app/components/container/RestrictedEmptyState";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -22,6 +23,12 @@ const ProfilePage = async ({ searchParams, tourParams }: HotelPageProps) => {
 
 
   // Render the Home component with the fetched listings
+  if(currentUser?.userType !== "operator") {
+      // Render link to homepage if the current user is not an admin
+      return (
+        <RestrictedEmptyState/>
+      );
+    }
   return (
     <div>
     <div className="all-destinations-main-admin-profile flex flex-col items-center justify-center text-lg font-bold">

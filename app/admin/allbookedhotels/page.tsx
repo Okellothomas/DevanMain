@@ -12,6 +12,7 @@ import getMyListingsHouses from "@/app/aagetMethods/getMyListingsHouses";
 import HouseMyCard from "@/app/aahooks/HouseMyCard";
 import getMyListingsHotels from "@/app/aagetMethods/getMyListingsHotels";
 import ListingBookedMyCard from "@/app/aahooks/ListingMyBookedCard";
+import RestrictedEmptyState from "@/app/components/container/RestrictedEmptyState";
 
 // Define the interface for the Home component props
 interface HotelPageProps {
@@ -37,6 +38,13 @@ const AdministratorsPage = async ({ searchParams, userParams }: HotelPageProps) 
     // const filteredListings = listings.filter(listing => listing.tourists.length > 0);
 
     // Render the Home component with the fetched listings
+    if(currentUser?.userType !== "admin") {
+      // Render link to homepage if the current user is not an admin
+      return (
+        <RestrictedEmptyState/>
+      );
+    }
+
     return (
       <div>
         <div className="all-destinations-main-admin-profile flex flex-col items-center justify-center text-lg font-bold">

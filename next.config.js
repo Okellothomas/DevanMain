@@ -54,6 +54,8 @@ reactStrictMode: true,
     eslint: {
         dirs: ['app','utils'], // Only run ESLint on the 'pages' and 'utils' directories during production builds (next build)
     },
+
+
 //     webpack(config, { buildId, dev, isServer, defaultLoaders, webpack }) {
 //     config.plugins.push(
 //       new webpack.IgnorePlugin({

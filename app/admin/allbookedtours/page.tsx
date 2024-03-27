@@ -8,6 +8,9 @@ import TourMyCard from "@/app/aahooks/TourMyCard";
 import TourBookedMyCard from '@/app/aahooks/TourMyBookedCard';
 import getUsers from '@/app/actions/getUsers';
 
+import Link from 'next/link'; // Import Link from 'next/link'
+import RestrictedEmptyState from '@/app/components/container/RestrictedEmptyState';
+
 // Define the interface for the Home component props
 interface HotelPageProps {
   searchParams: ImyToursParams; // Search parameters for fetching listings
@@ -16,15 +19,29 @@ interface HotelPageProps {
 
 // Home component is defined as an asynchronous function
 const AdministratorsPage = async ({ searchParams }: HotelPageProps) => {
+
+
   try {
     // Fetch the current user
     const currentUser = await getCurrentUser();
-
+  
     if (!currentUser) {
       // Handle case where currentUser is null
       return <div>Error: Current user not found.</div>;
     }
 
+    // if(currentUser?.userType !=="admin")
+    // {
+    //   window.location.href = '/'; // Redirect using client-side JavaScript
+    // }
+
+    if(currentUser?.userType !== "admin") {
+      // Render link to homepage if the current user is not an admin
+      return (
+        <RestrictedEmptyState/>
+      );
+    }
+    
     // Fetch tours that match the current user's ID
     const tours = await getmyTours({ ...searchParams });
     const all_users = await getUsers({})

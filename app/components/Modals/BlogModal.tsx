@@ -168,7 +168,7 @@ const BlogModal = () => {
                     label="Description"
                     disabled={isLoading}
                     register={register}
-                    error={errors}
+                    style={{ height: '10vh', width: '100%' }}
                 />
                 <hr />
                 <Input

@@ -11,7 +11,9 @@ interface InputProps {
     formatPrice?: boolean;
     required?: boolean;
     register: UseFormRegister<FieldValues>;
-    error: FieldErrors
+    error: FieldErrors;
+    style?: React.CSSProperties; // Making style attribute optional
+    ClassName?: string; // Making className attribute optional
 }
 
 const Input: React.FC<InputProps> = ({
@@ -22,6 +24,8 @@ const Input: React.FC<InputProps> = ({
     formatPrice,
     register,
     required,
+     style,
+    ClassName,
     error
 }) => {
   return (
@@ -37,7 +41,9 @@ const Input: React.FC<InputProps> = ({
               disabled={disabled}
               {...register(id, { required })}
               placeholder=" "
-              type={type}
+             type={type}
+             ClassName=""
+              style={style} // Using style attribute here (if provided)
               className={
                   `peer w-full p-2 pt-3 font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed ${formatPrice ? 'pl-9' : 'pl-4'}
                   ${error[id] ? 'border-rose-500' : 'border-neutral-300'} ${error[id] ? 'focuse:border-rose-500' : 'focus:border-black'}`
